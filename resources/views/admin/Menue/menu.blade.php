@@ -18,7 +18,7 @@
                         <!-- Button to trigger modal for adding new menu -->
                         <button class="btn btn-primary mb-3 mt-3" data-toggle="modal" data-target="#addMenuModal">Add Menu</button>
 
-                        <div id="menu-builder">
+                        <!-- <div id="menu-builder">
                             <ul id="sortable">
                                 @foreach ($menus as $menu)
                                 <li id="item-{{ $menu->id }}" data-id="{{ $menu->id }}">
@@ -44,7 +44,10 @@
                                 @endforeach
                             </ul>
 
-                        </div>
+                        </div> -->
+                        <ul id="sortable">
+                            @include('admin.menue.menus', ['menus' => $menus]) <!-- Include the recursive menu component -->
+                        </ul>
                     </div>
                 </div>
                 <!-- footer -->
