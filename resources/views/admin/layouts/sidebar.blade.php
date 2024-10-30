@@ -26,6 +26,9 @@
                         <li>
                            <a href="{{route('admin.banners')}}">> <span>Slider Banner</span></a>
                         </li>
+                        <li>
+                           <a href="{{route('banner.page')}}">> <span>Page Banner</span></a>
+                        </li>
                         <!-- <li>
                            <a href="#"> <span>Dashboard style 2</span></a>
                         </li> -->

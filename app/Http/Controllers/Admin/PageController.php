@@ -42,7 +42,6 @@ class PageController extends Controller
         ]);
         DB::enableQueryLog();
         $slug = Str::slug($request->title);
-        // Check for existing slugs and ensure uniqueness
         $originalSlug = $slug;
         $counter = 1;
 
@@ -72,21 +71,23 @@ class PageController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'published' => 'boolean',
+            'published' => 'boolean'
         ]);
+        $slug = Str::slug($request->title);
         $page = Page::findOrFail($id);
         $page->title = $validatedData['title'];
         $page->content = $validatedData['content'];
         $page->published = $request->has('published');
+        $page->slug=  $slug;
         $page->save();
-        return redirect()->route('pages.pages_list')->with('success', 'Page updated successfully!');
+      return redirect()->back()->with('success', 'Page updated successfully!');
     }
 
     public function destroy($id)
     {
         $page = Page::findOrFail($id);
         $page->delete();
-        return response()->json(['success' => true]);
+        return redirect()->route('pages.pages_list')->with('success', 'Page deleted successfully!');
     }
 
 }

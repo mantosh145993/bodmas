@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 use Illuminate\Support\Facades\View;
 
-class Helper
+class ViewHelper
 {
     public static function header_content($title = 'Default Title') {
         return View::make('admin.layouts.head', compact('title'))->render();

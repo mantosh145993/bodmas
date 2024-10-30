@@ -62,6 +62,7 @@
                                                         <textarea name="content" id="editor">{{ old('content', $post->content) }}</textarea>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary">Update</button>
+                                                    <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 btn-sm">Cancel</a>
                                                 </form>
                                             </table>
                                         </div>

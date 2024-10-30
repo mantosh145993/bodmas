@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="link">Link</label>
-                                <input type="url" class="form-control" id="link" name="link" required>
+                                <input type="url" class="form-control" id="link" name="link" >
                             </div>
                             <div class="form-group">
                                 <label for="is_active">Status</label>
@@ -44,7 +44,7 @@
                                 <input type="number" class="form-control" id="order_index" name="order_index" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Banner</button>
-                            <a href="{{ route('admin.banners') }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ route('admin.banners') }}" class="btn btn-danger">Cancel</a>
                         </form>
                     </div>
 

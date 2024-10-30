@@ -15,7 +15,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <i class="fa fa-id-card" style="font-size:48px;color:red"></i>
                             <h1>{{ 'Add Page >>>' }}</h1>
-                            <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a>
+                           
                         </div>
 
                         @if(session('success'))
@@ -47,6 +47,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Create Page</button>
+                            <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a>
                         </form>
                     </div>
                 </div>
