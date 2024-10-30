@@ -13,9 +13,7 @@
                 <div class="midde_cont">
                     <div class="container"> <br>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                            <i class="fa fa-id-card" style="font-size:48px;color:red"></i>
                             <h1>{{ 'Edit Page >>>' }}</h1>
-                            <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a>
                         </div>
                         @if(session('success'))
                         <div class="alert alert-success">
@@ -38,7 +36,7 @@
                                 <label for="content">Content</label>
                                 <textarea name="content" id="editor">{{ old('content', $page->content) }}</textarea>
                             </div>
-
+                            <input type="hidden" class="form-control" id="" name="slug" value="{{ old('slug', $page->slug) }}">
                             <!-- Published Checkbox -->
                             <div class="form-group">
                                 <label>
@@ -81,7 +79,7 @@
                 processData: false,
                 success: function(response) {
                     alert('Page updated successfully.');
-                    window.location.href = "{{ route('pages.pages_list') }}"; // Redirect to pages list
+                    window.location.href = "{{ route('pages.edit',$page->id) }}"; // Redirect to pages list
                 },
                 error: function(xhr) {
                     var errors = xhr.responseJSON.errors;

@@ -16,8 +16,8 @@
                     <div class="container-fluid">
                         <div class="row column_title">
                             <div class="col-md-12">
-                                <div class="page_title">
-                                    <h2>Publish Blog</h2>
+                                <div class="page_title"> 
+                                    <h2>Publish Blog</h2> <br> 
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,8 @@
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
                                                     </div>
                                                     <textarea name="content" id="editor"></textarea>
-                                                    <button type="submit">Submit</button>
+                                                    <button type="submit" class="btn btn-success mt-2" > Submit</button>
+                                                    <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 mt-2 btn-sm">Cancel</a>
                                                 </form>
                                             </table>
                                         </div>

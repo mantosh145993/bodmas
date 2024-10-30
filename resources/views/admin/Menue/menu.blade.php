@@ -14,37 +14,9 @@
                 <!-- dashboard inner -->
                 <div class="midde_cont">
                     <div class="container-fluid mt-5">
-                        <h2>Menu Builder</h2>
+                        <h2>Navigation Menu</h2>
                         <!-- Button to trigger modal for adding new menu -->
-                        <button class="btn btn-primary mb-3 mt-3" data-toggle="modal" data-target="#addMenuModal">Add Menu</button>
-
-                        <!-- <div id="menu-builder">
-                            <ul id="sortable">
-                                @foreach ($menus as $menu)
-                                <li id="item-{{ $menu->id }}" data-id="{{ $menu->id }}">
-                                    {{ $menu->title }}
-                                    <button class="delete-menu btn btn-danger btn-sm" data-id="{{ $menu->id }}">Delete</button>
-                                    <ul>
-                                        @foreach ($menu->children as $child)
-                                        <li id="item-{{ $child->id }}" data-id="{{ $child->id }}">
-                                            {{ $child->title }}
-                                            <button class="delete-menu btn btn-danger btn-sm" data-id="{{ $child->id }}">Delete</button>
-                                            <ul>
-                                                @foreach ($child->children as $grandchild)
-                                                <li id="item-{{ $grandchild->id }}" data-id="{{ $grandchild->id }}">
-                                                    {{ $grandchild->title }}
-                                                    <button class="delete-menu btn btn-danger btn-sm" data-id="{{ $grandchild->id }}">Delete</button>
-                                                </li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                @endforeach
-                            </ul>
-
-                        </div> -->
+                        <button class="btn btn-primary mb-3 mt-5" data-toggle="modal" data-target="#addMenuModal">Add new menu</button>
                         <ul id="sortable">
                             @include('admin.menue.menus', ['menus' => $menus]) <!-- Include the recursive menu component -->
                         </ul>
@@ -61,7 +33,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addMenuModalLabel">Add New Menu</h5>
+                    <h5 class="modal-title" id="addMenuModalLabel">Add Navigation Menu</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -75,11 +47,38 @@
                         </div>
                         <div class="form-group">
                             <label for="menu-order">Menu Order</label>
-                            <input type="number" class="form-control" id="menu-order" name="order" placeholder="Enter Menu Order" required>
+                            <input type="number" class="form-control" id="menu-order" name="order" placeholder="Enter Menu Order">
                         </div>
                         <div class="form-group">
-                            <label for="menuParentId">Parent Menu ID (optional)</label>
-                            <input type="number" id="menuParentId" name="parent_id" class="form-control" placeholder="Parent Menu ID">
+                             <select name="is_active" class="form-control">
+                                <option value="">-- Active Status--</option>
+                                <option value="1">Active</option>
+                                <option value="0">In Active</option>
+                            </select>
+                        </div>
+                        <!-- Parent Menu Selection Dropdown -->
+                        <div class="form-group">
+                            <label for="menuParentId">Parent Menu (optional)</label>
+                            <div id="menuParentId" class="scrollable-dropdown">
+                                <div class="dropdown-selected">-- No Parent --</div>
+                                <div class="dropdown-options">
+                                    <div data-value="">-- No Parent --</div>
+                                    @foreach($parents as $menu)
+                                    <div data-value="{{ $menu->id }}">{{ $menu->title }}</div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="parent_id" id="parent_id" value="">
+
+                        <div class="form-group">
+                            <label for="menuParentId">Select Pages (optional)</label>
+                            <select name="page_id" class="form-control">
+                                <option value="">-- No Pages --</option>
+                                @foreach($pages as $page)
+                                <option value="{{ $page->id }}">{{ $page->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Save Menu</button>
                     </form>
@@ -87,7 +86,6 @@
             </div>
         </div>
     </div>
-
 
 </body>
 <!-- menue item link -->
@@ -135,41 +133,6 @@
         });
     });
 
-    // Handle the form submission for editing a menu item
-    $('#edit-menu-form').on('submit', function(e) {
-        e.preventDefault();
-        const formData = $(this).serialize();
-
-        $.ajax({
-            url: "{{ route('menu.update') }}", // Update route
-            method: 'POST',
-            data: formData + '&_token={{ csrf_token() }}',
-            success: function(menu) {
-                // Update the menu item title in the list
-                $(`#item-${menu.id}`).find('span').text(menu.title);
-
-                // Hide the modal
-                $('#editMenuModal').modal('hide');
-
-                // Show success message
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Menu Updated',
-                    text: 'The menu item was updated successfully!',
-                    timer: 2000,
-                    showConfirmButton: false
-                });
-            },
-            error: function(xhr) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Error updating menu item: ' + xhr.responseJSON.message,
-                });
-            }
-        });
-    });
-
 
     $(function() {
         $("#sortable").sortable({
@@ -183,6 +146,7 @@
                 });
 
                 $.ajax({
+
                     url: "{{ route('menus.update-order') }}/", // Ensure this route is defined in your web.php
                     method: 'POST',
                     data: {
@@ -190,10 +154,10 @@
                         _token: '{{ csrf_token() }}' // CSRF token for Laravel
                     },
                     success: function() {
-                        alert('Menu order updated successfully!');
+                        // alert('Menu order updated successfully!');
                     },
                     error: function() {
-                        alert('Failed to update menu order.');
+                        // alert('Failed to update menu order.');
                     }
                 });
             }
@@ -220,6 +184,31 @@
                 }
             });
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.querySelector('.scrollable-dropdown');
+        const selected = dropdown.querySelector('.dropdown-selected');
+        const options = dropdown.querySelector('.dropdown-options');
+        const hiddenInput = document.getElementById('parent_id');
+
+        selected.addEventListener('click', () => {
+            options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        });
+
+        options.querySelectorAll('div').forEach(option => {
+            option.addEventListener('click', function() {
+                selected.textContent = this.textContent;
+                hiddenInput.value = this.getAttribute('data-value');
+                options.style.display = 'none';
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                options.style.display = 'none';
+            }
+        });
     });
 </script>
 
@@ -262,5 +251,44 @@
 
     .input-group button {
         border-radius: 0 0.25rem 0.25rem 0;
+    }
+
+    /* Limit the height of the select dropdown */
+    /* Dropdown base styling */
+    .scrollable-dropdown {
+        position: relative;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    /* Selected option styling */
+    .dropdown-selected {
+        padding: 8px;
+        background-color: #fff;
+    }
+
+    /* Options styling */
+    .dropdown-options {
+        display: none;
+        position: absolute;
+        width: 100%;
+        max-height: 150px;
+        /* Set max height for scrolling */
+        overflow-y: auto;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        z-index: 10;
+    }
+
+    .dropdown-options div {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .dropdown-options div:hover {
+        background-color: #f0f0f0;
     }
 </style>

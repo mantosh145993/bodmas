@@ -7,10 +7,6 @@
 </div>
 
 <script>
-    // CKEDITOR.replace('editor', {
-    //     height: 500,  // Adjust the height
-    //     width: '100%'  // Adjust the width (or use a specific value)
-    // });
   ClassicEditor
     .create(document.querySelector('#editor'), {
         ckfinder: {

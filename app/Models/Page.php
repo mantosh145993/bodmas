@@ -24,5 +24,8 @@ class Page extends Model
     {
         return $query->where('published', true);
     }
+    public function menus()
+    {
+        return $this->hasMany(Menu::class, 'page_id');
+    }
 }
-

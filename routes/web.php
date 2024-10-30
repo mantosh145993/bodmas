@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -10,15 +9,19 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\Page\PagesController;
+use App\Http\Controllers\PageBannerController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Home
+Route::get('/',[PagesController::class,'home'])->name('/');
+Route::get('/{slug}',[PagesController::class,'index'])->name('/{slug}');
+ Route::get('page/{slug}',[PagesController::class,'page'])->name('/page.{slug}');
 
 // Public routes 
 Route::get('/admin', [AuthenticatedSessionController::class, 'login'])->name('admin');
+Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
 Route::post('/admin/dashboard', [AuthenticatedSessionController::class, 'store'])->name('admin.dashboard');
 Route::get('test_category', [TestController::class, 'testCategory'])->name('test_category');
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('admin.register');
@@ -60,11 +63,11 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
 
     // Slider Banner Start
     Route::get('/banners', [SliderBannerController::class, 'index'])->name('admin.banners');
-    Route::get('/slider_banners', [SliderBannerController::class, 'create'])->name('slider_banners.create');
-    Route::post('/store', [SliderBannerController::class, 'store'])->name('slider_banners.store');
-    Route::get('/{id}/edit', [SliderBannerController::class, 'edit'])->name('slider_banners.edit');
-    Route::put('/{id}', [SliderBannerController::class, 'update'])->name('slider_banners.update');
-    Route::delete('/{id}', [SliderBannerController::class, 'destroy'])->name('slider_banners.destroy');
+    Route::get('slider_banners/slider_banners', [SliderBannerController::class, 'create'])->name('slider_banners.create');
+    Route::post('slider_banners/store', [SliderBannerController::class, 'store'])->name('slider_banners.store');
+    Route::get('slider_banners/{id}/edit', [SliderBannerController::class, 'edit'])->name('slider_banners.edit');
+    Route::put('slider_banners/{id}', [SliderBannerController::class, 'update'])->name('slider_banners.update');
+    Route::delete('slider_banners/{id}', [SliderBannerController::class, 'destroy'])->name('slider_banners.destroy');
     // Slider Banner End
 
     // Category Start
@@ -89,11 +92,22 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     
     // Menue
     Route::get('menus', [MenuController::class, 'index'])->name('menus');
-    Route::post('menus/update', [MenuController::class, 'update'])->name('menu.update');
     Route::post('menus/store', [MenuController::class, 'store'])->name('menu.store');
+    Route::get('menus/edit/{id}', [MenuController::class, 'edit'])->name('menu.edit');
+    Route::post('menus/update/{id}', [MenuController::class, 'update'])->name('menu.update');
     Route::post('menus/update-order', [MenuController::class, 'updateOrder'])->name('menus.update-order');
     Route::delete('/menus/{menu}', [MenuController::class, 'destroy'])->name('menus.destroy');
     // Menue End
+
+    // Banner 
+    Route::get('pageBanner', [PageBannerController::class, 'index'])->name('banner.page');
+    Route::get('/createBanner', [PageBannerController::class, 'create'])->name('banner.create');
+    Route::post('/store', [PageBannerController::class, 'store'])->name('banner.store');
+    Route::get('/{id}/edit', [PageBannerController::class, 'edit'])->name('banner.edit');
+    Route::put('banner/{id}', [PageBannerController::class, 'update'])->name('banner.update');
+    Route::get('banner/{id}/view', [PageBannerController::class, 'view'])->name('banner.view');
+    Route::delete('/{id}', [PageBannerController::class, 'destroy'])->name('banner.destroy');
+    // Banner End
 });
 
 

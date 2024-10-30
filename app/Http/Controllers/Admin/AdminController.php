@@ -97,6 +97,7 @@ class AdminController extends Controller
 
     public function storeBlog(Request $request)
     {
+        // dd($request->all()); 
         // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -116,7 +117,7 @@ class AdminController extends Controller
         }
         DB::enableQueryLog();
         $post = Post::create(array_merge($validatedData, [
-            'slug' => Str::slug($request->title),
+            'slug' => Str::slug($request->title),   
             'feature_image' => $fileName,
         ]));
 
