@@ -11,14 +11,18 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 
 //Home
 Route::get('/',[PagesController::class,'home'])->name('/');
 Route::get('/{slug}',[PagesController::class,'index'])->name('/{slug}');
- Route::get('page/{slug}',[PagesController::class,'page'])->name('/page.{slug}');
-
+Route::get('page/{slug}',[PagesController::class,'page'])->name('/page.{slug}');
+  // Chatbot
+  Route::get('/chat/message',[ChatController::class,'chatWidgets'])->name('chat.message');
+  Route::post('/chat/createChat',[ChatController::class,'createChat'])->name('chat.createChat');
+  // Chatbot end
 // Public routes 
 Route::get('/admin', [AuthenticatedSessionController::class, 'login'])->name('admin');
 Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
@@ -108,6 +112,18 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::get('banner/{id}/view', [PageBannerController::class, 'view'])->name('banner.view');
     Route::delete('/{id}', [PageBannerController::class, 'destroy'])->name('banner.destroy');
     // Banner End
+
+     // Chat Start
+     Route::get('/chat/chat_list', [ChatController::class, 'index'])->name('chat.chat_list');
+     Route::get('/chat/create', [ChatController::class, 'create'])->name('chat.create');
+     Route::post('/chat/store', [ChatController::class, 'store'])->name('chat.store');
+     Route::get('/chat/edit/{id}', [ChatController::class, 'edit'])->name('chat.edit');
+     Route::put('/chat/update/{id}', [ChatController::class, 'update'])->name('chat.update');
+     Route::get('chat/{slug}', [ChatController::class, 'show'])->name('chat.view');
+     Route::delete('/chat/destroy/{id}', [ChatController::class, 'destroy'])->name('chat.destroy');
+     // Chat End
+
+  
 });
 
 

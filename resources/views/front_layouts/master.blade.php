@@ -25,7 +25,6 @@
         </div>
 
         <footer class="row">
-
             @include('front_layouts.footer')
 
         </footer>

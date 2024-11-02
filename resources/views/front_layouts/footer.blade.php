@@ -1,6 +1,6 @@
 
+		@include('front.widgets.chatbot');
 		<!-- Footer -->
-
 		<footer class="footer">
 			<div class="footer_background" style="background-image:url(images/footer_background.png)"></div>
 			<div class="container">

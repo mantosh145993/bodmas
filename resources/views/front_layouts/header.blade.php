@@ -45,7 +45,7 @@
                         </div>
                         <nav class="main_nav_contaner ml-auto">
                             <ul class="main_nav">
-                                <!-- Loop through the dynamic menu items -->
+                                <!-- Loop through the main menu items -->
                                 @foreach($menus as $menu)
                                 <li class="{{ $menu->childrenForPublic->isNotEmpty() ? 'has-submenu' : '' }}">
                                     <a href="{{ $menu->url }}">{{ $menu->is_active ? $menu->title : '' }}</a>
@@ -54,21 +54,33 @@
                                     @if($menu->childrenForPublic->isNotEmpty())
                                     <ul class="submenu">
                                         @foreach($menu->childrenForPublic as $submenu)
-                                        <li><a href="{{ $submenu->page_url }}">{{ $submenu->title }}</a></li>
+                                        <li class="{{ $submenu->grandChildForPublic->isNotEmpty() ? 'has-submenu' : '' }}">
+                                            <a href="{{ $submenu->page_url }}">{{ $submenu->title }}</a>
+
+                                            <!-- Render grandchild submenu if the item has grandchildren -->
+                                            @if($submenu->grandChildForPublic->isNotEmpty())
+                                            <ul class="submenu">
+                                                @foreach($submenu->grandChildForPublic as $grandChild)
+                                                <li><a href="{{ $grandChild->page_url }}">{{ $grandChild->title }}</a></li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
+                                        </li>
                                         @endforeach
                                     </ul>
                                     @endif
                                 </li>
                                 @endforeach
                             </ul>
-                            <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
-                            <!-- Hamburger -->
+                            <!-- Additional buttons -->
+                            <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
                             <div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
                             <div class="hamburger menu_mm">
                                 <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
                             </div>
                         </nav>
+
                     </div>
                 </div>
             </div>

@@ -51,6 +51,7 @@
                   <li><a href="{{ route('admin.permission') }}"><i class="fa fa-stumbleupon orange_color"></i> <span> Permission</span></a></li>
                   <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
                   <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>Menue</span></a></li>
+                  <li><a href="{{ route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
                   <li>
                      <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
                      <ul class="collapse list-unstyled" id="element">

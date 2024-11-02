@@ -33,7 +33,8 @@
         "files":[
             "app/Helpers/Viewhelper.php",
              "app/Helpers/MenuHelper.php",
-              "app/Helpers/PageHelper.php"
+              "app/Helpers/PageHelper.php",
+              "app/Helpers/ChatHelper.php"
         ]
     },
     "scripts": {
