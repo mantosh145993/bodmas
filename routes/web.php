@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -11,14 +12,21 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PredictController;
+use App\Http\Controllers\ShortLinkController;
+use App\Http\Controllers\UploadCutofController;
 use Illuminate\Support\Facades\Route;
 
 
 //Home
-Route::get('/',[PagesController::class,'home'])->name('/');
-Route::get('/{slug}',[PagesController::class,'index'])->name('/{slug}');
- Route::get('page/{slug}',[PagesController::class,'page'])->name('/page.{slug}');
-
+Route::get('/', [PagesController::class, 'home'])->name('/');
+Route::post('predict/college',[PredictController::class,'college'])->name('predict.college');
+// Chatbot
+Route::get('/chat/message', [ChatController::class, 'chatWidgets'])->name('chat.message');
+Route::post('/chat/createChat', [ChatController::class, 'createChat'])->name('chat.createChat');
+// Chatbot end
 // Public routes 
 Route::get('/admin', [AuthenticatedSessionController::class, 'login'])->name('admin');
 Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
@@ -89,7 +97,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::get('pages/{slug}', [PageController::class, 'view'])->name('pages.view');
     Route::delete('/pages/destroy/{id}', [PageController::class, 'destroy'])->name('pages.destroy');
     // Pages End
-    
+
     // Menue
     Route::get('menus', [MenuController::class, 'index'])->name('menus');
     Route::post('menus/store', [MenuController::class, 'store'])->name('menu.store');
@@ -108,7 +116,40 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::get('banner/{id}/view', [PageBannerController::class, 'view'])->name('banner.view');
     Route::delete('/{id}', [PageBannerController::class, 'destroy'])->name('banner.destroy');
     // Banner End
+
+    // Chat Start
+    Route::get('/chat/chat_list', [ChatController::class, 'index'])->name('chat.chat_list');
+    Route::get('/chat/create', [ChatController::class, 'create'])->name('chat.create');
+    Route::post('/chat/store', [ChatController::class, 'store'])->name('chat.store');
+    Route::get('/chat/edit/{id}', [ChatController::class, 'edit'])->name('chat.edit');
+    Route::put('/chat/update/{id}', [ChatController::class, 'update'])->name('chat.update');
+    Route::get('chat/{slug}', [ChatController::class, 'show'])->name('chat.view');
+    Route::delete('/chat/destroy/{id}', [ChatController::class, 'destroy'])->name('chat.destroy');
+    // Chat End
+
+     // Medical Start
+     Route::get('/cutoff/cutoff_list', [UploadCutofController::class, 'index'])->name('cutoff.list');
+     Route::get('medical/data',[UploadCutofController::class,'fetchMedicalData'])->name('medical.data');
+     Route::post('upload',[UploadCutofController::class,'upload'])->name('cutoff.import');
+     Route::get('export',[UploadCutofController::class,'export'])->name('cutoff.export');
+     // Medical End
+
+     // Route to create a new short link
+    Route::get('/shortlink', [ShortLinkController::class,'linkPage'])->name('short.link');
+    Route::post('/shorten', [ShortLinkController::class,'store'])->name('short.store');
+    // end shorten url
+
+     // Package Start
+     Route::get('/package/package_list', [PackageController::class , 'index'])->name('package.package_list');
+     Route::get('/package/show/{id}', [PackageController::class, 'show'])->name('package.show');
+     Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');
+     Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('package.edit');
+     Route::post('/package/update/{id}', [PackageController::class, 'update'])->name('package.update');
+     Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('package.destroy');
+     // Package End
+
 });
 
-
+Route::get('/{slug?}', [PagesController::class, 'index'])->where('slug', '.*');
+Route::get('contact',[PageController::class,'index'])->name('contact');
 require __DIR__ . '/auth.php';

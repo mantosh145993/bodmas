@@ -53,7 +53,7 @@
                      <div class="user_profle_side">
                         <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
                         <div class="user_info">
-                           <h6>Pilot Project</h6>
+                           <h6>Bodmas Admin</h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>
@@ -140,7 +140,7 @@
                               </ul>
                               <ul class="user_profile_dd">
                                  <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Pilot Project</span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Bodmas Admin</span></a>
                                     <div class="dropdown-menu">
                                        <a class="dropdown-item" href="profile.html">My Profile</a>
                                        <a class="dropdown-item" href="settings.html">Settings</a>
@@ -186,7 +186,7 @@
                                                    <img  width="65" src="images/layout_img/user_img.jpg" alt="#" />
                                                    </a>
                                                    <div class="user-name">
-                                                      <h5><a href="#">Pilot Project</a></h5>
+                                                      <h5><a href="#">Bodmas Admin</a></h5>
                                                       <span><a href="#">Infotest@gmail.com</a></span>
                                                    </div>
                                                 </div>
