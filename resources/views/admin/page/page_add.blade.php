@@ -15,9 +15,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <i class="fa fa-id-card" style="font-size:48px;color:red"></i>
                             <h1>{{ 'Add Page >>>' }}</h1>
-                           
                         </div>
-
                         @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -25,27 +23,19 @@
                         @endif
                         <form id="page-form" action="{{ route('pages.store') }}" method="POST">
                             @csrf
-
-                            <!-- Title Input -->
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
                             </div>
-
-                            <!-- Content Editor -->
                             <div class="form-group">
                                 <label for="content">Content</label>
                                 <textarea name="content" id="editor"></textarea>
                             </div>
-
-                            <!-- Published Checkbox -->
                             <div class="form-group">
                                 <label>
                                     <input type="checkbox" name="published" value="1"> Published
                                 </label>
                             </div>
-
-                            <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Create Page</button>
                             <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a>
                         </form>

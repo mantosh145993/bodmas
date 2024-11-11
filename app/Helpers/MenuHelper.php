@@ -11,23 +11,35 @@ class MenuHelper
     public function getMenu()
     {
         $menus = Menu::whereNull('parent_id')
-            ->with('childrenForPublic')
+            ->with([
+                'childrenForPublic' => function ($query) {
+                    $query->orderBy('order')
+                        ->with(['childrenForPublic' => function ($query) {
+                            $query->orderBy('order');
+                        }]);
+                }
+            ])
             ->orderBy('order')
             ->get();
+
         return $menus;
     }
 
-    public function getSlider(){
+
+    public function getSlider()
+    {
         $banners = SliderBanner::where('is_active', 1)->get();
         return $banners;
     }
 
-    public function getBanner($id){
+    public function getBanner($id)
+    {
         $banners = Banner::where('is_active', 1)->where('page_id', $id)->first();
         return $banners;
     }
 
-    public function getState() {
+    public function getState()
+    {
         $states = [
             "Andhra Pradesh",
             "Arunachal Pradesh",

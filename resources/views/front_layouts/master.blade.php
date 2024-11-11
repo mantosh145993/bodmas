@@ -1,6 +1,5 @@
 <!doctype html>
-
-<html>
+<html class="no-js" lang="zxx">
 
 <head>
 
@@ -10,7 +9,6 @@
 
 <body>
 
-    <div class="super_container">
 
         <header>
 
@@ -25,18 +23,11 @@
         </div>
 
         <footer class="row">
-
             @include('front_layouts.footer')
 
         </footer>
 
-    </div>
 
 </body>
 
 </html>
-<style>
-    #main{
-        margin-top: 133px;
-    }
-</style>
