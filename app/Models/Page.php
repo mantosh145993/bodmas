@@ -9,7 +9,7 @@ class Page extends Model
 {
     protected $table = 'pages';
 
-    protected $fillable = ['title', 'slug', 'content', 'published'];
+    protected $fillable = ['title', 'slug','menu_slug', 'content', 'published'];
     protected static function boot()
     {
         parent::boot();

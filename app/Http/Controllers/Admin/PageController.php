@@ -35,34 +35,19 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'published' => 'boolean'
         ]);
-        DB::enableQueryLog();
-        $slug = Str::slug($request->title);
-        $originalSlug = $slug;
-        $counter = 1;
-
-        while (Page::where('slug', $slug)->exists()) {
-            // Append counter to the slug if it already exists
-            $slug = $originalSlug . '-' . $counter;
-            $counter++;
-        }
-        $pages = Page::create(array_merge($validatedData, [
-            'slug' => $slug,
-            'published' => $request->has('published') 
-        ]));
-
-        // Print the last query and its bindings
-
-        // $queries = DB::getQueryLog();
-        // $lastQuery = end($queries);
-        // print_r($lastQuery['query']);
-        // print_r($lastQuery['bindings']); 
-        // dd($lastQuery['bindings']);
-        return response()->json(['message' => 'Page created successfully.', 'post' => $pages]);
+        $slug = Str::slug($validatedData['title']);
+        $page = new Page();
+        $page->title = $validatedData['title'];
+        $page->content = $validatedData['content'];
+        $page->slug = $slug;
+        $page->published = $validatedData['published'] ?? false; 
+        $page->save();
+        return response()->json(['message' => 'Page created successfully.', 'page' => $page]);
     }
 
     public function update(Request $request, $id)

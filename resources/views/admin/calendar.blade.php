@@ -55,7 +55,7 @@
                      <div class="user_profle_side">
                         <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
                         <div class="user_info">
-                           <h6>Pilot Project</h6>
+                           <h6>Bodmas Admin</h6>
                            <p><span class="online_animation"></span> Online</p>
                         </div>
                      </div>

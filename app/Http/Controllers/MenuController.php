@@ -20,47 +20,52 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        // Validate incoming request data
         $request->validate([
             'title' => 'required|string|max:255',
-            'order' => 'integer',
-            'parent_id' => 'nullable|integer|exists:menus,id',
+            'order' => 'nullable|integer',
+            'parent_id' => 'nullable|integer|exists:menus,id', // Validate if parent_id exists in menus
+            'page_id' => 'nullable|integer|exists:pages,id', // Validate if page_id exists in pages
+            'is_active' => 'nullable|boolean', // Added to validate is_active
         ]);
+    
+        // Generate a unique slug for the menu title
         $slug = $this->generateUniqueSlug($request->title);
-        $fullUrl = $slug;
+        $fullUrl = $slug; // Start with the slug for URL
         $pageSlug = '';
-        if ($request->parent_id) {
+    
+        // Check if parent_id is provided and find the parent menu
+        if (!empty($request->parent_id)) {
             $parent = Menu::find($request->parent_id);
             if ($parent) {
-                $fullUrl = rtrim($parent->url, '/') . $slug;
+                // Construct the full URL by appending the slug to the parent URL
+                $fullUrl = rtrim($parent->url, '/') . $slug; // Ensure there's a slash between parent and slug
             }
         }
-        if ($request->page_id) {
-            $page_url = Page::find($request->page_id);
-            if ($page_url) {
-                $pageSlug = '/' . $page_url->slug;
-            }
-            // dd($pageSlug);
-        }
+    
+        // Create the menu item
         $menu = Menu::create([
             'title' => $request->title,
             'url' => $fullUrl,
-            'page_url' => $pageSlug,
             'order' => $request->order,
             'page_id' => $request->page_id,
             'parent_id' => $request->parent_id,
             'is_active' => $request->is_active,
         ]);
+    
+        // Check if page_id exists and update menu_slug in Page table
+        if (!empty($request->page_id)) {
+            $page = Page::find($request->page_id);
+            if ($page) {
+                // Update the menu_slug column with the full URL if the page exists
+                $page->update(['menu_slug' => $fullUrl]);
+            }
+        }
+    
+        // Return a JSON response with the created menu item
         return response()->json($menu, 201);
     }
-
-    private function generateUniqueSlug($title)
-    {
-        // Generate the initial slug
-        $slug = Str::slug($title);
-        $count = Menu::where('url', 'like', "%/$slug%")->count();
-        return $count ? "/{$slug}-{$count}" : "/{$slug}";
-    }
+    
 
     public function edit($id)
     {
@@ -76,44 +81,54 @@ class MenuController extends Controller
         $request->validate([
             'id' => 'required|integer|exists:menus,id',
             'title' => 'required|string|max:255',
+            'page_id' => 'nullable|integer|exists:pages,id',
+            'order' => 'nullable|integer',
+            'is_active' => 'nullable|boolean',
         ]);
-        $slug = $this->generateUniqueSlug($request->title);
+    
+        // Find the menu item
         $menu = Menu::findOrFail($request->id);
-        $pageSlug = $menu->url;
-        $pageUrl = $menu->page_url;
-        if (empty($request->parent_id) || $menu->parent_id != $request->parent_id) {
-            $parent = Menu::find($request->parent_id);
-            if ($parent) {
-                $pageSlug = rtrim($parent->url, '/') . $slug;
-            }
-        } else {
-            $pageSlug = $slug;
-        }
-        if (empty($request->page_id) || $menu->page_id != $request->page_id) {
-            $page = Page::find($request->page_id);
-            if ($page) {
-                $pageUrl = '/' . $page->slug  . $request->page_url;
-            }
-        } else {
-            $pageUrl = $request->page_url;
-        }
+        $page = new Page();
+    
+        // Initialize the URL and page URL
+        $url = $menu->url;
+        $page_url = null;
 
+        if ($request->parent_id) {
+            $parent = Menu::find($request->parent_id);
+            $url = $parent ? $parent->url : null;
+            $url = $url . $this->generateUniqueSlug($request->title);;
+            // dd($url);
+        } else {
+            $url = $request->slug;
+        }
+    
+    
+        if ($request->page_id) {
+            $page = Page::find($request->page_id);
+            $page_url = $page ? $page->slug : null;
+            if ($page) {
+                $page->update(['menu_slug' => $url]); // Update menu_slug only if Page exists
+            }
+        } 
+
+    
+        // Prepare data for update
         $updateData = [
             'title' => $request->title,
-            'url' => $pageSlug,
-            'page_url' => $pageUrl,
-            'order' => $request->order,
-            'is_active' => $request->is_active
+            'url' => $url,
+            'parent_id' => $request->parent_id,
+            'page_url' => $page_url,
+            'order' => $request->order ?? $menu->order, // Retain current order if not provided
+            'is_active' => $request->is_active ?? $menu->is_active, // Retain current status if not provided
         ];
-
-        if ($menu->parent_id != $request->parent_id  && $request->has('parent_id')) {
-            $updateData['parent_id'] = $request->parent_id;
-        }
-        if ($menu->page_id != $request->page_id && $request->has('page_id')) {
-            $updateData['page_id'] = $request->page_id;
-        }
+        
+        // Update the menu item
         $menu->update($updateData);
-        return response()->json($menu, 200);
+       
+    
+        // Return a JSON response with the updated menu
+        return response()->json(['message' => 'Menu updated successfully.', 'menu' => $menu], 200);
     }
 
     public function updateOrder(Request $request)
@@ -144,4 +159,13 @@ class MenuController extends Controller
         $menu->delete();
         return response()->json(['success' => true]);
     }
+
+    private function generateUniqueSlug($title)
+    {
+        // Generate the initial slug
+        $slug = Str::slug($title);
+        $count = Menu::where('url', 'like', "%/$slug%")->count();
+        return $count ? "/{$slug}-{$count}" : "/{$slug}";
+    }
+
 }

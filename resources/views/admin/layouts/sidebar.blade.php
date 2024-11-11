@@ -10,7 +10,7 @@
                   <div class="user_profle_side">
                      <div class="user_img"><img class="img-responsive" src="{{asset('admin/images/layout_img/user_img.jpg')}}" alt="#" /></div>
                      <div class="user_info">
-                        <h6>pilot project</h6>
+                        <h6>Bodmas Admin</h6>
                         <p><span class="online_animation"></span> Online</p>
                      </div>
                   </div>
@@ -52,7 +52,10 @@
                   <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
                   <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>Menue</span></a></li>
                   <li><a href="{{ route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
-                  <li>
+                  <li><a href="{{ route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
+                  <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
+                  <li><a href="{{route('package.package_list')}}"><i class="fa fa-graduation-cap orange_color"></i> <span>Packages</span></a></li>
+                  <!-- <li>
                      <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
                      <ul class="collapse list-unstyled" id="element">
                         <li><a href="#">> <span>General Elements</span></a></li>
@@ -93,8 +96,8 @@
                      </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
-                  <li><a href="#"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
-                  <li><a href="#"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                  <li><a href="#"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li> -->
+                  <!-- <li><a href="#"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li> -->
                </ul>
             </div>
          </nav>

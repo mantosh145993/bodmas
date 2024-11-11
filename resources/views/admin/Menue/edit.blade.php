@@ -46,12 +46,12 @@
 
                                                     <div class="form-group">
                                                         <label for="slug">Slug</label>
-                                                        <input type="text" class="form-control" name="slug" value="{{ $menu->url }} " readonly>
+                                                        <input type="text" class="form-control" name="slug" value="{{ $menu->url }} " >
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="pageUrl">Page Slug</label>
-                                                        <input type="text" class="form-control" name="page_url" value="{{ $menu->page_url }}" readonly>
+                                                        <input type="text" class="form-control" name="page_url" value="{{ $menu->page_url }}" >
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="menuParentId">Parent Menu (optional)</label>
