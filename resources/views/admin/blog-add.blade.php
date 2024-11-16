@@ -43,6 +43,11 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="title">Author</label>
+                                                        <input type="text" name="author" id="title" class="form-control" required>
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="feature_image">Feature Image</label>
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
                                                     </div>

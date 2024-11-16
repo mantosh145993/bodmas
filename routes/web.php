@@ -13,6 +13,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PredictController;
 use App\Http\Controllers\ShortLinkController;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 //Home
 Route::get('/', [PagesController::class, 'home'])->name('/');
-Route::post('predict/college',[PredictController::class,'college'])->name('predict.college');
+Route::post('predict/college', [PredictController::class, 'college'])->name('predict.college');
 // Chatbot
 Route::get('/chat/message', [ChatController::class, 'chatWidgets'])->name('chat.message');
 Route::post('/chat/createChat', [ChatController::class, 'createChat'])->name('chat.createChat');
@@ -127,29 +128,43 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/chat/destroy/{id}', [ChatController::class, 'destroy'])->name('chat.destroy');
     // Chat End
 
-     // Medical Start
-     Route::get('/cutoff/cutoff_list', [UploadCutofController::class, 'index'])->name('cutoff.list');
-     Route::get('medical/data',[UploadCutofController::class,'fetchMedicalData'])->name('medical.data');
-     Route::post('upload',[UploadCutofController::class,'upload'])->name('cutoff.import');
-     Route::get('export',[UploadCutofController::class,'export'])->name('cutoff.export');
-     // Medical End
+    // Medical Start
+    Route::get('/cutoff/cutoff_list', [UploadCutofController::class, 'index'])->name('cutoff.list');
+    Route::get('medical/data', [UploadCutofController::class, 'fetchMedicalData'])->name('medical.data');
+    Route::post('upload', [UploadCutofController::class, 'upload'])->name('cutoff.import');
+    Route::get('export', [UploadCutofController::class, 'export'])->name('cutoff.export');
+    // Medical End
 
-     // Route to create a new short link
-    Route::get('/shortlink', [ShortLinkController::class,'linkPage'])->name('short.link');
-    Route::post('/shorten', [ShortLinkController::class,'store'])->name('short.store');
+    // Route to create a new short link
+    Route::get('/shortlink', [ShortLinkController::class, 'linkPage'])->name('short.link');
+    Route::post('/shorten', [ShortLinkController::class, 'store'])->name('short.store');
     // end shorten url
 
-     // Package Start
-     Route::get('/package/package_list', [PackageController::class , 'index'])->name('package.package_list');
-     Route::get('/package/show/{id}', [PackageController::class, 'show'])->name('package.show');
-     Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');
-     Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('package.edit');
-     Route::post('/package/update/{id}', [PackageController::class, 'update'])->name('package.update');
-     Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('package.destroy');
-     // Package End
+    // Package Start
+    Route::get('/package/package_list', [PackageController::class, 'index'])->name('package.package_list');
+    Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');
+    Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');
+    Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('package.edit');
+    Route::post('/package/update/{id}', [PackageController::class, 'update'])->name('package.update');
+    Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('package.destroy');
+    // Package End
+
+    // Notice Start
+    Route::get('/notice/notice_list', [NoticeController::class, 'index'])->name('notice.notice_list');
+    Route::get('/package/show/{id}', [NoticeController::class, 'show'])->name('notice.show');
+    Route::post('/notice/store', [NoticeController::class, 'store'])->name('notice.store');
+    Route::get('/notice/edit/{id}', [NoticeController::class, 'edit'])->name('notice.edit');
+    Route::post('/notice/update/{id}', [NoticeController::class, 'update'])->name('notice.update');
+    Route::delete('/notice/destroy/{id}', [NoticeController::class, 'destroy'])->name('notice.destroy');
+    // Notice End
+
 
 });
-
+Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup');
+Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');
+Route::get('/packages/by-category/{id}', [PackageController::class, 'getPackagesByCategory'])->name('package.byCategory');
 Route::get('/{slug?}', [PagesController::class, 'index'])->where('slug', '.*');
-Route::get('contact',[PageController::class,'index'])->name('contact');
+Route::get('contact', [PageController::class, 'index'])->name('contact');
+Route::get('about', [PageController::class, 'index'])->name('about');
+Route::get('privacy-policy', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('privacy-policy');
 require __DIR__ . '/auth.php';

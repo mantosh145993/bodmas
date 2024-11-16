@@ -55,6 +55,7 @@
                   <li><a href="{{ route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
                   <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
                   <li><a href="{{route('package.package_list')}}"><i class="fa fa-graduation-cap orange_color"></i> <span>Packages</span></a></li>
+                  <li><a href="{{route('notice.notice_list')}}"><i class="fa fa-graduation-cap orange_color"></i> <span>Notice Update</span></a></li>
                   <!-- <li>
                      <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
                      <ul class="collapse list-unstyled" id="element">

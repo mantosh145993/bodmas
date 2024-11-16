@@ -6,17 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Package;
 use Illuminate\Support\Str;
 use App\Models\Category\Category;
+use App\Models\Post;
 
 class PackageController extends Controller
 {
     public function index()
     {
         $categories = Category::all();
-        $packages = Package::paginate(20);
+        $packages = Package::paginate(6);
         return view('admin.package.index', compact('packages', 'categories'));
     }
-
-    public function create() {}
 
     public function store(Request $request)
     {
@@ -104,10 +103,11 @@ class PackageController extends Controller
             'package' => $package
         ]);
     }
-    
 
-   
-    public function destroy(string $id) {
+
+
+    public function destroy(string $id)
+    {
         $package = Package::find($id);
         if (!$package) {
             return response()->json(['message' => 'Package not found.'], 404);
@@ -118,4 +118,12 @@ class PackageController extends Controller
         $package->delete();
         return response()->json(['message' => 'Package deleted successfully.'], 200);
     }
+
+    public function getPackagesByCategory($id)
+    {
+        $categoryId =$id;
+        $packages = $categoryId ? Package::where('category', $categoryId)->get() : Package::all();
+        return response()->json(['packages' => $packages]);
+    }
+
 }

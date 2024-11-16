@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <!-- basic -->
    <meta charset="utf-8">
@@ -14,7 +13,7 @@
    <meta name="description" content="">
    <meta name="author" content="">
    <!-- site icon -->
-   <link rel="icon" href="{{asset('admin/images/fevicon.png') }}" type="image/png" />
+   <link rel="icon" href="{{asset('assets/img/favicons/favi.png') }}" type="image/png" />
    <!-- bootstrap css -->
    <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}" />
    <!-- site css -->
