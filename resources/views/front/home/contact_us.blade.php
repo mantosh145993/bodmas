@@ -64,7 +64,7 @@ Contact Area
                             </div>
                             <div class="media-body">
                                 <p class="contact-feature_label">Hours of Operation</p>
-                                <span class="contact-feature_link">Sunday & Saturday: 09:00 - 19:00</span>
+                                <span class="contact-feature_link">Monday to Saturday: 09:00 - 19:00</span>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ Contact Area
                         <span class="sub-title">Contact With Us!</span>
                         <h2 class="border-title">Get in Touch</h2>
                         <p class="mt-n1 mb-30 sec-text">BODMAS Education Services Pvt. Ltd. (BODMAS EDUCATION) is a leading educational consultancy firm dedicated to providing expert guidance and counselling for undergraduate (UG) and postgraduate (PG) students.</p>
-                        <form action="mail.php" method="POST" class="contact-form ajax-contact">
+                        <form action="#" method="POST" class="contact-form ajax-contact">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -112,7 +112,7 @@ Contact Area
                                     </div>
                                 </div>
                                 <div class="form-btn col-12 mt-10">
-                                    <button class="th-btn">Send Message<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                    <button class="th-btn" type="submit" >Send Message<i class="fas fa-long-arrow-right ms-2"></i></button>
                                 </div>
                             </div>
                             <p class="form-messages mb-0 mt-3"></p>

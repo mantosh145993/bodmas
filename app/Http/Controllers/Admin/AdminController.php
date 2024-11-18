@@ -103,6 +103,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'feature_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'author'=> 'required|string'
         ]);
 
         // Handle the feature image upload if it exists
@@ -142,6 +143,7 @@ class AdminController extends Controller
     
         $post = Post::findOrFail($id);
         $post->is_active = $validated['is_active'];
+        $post->published_at = now();
         $post->save();
     
         return response()->json(['message' => 'Status updated successfully.']);
@@ -166,6 +168,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts,slug,' . $id,
             'content' => 'required|string',
+            'author'=> 'required|string'
         ]);
         // Find the post to update
         $post = Post::findOrFail($id);
@@ -195,6 +198,7 @@ class AdminController extends Controller
     }
 
 
+    
     /**
      * Blog end.
      */

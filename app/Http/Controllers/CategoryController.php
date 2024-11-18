@@ -30,6 +30,7 @@ class CategoryController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'nullable|string',
             'parent_id' => 'nullable|exists:categories,id',
+            'type' => 'required'
         ]);
 
         // Create a new category instance
@@ -37,6 +38,7 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->description = $request->input('description');
         $category->parent_id = $request->input('parent_id');
+        $category->type = $request->input('type');
 
         // Handle the image upload
         if ($request->hasFile('image')) {
@@ -67,13 +69,14 @@ class CategoryController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'nullable|string',
             'parent_id' => 'nullable|exists:categories,id',
+             'type' => 'required'
         ]);
 
         $category = Category::findOrFail($id);
         $category->name = $request->input('name');
         $category->description = $request->input('description');
         $category->parent_id = $request->input('parent_id');
-
+        $category->type = $request->input('type');
 
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();

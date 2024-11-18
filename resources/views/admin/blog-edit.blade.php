@@ -43,6 +43,10 @@
                                                         <input type="text" class="form-control" name="title" value="{{ old('title', $post->title) }}" required>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="title">Author</label>
+                                                        <input type="text" name="author" id="title" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="slug">Slug</label>
                                                         <input type="text" class="form-control" name="slug" value="{{ old('slug', $post->slug) }}" required>
                                                     </div>

@@ -23,6 +23,7 @@
 
                         <form id="categoryForm" method="POST" enctype="multipart/form-data">
                             @csrf
+                            
                             <div class="mb-3">
                                 <label for="name" class="form-label">Category Name</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
@@ -45,6 +46,17 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label"> Category Type</label>
+                                <select class="form-select" id="" name="type" require>
+                                    <option value="">Select Type Category</option>
+                                    <option value="1">Predictor</option>
+                                    <option value="2">Cut-off</option>
+                                    <option value="3">Mock test</option>
+                                </select>
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Save</button>
                             <a href="{{ route('list_category.list') }}" class="btn btn-danger">Cancel</a>
                         </form>

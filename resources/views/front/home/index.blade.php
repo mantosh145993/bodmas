@@ -1,6 +1,6 @@
 @extends('front_layouts.master')
 @section('content')
-
+@include('admin.popup.home')
 <!--==============================
 Hero Area
 ==============================-->
@@ -9,23 +9,23 @@ Hero Area
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/hero_bg_1_1.jpg"></div>
+            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/one.png"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-6">
                         <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>35% OFF</span> LEARN FROM TODAY</span>
-                            <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">Education Is Create
-                                Better <span class="text-theme">Future.</span></h1>
-                            <p class="hero-text" data-ani="slideinleft" data-ani-delay="0.6s">Education can be thought of as the transmission of the values and accumulated knowledge of a society. In this sense, it is equivalent.</p>
+                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>NEET PG</span> COUNCELLING</span>
+                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">2024
+                                Start <span>Contact Us</span></h2>
+                            <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.6s">+91 9511626721, educationbodmas@gmail.com</p>
                             <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="contact.html" class="th-btn style3">Get Started<i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="{{route('contact')}}" class="th-btn style3">Get Started<i class="fas fa-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 text-lg-end text-center">
                         <div class="hero-img1">
-                            <img src="assets/img/hero/hero_thumb_1_1.jpg" alt="hero">
+                            <img src="assets/img/hero/one1.png" alt="hero">
                         </div>
                     </div>
                 </div>
@@ -48,22 +48,22 @@ Hero Area
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/hero_bg_1_2.jpg"></div>
+            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/second.png"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-6">
                         <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>35% OFF</span> LEARN FROM TODAY</span>
-                            <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">Edura Leads To A Brighter <span class="text-theme">Future.</span></h1>
-                            <p class="hero-text" data-ani="slideinleft" data-ani-delay="0.6s">Education can be thought of as the transmission of a societys values and accumulated knowledge. In this sense, it is equivalent.</p>
+                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>BODMAS</span> Education</span>
+                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">Counselling Available Anytime & Anywhere <span class="text-theme">Your Dream Our Mission</span></h2>
+                            <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.6s">"Empowering your educational journey with expert guidance : Bodmas Medical Education Councelling"</p>
                             <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="contact.html" class="th-btn style3">Get Started<i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="{{route('contact')}}" class="th-btn style3">Book Now<i class="fas fa-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 text-lg-end text-center">
                         <div class="hero-img1">
-                            <img src="assets/img/hero/hero_thumb_1_2.jpg" alt="hero">
+                            <img src="assets/img/hero/second2.png" alt="hero">
                         </div>
                     </div>
                 </div>
@@ -86,22 +86,22 @@ Hero Area
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/hero_bg_1_3.jpg"></div>
+            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/third.png"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-6">
                         <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>35% OFF</span> LEARN FROM TODAY</span>
-                            <h1 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">The Worlds Best Online Education <span class="text-theme">Institute.</span></h1>
-                            <p class="hero-text" data-ani="slideinleft" data-ani-delay="0.6s">Education can be thought of as the transmission of the values and accumulated knowledge of a society. In this sense, it is equivalent.</p>
-                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="contact.html" class="th-btn style3">Get Started<i class="fas fa-arrow-right ms-2"></i></a>
+                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>Education</span> Loan</span>
+                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">न्यूनतम ब्याज के साथ ले अधिकतम ऋण</h2>
+                            <hp class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">अपने सपने को दे उड़ान <span>बोडमास एजुकेशन के साथ</span> <br> Supported By एक्सिस बैंक </p> <br><br>
+                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s"> 
+                                <a href="{{route('contact')}}" class="th-btn style3">Apply Now<i class="fas fa-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 text-lg-end text-center">
                         <div class="hero-img1">
-                            <img src="assets/img/hero/hero_thumb_1_3.jpg" alt="hero">
+                            <img src="assets/img/hero/third3.png" alt="hero">
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,36 @@ Contact Area
             <div class="shape-mockup category-shape-arrow d-xl-block d-none">
                 <img src="assets/img/normal/category-arrow.svg" alt="img">
             </div>
-            <div class="row">
+ 
+            <!-- Notice Area  -->
+            <div class="row mb-5">
+                <div class="col-xl-4">
+                    <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
+                        <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;" >Latest Notice</h2>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="row slider-shadow th-carousel category-slider" data-slide-show="4" data-ml-slide-show="3" data-md-slide-show="3" data-sm-slide-show="2" data-arrows="true" data-xl-arrows="true">
+                        @foreach($notices as $notice)
+                        <div class="col-md-6 col-xl-4">
+                            <div class="category-card">
+                                <div class="">
+                                    <h3 class="category-card_title"><a href="{{ asset('notice/' . $notice->file) }}" target="_blank">{{$notice->title}}</a></h3>
+                                    {{$notice->description}}
+                                </div>
+                                <div class="category-card_content">
+                                    <a href="{{ asset('notice/' . $notice->file) }}" class="th-btn" target="_blank" >{{$notice->type}} <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <hr>
+        <!-- Notice Area End  -->
+
+            <!-- <div class="row">
                 <div class="col-xl-4">
                     <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
                         <span class="sub-title"><i class="fal fa-book me-2"></i> Admissions</span>
@@ -150,7 +179,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">MBBS</a></h3>
-                                    <!-- <p class="category-card_text">56+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -163,7 +191,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">BDS</a></h3>
-                                    <!-- <p class="category-card_text">50+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -176,7 +203,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">BAMS</a></h3>
-                                    <!-- <p class="category-card_text">36+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -189,7 +215,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">BHMS</a></h3>
-                                    <!-- <p class="category-card_text">24+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -202,7 +227,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">BUMS</a></h3>
-                                    <!-- <p class="category-card_text">56+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -215,7 +239,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">BVSC</a></h3>
-                                    <!-- <p class="category-card_text">50+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -228,7 +251,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">NURSING</a></h3>
-                                    <!-- <p class="category-card_text">36+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -241,7 +263,6 @@ Contact Area
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a href="#">PHARMACY</a></h3>
-                                    <!-- <p class="category-card_text">24+ Courses </p> -->
                                     <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -249,7 +270,7 @@ Contact Area
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -263,14 +284,14 @@ About Area
             <div class="col-xl-6">
                 <div class="img-box1 mb-40 mb-xl-0">
                     <div class="img1">
-                        <img class="tilt-active" src="assets/img/normal/about_1_1.png" alt="About">
+                        <img class="tilt-active" src="{{asset('assets/a/3.jpg')}}" alt="About">
                     </div>
-                    <div class="about-grid" data-bg-src="assets/img/normal/about_1_3.png">
+                    <div class="about-grid" data-bg-src="{{asset('assets/a/5.jpg')}}">
                         <h3 class="about-grid_year"><span class="counter-number">5</span>k<span class="text-theme">+</span></h3>
                         <p class="about-grid_text">Students Active Our Guidence</p>
                     </div>
                     <div class="img2">
-                        <img class="tilt-active" src="assets/img/normal/about_1_2.png" alt="About">
+                        <img class="tilt-active" src="{{asset('assets/a/8.jpg')}}" alt="About">
                     </div>
                     <div class="shape-mockup about-shape1 jump" data-left="-67px" data-bottom="0">
                         <img src="assets/img/normal/about_1_shape1.png" alt="img">
@@ -287,7 +308,7 @@ About Area
                 <div class="row align-items-center">
                     <div class="col-md-auto">
                         <div class="about-grid_img mb-30 mb-md-0">
-                            <img src="assets/img/normal/about_1_4.png" alt="img">
+                            <img src="{{asset('assets/a/0.jpg')}}" alt="img">
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -301,7 +322,7 @@ About Area
                     </div>
                 </div>
                 <div class="btn-group mt-40">
-                    <a href="#" class="th-btn">About More<i class="fa-regular fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('about')}}" class="th-btn">About More<i class="fa-regular fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -773,7 +794,7 @@ Team Area
             <div class="col-xl-6 mb-40 mb-xl-0">
                 <div class="title-area mb-30">
                     <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
-                    <h2 class="sec-title">Meet Our Expert Instructor</h2>
+                    <h2 class="sec-title">Meet Our BODMAS Expert Instructor</h2>
                     <p class="sec-text mt-20">Graduates of XYZ University have achieved remarkable success in their chosen fields, with many going on to pursue advanced degrees, secure fulfilling careers, and make valuable contributions to their communities.</p>
                     <p class="sec-text">The university takes pride in its alumni network, which serves as a testament to the quality of education and the opportunities provided by the institution.</p>
                 </div>
@@ -911,7 +932,7 @@ Event Area
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
-            <h2 class="sec-title">Our Upcoming Events</h2>
+            <h2 class="sec-title">Bodmas Upcoming Events</h2>
         </div>
         <div class="row slider-shadow event-slider-1 th-carousel gx-70" data-slide-show="3" data-lg-slide-show="3" data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true">
             <div class="col-lg-6 col-xl-4">
@@ -1411,7 +1432,7 @@ Blog Area
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
                     <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Our News & Blogs</span>
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> Bodmas News & Blogs</span>
                         <h2 class="sec-title">Latests News & Blogs</h2>
                     </div>
                 </div>
@@ -1421,24 +1442,29 @@ Blog Area
             </div>
         </div>
         <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+            @foreach($blogs as $blog)
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
+                    <a href="{{route('blog_details', $blog->slug)}}">
+                                <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
+                            </a>
+
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>05 Jun, 2023</a>
+                            <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
+                            <a href="#"><i class="fa-light fa-clock"></i>{{ $blog->published_at }}</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of Learning!</a>
+                        <h4 class="box-title"><a href="{{route('blog_details', $blog->slug)}}">{{ $blog->title }}</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="{{route('blog_details', $blog->slug)}}" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
+            @endforeach
 
-            <div class="col-md-6 col-xl-4">
+            <!-- <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
                         <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
@@ -1521,7 +1547,7 @@ Blog Area
                         <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
