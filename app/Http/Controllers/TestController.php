@@ -17,6 +17,9 @@ class TestController extends Controller
         return view('front.widgets.chatbot', ['messages' => $messages]);
     }
     
+    public function homePopup(){
+       return view('admin.popup.home');
+    }
     public function create(Request $request)
     {
         $request->validate([

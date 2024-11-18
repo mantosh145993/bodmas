@@ -46,6 +46,7 @@
                                           <th> Keywords</th>
                                           <th> Dscripption</th> -->
                                           <th>Feature Image</th>
+                                          <th>Author</th>
                                           <th> Status</th>
                                           <th>Active</th>
                                           <th>Action</th>
@@ -66,7 +67,7 @@
                                           <td>
                                              <img src="{{ asset('images/feature/' . $post->feature_image) }}" alt="{{ $post->title }}" style="max-width: 200px; max-height: 150px;">
                                           </td>
-                                          <!-- <td>{!!  $post->content !!}</td> -->
+                                          <td>{{ $post->author }}</td>
                                           <td>
                                              <button class="toggle-status" data-id="{{ $post->id }}" data-active="{{ $post->is_active }}">
                                                 {{ $post->is_active ? 'Published' : 'Not Published' }}

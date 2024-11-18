@@ -26,12 +26,12 @@
 
                             <div class="mb-3">
                                 <label for="name" class="form-label">Category Name</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}" required>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="image" class="form-label">Category Image</label>
-                                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                                <input type="file" class="form-control" id="image" name="image" accept="image/" >
                                 <small class="text-danger" id="imageError" style="display:none;"></small>
                                 @if($category->image)
                                 <div>
@@ -53,6 +53,16 @@
                                     @foreach($categories as $cat)
                                     <option value="{{ $cat->id }}" {{ $cat->id == $category->parent_id ? 'selected' : '' }}>{{ $cat->name }}</option>
                                     @endforeach
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="" class="form-label"> Category Type</label>
+                                <select class="form-select" id="" name="type" require>
+                                    <option value="">Select Type Category</option>
+                                    <option value="1">Predictor</option>
+                                    <option value="2">Cut-off</option>
+                                    <option value="3">Mock test</option>
                                 </select>
                             </div>
 

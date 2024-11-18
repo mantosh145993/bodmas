@@ -13,7 +13,7 @@
                 <!-- Add Package Button -->
                 <div class="midde_cont">
                     <div class="container mt-4">
-                        <button class="btn btn-primary mb-3" id="addPackageBtn" data-toggle="modal" data-target="#packageModal"><strong>Add New Package</strong></button>
+                        <button class="btn green_bg mb-2" id="addPackageBtn" data-toggle="modal" data-target="#packageModal"><h6 style="color:#fff">Add New Package</h6></button>
                         <div class="card">
                                
                             <h1 class="mt-5 ml-5 mb-5">Available Packages</h1>
@@ -30,7 +30,7 @@
                                             <p><strong>Sale Price:</strong> ₹{{ number_format($package->sale_price, 2) }}</p>
                                             <p><strong>Regular Price:</strong> ₹<del style="color:red">{{ number_format($package->ragular_price, 2) }}</del></p>
                                             <!-- Action Buttons -->
-                                            <button class="btn btn-primary btn-sm view-btn" data-id="{{ $package->id }}" data-toggle="modal" data-target="#packageModal">View</button>
+                                            <button class="btn green_bg view-btn" data-id="{{ $package->id }}" data-toggle="modal" data-target="#packageModal" style="color:#fff">View</button>
                                             <button class="btn btn-warning btn-sm update-btn" data-id="{{ $package->id }}" data-toggle="modal" data-target="#updatePackageModal">Update</button>
                                             <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $package->id }}">Delete</button>
                                         </div>
@@ -39,7 +39,7 @@
                                 @endforeach
                             </div>
                             <!-- Pagination Links -->
-                            <div class="pagination">
+                            <div >
                                 {{ $packages->links() }}
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="updatePackageModalLabel">Update dfsdgsdg Package</h5>
+                                <h5 class="modal-title" id="updatePackageModalLabel"></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -187,9 +187,8 @@
             const packageId = $(this).data('id');
             $('#packageForm input, #packageForm select, #packageForm textarea').prop('disabled', true);
             $('#modalSubmitBtn').hide();
-
             $.ajax({
-                url: `{{ route('package.show', '') }}/${packageId}`,
+                url: `{{ route('packages.show', '') }}/${packageId}`,
                 type: 'GET',
                 success: function(response) {
                     $('#packageModalLabel').text('View Package');
