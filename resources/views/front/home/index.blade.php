@@ -603,8 +603,8 @@ Cta Area
         </div>
     </div>
     <div class="cta-img-1" data-overlay="title" data-opacity="8">
-        <img src="assets/img/normal/cta_1_1.png" alt="Image">
-        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
+        <img src="{{('assets/img/normal/guidance.jpg')}}" alt="Image">
+        <a href="https://www.youtube.com/@BodmasMedical" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
     </div>
 </div>
 <!--==============================
@@ -627,7 +627,7 @@ Why choose us Area
             <div class="col-xl-6">
                 <div class="wcu-img-1">
                     <div class="img1">
-                        <img src="assets/img/normal/wcu_1_1.png" alt="img">
+                        <img src="{{asset('assets/img/normal/chooseUs.jpg')}}" alt="img">
                     </div>
                     <div class="student-count jump-reverse">
                         <h5 class="title"><span class="text-theme"><span class="counter-number">10</span>k+</span> Active Students</h5>
@@ -733,7 +733,7 @@ Counter Area
 Cta Area  
 ==============================-->
 <section class="cta-area-2 position-relative space-bottom">
-    <div class="cta-bg-img" data-bg-src="assets/img/bg/cta-bg2.png">
+    <div class="cta-bg-img" data-bg-src="{{('assets/img/bg/student.jpg')}}">
     </div>
     <div class="cta-bg-img2" data-bg-src="assets/img/bg/cta-bg2-shape.png">
     </div>

@@ -145,7 +145,7 @@
                                 </div>
                             </li>
                             <li class="d-none d-lg-inline-block">
-                                <i class="far fa-user"></i><a href="#">Login / Register</a>
+                                <i class="far fa-user"></i><a href="{{route('admin')}}">Admin Login</a>
                             </li>
                         </ul>
                     </div>

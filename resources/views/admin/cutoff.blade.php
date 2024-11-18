@@ -22,7 +22,6 @@
                                 {{ session('success') }}
                             </div>
                             @endif
-
                             <!-- Error Message -->
                             @if ($errors->any())
                             <div class="alert alert-danger">
@@ -38,7 +37,7 @@
                             <!-- Import Form -->
                             <form action="{{ route('cutoff.import') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="file" name="file" class="form-control">
+                                <input type="file" name="file" class="form-control" required>
                                 <br>
                                 <button class="btn btn-success"><i class="fa fa-file"></i> Import User Data</button>
                             </form>
@@ -48,7 +47,6 @@
                                 <table class="table table-bordered mt-3 table table-bordered">
                                     <tr>
                                         <th colspan="7">
-                                            
                                             <a class="btn btn-warning float-end" href="{{ route('cutoff.export') }}"><i class="fa fa-download"></i> Export User Data</a>
                                         </th>
                                     </tr>
