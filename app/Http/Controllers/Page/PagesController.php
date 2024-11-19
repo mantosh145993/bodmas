@@ -74,7 +74,7 @@ class PagesController extends Controller
                     'menus' => $menus
                 ]);
             case 'predictor':
-                $categories = Category::take(7)->get();
+                $categories = Category::where('type','1')->get();
                 $course = Course::all();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.predictor', [

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Category\Category;
+use App\Models\State;
 
 class CategoryController extends Controller
 {
@@ -109,5 +110,38 @@ class CategoryController extends Controller
         $category->is_active = $validated['is_active'];
         $category->save();
         return response()->json(['message' => 'Status updated successfully.']);
+    }
+
+    // / Fetch categories based on quota
+    public function getCategories(Request $request)
+    {
+        $quota = $request->get('quota');
+        $categories = [];
+
+        if ($quota == 1) {
+            $categories = Category::where('quota_id', 1)->get();
+        } elseif ($quota == 2) {
+            $categories = Category::where('quota_id', 1)->get();
+        }
+
+        return response()->json(['categories' => $categories]);
+    }
+
+    public function getSubcategories(Request $request)
+    {
+        $categoryId = $request->get('category_id');
+        $subcategories = [];
+
+        if ($categoryId) {
+            $subcategories = Category::where('parent_id', $categoryId)->get();
+        }
+
+        return response()->json(['subcategories' => $subcategories]);
+    }
+
+    public function getStates()
+    {
+        $states = State::all();
+        return response()->json(['states' => $states]);
     }
 }

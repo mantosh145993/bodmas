@@ -160,6 +160,10 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
 
 
 });
+
+Route::get('/get-categories', [CategoryController::class, 'getCategories']);
+Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
+Route::get('/get-states', [CategoryController::class, 'getStates']);
 Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup');
 Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');
 Route::get('/packages/by-category/{id}', [PackageController::class, 'getPackagesByCategory'])->name('package.byCategory');
