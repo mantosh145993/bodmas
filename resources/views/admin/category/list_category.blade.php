@@ -40,7 +40,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
+                                            <th>Category</th>
                                             <th>Description</th>
                                             <th>Status</th>
                                             <th></th>

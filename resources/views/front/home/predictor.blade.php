@@ -28,43 +28,6 @@ Contact Area
     <div class="space" id="contact-sec">
         <div class="container">
             <div class="row">
-                <!-- <div class="col-xl-5 mb-30 mb-xl-0">
-                    <div class="me-xxl-5 mt-60">
-                        <div class="title-area mb-25">
-                            <h2 class="border-title h3">Have Any Questions?</h2>
-                        </div>
-                        <p class="mt-n2 mb-25">Have a inquiry or some feedback for us? Fill out the form <br> below to contact our team.</p>
-                        <div class="contact-feature">
-                            <div class="contact-feature-icon">
-                                <i class="fal fa-location-dot"></i>
-                            </div>
-                            <div class="media-body">
-                                <p class="contact-feature_label">Our Address</p>
-                                <a href="https://www.google.com/maps" class="contact-feature_link">2690 Hiltona Street Victoria Road, <br> New York, Canada</a>
-                            </div>
-                        </div>
-                        <div class="contact-feature">
-                            <div class="contact-feature-icon">
-                                <i class="fal fa-phone"></i>
-                            </div>
-                            <div class="media-body">
-                                <p class="contact-feature_label">Phone Number</p>
-                                <a href="tel:+011456586986" class="contact-feature_link">Mobile:<span>(+65) - 48596 - 5789</span></a>
-                                <a href="tel:+011456586986" class="contact-feature_link">Phone: <span>(+00) - 12543 - 4165</span></a>
-                            </div>
-                        </div>
-                        <div class="contact-feature">
-                            <div class="contact-feature-icon">
-                                <i class="fal fa-clock"></i>
-                            </div>
-                            <div class="media-body">
-                                <p class="contact-feature_label">Hours of Operation</p>
-                                <span class="contact-feature_link">Monday - Friday: 09:00 - 20:00</span>
-                                <span class="contact-feature_link">Sunday & Saturday: 10:30 - 22:00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="col-xl-12">
                     <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                         <span class="sub-title">NEET Predictor !</span>
@@ -72,6 +35,35 @@ Contact Area
                         <p class="mt-n1 mb-30 sec-text">Built using the latest data from official government websites, this predictor is free, reliable and easy to use.</p>
                         <form action="{{ route('predict.college') }}" method="POST" class="contact-form ajax-contact" id="predictForm">
                             @csrf
+
+                            <div class="form-group">
+                                <select name="quota" class="nice-select form-select style-white" id="quota" required >
+                                    <option value="" disabled selected hidden>Select Quota*</option>
+                                    <option value="1">All India Quota</option>
+                                    <option value="2">State Quota</option>
+                                </select>
+                            </div>
+
+                            <!-- State dropdown (this will be populated for "State Quota") -->
+                            <div class="form-group" id="state-container" style="display: none;">
+                                <select name="state" class="nice-select form-select style-white" id="state" required>
+                                    <option value="" disabled selected hidden>Select State*</option>
+                                </select>
+                            </div>
+
+                            <!-- Category dropdown (this will be populated via AJAX) -->
+                            <div class="form-group">
+                                <select name="category" class="nice-select form-select style-white" id="category">
+                                    <option value="" disabled selected hidden>Select Category*</option>
+                                </select>
+                            </div>
+
+                            <!-- Subcategory dropdown (this will be populated for "State Quota") -->
+                            <div class="form-group" id="subcategory-container" style="display: none;">
+                                <select name="subcategory" class="nice-select form-select style-white" id="subcategory">
+                                    <option value="" disabled selected hidden>Select Subcategory*</option>
+                                </select>
+                            </div>
                             <!-- Form contents as provided -->
                             <div class="form-group">
                                 <select name="course" id="subject" class="nice-select form-select style-white">
@@ -81,14 +73,7 @@ Contact Area
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <select name="category" class="nice-select form-select style-white">
-                                    <option value="" disabled selected hidden>Select Category*</option>
-                                    @foreach($categories as $categorie)
-                                    <option value="{{ $categorie->name }}">{{ $categorie->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+
                             <div class="form-group">
                                 <select name="round" class="nice-select form-select style-white">
                                     <option value="" disabled selected hidden>Select Round Number*</option>
@@ -134,73 +119,155 @@ Contact Area
         <!-- Error message container -->
     </div>
     @stop
-
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-    const errorMessage = document.getElementById('error-message'); // Ensure this exists in your HTML
+        document.addEventListener("DOMContentLoaded", function() {
+            const errorMessage = document.getElementById('error-message'); // Ensure this exists in your HTML
 
-    document.getElementById('predictButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default form submission
+            document.getElementById('predictButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default form submission
 
-        // Get the form data
-        let formData = new FormData(document.getElementById('predictForm'));
+                // Get the form data
+                let formData = new FormData(document.getElementById('predictForm'));
 
-        // Send the AJAX request
-        fetch("{{ route('predict.college') }}", {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' // CSRF Token for Laravel
-            },
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            const messageElement = document.querySelector('.form-messages');
+                // Send the AJAX request
+                fetch("{{ route('predict.college') }}", {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}' // CSRF Token for Laravel
+                        },
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const messageElement = document.querySelector('.form-messages');
 
-            // Check if the response indicates success
-            if (data.success) {
-                messageElement.textContent = 'Prediction Successful';
-                messageElement.style.color = 'green';
-                errorMessage.innerHTML = ''; // Clear any previous error message
+                        // Check if the response indicates success
+                        if (data.success) {
+                            messageElement.textContent = 'Prediction Successful';
+                            messageElement.style.color = 'green';
+                            errorMessage.innerHTML = ''; // Clear any previous error message
 
-                // Display the predictions in the table
-                displayPredictions(data.predictions);
-            } else {
-                // If success is false, display the error message
-                messageElement.textContent = ''; // Clear the success message if any
-                errorMessage.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.querySelector('.form-messages').textContent = 'An error occurred. Please try again.';
-            document.querySelector('.form-messages').style.color = 'red';
+                            // Display the predictions in the table
+                            displayPredictions(data.predictions);
+                        } else {
+                            // If success is false, display the error message
+                            messageElement.textContent = ''; // Clear the success message if any
+                            errorMessage.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.querySelector('.form-messages').textContent = 'An error occurred. Please try again.';
+                        document.querySelector('.form-messages').style.color = 'red';
+                    });
+            });
         });
-    });
-});
 
-function displayPredictions(predictions) {
-    const tableBody = document.querySelector('#predictions-table tbody');
-    const errorMessage = document.getElementById('error-message');
-    tableBody.innerHTML = ''; // Clear any existing rows
+        function displayPredictions(predictions) {
+            const tableBody = document.querySelector('#predictions-table tbody');
+            const errorMessage = document.getElementById('error-message');
+            tableBody.innerHTML = ''; // Clear any existing rows
 
-    if (predictions && predictions.length > 0) {
-        errorMessage.innerHTML = ''; // Clear any error message
-        predictions.forEach(prediction => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
+            if (predictions && predictions.length > 0) {
+                errorMessage.innerHTML = ''; // Clear any error message
+                predictions.forEach(prediction => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
                 <td>${prediction.college_name}</td>
                 <td>${prediction.course}</td>
                 <td>${prediction.category || 'N/A'}</td>
                 <td>${prediction.rank}</td>
                 <td>${prediction.round || 'N/A'}</td>
             `;
-            tableBody.appendChild(row);
-        });
-    } else {
-        // If no predictions, show an appropriate message
-        errorMessage.innerHTML = `<div class="alert alert-danger">No predictions available.</div>`;
-    }
-}
+                    tableBody.appendChild(row);
+                });
+            } else {
+                // If no predictions, show an appropriate message
+                errorMessage.innerHTML = `<div class="alert alert-danger">No predictions available.</div>`;
+            }
+        }
 
+
+
+        $(document).ready(function() {
+            $('#quota').change(function() {
+                var quota = $(this).val(); 
+                $('#category').html('<option value="" disabled selected hidden>Select Category*</option>'); // Reset categories
+                $('#subcategory-container').hide(); // Hide subcategory dropdown
+
+                if (quota) {
+                    $.ajax({
+                        url: '/get-categories', // The route for fetching categories/subcategories
+                        method: 'GET',
+                        data: {
+                            quota: quota
+                        },
+                        success: function(response) {
+                            if (response.categories.length > 0) {
+                                var categoryOptions = '<option value="" disabled selected hidden>Select Category*</option>';
+                                $.each(response.categories, function(index, category) {
+                                    categoryOptions += '<option value="' + category.id + '">' + category.name + '</option>';
+                                });
+                                $('#category').html(categoryOptions);
+                            }
+                            if (quota == 2) {
+                                $('#state-container').show(); // Show the state dropdown
+                                loadStates(); // Call function to load states
+                                $('#subcategory-container').show();
+                            }
+                        }
+                    });
+                }
+            });
+
+             // Function to load all states via AJAX
+            function loadStates() {
+                $.ajax({
+                    url: '/get-states', // Route for fetching states
+                    method: 'GET',
+                    success: function(response) {
+                        var stateOptions = '<option value="" disabled selected hidden>Select State*</option>';
+                        if (response.states.length > 0) {
+                            $.each(response.states, function(index, state) {
+                                stateOptions += '<option value="' + state.id + '">' + state.name + '</option>';
+                            });
+                        } else {
+                            stateOptions += '<option value="" disabled>No States Available</option>';
+                        }
+                        $('#state').html(stateOptions);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading states:', error);
+                    }
+                });
+            }
+
+            // Listen for changes in the category dropdown to populate the subcategory
+            $('#category').change(function() {
+                var categoryId = $(this).val(); 
+
+                if (categoryId) {
+                    $.ajax({
+                        url: '/get-subcategories',
+                        method: 'GET',
+                        data: {
+                            category_id: categoryId
+                        },
+                        success: function(response) {
+                            var subcategoryOptions = '<option value="" disabled selected hidden>Select Subcategory*</option>';
+                            if (response.subcategories.length > 0) {
+                                $.each(response.subcategories, function(index, subcategory) {
+                                    subcategoryOptions += '<option value="' + subcategory.id + '">' + subcategory.name + '</option>';
+                                });
+                                $('#subcategory').html(subcategoryOptions);
+                            } else {
+                                $('#subcategory').html('<option value="" disabled>No Subcategories</option>');
+                            }
+                        }
+                    });
+                }
+            });
+        });
     </script>
