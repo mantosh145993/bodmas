@@ -113,14 +113,13 @@
                 url: "{{ route('store_category.store') }}", // The route for your store method
                 type: "POST",
                 data: formData,
-                contentType: false, // Set to false for FormData
-                processData: false, // Prevent jQuery from converting the data
+                contentType: false,
+                processData: false,
                 success: function(response) {
                     alert('Category created successfully!');
-                    window.location.href = "{{ route('list_category.list') }}"; // Redirect to the list page
+                    window.location.href = "{{ route('list_category.list') }}";
                 },
                 error: function(xhr) {
-                    // Handle error (you can display the error messages)
                     var errors = xhr.responseJSON.errors;
                     var errorMessage = '';
                     for (var key in errors) {

@@ -80,36 +80,36 @@
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="index.html"><img src="assets/img/logo.svg" alt="Edura"></a>
+            <a href="{{route('/')}}"><img style="width: 250px;" src="{{asset('assets/img/Logo.jpg')}}" alt="Bodmas"></a>
         </div>
-       <!-- Mobile Menu -->
-    <div class="th-mobile-menu d-lg-none">
-        <ul>
-            @foreach($menus as $menu)
+        <!-- Mobile Menu -->
+        <div class="th-mobile-menu d-lg-none">
+            <ul>
+                @foreach($menus as $menu)
                 <li class="menu-item-has-children">
                     <a href="{{ $menu->is_active ? $menu->url : '#' }}">{{ $menu->is_active ? $menu->title : '' }}</a>
                     @if($menu->childrenForPublic->isNotEmpty())
-                        <ul class="sub-menu">
-                            @foreach($menu->childrenForPublic as $submenu)
-                                <li class="menu-item-has-children">
-                                    <a href="{{ $submenu->url }}">{{ $submenu->title }}</a>
-                                    @if($submenu->grandChildForPublic->isNotEmpty())
-                                        <ul class="sub-menu">
-                                            @foreach($submenu->grandChildForPublic as $grandChild)
-                                                <li><a href="{{ $grandChild->url }}">{{ $grandChild->title }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </li>
-                            @endforeach
-                        </ul>
+                    <ul class="sub-menu">
+                        @foreach($menu->childrenForPublic as $submenu)
+                        <li class="menu-item-has-children">
+                            <a href="{{ $submenu->url }}">{{ $submenu->title }}</a>
+                            @if($submenu->grandChildForPublic->isNotEmpty())
+                            <ul class="sub-menu">
+                                @foreach($submenu->grandChildForPublic as $grandChild)
+                                <li><a href="{{ $grandChild->url }}">{{ $grandChild->title }}</a></li>
+                                @endforeach
+                            </ul>
+                            @endif
+                        </li>
+                        @endforeach
+                    </ul>
                     @endif
                 </li>
-            @endforeach
-        </ul>
+                @endforeach
+            </ul>
+        </div>
     </div>
 </div>
-    </div>
 </div>
 <!--==============================
     Mobile Menu End
@@ -127,7 +127,7 @@
                         <ul>
                             <li><i class="far fa-phone"></i><a href="tel:+91 9511626721">+91 9511626721</a></li>
                             <li class="d-none d-xl-inline-block"><i class="far fa-envelope"></i><a href="mailto:educationbodmas@gmail.com">educationbodmas@gmail.com</a></li>
-                            <li><i class="far fa-clock"></i>Mon - Sat: 9:00 - 19:00</li>
+                            <li><i class="far fa-clock"></i>Mon - Sat: 09:00 - 19:00</li>
                         </ul>
                     </div>
                 </div>
