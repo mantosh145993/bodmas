@@ -9,6 +9,7 @@ use App\Models\Course;
 use App\Models\Page;
 use App\Models\Message;
 use App\Models\Category\Category;
+use App\Models\College;
 use App\Models\State;
 use App\Models\Medical;
 use App\Models\ShortLink;
@@ -55,7 +56,6 @@ class PagesController extends Controller
         return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }
 
-
     public function index($slug = null)
     {
         switch ($slug) {
@@ -64,17 +64,24 @@ class PagesController extends Controller
             case 'login':
                 return view('admin.login');
             case 'about':
+                $blogs = Post::where('is_active', '1')->get();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.about_us', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'blogs' => $blogs,
                 ]);
             case 'contact':
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.contact_us', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                ]);
+            case 'blog':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.error', [
+                    'menus' => $menus,
                 ]);
             case 'predictor':
-                $categories = Category::where('type','1')->get();
+                $categories = Category::where('type', '1')->get();
                 $course = Course::all();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.predictor', [
@@ -82,40 +89,30 @@ class PagesController extends Controller
                     'categories' => $categories,
                     'courses' => $course
                 ]);
-            case 'admission/government':
+            case 'admission/college-list':
                 $state = State::all();
-                $colleges = Medical::paginate(3);
+                $colleges = College::where('type','Government')->get();
+                $privats = College::where('type','Private')->get();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.admision', [
                     'menus' => $menus,
                     'states' => $state,
-                    'colleges' => $colleges
+                    'colleges' => $colleges,
+                    'privats' => $privats
                 ]);
             case 'admission/cut-off':
                 $Categories = Category::all();
                 $packages = Package::all();
-                // dd($packages);
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.package-list', [
                     'menus' => $menus,
                     'categories' => $Categories,
                     'packages' => $packages
                 ]);
-
             case 'admission/private':
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.error', [
                     'menus' => $menus
-                ]);
-            case 'contact':
-                $menus = $this->menuHelper->getMenu();
-                return view('front.home.contact', [
-                    'menus' => $menus,
-                ]);
-            case 'blog':
-                $menus = $this->menuHelper->getMenu();
-                return view('front.home.error', [
-                    'menus' => $menus,
                 ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
@@ -125,6 +122,7 @@ class PagesController extends Controller
                 $slug = '/' . $slug;
                 $page = Page::where('menu_slug', $slug)->first();
                 if ($page) {
+                    $packages = Package::all();
                     $id = $page->id;
                     $menus = $this->menuHelper->getMenu();
                     $banner = $this->menuHelper->getBanner($id);
@@ -132,6 +130,7 @@ class PagesController extends Controller
                         'page' => $page,
                         'menus' => $menus,
                         'banner' => $banner,
+                        'packages' => $packages
                     ]);
                 }
                 abort(404, 'Page not found');

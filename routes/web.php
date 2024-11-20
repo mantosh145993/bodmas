@@ -13,6 +13,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PredictController;
@@ -158,9 +159,16 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/notice/destroy/{id}', [NoticeController::class, 'destroy'])->name('notice.destroy');
     // Notice End
 
+    // Notice Start
+    Route::get('/college/college_list', [CollegeController::class, 'index'])->name('college.college_list');
+    Route::get('/college/show/{id}', [CollegeController::class, 'show'])->name('college.show');
+    Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
+    Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
+    // Notice End
+
 
 });
-
+Route::get('/get-colleges-by-state', [CollegeController::class, 'getCollegesByState']);
 Route::get('/get-categories', [CategoryController::class, 'getCategories']);
 Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
 Route::get('/get-states', [CategoryController::class, 'getStates']);
