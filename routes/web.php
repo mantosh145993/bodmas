@@ -159,12 +159,12 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/notice/destroy/{id}', [NoticeController::class, 'destroy'])->name('notice.destroy');
     // Notice End
 
-    // Notice Start
+    // College Start
     Route::get('/college/college_list', [CollegeController::class, 'index'])->name('college.college_list');
     Route::get('/college/show/{id}', [CollegeController::class, 'show'])->name('college.show');
     Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
     Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
-    // Notice End
+    // College End
 
 
 });

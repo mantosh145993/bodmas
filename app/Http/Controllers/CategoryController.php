@@ -115,15 +115,8 @@ class CategoryController extends Controller
     // / Fetch categories based on quota
     public function getCategories(Request $request)
     {
-        $quota = $request->get('quota');
         $categories = [];
-
-        if ($quota == 1) {
             $categories = Category::where('quota_id', 1)->get();
-        } elseif ($quota == 2) {
-            $categories = Category::where('quota_id', 1)->get();
-        }
-
         return response()->json(['categories' => $categories]);
     }
 
@@ -131,11 +124,9 @@ class CategoryController extends Controller
     {
         $categoryId = $request->get('category_id');
         $subcategories = [];
-
         if ($categoryId) {
             $subcategories = Category::where('parent_id', $categoryId)->get();
         }
-
         return response()->json(['subcategories' => $subcategories]);
     }
 
