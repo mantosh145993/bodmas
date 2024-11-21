@@ -37,33 +37,39 @@ Contact Area
                             @csrf
 
                             <div class="form-group">
-                                <select name="quota" class="nice-select form-select style-white" id="quota" required >
-                                    <option value="" disabled selected hidden>Select Quota*</option>
-                                    <option value="1">All India Quota</option>
-                                    <option value="2">State Quota</option>
-                                </select>
+                                <input type="text" name="name" placeholder="Enter your name">
                             </div>
 
-                            <!-- State dropdown (this will be populated for "State Quota") -->
-                            <div class="form-group" id="state-container" style="display: none;">
+                            <div class="form-group">
+                                <input type="number" name="number" placeholder="Enter your number">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="rank" placeholder="Enter your rank...">
+                            </div>
+
+                            <div class="form-group" id="state-container">
                                 <select name="state" class="nice-select form-select style-white" id="state" required>
                                     <option value="" disabled selected hidden>Select State*</option>
+                                    @foreach($states as $state)
+                                    <option value="{{$state->id}}">{{$state->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <!-- Category dropdown (this will be populated via AJAX) -->
-                            <div class="form-group">
+                            <div class="form-group" id="category-container" style="display: none;">
                                 <select name="category" class="nice-select form-select style-white" id="category">
                                     <option value="" disabled selected hidden>Select Category*</option>
                                 </select>
                             </div>
 
-                            <!-- Subcategory dropdown (this will be populated for "State Quota") -->
                             <div class="form-group" id="subcategory-container" style="display: none;">
                                 <select name="subcategory" class="nice-select form-select style-white" id="subcategory">
                                     <option value="" disabled selected hidden>Select Subcategory*</option>
                                 </select>
                             </div>
+
                             <!-- Form contents as provided -->
                             <div class="form-group">
                                 <select name="course" id="subject" class="nice-select form-select style-white">
@@ -84,7 +90,12 @@ Contact Area
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="rank" placeholder="Enter your rank...">
+                                <select name="round" class="nice-select form-select style-white">
+                                    <option value="" disabled selected hidden>Mention Your Budget*</option>
+                                    <option value="1">Less 1 lakh</option>
+                                    <option value="2">2 lakh 4</option>
+                                    <option value="3">4 lakh 5</option>
+                                </select>
                             </div>
                             <div class="form-btn col-12 mt-10">
                                 <button type="button" class="th-btn" id="predictButton">Predict College<i class="fas fa-long-arrow-right ms-2"></i></button>
@@ -119,7 +130,7 @@ Contact Area
         <!-- Error message container -->
     </div>
     @stop
-  
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -189,85 +200,72 @@ Contact Area
             }
         }
 
-
-
         $(document).ready(function() {
-            $('#quota').change(function() {
-                var quota = $(this).val(); 
-                $('#category').html('<option value="" disabled selected hidden>Select Category*</option>'); // Reset categories
-                $('#subcategory-container').hide(); // Hide subcategory dropdown
+            // On selecting a state
+            $('#state').change(function() {
+                var state = $(this).val(); // Get the selected state value
+                $('#state-container').show(); // Show the category container
+                $('#category-container').show(); 
+                $('#category').html('<option value="" disabled selected hidden>Select Category*</option>'); 
+                // $('#subcategory').html('<option value="" disabled selected hidden>Select Subcategory*</option>');
 
-                if (quota) {
+                if (state) {
+                    // Make an AJAX request to fetch categories based on the selected state
                     $.ajax({
-                        url: '/get-categories', // The route for fetching categories/subcategories
+                        url: '/get-categories', // Route for fetching categories
                         method: 'GET',
                         data: {
-                            quota: quota
+                            state: state
                         },
                         success: function(response) {
-                            if (response.categories.length > 0) {
+                            if (response.categories && response.categories.length > 0) {
                                 var categoryOptions = '<option value="" disabled selected hidden>Select Category*</option>';
                                 $.each(response.categories, function(index, category) {
                                     categoryOptions += '<option value="' + category.id + '">' + category.name + '</option>';
                                 });
-                                $('#category').html(categoryOptions);
+                                $('#category').html(categoryOptions); // Populate categories dropdown
+                            } else {
+                                $('#category').html('<option value="" disabled>No Categories Available</option>');
                             }
-                            if (quota == 2) {
-                                $('#state-container').show(); // Show the state dropdown
-                                loadStates(); // Call function to load states
-                                $('#subcategory-container').show();
-                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching categories:', error);
                         }
                     });
                 }
             });
 
-             // Function to load all states via AJAX
-            function loadStates() {
-                $.ajax({
-                    url: '/get-states', // Route for fetching states
-                    method: 'GET',
-                    success: function(response) {
-                        var stateOptions = '<option value="" disabled selected hidden>Select State*</option>';
-                        if (response.states.length > 0) {
-                            $.each(response.states, function(index, state) {
-                                stateOptions += '<option value="' + state.id + '">' + state.name + '</option>';
-                            });
-                        } else {
-                            stateOptions += '<option value="" disabled>No States Available</option>';
-                        }
-                        $('#state').html(stateOptions);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error loading states:', error);
-                    }
-                });
-            }
-
-            // Listen for changes in the category dropdown to populate the subcategory
+            // On selecting a category
             $('#category').change(function() {
-                var categoryId = $(this).val(); 
+                var categoryId = $(this).val(); // Get the selected category value
+                $('#subcategory-container').show(); // Show the subcategory container
+                $('#subcategory').html('<option value="" disabled selected hidden>Select Subcategory*</option>'); // Reset subcategories dropdown
 
                 if (categoryId) {
+                    // Make an AJAX request to fetch subcategories based on the selected category
                     $.ajax({
-                        url: '/get-subcategories',
+                        url: '/get-subcategories', // Route for fetching subcategories
                         method: 'GET',
                         data: {
                             category_id: categoryId
                         },
                         success: function(response) {
-                            var subcategoryOptions = '<option value="" disabled selected hidden>Select Subcategory*</option>';
-                            if (response.subcategories.length > 0) {
+                            if (response.subcategories && response.subcategories.length > 0) {
+                                var subcategoryOptions = '<option value="" disabled selected hidden>Select Subcategory*</option>';
                                 $.each(response.subcategories, function(index, subcategory) {
                                     subcategoryOptions += '<option value="' + subcategory.id + '">' + subcategory.name + '</option>';
                                 });
-                                $('#subcategory').html(subcategoryOptions);
+                                $('#subcategory').html(subcategoryOptions); // Populate subcategories dropdown
                             } else {
-                                $('#subcategory').html('<option value="" disabled>No Subcategories</option>');
+                                $('#subcategory').html('<option value="" disabled>No Subcategories Available</option>');
                             }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching subcategories:', error);
                         }
                     });
                 }
             });
+
         });
     </script>

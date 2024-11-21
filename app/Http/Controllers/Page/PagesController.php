@@ -83,11 +83,13 @@ class PagesController extends Controller
             case 'predictor':
                 $categories = Category::where('type', '1')->get();
                 $course = Course::all();
+                $states = State::all();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.predictor', [
                     'menus' => $menus,
                     'categories' => $categories,
-                    'courses' => $course
+                    'courses' => $course,
+                    'states'=>$states
                 ]);
             case 'admission/college-list':
                 $state = State::all();
