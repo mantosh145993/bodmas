@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\College;
 use App\Models\State;
 use App\Models\Course;
+use App\Models\Predictor;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -65,6 +66,11 @@ class CollegeController extends Controller
     {
         $colleges = College::where('state_id', $request->state_id)->get();
         return response()->json($colleges);
+    }
+
+    public function predictor(){
+       $predictors = Predictor::paginate(10);
+       return view('admin.predictor_lead' , compact('predictors'));
     }
 
 

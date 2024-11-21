@@ -25,7 +25,7 @@
                             @csrf
                             
                             <div class="mb-3">
-                                <label for="name" class="form-label">Category Name</label>
+                                <label for="name" class="form-label">Category Name *</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="mb-3">
@@ -48,7 +48,17 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="" class="form-label"> Category Type</label>
+                                <label for="state_id" class="form-label">Select State for predictor</label>
+                                <select class="form-select" id="" name="state_id">
+                                    <option value="">Select State</option>
+                                    @foreach($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label"> Category Type *</label>
                                 <select class="form-select" id="" name="type" require>
                                     <option value="">Select Type Category</option>
                                     <option value="1">Predictor</option>
