@@ -19,7 +19,8 @@ class CategoryController extends Controller
     public function createCategories()
     {
         $categories = Category::select('id', 'name', 'parent_id')->distinct()->get();
-        return view('admin.category.add_category', compact('categories'));
+        $states = State::all();
+        return view('admin.category.add_category', compact('categories','states'));
     }
 
     public function storeCategories(Request $request)
@@ -40,6 +41,7 @@ class CategoryController extends Controller
         $category->description = $request->input('description');
         $category->parent_id = $request->input('parent_id');
         $category->type = $request->input('type');
+        $category->state_id = $request->input('state_id');
 
         // Handle the image upload
         if ($request->hasFile('image')) {

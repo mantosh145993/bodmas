@@ -20,6 +20,15 @@
                <h4>General</h4>
                <!-- <div>{{ Auth::user()->name }}</div> -->
                <ul class="list-unstyled components">
+               <li class="">
+                     <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All</span></a>
+                     <ul class="collapse list-unstyled" id="dashboard">
+                        <li>
+                           <a href="{{route('predictor.list')}}">> <span>Predictor Lead</span></a>
+                        </li>
+                     </ul>
+                  </li>
+
                   <li class="active">
                      <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-sliders yellow_color"></i> <span>Banner</span></a>
                      <ul class="collapse list-unstyled" id="dashboard">
@@ -29,9 +38,6 @@
                         <li>
                            <a href="{{route('banner.page')}}">> <span>Page Banner</span></a>
                         </li>
-                        <!-- <li>
-                           <a href="#"> <span>Dashboard style 2</span></a>
-                        </li> -->
                      </ul>
                   </li>
 

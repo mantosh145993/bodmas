@@ -165,7 +165,9 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
     Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
     // College End
-
+ 
+    // Predictor
+    Route::get('/predictor/list', [CollegeController::class, 'predictor'])->name('predictor.list');
 
 });
 Route::get('/get-colleges-by-state', [CollegeController::class, 'getCollegesByState']);

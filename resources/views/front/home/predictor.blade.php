@@ -33,7 +33,17 @@ Contact Area
                         <span class="sub-title">NEET Predictor !</span>
                         <h2 class="border-title">NEET College Predictor </h2>
                         <p class="mt-n1 mb-30 sec-text">Built using the latest data from official government websites, this predictor is free, reliable and easy to use.</p>
-                        <form action="{{ route('predict.college') }}" method="POST" class="contact-form ajax-contact" id="predictForm">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form class="contact-form ajax-contact" id="predictForm">
                             @csrf
 
                             <div class="form-group">
@@ -41,16 +51,16 @@ Contact Area
                             </div>
 
                             <div class="form-group">
-                                <input type="number" name="number" placeholder="Enter your number">
+                                <input type="number" name="number" placeholder="Enter your number" id="phoneNumber"  placeholder="Enter your number" oninput="validateNumberInput(this)">
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="rank" placeholder="Enter your rank...">
+                                <input type="number" name="rank" placeholder="Enter your rank...">
                             </div>
 
                             <div class="form-group" id="state-container">
                                 <select name="state" class="nice-select form-select style-white" id="state" required>
-                                    <option value="" disabled selected hidden>Select State*</option>
+                                    <option value="" disabled selected hidden>Select Domicile*</option>
                                     @foreach($states as $state)
                                     <option value="{{$state->id}}">{{$state->name}}</option>
                                     @endforeach
@@ -81,20 +91,16 @@ Contact Area
                             </div>
 
                             <div class="form-group">
-                                <select name="round" class="nice-select form-select style-white">
-                                    <option value="" disabled selected hidden>Select Round Number*</option>
-                                    <option value="1">1st</option>
-                                    <option value="2">2nd</option>
-                                    <option value="3">3rd</option>
-                                    <option value="4">4th</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select name="round" class="nice-select form-select style-white">
-                                    <option value="" disabled selected hidden>Mention Your Budget*</option>
-                                    <option value="1">Less 1 lakh</option>
-                                    <option value="2">2 lakh 4</option>
-                                    <option value="3">4 lakh 5</option>
+                                <select name="budget" class="nice-select form-select style-white">
+                                    <option value="" disabled selected hidden>Select Your Mention Budget*</option>
+                                    <option value="1-lakh">Less 1 lakh</option>
+                                    <option value="2-4-lakh">2 to 4 lakh</option>
+                                    <option value="4-8-lakh">4 to 8 lakh</option>
+                                    <option value="8-12-lakh">8 to 12 lakh</option>
+                                    <option value="12-18-lakh">12 to 18 lakh</option>
+                                    <option value="18-24-lakh">18 to 24 lakh</option>
+                                    <option value="24-30-lakh">24 to 30 lakh</option>
+                                    <option value="30-above">Above 30 lakh</option>
                                 </select>
                             </div>
                             <div class="form-btn col-12 mt-10">
@@ -153,18 +159,13 @@ Contact Area
                     .then(response => response.json())
                     .then(data => {
                         const messageElement = document.querySelector('.form-messages');
-
-                        // Check if the response indicates success
                         if (data.success) {
                             messageElement.textContent = 'Prediction Successful';
                             messageElement.style.color = 'green';
-                            errorMessage.innerHTML = ''; // Clear any previous error message
-
-                            // Display the predictions in the table
+                            errorMessage.innerHTML = '';
                             displayPredictions(data.predictions);
                         } else {
-                            // If success is false, display the error message
-                            messageElement.textContent = ''; // Clear the success message if any
+                            messageElement.textContent = '';
                             errorMessage.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
                         }
                     })
@@ -268,4 +269,9 @@ Contact Area
             });
 
         });
+        function validateNumberInput(input) {
+        if (input.value.length > 12) {
+            input.value = input.value.slice(0, 12);
+        }
+    }
     </script>
