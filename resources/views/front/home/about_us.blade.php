@@ -317,147 +317,10 @@ Team Area
                     </div>
                 </div>
             </div>
-
-            <!-- Single Item -->
-            <!-- <div class="col-lg-6">
-                    <div class="team-card style2">
-                        <div class="team-img-wrap">
-                            <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                                <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
-                            </svg>
-                            <div class="team-img">
-                                <img src="assets/img/team/team_2_1.jpg" alt="Team">
-                            </div>
-                            <div class="team-social">
-                                <a href="#" class="icon-btn">
-                                    <i class="far fa-plus"></i>
-                                </a>
-                                <div class="th-social">
-                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Hirmar Ubunti</a></h3>
-                            <span class="team-desig">Instructor</span>
-                        </div>
-                    </div>
-                </div> -->
-
-            <!-- Single Item -->
-            <!-- <div class="col-lg-6">
-                    <div class="team-card style2">
-                        <div class="team-img-wrap">
-                            <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                                <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
-                            </svg>
-                            <div class="team-img">
-                                <img src="assets/img/team/team_2_2.jpg" alt="Team">
-                            </div>
-                            <div class="team-social">
-                                <a href="#" class="icon-btn">
-                                    <i class="far fa-plus"></i>
-                                </a>
-                                <div class="th-social">
-                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Lily Michelle</a></h3>
-                            <span class="team-desig">Founder & CEO</span>
-                        </div>
-                    </div>
-                </div> -->
-
-            <!-- Single Item -->
-            <!-- <div class="col-lg-6">
-                    <div class="team-card style2">
-                        <div class="team-img-wrap">
-                            <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                                <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
-                            </svg>
-                            <div class="team-img">
-                                <img src="assets/img/team/team_2_3.jpg" alt="Team">
-                            </div>
-                            <div class="team-social">
-                                <a href="#" class="icon-btn">
-                                    <i class="far fa-plus"></i>
-                                </a>
-                                <div class="th-social">
-                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Daniel Thomas</a></h3>
-                            <span class="team-desig">Junior Instructor</span>
-                        </div>
-                    </div>
-                </div> -->
-
-            <!-- Single Item -->
-            <!-- <div class="col-lg-6">
-                    <div class="team-card style2">
-                        <div class="team-img-wrap">
-                            <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                                <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
-                            </svg>
-                            <div class="team-img">
-                                <img src="assets/img/team/team_2_4.jpg" alt="Team">
-                            </div>
-                            <div class="team-social">
-                                <a href="#" class="icon-btn">
-                                    <i class="far fa-plus"></i>
-                                </a>
-                                <div class="th-social">
-                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Jennifer Patricia</a></h3>
-                            <span class="team-desig">Senior Instructor</span>
-                        </div>
-                    </div>
-                </div> -->
-
         </div>
     </div>
 </section>
 
-<!-- <section class="cta-area-3 ">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-30 mb-lg-0">
-                    <div class="cta-card" data-bg-src="assets/img/bg/cta-bg_3_1.png">
-                        <div class="title-area mb-40">
-                            <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Courses</span>
-                            <h4 class="sec-title text-white">Get The Best Courses & <br> Upgrade Your Skills </h4>
-                        </div>
-                        <a href="contact.html" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="cta-card" data-bg-src="assets/img/bg/cta-bg_3_2.png">
-                        <div class="title-area mb-40">
-                            <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Courses</span>
-                            <h4 class="sec-title text-white">Engaging Courses for <br> Intellectual Exploration</h4>
-                        </div>
-                        <a href="contact.html" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 <!--==============================
 Blog Area  
 ==============================-->
@@ -484,7 +347,6 @@ Blog Area
                         <a href="{{route('blog_details', $blog->slug)}}">
                             <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
                         </a>
-
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
