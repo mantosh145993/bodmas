@@ -13,7 +13,7 @@
                 <!-- Add Package Button -->
                 <div class="midde_cont">
                     <div class="container mt-4">
-                        <button class="btn green_bg mb-2" id="addPackageBtn" data-toggle="modal" data-target="#noticeModal"><h6 style="color:#fff">Add College</h6></button>
+                    <a href="{{ route('college.add') }}" class="btn btn-primary mb-3">Add College</a>
                         <div class="card">
                                
                             <h1 class="mt-5 ml-5 mb-5">All Colleges</h1>
@@ -46,7 +46,7 @@
                 </div>
 
                 <!-- Add Model -->
-                <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="noticeModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="noticeModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Footer -->
                 @include('admin.layouts.footer')
             </div>
