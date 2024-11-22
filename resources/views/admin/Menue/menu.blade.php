@@ -18,7 +18,7 @@
                         <!-- Button to trigger modal for adding new menu -->
                         <button class="btn btn-primary mb-3 mt-5" data-toggle="modal" data-target="#addMenuModal">Add new menu</button>
                         <ul id="sortable">
-                            @include('admin.menue.menus', ['menus' => $menus]) <!-- Include the recursive menu component -->
+                            @include('admin.Menue.menus', ['menus' => $menus]) <!-- Include the recursive menu component -->
                         </ul>
                     </div>
                 </div>

@@ -34,14 +34,14 @@ class PredictController extends Controller
         $category = Category::where('id', $categoryId)->value('name');
         $subcategory = Category::where('id', $subcategoryId)->value('name');
 // dd($subcategory)
-//    DB::enableQueryLog();
+   DB::enableQueryLog();
         $lowerRank = max(0, $rank - 10000); 
         $upperRank = $rank + 10000;
         $rankCutoffs = Medical::where('course', $course)
-        ->where('state_id', $state)
+        // ->where('state_id', $state)
         ->whereIn('category', [$category, $subcategory]) 
         ->whereBetween('rank', [$lowerRank, $upperRank])
-        ->limit(20)
+        ->limit(10)
         ->get();
         
         // dd(DB::getQueryLog(), $rankCutoffs);

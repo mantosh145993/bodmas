@@ -14,7 +14,7 @@ class PackageController extends Controller
     {
         $categories = Category::all();
         $packages = Package::paginate(6);
-        return view('admin.package.index', compact('packages', 'categories'));
+        return view('admin.Package.index', compact('packages', 'categories'));
     }
 
     public function store(Request $request)
