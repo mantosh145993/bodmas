@@ -31,6 +31,8 @@
                                             <p>{{ "Type : ".  $college->type }}</p>
                                             <p>{{"Address : ". $college->address }}</p>
                                             <!-- Action Buttons -->
+                                            
+                                            <button class="btn btn-primary btn-sm" ><a href="{{ route('college.edit',$college->id) }}"style="color:#ffff">Edit</a></button>
                                             <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $college->id }}">Delete</button>
                                         </div>
                                     </div>

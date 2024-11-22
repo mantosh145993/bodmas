@@ -162,8 +162,9 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     // College Start
     Route::get('/college/college_list', [CollegeController::class, 'index'])->name('college.college_list');
     Route::get('/college/add', [CollegeController::class, 'create'])->name('college.add');
-    Route::get('/college/show/{id}', [CollegeController::class, 'show'])->name('college.show');
     Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
+    Route::get('/college/edit/{id}', [CollegeController::class, 'edit'])->name('college.edit');
+    Route::post('/college/update/{id}', [CollegeController::class, 'update'])->name('college.update');
     Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
     // College End
  
