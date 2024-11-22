@@ -15,7 +15,7 @@ class MenuController extends Controller
         $menus = Menu::with('childrenForAdmin')->whereNull('parent_id')->orderBy('order')->get();
         $parents = Menu::all();
         $pages = Page::all();
-        return view('admin.menue.menu', compact('menus', 'parents', 'pages'));
+        return view('admin.Menue.menu', compact('menus', 'parents', 'pages'));
     }
 
     public function store(Request $request)
@@ -72,7 +72,7 @@ class MenuController extends Controller
         $menu = Menu::findOrFail($id);
         $parents = Menu::all();
         $pages = Page::all();
-        return view('admin.menue.edit', compact('menu', 'parents', 'pages'));
+        return view('admin.Menue.edit', compact('menu', 'parents', 'pages'));
     }
 
     public function update(Request $request)
