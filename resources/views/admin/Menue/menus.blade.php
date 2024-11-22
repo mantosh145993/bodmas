@@ -8,7 +8,7 @@
         
         @if($menu->childrenForAdmin->isNotEmpty())
             <ul>
-                @include('admin.menue.menus', ['menus' => $menu->childrenForAdmin]) <!-- Recursive include -->
+                @include('admin.Menue.menus', ['menus' => $menu->childrenForAdmin]) <!-- Recursive include -->
             </ul>
         @endif
     </li>
