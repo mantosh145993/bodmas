@@ -20,26 +20,22 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
-        // Validate incoming request data
         $request->validate([
             'title' => 'required|string|max:255',
             'order' => 'nullable|integer',
-            'parent_id' => 'nullable|integer|exists:menus,id', // Validate if parent_id exists in menus
-            'page_id' => 'nullable|integer|exists:pages,id', // Validate if page_id exists in pages
-            'is_active' => 'nullable|boolean', // Added to validate is_active
+            'parent_id' => 'nullable|integer|exists:menus,id', 
+            'page_id' => 'nullable|integer|exists:pages,id', 
+            'is_active' => 'nullable|boolean', 
         ]);
     
-        // Generate a unique slug for the menu title
         $slug = $this->generateUniqueSlug($request->title);
-        $fullUrl = $slug; // Start with the slug for URL
+        $fullUrl = $slug; 
         $pageSlug = '';
     
-        // Check if parent_id is provided and find the parent menu
         if (!empty($request->parent_id)) {
             $parent = Menu::find($request->parent_id);
             if ($parent) {
-                // Construct the full URL by appending the slug to the parent URL
-                $fullUrl = rtrim($parent->url, '/') . $slug; // Ensure there's a slash between parent and slug
+                $fullUrl = rtrim($parent->url, '/') . $slug; 
             }
         }
     
@@ -53,16 +49,12 @@ class MenuController extends Controller
             'is_active' => $request->is_active,
         ]);
     
-        // Check if page_id exists and update menu_slug in Page table
         if (!empty($request->page_id)) {
             $page = Page::find($request->page_id);
             if ($page) {
-                // Update the menu_slug column with the full URL if the page exists
                 $page->update(['menu_slug' => $fullUrl]);
             }
         }
-    
-        // Return a JSON response with the created menu item
         return response()->json($menu, 201);
     }
     
@@ -77,7 +69,6 @@ class MenuController extends Controller
 
     public function update(Request $request)
     {
-        // Validate required fields
         $request->validate([
             'id' => 'required|integer|exists:menus,id',
             'title' => 'required|string|max:255',
@@ -85,49 +76,41 @@ class MenuController extends Controller
             'order' => 'nullable|integer',
             'is_active' => 'nullable|boolean',
         ]);
-    
-        // Find the menu item
+        $updatedUrl ='';
         $menu = Menu::findOrFail($request->id);
         $page = new Page();
     
-        // Initialize the URL and page URL
-        $url = $menu->url;
+        $titleUrl = $this->generateUniqueSlug($request->title);
         $page_url = null;
 
         if ($request->parent_id) {
             $parent = Menu::find($request->parent_id);
-            $url = $parent ? $parent->url : null;
-            $url = $url . $this->generateUniqueSlug($request->title);;
-            // dd($url);
-        } else {
-            $url = $request->slug;
-        }
+            $parentUrl = $parent ? $parent->url : null;
+            $updatedUrl = $parentUrl . $titleUrl;
+        }else{
+            $updatedUrl = $request->slug;
+        } 
     
     
+        $page_url = null;
         if ($request->page_id) {
             $page = Page::find($request->page_id);
             $page_url = $page ? $page->slug : null;
             if ($page) {
-                $page->update(['menu_slug' => $url]); // Update menu_slug only if Page exists
+                $page->update(['menu_slug' => $updatedUrl]);
             }
-        } 
-
-    
-        // Prepare data for update
+        }
         $updateData = [
             'title' => $request->title,
-            'url' => $url,
+            'url' => $updatedUrl,
+            'page_id' => $request->page_id,
             'parent_id' => $request->parent_id,
             'page_url' => $page_url,
-            'order' => $request->order ?? $menu->order, // Retain current order if not provided
-            'is_active' => $request->is_active ?? $menu->is_active, // Retain current status if not provided
+            'order' => $request->order ?? $menu->order, 
+            'is_active' => $request->is_active ?? $menu->is_active,
         ];
         
-        // Update the menu item
         $menu->update($updateData);
-       
-    
-        // Return a JSON response with the updated menu
         return response()->json(['message' => 'Menu updated successfully.', 'menu' => $menu], 200);
     }
 
@@ -162,7 +145,6 @@ class MenuController extends Controller
 
     private function generateUniqueSlug($title)
     {
-        // Generate the initial slug
         $slug = Str::slug($title);
         $count = Menu::where('url', 'like', "%/$slug%")->count();
         return $count ? "/{$slug}-{$count}" : "/{$slug}";
