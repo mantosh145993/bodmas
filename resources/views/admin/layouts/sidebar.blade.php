@@ -21,8 +21,8 @@
                <!-- <div>{{ Auth::user()->name }}</div> -->
                <ul class="list-unstyled components">
                <li class="">
-                     <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All</span></a>
-                     <ul class="collapse list-unstyled" id="dashboard">
+                     <a href="#all" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All</span></a>
+                     <ul class="collapse list-unstyled" id="all">
                         <li>
                            <a href="{{route('predictor.list')}}">> <span>Predictor Lead</span></a>
                         </li>

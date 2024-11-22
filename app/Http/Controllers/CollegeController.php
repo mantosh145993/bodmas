@@ -59,6 +59,52 @@ class CollegeController extends Controller
             'college' => $notice
         ]);
     }
+
+
+    public function edit($id)
+    {
+        $colleges = College::findOrFail($id); 
+        $courses = Course::all();
+        $states = State::all();
+        return view('admin.college.edit', compact('colleges','courses','states')); 
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validate the input data
+        $request->validate([
+            'state_id' => 'required|numeric',
+            'type' => 'required|string|min:0',
+            'course_id' => 'required|numeric',
+            'name' => 'required|string|min:0',
+            'address' => 'required|string',
+        ]);
+        $college = College::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $uniqueName = Str::uuid() . '.' . $extension;
+            $request->file('image')->move(public_path('college/'), $uniqueName);
+    
+            // Delete the old image if it exists
+            if ($college->image && file_exists(public_path('college/' . $college->image))) {
+                unlink(public_path('college/' . $college->image));
+            }
+            $college->image = $uniqueName;
+        }
+        $college->update([
+            'state_id' => $request->state_id,
+            'type' => $request->type,
+            'course_id' => $request->course_id,
+            'name' => $request->name,
+            'address' => $request->address,
+        ]);
+    
+        return response()->json([
+            'message' => 'College updated successfully',
+            'college' => $college,
+        ]);
+    }
+
     public function destroy(string $id)
     {
         $college = College::find($id);

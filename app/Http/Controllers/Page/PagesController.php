@@ -93,8 +93,8 @@ class PagesController extends Controller
                 ]);
             case 'admission/college-list':
                 $state = State::all();
-                $colleges = College::where('type','Government')->get();
-                $privats = College::where('type','Private')->get();
+                $colleges = College::where('type', 'Government')->paginate(5);  // 10 items per page
+                $privats = College::where('type', 'Private')->paginate(5);
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.admision', [
                     'menus' => $menus,

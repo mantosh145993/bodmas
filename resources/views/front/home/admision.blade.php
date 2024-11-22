@@ -74,7 +74,9 @@ Servce Area
                             </div>
                             @endforeach
                         </div>
+                          <!-- Pagination -->
                     </div>
+                    
                     <div class="tab-pane fade " id="tab-list" role="tabpanel" aria-labelledby="tab-shop-list">
                    
                         <div class="row gy-30" id="pvt">
