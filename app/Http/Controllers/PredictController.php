@@ -14,7 +14,7 @@ class PredictController extends Controller
 
     public function college(Request $request)
     {
-       
+
         // store information from predictor
         $predictor = new Predictor();
         $predictor->name = $request->name;
@@ -33,17 +33,19 @@ class PredictController extends Controller
         $subcategoryId = $request->subcategory;
         $category = Category::where('id', $categoryId)->value('name');
         $subcategory = Category::where('id', $subcategoryId)->value('name');
-// dd($subcategory)
-   DB::enableQueryLog();
-        $lowerRank = max(0, $rank - 10000); 
-        $upperRank = $rank + 10000;
+        // dd($subcategory)
+        DB::enableQueryLog();
+        $lowerRank = ($rank * 5 / 100 + $rank);
+        $upperRank = ($rank * 10 / 100 + $rank);
         $rankCutoffs = Medical::where('course', $course)
-        // ->where('state_id', $state)
-        ->whereIn('category', [$category, $subcategory]) 
-        ->whereBetween('rank', [$lowerRank, $upperRank])
-        ->limit(10)
-        ->get();
-        
+            // ->where('state_id', $state) // Uncomment if needed
+            ->whereIn('category', [$category, $subcategory]) // Filter by category
+            ->where(function ($query) use ($rank, $lowerRank, $upperRank) {
+                $query->whereBetween('rank', [$lowerRank, $upperRank])
+                    ->orWhereIn('rank', [$rank]);
+            })
+            ->get();
+
         // dd(DB::getQueryLog(), $rankCutoffs);
         if ($rankCutoffs->isEmpty()) {
             return response()->json([

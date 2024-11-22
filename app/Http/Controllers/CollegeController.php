@@ -19,6 +19,15 @@ class CollegeController extends Controller
         $states = State::all();
         return view('admin.college.index', ['colleges'=>$colleges,'courses'=>$courses,'states'=>$states]);
     }
+
+    public function create()
+    {
+        $colleges = College::paginate(6);
+        $courses = Course::all();
+        $states = State::all();
+        return view('admin.college.add', ['colleges'=>$colleges,'courses'=>$courses,'states'=>$states]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
