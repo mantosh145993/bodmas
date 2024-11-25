@@ -78,12 +78,13 @@ class AdminController extends Controller
             'content' => 'required|string',
             'category_id' => 'required|numeric',
             'feature_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'author'=> 'required|string',
             'meta_title' => 'required|string',
             'meta_keywords' => 'required|string',
             'meta_description' => 'required|string',
             'tags' => 'required|string',
-            'author_description'=> 'required|string'
+            'author'=> 'required|string',
+            'author_description'=> 'required|string',
+            'feature_description'=> 'required|string'
         ]);
 
         // Handle the feature image upload if it exists
@@ -142,9 +143,6 @@ class AdminController extends Controller
         ], 400);
     }
 
-
- 
-
     public function updatePermissionBlog(Request $request, $id)
     {
         $validated = $request->validate([
@@ -178,7 +176,8 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts,slug,' . $id,
             'content' => 'required|string',
-            'author'=> 'required|string'
+            'author'=> 'required|string',
+            'feature_description'=> 'required|string'
         ]);
         // Find the post to update
         $post = Post::findOrFail($id);
@@ -207,7 +206,20 @@ class AdminController extends Controller
         return response()->json(['success' => true]);
     }
 
-
+    public function updateRole(Request $request, $id)
+    {
+        // dd($request);
+        $validated = $request->validate([
+            'role' => 'required',
+        ]);
+    
+        $user = User::find($id);
+        $user->role = $validated['role'];
+        $user->save();
+    
+        return response()->json(['success' => true]);
+    }
+    
     
     /**
      * Blog end.
