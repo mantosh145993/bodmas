@@ -34,32 +34,32 @@ Contact Area
                         <h2 class="border-title">NEET College Predictor </h2>
                         <p class="mt-n1 mb-30 sec-text">Built using the latest data from official government websites, this predictor is free, reliable and easy to use.</p>
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
 
                         <form class="contact-form ajax-contact" id="predictForm">
                             @csrf
 
                             <div class="form-group">
-                                <input type="text" name="name" placeholder="Enter your name">
+                                <input type="text" id="name" name="name" placeholder="Enter your name">
                             </div>
 
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="Enter your Email">
+                                <input type="email" name="email" placeholder="Enter your Email" required>
                             </div>
 
                             <div class="form-group">
-                                <input type="number" name="number" placeholder="Enter your number" id="phoneNumber"  placeholder="Enter your number" oninput="validateNumberInput(this)" required>
+                                <input type="number" name="number" placeholder="Enter your number" id="phoneNumber" placeholder="Enter your number" oninput="validateNumberInput(this)" required>
                             </div>
 
                             <div class="form-group">
-                                <input type="number" name="rank" placeholder="Enter your rank...">
+                                <input type="number" name="rank" placeholder="Enter your rank..." required>
                             </div>
 
                             <div class="form-group" id="state-container">
@@ -86,7 +86,7 @@ Contact Area
 
                             <!-- Form contents as provided -->
                             <div class="form-group">
-                                <select name="course" id="subject" class="nice-select form-select style-white">
+                                <select name="course" id="subject" class="nice-select form-select style-white" >
                                     <option value="" disabled selected hidden>Select a Course*</option>
                                     @foreach($courses as $course)
                                     <option value="{{ $course->title }}">{{ $course->title }}</option>
@@ -97,14 +97,14 @@ Contact Area
                             <div class="form-group">
                                 <select name="budget" class="nice-select form-select style-white">
                                     <option value="" disabled selected hidden>Select Your Mention Budget*</option>
-                                    <option value="1-lakh">Less 1 lakh</option>
-                                    <option value="2-4-lakh">2 to 4 lakh</option>
-                                    <option value="4-8-lakh">4 to 8 lakh</option>
-                                    <option value="8-12-lakh">8 to 12 lakh</option>
-                                    <option value="12-18-lakh">12 to 18 lakh</option>
-                                    <option value="18-24-lakh">18 to 24 lakh</option>
-                                    <option value="24-30-lakh">24 to 30 lakh</option>
-                                    <option value="30-above">Above 30 lakh</option>
+                                    <option value="100000">Less 1 lakh</option>
+                                    <option value="400000">2 to 4 lakh</option>
+                                    <option value="800000">4 to 8 lakh</option>
+                                    <option value="1200000">8 to 12 lakh</option>
+                                    <option value="1800000">12 to 18 lakh</option>
+                                    <option value="2400000">18 to 24 lakh</option>
+                                    <option value="3000000">24 to 30 lakh</option>
+                                    <option value="9000000">Above 30 lakh</option>
                                 </select>
                             </div>
                             <div class="form-btn col-12 mt-10">
@@ -142,19 +142,19 @@ Contact Area
         <!-- Error message container -->
     </div>
     @stop
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const errorMessage = document.getElementById('error-message'); // Ensure this exists in your HTML
-
             document.getElementById('predictButton').addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Get the form data
+                event.preventDefault();
+                // Call the validateForm function to check all fields
+                if (!validateForm()) {
+                    return; // Stop execution if validation fails
+                }
                 let formData = new FormData(document.getElementById('predictForm'));
-
-                // Send the AJAX request
                 fetch("{{ route('predict.college') }}", {
                         method: 'POST',
                         headers: {
@@ -181,18 +181,17 @@ Contact Area
                         document.querySelector('.form-messages').style.color = 'red';
                     });
             });
-        });
 
-        function displayPredictions(predictions) {
-            const tableBody = document.querySelector('#predictions-table tbody');
-            const errorMessage = document.getElementById('error-message');
-            tableBody.innerHTML = ''; // Clear any existing rows
+            function displayPredictions(predictions) {
+                const tableBody = document.querySelector('#predictions-table tbody');
+                const errorMessage = document.getElementById('error-message');
+                tableBody.innerHTML = ''; // Clear any existing rows
 
-            if (predictions && predictions.length > 0) {
-                errorMessage.innerHTML = ''; // Clear any error message
-                predictions.forEach(prediction => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
+                if (predictions && predictions.length > 0) {
+                    errorMessage.innerHTML = ''; // Clear any error message
+                    predictions.forEach(prediction => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
                 <td>${prediction.college_name}</td>
                 <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
                 <td>${prediction.quota == 2 ? 'Pvt':'Govt'}</td>
@@ -201,25 +200,47 @@ Contact Area
                 <td>${prediction.rank}</td>
                 <td>${prediction.round || 'N/A'}</td>
             `;
-                    tableBody.appendChild(row);
-                });
-            } else {
-                // If no predictions, show an appropriate message
-                errorMessage.innerHTML = `<div class="alert alert-danger">No predictions available.</div>`;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    errorMessage.innerHTML = `<div class="alert alert-danger">No predictions available.</div>`;
+                }
             }
-        }
+            function validateForm() {
+                let isValid = true; // Track if all validations pass
+                const form = document.getElementById('predictForm');
 
-        $(document).ready(function() {
-            // On selecting a state
+                // Validate each input field
+                $(form)
+                    .find('input, select')
+                    .each(function() {
+                        const field = $(this);
+                        const fieldName = field.attr('name');
+
+                        // Check required fields
+                        if (field.prop('required') && field.val().trim() === '') {
+                            Swal.fire({
+                                title: 'Missing Field',
+                                text: `Please fill out the "${fieldName}" field.`,
+                                icon: 'warning',
+                                confirmButtonText: 'OK',
+                            });
+                            field.focus();
+                            isValid = false;
+                            return false; // Break out of the loop
+                        }
+                    });
+
+                return isValid; // Return the final validation result
+            }
             $('#state').change(function() {
                 var state = $(this).val(); // Get the selected state value
                 $('#state-container').show(); // Show the category container
-                $('#category-container').show(); 
-                $('#category').html('<option value="" disabled selected hidden>Select Category*</option>'); 
+                $('#category-container').show();
+                $('#category').html('<option value="" disabled selected hidden>Select Category*</option>');
                 // $('#subcategory').html('<option value="" disabled selected hidden>Select Subcategory*</option>');
 
                 if (state) {
-                    // Make an AJAX request to fetch categories based on the selected state
                     $.ajax({
                         url: '/get-categories', // Route for fetching categories
                         method: 'GET',
@@ -243,7 +264,6 @@ Contact Area
                     });
                 }
             });
-
             // On selecting a category
             $('#category').change(function() {
                 var categoryId = $(this).val(); // Get the selected category value
@@ -253,7 +273,7 @@ Contact Area
                 if (categoryId) {
                     // Make an AJAX request to fetch subcategories based on the selected category
                     $.ajax({
-                        url: '/get-subcategories', // Route for fetching subcategories
+                        url: '/get-subcategories',
                         method: 'GET',
                         data: {
                             category_id: categoryId
@@ -262,7 +282,7 @@ Contact Area
                             if (response.subcategories && response.subcategories.length > 0) {
                                 var subcategoryOptions = '<option value="" disabled selected hidden>Select Subcategory*</option>';
                                 $.each(response.subcategories, function(index, subcategory) {
-                                    subcategoryOptions += '<option value="' + subcategory.id + '">' + subcategory.name + subcategory.description + '</option>';
+                                    subcategoryOptions += '<option value="' + subcategory.id + '">' + subcategory.name + '  ' + (subcategory.description ? subcategory.description : ' ') + '</option>';
                                 });
                                 $('#subcategory').html(subcategoryOptions); // Populate subcategories dropdown
                             } else {
@@ -275,11 +295,11 @@ Contact Area
                     });
                 }
             });
-
         });
+
         function validateNumberInput(input) {
-        if (input.value.length > 12) {
-            input.value = input.value.slice(0, 12);
+            if (input.value.length > 12) {
+                input.value = input.value.slice(0, 12);
+            }
         }
-    }
     </script>

@@ -26,7 +26,8 @@ class Post extends Model
         'is_active',
         'image',
         'feature_image',
-        'author'
+        'author',
+        'author_description'
     ];
 
     // Define relationships

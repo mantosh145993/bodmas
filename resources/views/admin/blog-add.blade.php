@@ -37,9 +37,39 @@
                                             <table class="table table-striped">
                                                 <form id="blog-form" enctype="multipart/form-data">
                                                     @csrf
-                                                    <div class="form-group">
+                                                    <div class="mb-3">
+                                                    <label for="" class="form-label">Post Category *</label>
+                                                    <select class="form-select" id="" name="category_id" require>
+                                                        <option value="">Select Post Category</option>
+                                                        @foreach($categories as $category)
+                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="feature_image">Feature Image</label>
+                                                        <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
+                                                    </div> 
+                                                    <div class="form-group mb-3">
                                                         <label for="title">Title</label>
                                                         <input type="text" name="title" id="title" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="title">Meta Title</label>
+                                                        <input type="text" name="meta_title" id="" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="title">Meta Description</label>
+                                                        <input type="text" name="meta_description" id="" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="title">Meta Keywords</label>
+                                                        <input type="text" name="meta_keywords" id="" class="form-control" required>
+                                                    </div>
+
+                                                    <div class="form-group mb-3">
+                                                        <label for="title">Tags</label>
+                                                        <input type="text" name="tags" id="title" class="form-control" required>
                                                     </div>
 
                                                     <div class="form-group">
@@ -47,12 +77,12 @@
                                                         <input type="text" name="author" id="title" class="form-control" required>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="feature_image">Feature Image</label>
-                                                        <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
+                                                    <div class="form-group mb-3">
+                                                    <label for="author_description" class="form-label fw-bold">Author Description</label>
+                                                        <textarea name="author_description" id="author_description" class="form-control" rows="4" placeholder="Enter author description here..." required></textarea>
                                                     </div>
                                                     <textarea name="content" id="editor"></textarea>
-                                                    <button type="submit" class="btn btn-success mt-2" > Submit</button>
+                                                    <button type="submit" class="btn btn-success mt-2" > Publish Blog</button>
                                                     <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 mt-2 btn-sm">Cancel</a>
                                                 </form>
                                             </table>
@@ -129,3 +159,32 @@
         });
     });
 </script>
+
+<style>
+       .mb-3 {
+    margin-bottom: 1rem; /* Adjust spacing as needed */
+}
+
+.form-label {
+    font-weight: bold; /* Makes the label stand out */
+    color: #333; /* Darker text for better readability */
+}
+
+.form-select {
+    width: 100%; /* Full width for better usability */
+    padding: 0.5rem; /* Adds padding for a more comfortable click area */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 0.25rem; /* Slightly rounded corners */
+    transition: border-color 0.2s; /* Smooth border transition */
+}
+
+.form-select:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Removes default outline */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Adds a soft shadow */
+}
+
+.option {
+    color: #555; /* Slightly lighter color for options */
+}
+</style>
