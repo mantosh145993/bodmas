@@ -51,7 +51,11 @@ Contact Area
                             </div>
 
                             <div class="form-group">
-                                <input type="number" name="number" placeholder="Enter your number" id="phoneNumber"  placeholder="Enter your number" oninput="validateNumberInput(this)">
+                                <input type="email" name="email" placeholder="Enter your Email">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="number" name="number" placeholder="Enter your number" id="phoneNumber"  placeholder="Enter your number" oninput="validateNumberInput(this)" required>
                             </div>
 
                             <div class="form-group">
@@ -121,6 +125,8 @@ Contact Area
                     <thead>
                         <tr>
                             <th>College Name</th>
+                            <th>Fee</th>
+                            <th>Quota</th>
                             <th>Course</th>
                             <th>Category</th>
                             <th>Cutoff</th>
@@ -188,6 +194,8 @@ Contact Area
                     const row = document.createElement('tr');
                     row.innerHTML = `
                 <td>${prediction.college_name}</td>
+                <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
+                <td>${prediction.quota == 2 ? 'Pvt':'Govt'}</td>
                 <td>${prediction.course}</td>
                 <td>${prediction.category || 'N/A'}</td>
                 <td>${prediction.rank}</td>
@@ -254,7 +262,7 @@ Contact Area
                             if (response.subcategories && response.subcategories.length > 0) {
                                 var subcategoryOptions = '<option value="" disabled selected hidden>Select Subcategory*</option>';
                                 $.each(response.subcategories, function(index, subcategory) {
-                                    subcategoryOptions += '<option value="' + subcategory.id + '">' + subcategory.name + '</option>';
+                                    subcategoryOptions += '<option value="' + subcategory.id + '">' + subcategory.name + subcategory.description + '</option>';
                                 });
                                 $('#subcategory').html(subcategoryOptions); // Populate subcategories dropdown
                             } else {
