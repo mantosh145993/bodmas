@@ -35,11 +35,12 @@
                                                 <li class="list-group-item"><strong>Meta Title:</strong> {{ $post->meta_title }}</li>
                                                 <li class="list-group-item"><strong>Meta Descriptions:</strong> {{ $post->meta_description }}</li>
                                                 <li class="list-group-item"><strong>Meta Keywords:</strong> {{ $post->meta_keywords }}</li>
-                                                <li class="list-group-item"><strong>Author:</strong> {{ $post->author }}</li>
-                                                <li class="list-group-item"><strong>Author Descriptions:</strong> {{ $post->meta_keywords }}</li>
+                                                <li class="list-group-item"><strong>Author:</strong> {{ Auth::user()->name }}</li>
+                                                <li class="list-group-item"><strong>About Author:</strong> {{ Auth::user()->description }}</li>
                                                 <li class="list-group-item">
                                                     <img src="{{ asset('images/feature/' . $post->feature_image) }}" alt="{{ $post->title }}" style="max-width: 500px; max-height: 150px;">
                                                 </li>
+                                                <li class="list-group-item"><strong>Feature Description:</strong> {{ $post->feature_description }}</li>
                                                 <li class="list-group-item"><strong></strong> {!! $post->content !!}</li>
                                             </ul>
                                         </div>

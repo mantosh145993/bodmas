@@ -26,6 +26,7 @@ class Post extends Model
         'is_active',
         'image',
         'feature_image',
+        'feature_description',
         'author',
         'author_description'
     ];

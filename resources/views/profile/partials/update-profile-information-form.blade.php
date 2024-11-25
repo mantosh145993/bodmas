@@ -22,7 +22,18 @@
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
-
+  <!-- Description -->
+  <div>
+        <x-input-label for="description" :value="__('Description')" />
+        <textarea 
+            id="description" 
+            name="description" 
+            class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+            required 
+            autocomplete="description"
+        >{{ old('description', $user->description) }}</textarea>
+        <x-input-error class="mt-2" :messages="$errors->get('description')" />
+    </div>
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
