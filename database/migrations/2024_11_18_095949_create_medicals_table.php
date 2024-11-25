@@ -9,27 +9,30 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('medicals', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->unsignedBigInteger('college_id')->index(); // College ID
-            $table->string('college_name'); // College Name
-            $table->string('course'); // Course name
-            $table->string('category'); // Category (e.g., General, OBC)
-            $table->integer('rank'); // Rank
-            $table->string('round'); // Round (e.g., Round 1, Round 2)
-            $table->timestamps(); // Created_at and Updated_at columns
+        Schema::table('medicals', function (Blueprint $table) {
+            $table->decimal('fee', 10, 2)->nullable(); // Fee column (decimal, nullable)
+            $table->unsignedBigInteger('state_id')->nullable(); // State ID
+            $table->unsignedBigInteger('course_id')->nullable(); // Course ID
+            $table->string('quota')->nullable(); // Quota (string, nullable)
+            $table->string('type')->nullable(); // Type (string, nullable)
+            // Add foreign key constraints if applicable
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('medical_colleges');
+        Schema::table('medicals', function (Blueprint $table) {
+            // Drop columns
+            $table->dropColumn(['fee', 'state_id', 'course_id', 'quota', 'type']);
+            $table->dropForeign(['state_id']);
+            $table->dropForeign(['course_id']);
+        });
     }
 };
