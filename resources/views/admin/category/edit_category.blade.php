@@ -62,7 +62,8 @@
                                     <option value="">Select Type Category</option>
                                     <option value="1">Predictor</option>
                                     <option value="2">Cut-off</option>
-                                    <option value="3">Mock test</option>
+                                    <option value="3">Mock Test</option>
+                                    <option value="3">Blog Post</option>
                                 </select>
                             </div>
 

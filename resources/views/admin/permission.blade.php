@@ -28,7 +28,7 @@
                         <div class="white_shd full margin_bottom_30">
                            <div class="full graph_head">
                               <div class="heading1 margin_0">
-                                 <h2>Set Permission</h2>    
+                                 <h2>Set Permission</h2>
                               </div>
                            </div>
                            <div class="full price_table padding_infor_info">
@@ -51,6 +51,7 @@
                                                          <th>Updated At</th>
                                                          <th>Permission</th>
                                                          <th>Action</th>
+                                                         <th>Role</th>
                                                          <th>Remove</th>
                                                       </tr>
                                                    </thead>
@@ -66,6 +67,13 @@
                                                          <td>
                                                             <input type="checkbox" class="admin-permission" data-id="{{ $user->id }}" {{ $user->is_admin ? 'checked' : '' }}>
                                                          </td>
+                                                         <td>
+                                                            <select class="role-dropdown form-control custom-select" data-id="{{ $user->id }}" style="width: 150px; padding: 5px; border-radius: 5px; border: 1px solid #ccc; background-color: #f9f9f9;">
+                                                               <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                                               <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                                                            </select>
+                                                         </td>
+
                                                          <td>
                                                             <button class="btn btn-danger btn-remove" data-id="{{ $user->id }}">Remove</button>
                                                          </td>
@@ -168,5 +176,77 @@
             }
          });
       });
+
+      $('.role-dropdown').change(function() {
+         var userId = $(this).data('id'); // Get the user ID from the data attribute
+         var newRole = $(this).val(); // Get the selected role (admin or user)
+         var url = '/admin/users/' + userId + '/update-role';
+
+         $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+               _token: '{{ csrf_token() }}', // CSRF token for security
+               id: userId,
+               role: newRole
+            },
+            success: function(response) {
+               console.log('Success response:', response); // Log the success response
+               if (response.success) {
+                  swal.fire({
+                     title: "Success",
+                     text: "Role updated successfully",
+                     icon: "success",
+                     confirmButtonText: "OK",
+                  }).then(() => {
+                     // This callback runs after the user clicks "OK"
+                     location.reload();
+                  });
+               } else {
+                  swal.fire("Error", "Failed to update role", "error");
+               }
+            },
+            error: function(xhr) {
+               swal.fire("Error", "An error occurred while updating role", "error");
+            }
+         });
+      });
+
    });
 </script>
+<style>
+   /* General dropdown styles */
+   .role-dropdown {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      color: #333;
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+   }
+
+   /* Hover effect */
+   .role-dropdown:hover {
+      border-color: #007bff;
+      box-shadow: 0px 2px 6px rgba(0, 123, 255, 0.2);
+   }
+
+   /* Focus effect */
+   .role-dropdown:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+   }
+
+   /* Admin option style */
+   .role-dropdown option[value="admin"] {
+      font-weight: bold;
+      color: #007bff;
+   }
+
+   /* User option style */
+   .role-dropdown option[value="user"] {
+      font-weight: normal;
+      color: #333;
+   }
+</style>

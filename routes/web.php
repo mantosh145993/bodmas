@@ -55,6 +55,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
 
     // permission start
     Route::get('/permission', [AdminController::class, 'Permission'])->name('admin.permission');
+    Route::post('users/{id}/update-role', [AdminController::class, 'updateRole'])->name('update.role');
     Route::post('/users/{id}/update-permission', [AdminController::class, 'updatePermission']);
     Route::delete('/users/{id}/delete', [AdminController::class, 'deleteUser']);
     // permission end

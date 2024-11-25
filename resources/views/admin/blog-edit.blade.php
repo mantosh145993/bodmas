@@ -43,8 +43,22 @@
                                                         <input type="text" class="form-control" name="title" value="{{ old('title', $post->title) }}" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="title">Author</label>
-                                                        <input type="text" name="author" id="title" class="form-control" required>
+                                                        <label for="title" class="form-label fw-bold">Author</label>
+                                                        <input type="text" name="author" id="title" class="form-control" value="{{ Auth::user()->name }}" readonly>
+                                                    </div>
+
+
+                                                    <!-- About Author Column -->
+
+                                                    <div class="form-group">
+                                                        <label for="author_description" class="form-label fw-bold">About Author</label>
+                                                        <textarea
+                                                            name="author_description"
+                                                            id="description"
+                                                            class="form-control"
+                                                            rows="5"
+                                                            readonly
+                                                            style="height: 50px;">{{ Auth::user()->description }}</textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="slug">Slug</label>
@@ -55,11 +69,24 @@
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
                                                     </div>
                                                     <!-- Display the existing feature image if it exists -->
+
                                                     @if($post->feature_image)
                                                     <div class="mt-2">
                                                         <img src="{{ asset('images/feature/' . $post->feature_image) }}" alt="Current Feature Image" style="max-width: 200px; max-height: 150px; border: 1px solid #ddd; border-radius: 4px;">
                                                     </div>
                                                     @endif
+
+                                                    <div class="form-group">
+                                                        <label for="feature_description" class="form-label fw-bold">Fature Description</label>
+                                                        <textarea
+                                                            name="feature_description"
+                                                            id="feature_description"
+                                                            class="form-control"
+                                                            rows="2"
+                                                            
+                                                            placeholder="Enter feature description"
+                                                            style="height: 50px;">{{$post->feature_description}}</textarea>
+                                                    </div>
 
                                                     <div class="form-group">
                                                         <label for="content">Content</label>

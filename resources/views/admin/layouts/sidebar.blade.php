@@ -56,7 +56,7 @@
                   <li><a href="{{ route('admin.blog') }}"><i class="	fa fa-newspaper-o orange_color"></i> <span>Blogs</span></a></li>
                   <li><a href="{{ route('admin.permission') }}"><i class="fa fa-stumbleupon orange_color"></i> <span> Permission</span></a></li>
                   <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
-                  <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>Menue</span></a></li>
+                  <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>All Menu</span></a></li>
                   <li><a href="{{ route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
                   <li><a href="{{ route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
                   <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
