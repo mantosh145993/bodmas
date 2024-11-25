@@ -31,10 +31,12 @@
                                             <ul class="list-group">
                                                 <li class="list-group-item"><strong>Title:</strong> {{ $post->title }}</li>
                                                 <li class="list-group-item"><strong>Slug:</strong> {{ $post->slug }}</li>
-                                                <li class="list-group-item"><strong>Excerpt:</strong> {{ $post->excerpt }}</li>
+                                                <li class="list-group-item"><strong>Tags:</strong> {{ $post->tags }}</li>
                                                 <li class="list-group-item"><strong>Meta Title:</strong> {{ $post->meta_title }}</li>
-                                                <li class="list-group-item"><strong>Meta Descriptions:</strong> {{ $post->meta_descriptions }}</li>
+                                                <li class="list-group-item"><strong>Meta Descriptions:</strong> {{ $post->meta_description }}</li>
                                                 <li class="list-group-item"><strong>Meta Keywords:</strong> {{ $post->meta_keywords }}</li>
+                                                <li class="list-group-item"><strong>Author:</strong> {{ $post->author }}</li>
+                                                <li class="list-group-item"><strong>Author Descriptions:</strong> {{ $post->meta_keywords }}</li>
                                                 <li class="list-group-item">
                                                     <img src="{{ asset('images/feature/' . $post->feature_image) }}" alt="{{ $post->title }}" style="max-width: 500px; max-height: 150px;">
                                                 </li>

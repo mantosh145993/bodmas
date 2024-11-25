@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Category\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Validator;
+
+use function PHPSTORM_META\type;
 
 class AdminController extends Controller
 {
@@ -29,7 +32,6 @@ class AdminController extends Controller
         $data = User::all();
         return view('admin.permission', compact('data'));
     }
-
 
     public function updatePermission(Request $request, $id)
     {
@@ -63,7 +65,53 @@ class AdminController extends Controller
 
     public function addBlogPage()
     {
-        return view('admin.blog-add');
+        $categories = Category::where('type','4')->get();
+        return view('admin.blog-add', ['categories' => $categories]);
+    }
+
+    public function storeBlog(Request $request)
+    {
+        // dd($request->all()); 
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'category_id' => 'required|numeric',
+            'feature_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'author'=> 'required|string',
+            'meta_title' => 'required|string',
+            'meta_keywords' => 'required|string',
+            'meta_description' => 'required|string',
+            'tags' => 'required|string',
+            'author_description'=> 'required|string'
+        ]);
+
+        // Handle the feature image upload if it exists
+        if ($request->hasFile('feature_image')) {
+            $originalName = $request->file('feature_image')->getClientOriginalName();
+            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+            $extension = $request->file('feature_image')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+            $request->file('feature_image')->move(public_path('images/feature'), $fileName);
+        } else {
+            $fileName = null; // Default to null if no file is uploaded
+        }
+        DB::enableQueryLog();
+        $post = Post::create(array_merge($validatedData, [
+            'slug' => Str::slug($request->title),   
+            'feature_image' => $fileName,
+        ]));
+
+        // Print the last query and its bindings
+
+        // $queries = DB::getQueryLog();
+        // $lastQuery = end($queries);
+        // print_r($lastQuery['query']);
+        // print_r($lastQuery['bindings']); 
+        // dd($lastQuery['bindings']);
+
+        // Return a JSON response with the created post
+        return response()->json(['message' => 'Post created successfully.', 'post' => $post]);
     }
 
     public function uploadBlog(Request $request)
@@ -95,45 +143,7 @@ class AdminController extends Controller
     }
 
 
-    public function storeBlog(Request $request)
-    {
-        // dd($request->all()); 
-        // Validate the incoming request data
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'feature_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'author'=> 'required|string'
-        ]);
-
-        // Handle the feature image upload if it exists
-        if ($request->hasFile('feature_image')) {
-            $originalName = $request->file('feature_image')->getClientOriginalName();
-            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
-            $extension = $request->file('feature_image')->getClientOriginalExtension();
-            $fileName = $fileName . '_' . time() . '.' . $extension;
-            $request->file('feature_image')->move(public_path('images/feature'), $fileName);
-        } else {
-            $fileName = null; // Default to null if no file is uploaded
-        }
-        DB::enableQueryLog();
-        $post = Post::create(array_merge($validatedData, [
-            'slug' => Str::slug($request->title),   
-            'feature_image' => $fileName,
-        ]));
-
-        // Print the last query and its bindings
-
-        // $queries = DB::getQueryLog();
-        // $lastQuery = end($queries);
-        // print_r($lastQuery['query']);
-        // print_r($lastQuery['bindings']); 
-        // dd($lastQuery['bindings']);
-
-        // Return a JSON response with the created post
-        return response()->json(['message' => 'Post created successfully.', 'post' => $post]);
-    }
-
+ 
 
     public function updatePermissionBlog(Request $request, $id)
     {
