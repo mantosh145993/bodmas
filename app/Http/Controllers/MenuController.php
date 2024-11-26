@@ -64,7 +64,7 @@ class MenuController extends Controller
         $menu = Menu::findOrFail($id);
         $parents = Menu::all();
         $pages = Page::all();
-        return view('admin.menue.edit', compact('menu', 'parents', 'pages'));
+        return view('admin.Menue.edit', compact('menu', 'parents', 'pages'));
     }
 
     public function update(Request $request)

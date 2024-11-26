@@ -17,10 +17,11 @@
                                  <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{asset('admin/images/layout_img/user_img.jpg')}}" alt="#" /><span class="name_user">{{ Auth::user()->name }}</span></a>
                                  <div class="dropdown-menu">
                                     <div class="mt-3 space-y-1">
+                                    @if(Auth::user()->role == 'admin')
                                        <x-responsive-nav-link :href="route('profile.edit')">
                                           {{ __('Profile') }}
                                        </x-responsive-nav-link>
-
+                                    @endif
                                        <!-- Authentication -->
                                        <form method="POST" action="{{ route('logout') }}">
                                           @csrf

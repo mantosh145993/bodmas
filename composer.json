@@ -32,7 +32,7 @@
             "Tests\\": "tests/"
         },
         "files":[
-            "app/Helpers/Viewhelper.php",
+            "app/Helpers/ViewHelper.php",
              "app/Helpers/MenuHelper.php",
               "app/Helpers/PageHelper.php",
               "app/Helpers/ChatHelper.php"
