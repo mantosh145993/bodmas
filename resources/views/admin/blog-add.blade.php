@@ -49,7 +49,7 @@
                                                     <div class="form-group mb-3">
                                                         <label for="feature_image">Feature Image</label>
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
-                                                    </div>  
+                                                    </div>
                                                     <div class="form-group">
                                                         <label for="feature_description" class="form-label fw-bold">Fature Description</label>
                                                         <textarea
@@ -182,6 +182,46 @@
                 }
             });
         });
+    });
+
+    let autoSaveInterval;
+    let isSaved = false;
+
+    // Function to auto-save the post
+    function autoSaveDraft() {
+        const title = document.querySelector('input[name="title"]').value;
+        const content = document.querySelector('textarea[name="content"]').value;
+
+        if (title || content) { // Only save if there's some data
+            fetch("{{ route('admin.autosave') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({ title, content })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log("Draft saved automatically.");
+                    isSaved = true; // Update save status
+                }
+            })
+            .catch(error => {
+                console.error("Error auto-saving draft:", error);
+            });
+        }
+    }
+
+    // Auto-save every 30 seconds
+    autoSaveInterval = setInterval(autoSaveDraft, 30000);
+
+    // Ensure auto-save on page close or refresh
+    window.addEventListener("beforeunload", function (e) {
+        if (!isSaved) {
+            autoSaveDraft();
+        }
     });
 </script>
 

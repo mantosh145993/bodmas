@@ -70,6 +70,8 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/destroy-blog/{id}', [AdminController::class, 'destroyBlog'])->name('admin.destroy-blog');
     Route::post('/posts/{id}/update-status', [AdminController::class, 'updatePermissionBlog']);
     Route::get('view-blog/{id}', [AdminController::class, 'viewBlog'])->name('admin.view-blog');
+    Route::post('/autosave', [AdminController::class, 'autoSave'])->name('admin.autosave');
+
     // blog end
 
     // Slider Banner Start

@@ -10,6 +10,7 @@ use App\Models\Category\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 use function PHPSTORM_META\type;
@@ -65,7 +66,7 @@ class AdminController extends Controller
 
     public function addBlogPage()
     {
-        $categories = Category::where('type','4')->get();
+        $categories = Category::where('type', '4')->get();
         return view('admin.blog-add', ['categories' => $categories]);
     }
 
@@ -82,9 +83,10 @@ class AdminController extends Controller
             'meta_keywords' => 'required|string',
             'meta_description' => 'required|string',
             'tags' => 'required|string',
-            'author'=> 'required|string',
-            'author_description'=> 'required|string',
-            'feature_description'=> 'required|string'
+            'author' => 'required|string',
+            'author_description' => 'required|string',
+            'feature_description' => 'required|string',
+
         ]);
 
         // Handle the feature image upload if it exists
@@ -99,8 +101,9 @@ class AdminController extends Controller
         }
         DB::enableQueryLog();
         $post = Post::create(array_merge($validatedData, [
-            'slug' => Str::slug($request->title),   
+            'slug' => Str::slug($request->title),
             'feature_image' => $fileName,
+            'status' => $request->input('status', Post::STATUS_DRAFT),
         ]));
 
         // Print the last query and its bindings
@@ -148,17 +151,19 @@ class AdminController extends Controller
         $validated = $request->validate([
             'is_active' => 'required|boolean',
         ]);
-    
+
         $post = Post::findOrFail($id);
         $post->is_active = $validated['is_active'];
+        $post->status = ['status' => Post::STATUS_PUBLISHED];
         $post->published_at = now();
         $post->save();
-    
+
         return response()->json(['message' => 'Status updated successfully.']);
     }
-    
 
-    public function viewBlog($id){
+
+    public function viewBlog($id)
+    {
         $post = Post::findOrFail($id);
         return view('admin.blog-view', compact('post'));
     }
@@ -176,8 +181,8 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts,slug,' . $id,
             'content' => 'required|string',
-            'author'=> 'required|string',
-            'feature_description'=> 'required|string'
+            'author' => 'required|string',
+            'feature_description' => 'required|string'
         ]);
         // Find the post to update
         $post = Post::findOrFail($id);
@@ -197,7 +202,7 @@ class AdminController extends Controller
         ]));
         return redirect()->route('admin.blog')->with('success', 'Post updated successfully.');
     }
-    
+
 
     public function destroyBlog($id)
     {
@@ -206,22 +211,51 @@ class AdminController extends Controller
         return response()->json(['success' => true]);
     }
 
+
+    public function autoSave(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'nullable|string|max:255',
+            'content' => 'nullable|string',
+        ]);
+
+        // Check if there's an existing draft (could track via user or session)
+        $post = Post::firstOrNew([
+            'user_id' => Auth::user()->id,
+            'status' => Post::STATUS_DRAFT,
+        ]);
+
+        // Update or create the draft
+        $post->fill([
+            'title' => $validated['title'],
+            'content' => $validated['content'],
+            'status' => Post::STATUS_DRAFT,
+        ]);
+        $post->save();
+
+        return response()->json(['success' => true, 'post_id' => $post->id]);
+    }
+
+
+    /**
+     * Blog end.
+     */
+
+
+    ///  Admin Role 
     public function updateRole(Request $request, $id)
     {
         // dd($request);
         $validated = $request->validate([
             'role' => 'required',
         ]);
-    
+
         $user = User::find($id);
         $user->role = $validated['role'];
         $user->save();
-    
+
         return response()->json(['success' => true]);
     }
-    
-    
-    /**
-     * Blog end.
-     */
+
+
 }
