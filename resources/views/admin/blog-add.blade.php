@@ -51,7 +51,7 @@
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
                                                     </div>  
                                                     <div class="form-group">
-                                                        <label for="feature_description" class="form-label fw-bold">Fature Description</label>
+                                                        <label for="feature_description" class="form-label fw-bold">Feature Description</label>
                                                         <textarea
                                                             name="feature_description"
                                                             id="feature_description"

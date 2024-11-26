@@ -342,7 +342,7 @@ Servce Area
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="course.html" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="#" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -800,7 +800,7 @@ Team Area
                 </div>
                 <div class="btn-group mt-30">
                     <a href="#" class="th-btn">Explore Courses<i class="fas fa-arrow-right ms-2"></i></a>
-                    <a href="#" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('contact')}}" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
