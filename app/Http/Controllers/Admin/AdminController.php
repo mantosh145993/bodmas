@@ -49,6 +49,19 @@ class AdminController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function updateRole(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'role' => 'required',
+        ]);
+
+        $user = User::find($id);
+        $user->role = $validated['role'];
+        $user->save();
+
+        return response()->json(['success' => true]);
+    }
+
     /**
      * Permission end.
      */
@@ -70,8 +83,70 @@ class AdminController extends Controller
         return view('admin.blog-add', ['categories' => $categories]);
     }
 
+    public function autoSave(Request $request)
+    {
+        // dd($request->all());
+        try {
+            if ($request->tagsField) {
+                $tags = explode(',', $request->tagsField); // Split the tags by comma
+                $all_tags = json_encode($tags); // Store tags as a JSON array
+            } else {
+                $all_tags = null; // Handle the case when no tags are provided
+            }
+            // Handle feature image upload
+            if ($request->hasFile('feature_image')) {
+                $originalName = $request->file('feature_image')->getClientOriginalName();
+                $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+                $extension = $request->file('feature_image')->getClientOriginalExtension();
+                $fileName = $fileName . '_' . time() . '.' . $extension;
+                $request->file('feature_image')->move(public_path('images/feature'), $fileName);
+            } else {
+                $fileName = null; // Default to null if no file is uploaded
+            }
+    
+            // Validate the request data
+            $validated = [
+                'title' => $request->title,
+                'slug' => Str::slug($request->title),
+                'tags' =>$all_tags,
+                'content' => $request->content,
+                'excerpt' => $request->excerpt,
+                'category_id' => $request->category_id,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'meta_keywords' => $request->meta_keywords,
+                'published_at' => $request->published_at,
+                'is_active' => $request->is_active,
+                'feature_description' => $request->feature_description,
+                'author' => $request->author,
+                'author_description' => $request->author_description,
+            ];
+            // Find or create the draft
+            $post = Post::firstOrNew([
+                'user_id' => Auth::id(),
+                'status' => 'draft',
+            ]);
+    
+            // Update fields and save
+            $post->fill($validated);
+    
+            // Only update the feature_image if a new one is uploaded
+            if ($fileName) {
+                $post->feature_image = $fileName;
+            }
+    
+            $post->save();
+    
+            return response()->json(['success' => true, 'post_id' => $post->id]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+    
     public function storeBlog(Request $request)
     {
+        $all_tags ='';
+        // dd($request->tagsField);
         // dd($request->all()); 
         // Validate the incoming request data
         $validatedData = $request->validate([
@@ -82,11 +157,8 @@ class AdminController extends Controller
             'meta_title' => 'required|string',
             'meta_keywords' => 'required|string',
             'meta_description' => 'required|string',
-            'tags' => 'required|string',
             'author' => 'required|string',
-            'author_description' => 'required|string',
             'feature_description' => 'required|string',
-
         ]);
 
         // Handle the feature image upload if it exists
@@ -100,11 +172,23 @@ class AdminController extends Controller
             $fileName = null; // Default to null if no file is uploaded
         }
         DB::enableQueryLog();
+
+        if ($request->tagsField) {
+            $tags = explode(',', $request->tagsField); // Split the tags by comma
+            $all_tags = json_encode($tags); // Store tags as a JSON array
+        } else {
+            $all_tags = null; // Handle the case when no tags are provided
+        }
+
         $post = Post::create(array_merge($validatedData, [
             'slug' => Str::slug($request->title),
             'feature_image' => $fileName,
             'status' => $request->input('status', Post::STATUS_DRAFT),
+            'is_active' => 1,
+            'tags' => $all_tags
         ]));
+
+        
 
         // Print the last query and its bindings
 
@@ -161,17 +245,18 @@ class AdminController extends Controller
         return response()->json(['message' => 'Status updated successfully.']);
     }
 
-
     public function viewBlog($id)
     {
         $post = Post::findOrFail($id);
-        return view('admin.blog-view', compact('post'));
+        $categories = Category::where('type', '4')->get();
+        return view('admin.blog-view', compact('post','categories'));
     }
 
     public function editBlog($id)
     {
         $post = Post::findOrFail($id);
-        return view('admin.blog-edit', compact('post'));
+        $categories = Category::where('type', '4')->get();
+        return view('admin.blog-edit', compact('post','categories'));
     }
 
     public function updateBlog(Request $request, $id)
@@ -181,7 +266,6 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts,slug,' . $id,
             'content' => 'required|string',
-            'author' => 'required|string',
             'feature_description' => 'required|string'
         ]);
         // Find the post to update
@@ -199,10 +283,14 @@ class AdminController extends Controller
         $post->update(array_merge($validatedData, [
             'slug' => Str::slug($request->title),
             'feature_image' => $featureImage,
+            'meta_title' => $request->meta_title,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
+            'tags'=> $request->tags,
+            'category_id' => $request->category_id
         ]));
         return redirect()->route('admin.blog')->with('success', 'Post updated successfully.');
     }
-
 
     public function destroyBlog($id)
     {
@@ -211,51 +299,8 @@ class AdminController extends Controller
         return response()->json(['success' => true]);
     }
 
-
-    public function autoSave(Request $request)
-    {
-        $validated = $request->validate([
-            'title' => 'nullable|string|max:255',
-            'content' => 'nullable|string',
-        ]);
-
-        // Check if there's an existing draft (could track via user or session)
-        $post = Post::firstOrNew([
-            'user_id' => Auth::user()->id,
-            'status' => Post::STATUS_DRAFT,
-        ]);
-
-        // Update or create the draft
-        $post->fill([
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-            'status' => Post::STATUS_DRAFT,
-        ]);
-        $post->save();
-
-        return response()->json(['success' => true, 'post_id' => $post->id]);
-    }
-
-
     /**
      * Blog end.
      */
-
-
-    ///  Admin Role 
-    public function updateRole(Request $request, $id)
-    {
-        // dd($request);
-        $validated = $request->validate([
-            'role' => 'required',
-        ]);
-
-        $user = User::find($id);
-        $user->role = $validated['role'];
-        $user->save();
-
-        return response()->json(['success' => true]);
-    }
-
 
 }

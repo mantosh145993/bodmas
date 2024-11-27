@@ -8,7 +8,7 @@
             <!-- end sidebar -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
 
                 <div class="midde_cont">
                     <div class="container">

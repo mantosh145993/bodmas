@@ -7,16 +7,59 @@
 </div>
 
 <script>
-  ClassicEditor
+//   ClassicEditor
+//     .create(document.querySelector('#editor'), {
+//         ckfinder: {
+//             uploadUrl: "{{route('admin.upload-blog',['_token'=>csrf_token()])}}"
+//         },
+        
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     });
+ 
+ClassicEditor
     .create(document.querySelector('#editor'), {
         ckfinder: {
             uploadUrl: "{{route('admin.upload-blog',['_token'=>csrf_token()])}}"
+        },
+        toolbar: [
+            'heading', 
+            '|',
+            'bold', 'italic', 'underline', 'strikethrough', 'textColor', // Text formatting and text color
+            '|',
+            'link', 'imageUpload', // Link and image
+            '|',
+            'bulletedList', 'numberedList', 'blockQuote', // Lists and blockquote
+            '|',
+            'insertTable', 'tableColumn', 'tableRow', 'tableDelete', // Table and rows/columns
+            '|',
+            'undo', 'redo' // Undo and redo actions
+        ],
+        table: {
+            contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
         }
     })
+    .then(editor => {
+        console.log('Editor initialized:', editor);
+
+        // Manually calculate word count
+        const wordCountElement = document.getElementById('word-count');
+        editor.model.document.on('change:data', () => {
+            const text = editor.getData();
+            const wordCount = text
+                .replace(/<[^>]*>/g, '') // Remove HTML tags
+                .trim()
+                .split(/\s+/) // Split by whitespace
+                .filter(word => word.length > 0).length;
+
+            wordCountElement.textContent = `Word count: ${wordCount}`;
+        });
+    })
     .catch(error => {
-        console.error(error);
+        console.error('Error initializing editor:', error);
     });
- 
+
 
 </script>
 

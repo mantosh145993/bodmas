@@ -9,7 +9,7 @@
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
                 <!-- end topbar -->
                 <!-- dashboard inner -->
                 <div class="midde_cont">
@@ -46,10 +46,12 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="feature_image">Feature Image</label>
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
                                                     </div>
+
                                                     <div class="form-group">
                                                         <label for="feature_description" class="form-label fw-bold">Feature Description</label>
                                                         <textarea
@@ -65,22 +67,43 @@
                                                         <label for="title">Title</label>
                                                         <input type="text" name="title" id="title" class="form-control" required>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="title">Meta Title</label>
                                                         <input type="text" name="meta_title" id="" class="form-control" required>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="title">Meta Description</label>
                                                         <input type="text" name="meta_description" id="" class="form-control" required>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="title">Meta Keywords</label>
                                                         <input type="text" name="meta_keywords" id="" class="form-control" required>
                                                     </div>
 
-                                                    <div class="form-group mb-3">
-                                                        <label for="title">Tags</label>
-                                                        <input type="text" name="tags" id="title" class="form-control" required>
+                                                    <div class="form-group">
+                                                        <label for="tags">Tags</label>
+                                                        <div class="row">
+                                                            <!-- Input Field for Tags -->
+                                                            <div class="col-md-8">
+                                                                <input type="text" name="tags" id="tags" class="form-control">
+                                                            </div>
+
+                                                            <!-- Add Button -->
+                                                            <div class="col-md-4">
+                                                                <button type="button" id="add-tag-btn" class="btn btn-primary btn-lg">Add Tags</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Display Added Tags -->
+                                                        <div id="tags-list" class="mt-3">
+                                                            <!-- Tags will be displayed here -->
+                                                        </div>
+
+                                                        <!-- Hidden input to store tags for form submission -->
+                                                        <input type="hidden" name="tagsField" id="tagsField">
                                                     </div>
 
                                                     <!-- Author Column -->
@@ -89,10 +112,7 @@
                                                         <label for="title" class="form-label fw-bold">Author</label>
                                                         <input type="text" name="author" id="title" class="form-control" value="{{ Auth::user()->name }}" readonly>
                                                     </div>
-
-
                                                     <!-- About Author Column -->
-
                                                     <div class="form-group">
                                                         <label for="author_description" class="form-label fw-bold">About Author</label>
                                                         <textarea
@@ -103,12 +123,10 @@
                                                             readonly
                                                             style="height: 50px;">{{ Auth::user()->description }}</textarea>
                                                     </div>
-
-
-
                                                     <textarea name="content" id="editor"></textarea>
+                                                    <div id="word-count">Word count: 0</div>
                                                     <button type="submit" class="btn btn-success mt-2"> Publish Blog</button>
-                                                    <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 mt-2 btn-sm">Cancel</a>
+                                                    <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 mt-2 btn-sm" id="cancelButton">Cancel</a>
                                                 </form>
                                             </table>
                                         </div>
@@ -158,6 +176,8 @@
     }
 </style>
 <script>
+
+    
     $(document).ready(function() {
         $('#blog-form').on('submit', function(e) {
             e.preventDefault();
@@ -182,47 +202,141 @@
                 }
             });
         });
+
+        // Cancel Autosave 
+
+        const cancelButton = document.getElementById('cancelButton');
+        cancelButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            autoSaveDraft();
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 1000); // 1-second delay to allow the autosave to complete
+        });
     });
 
     let autoSaveInterval;
     let isSaved = false;
 
-    // Function to auto-save the post
     function autoSaveDraft() {
-        const title = document.querySelector('input[name="title"]').value;
-        const content = document.querySelector('textarea[name="content"]').value;
-
-        if (title || content) { // Only save if there's some data
-            fetch("{{ route('admin.autosave') }}", {
+        const formData = new FormData(document.querySelector('#blog-form'));
+        const data = Object.fromEntries(formData);
+        // Send an AJAX request to auto-save
+        fetch("{{ route('admin.autosave') }}", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
                     "X-CSRF-TOKEN": "{{ csrf_token() }}"
                 },
-                body: JSON.stringify({ title, content })
+                body: formData,
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    console.log("Draft saved automatically.");
-                    isSaved = true; // Update save status
+                    console.log("Draft saved successfully:", data.post_id);
+
+                    // Create a message element
+                    const message = document.createElement('div');
+                    message.textContent = "Draft saved successfully!";
+                    message.style.position = 'fixed';
+                    message.style.bottom = '20px';
+                    message.style.right = '20px';
+                    message.style.backgroundColor = '#28a745'; // Green background
+                    message.style.color = '#fff'; // White text
+                    message.style.padding = '10px 20px';
+                    message.style.borderRadius = '5px';
+                    message.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+                    message.style.zIndex = '1000';
+                    message.style.fontSize = '14px';
+                    document.body.appendChild(message);
+
+                    // Remove the message after 2 seconds
+                    setTimeout(() => {
+                        document.body.removeChild(message);
+                    }, 2000);
                 }
             })
             .catch(error => {
                 console.error("Error auto-saving draft:", error);
             });
-        }
     }
-
-    // Auto-save every 30 seconds
-    autoSaveInterval = setInterval(autoSaveDraft, 30000);
-
+    setInterval(autoSaveDraft, 30000);
     // Ensure auto-save on page close or refresh
-    window.addEventListener("beforeunload", function (e) {
+    window.addEventListener("beforeunload", function(e) {
         if (!isSaved) {
             autoSaveDraft();
         }
     });
+
+    // Add tag list 
+    let tags = []; // Array to store tags entered by the user
+    $('#add-tag-btn').on('click', function() {
+        const inputField = $('#tags');
+        const inputValue = inputField.val().trim(); // Get and trim the input value
+
+        // Ensure the input value is not empty and is not already added
+        if (inputValue !== '' && !tags.includes(inputValue)) {
+            // Add the tag to the tags array
+            tags.push(inputValue);
+
+            // Clear the input field
+            inputField.val('');
+
+            // Update the tag list UI
+            updateTagList();
+        }
+    });
+
+    // Update the tags list in the UI
+    function updateTagList() {
+        $('#tags-list').empty(); // Clear the existing list
+
+        // Create and append each tag to the list
+        tags.forEach((tag, index) => {
+            const tagElement = $('<span class="tag"></span>').text(tag);
+            const removeButton = $('<button class="remove-tag btn btn-danger btn-sm ml-2">x</button>')
+                .on('click', function() {
+                    removeTag(index); // Remove tag when the button is clicked
+                });
+
+            tagElement.append(removeButton);
+            $('#tags-list').append(tagElement);
+        });
+
+        // Update the hidden input with the comma-separated tags for form submission
+        $('#tagsField').val(tags.join(','));
+    }
+
+    // Remove a tag from the tags array
+    function removeTag(index) {
+        tags.splice(index, 1); // Remove the tag at the given index
+        updateTagList(); // Update the displayed list of tags
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Initialize CKEditor
+    CKEDITOR.replace('editor');
+
+    // Add word count display logic
+    const wordCountElement = document.getElementById('word-count');
+
+    // Function to calculate word count
+    function calculateWordCount(text) {
+        return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    }
+
+    // Listen for changes in CKEditor content
+    CKEDITOR.instances.editor.on('change', function () {
+        // Get content from CKEditor
+        const content = CKEDITOR.instances.editor.getData();
+
+        // Calculate word count
+        const wordCount = calculateWordCount(content);
+
+        // Update word count display
+        wordCountElement.textContent = `Word count: ${wordCount}`;
+    });
+});
+
 </script>
 
 <style>
@@ -263,5 +377,32 @@
     .option {
         color: #555;
         /* Slightly lighter color for options */
+    }
+
+    #tags-list {
+        margin-top: 10px;
+    }
+
+    .tag {
+        display: inline-block;
+        background-color: #e0e0e0;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    .remove-tag {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 0 5px;
+        cursor: pointer;
+        font-size: 12px;
+        border-radius: 50%;
+    }
+
+    .remove-tag:hover {
+        background-color: darkred;
     }
 </style>
