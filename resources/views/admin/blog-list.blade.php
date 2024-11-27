@@ -9,7 +9,7 @@
          <!-- right content -->
          <div id="content">
             <!-- topbar -->
-            @include('admin.layouts.topbar');
+            @include('admin.layouts.topbar')
             <!-- end topbar -->
             <!-- dashboard inner -->
             <div class="midde_cont">
@@ -70,8 +70,8 @@
                                           <td>{{ $post->author }}</td>
                                           <td>
                                              <button class="toggle-status" data-id="{{ $post->id }}" data-active="{{ $post->is_active }}">
-                                                {{ $post->is_active ? 'Published' : 'Not Published' }}
-                                             </button>
+                                                </button>
+                                                {{ $post->is_active ? 'Published' : 'Draft' }}
                                           </td>
                                           <td>
                                              <input type="checkbox" class="toggle-active" data-id="{{ $post->id }}" {{ $post->is_active ? 'checked' : '' }}>
@@ -160,7 +160,6 @@
                            'Post deleted successfully.',
                            'success'
                         );
-                        location.reload(); // Reload the page on success
                      } else {
                         Swal.fire(
                            'Error!',
@@ -196,8 +195,9 @@
             },
             success: function(response) {
                var statusText = isActive ? 'Published' : 'Not Published';
-               $('.toggle-status[data-id="' + postId + '"]').text(statusText).data('active', isActive);
+               // $('.toggle-status[data-id="' + postId + '"]').text(statusText).data('active', isActive);
                alert('Status updated successfully!');
+               location.reload();
             },
             error: function(xhr) {
                // Handle error (optional)
