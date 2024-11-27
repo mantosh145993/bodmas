@@ -9,7 +9,7 @@
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
                 <!-- end topbar -->
                 <!-- dashboard inner -->
                 <div class="midde_cont">
@@ -38,10 +38,39 @@
                                                     @csrf
                                                     @method('POST') <!-- Use POST method for updates -->
                                                     <input type="hidden" name="id" value="{{ $post->id }}"> <!-- Add hidden input for the post ID -->
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Post Category *</label>
+                                                        <select class="form-select" id="" name="category_id" require>
+                                                            <option selected>Select Post Category</option>
+                                                            @foreach($categories as $category)
+                                                            <option value="{{$category->id}}" {{$category->id==$post->category_id ? 'selected' : '' }}>{{$category->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="title">Title</label>
                                                         <input type="text" class="form-control" name="title" value="{{ old('title', $post->title) }}" required>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="title">Meta Title</label>
+                                                        <input type="text" class="form-control" name="meta_title" value="{{ old('title', $post->meta_title) }}" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="title">Meta Description</label>
+                                                        <input type="text" class="form-control" name="meta_description" value="{{ old('title', $post->meta_description) }}" required>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="title">Meta Keywords</label>
+                                                        <input type="text" class="form-control" name="meta_keywords" value="{{ old('title', $post->meta_keywords) }}" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="title">Tags</label>
+                                                        <input type="text" class="form-control" name="tags" value="{{ old('title', $post->tags) }}" required>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="title" class="form-label fw-bold">Author</label>
                                                         <input type="text" name="author" id="title" class="form-control" value="{{ Auth::user()->name }}" readonly>
@@ -168,3 +197,43 @@
 </body>
 
 </html>
+<style>
+        .mb-3 {
+        margin-bottom: 1rem;
+        /* Adjust spacing as needed */
+    }
+
+    .form-label {
+        font-weight: bold;
+        /* Makes the label stand out */
+        color: #333;
+        /* Darker text for better readability */
+    }
+
+    .form-select {
+        width: 100%;
+        /* Full width for better usability */
+        padding: 0.5rem;
+        /* Adds padding for a more comfortable click area */
+        border: 1px solid #ccc;
+        /* Light border */
+        border-radius: 0.25rem;
+        /* Slightly rounded corners */
+        transition: border-color 0.2s;
+        /* Smooth border transition */
+    }
+
+    .form-select:focus {
+        border-color: #007bff;
+        /* Change border color on focus */
+        outline: none;
+        /* Removes default outline */
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        /* Adds a soft shadow */
+    }
+
+    .option {
+        color: #555;
+        /* Slightly lighter color for options */
+    }
+</style>
