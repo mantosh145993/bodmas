@@ -13,94 +13,48 @@
                 <!-- Add Package Button -->
                 <div class="midde_cont">
                     <div class="container mt-4">
-                    <a href="{{ route('college.add') }}" class="btn btn-primary mb-3">Add College</a>
+                        <a href="{{ route('college.add') }}" class="btn btn-primary mb-3">Add College</a>
                         <div class="card">
-                               
                             <h1 class="mt-5 ml-5 mb-5">All Colleges</h1>
-                         
-                            <!-- Package List -->
-                            <div class="package-list row container ml-1">
-                                @foreach ($colleges as $college)
-                                <div class="col-md-4 mb-4">
-                                    <div class="card shadow-sm notice-card">
-                                        <div class="card-body">
+                            
+                            <!-- Search Input -->
+                            <div class="mb-3">
+                                <input type="text" id="customSearch" class="form-control" placeholder="Search Colleges">
+                            </div>
+                            
+                            <!-- College Table -->
+                            <table id="collegeTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Address</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($colleges as $college)
+                                    <tr>
+                                        <td><img src="{{ asset('college/'.$college->image) }}" alt="{{ $college->title }}" style="width: 100px;"></td>
+                                        <td>{{ $college->name }}</td>
+                                        <td>{{ $college->type }}</td>
+                                        <td>{{ $college->address }}</td>
                                         <td>
-                                        <img src="{{ asset('college/'.$college->image) }}" alt="{{ $college->title }}" style="width: 100px;">
-                                         </td>
-                                            <p class="card-text"><strong>{{ $college->name }}</strong></p>
-                                            <p>{{ "Type : ".  $college->type }}</p>
-                                            <p>{{"Address : ". $college->address }}</p>
-                                            <!-- Action Buttons -->
-                                            
-                                            <button class="btn btn-primary btn-sm" ><a href="{{ route('college.edit',$college->id) }}"style="color:#ffff">Edit</a></button>
+                                            <button class="btn btn-primary btn-sm">
+                                                <a href="{{ route('college.edit', $college->id) }}" style="color: #fff;">Edit</a>
+                                            </button>
                                             <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $college->id }}">Delete</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                            <!-- Pagination Links -->
-                            <div>
-                                {{ $colleges->links() }}
-                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
+                     
                     </div>
                 </div>
 
-                <!-- Add Model -->
-                <!-- <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="noticeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="noticeModalLabel">Notice</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="noticeForm" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="category">Select State</label>
-                                        <select class="form-control" id="noticeType" name="state_id" required>
-                                            @foreach($states as $state)
-                                            <option value="{{$state->id}}">{{$state->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="category">Quota Type</label>
-                                        <select class="form-control" id="noticeType" name="type" required>
-                                            <option value="Government">Government</option>
-                                            <option value="Private">Private</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="category">Course Type</label>
-                                        <select class="form-control" id="noticeType" name="course_id" required>
-                                            @foreach($courses as $course)
-                                            <option value="{{$course->id}}">{{$course->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="noticeName">College Name</label>
-                                        <input type="text" class="form-control" id="noticeName" name="name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="noticeDescription">Address</label>
-                                        <input type="text" class="form-control" id="noticeDescription" name="address" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="images" id="imglable">College image</label>
-                                        <input type="file" class="form-control-file" id="noticeFile" name="image">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" id="modalSubmitBtn">Save</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <!-- Footer -->
                 @include('admin.layouts.footer')
             </div>
@@ -109,8 +63,17 @@
 </body>
 
 </html>
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+<!-- jQuery (required for DataTables) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 <script>
+    
     $(document).ready(function() {
         // Show modal in "Create" mode
         $('#addPackageBtn').on('click', function() {
@@ -165,6 +128,20 @@
                     }
                 });
             }
+        });
+
+         // Initialize DataTable
+         const table = $('#collegeTable').DataTable({
+            pageLength: 10, // Number of rows per page
+            order: [[1, 'asc']], // Initial ordering by "Name" column
+            columnDefs: [
+                { orderable: false, targets: [0, 4] } // Disable ordering for "Image" and "Actions"
+            ]
+        });
+
+        // Link custom search input to DataTable's search function
+        $('#customSearch').on('keyup', function () {
+            table.search(this.value).draw();
         });
 
     });
