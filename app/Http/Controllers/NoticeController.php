@@ -74,7 +74,7 @@ class NoticeController extends Controller
 
     public function update(Request $request, string $id)
     {
-        DB::enableQueryLog();
+        // DB::enableQueryLog();
         $request->validate([
             'type' => 'required|string|max:255',
             'title' => 'required|string|min:0',

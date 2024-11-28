@@ -22,14 +22,21 @@ use App\Http\Controllers\UploadCutofController;
 use Illuminate\Support\Facades\Route;
 
 
-//Home
-Route::get('/', [PagesController::class, 'home'])->name('/');
+// Predictor
+Route::get('/get-categories', [CategoryController::class, 'getCategories']);
+Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
 Route::post('predict/college', [PredictController::class, 'college'])->name('predict.college');
+Route::get('/predictor/list', [PredictController::class, 'predictor'])->name('predictor.list');
+Route::get('/get-colleges-by-state', [PredictController::class, 'getCollegesByState']);
+// Predictor End
+
 // Chatbot
 Route::get('/chat/message', [ChatController::class, 'chatWidgets'])->name('chat.message');
 Route::post('/chat/createChat', [ChatController::class, 'createChat'])->name('chat.createChat');
 // Chatbot end
+
 // Public routes 
+Route::get('/', [PagesController::class, 'home'])->name('/');
 Route::get('/admin', [AuthenticatedSessionController::class, 'login'])->name('admin');
 Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
 Route::post('/admin/dashboard', [AuthenticatedSessionController::class, 'store'])->name('admin.dashboard');
@@ -171,13 +178,10 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
     // College End
  
-    // Predictor
-    Route::get('/predictor/list', [CollegeController::class, 'predictor'])->name('predictor.list');
 
 });
-Route::get('/get-colleges-by-state', [CollegeController::class, 'getCollegesByState']);
-Route::get('/get-categories', [CategoryController::class, 'getCategories']);
-Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
+
+
 Route::get('/get-states', [CategoryController::class, 'getStates']);
 Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup');
 Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');

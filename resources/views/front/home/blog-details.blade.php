@@ -36,7 +36,7 @@
                                <i class="fa-light fa-calendar-days"></i>&nbsp;{{$blogs->published_at}} &nbsp;
                               <i class="fa-light fa-book"></i>&nbsp;Bodmas Blog 
                             </div>
-                            <h2 style="text-decoration: underline;">{{$blogs->title}}</h2>
+                            <h3>{{$blogs->title}}</h3>
                            {!! $blogs->content !!}
                         </div>
                         <div class="share-links clearfix ">
