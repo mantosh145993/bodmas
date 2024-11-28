@@ -266,17 +266,18 @@ Contact Area
             });
             // On selecting a category
             $('#category').change(function() {
+                var state = $('#state').val(); 
                 var categoryId = $(this).val(); // Get the selected category value
                 $('#subcategory-container').show(); // Show the subcategory container
                 $('#subcategory').html('<option value="" disabled selected hidden>Select Subcategory*</option>'); // Reset subcategories dropdown
 
                 if (categoryId) {
-                    // Make an AJAX request to fetch subcategories based on the selected category
                     $.ajax({
                         url: '/get-subcategories',
                         method: 'GET',
                         data: {
-                            category_id: categoryId
+                            category_id: categoryId,
+                            state: state
                         },
                         success: function(response) {
                             if (response.subcategories && response.subcategories.length > 0) {
@@ -286,7 +287,7 @@ Contact Area
                                 });
                                 $('#subcategory').html(subcategoryOptions); // Populate subcategories dropdown
                             } else {
-                                $('#subcategory').html('<option value="" disabled>No Subcategories Available</option>');
+                                $('#subcategory').html('<option value="">No Subcategories Available</option>');
                             }
                         },
                         error: function(xhr, status, error) {

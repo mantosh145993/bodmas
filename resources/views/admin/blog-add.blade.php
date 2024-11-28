@@ -176,8 +176,6 @@
     }
 </style>
 <script>
-
-    
     $(document).ready(function() {
         $('#blog-form').on('submit', function(e) {
             e.preventDefault();
@@ -312,31 +310,30 @@
         updateTagList(); // Update the displayed list of tags
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-    // Initialize CKEditor
-    CKEDITOR.replace('editor');
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize CKEditor
+        CKEDITOR.replace('editor');
 
-    // Add word count display logic
-    const wordCountElement = document.getElementById('word-count');
+        // Add word count display logic
+        const wordCountElement = document.getElementById('word-count');
 
-    // Function to calculate word count
-    function calculateWordCount(text) {
-        return text.trim().split(/\s+/).filter(word => word.length > 0).length;
-    }
+        // Function to calculate word count
+        function calculateWordCount(text) {
+            return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+        }
 
-    // Listen for changes in CKEditor content
-    CKEDITOR.instances.editor.on('change', function () {
-        // Get content from CKEditor
-        const content = CKEDITOR.instances.editor.getData();
+        // Listen for changes in CKEditor content
+        CKEDITOR.instances.editor.on('change', function() {
+            // Get content from CKEditor
+            const content = CKEDITOR.instances.editor.getData();
 
-        // Calculate word count
-        const wordCount = calculateWordCount(content);
+            // Calculate word count
+            const wordCount = calculateWordCount(content);
 
-        // Update word count display
-        wordCountElement.textContent = `Word count: ${wordCount}`;
+            // Update word count display
+            wordCountElement.textContent = `Word count: ${wordCount}`;
+        });
     });
-});
-
 </script>
 
 <style>

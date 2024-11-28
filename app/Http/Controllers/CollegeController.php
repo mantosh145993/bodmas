@@ -117,16 +117,7 @@ class CollegeController extends Controller
         $college->delete();
         return response()->json(['message' => 'College deleted successfully.'], 200);
     }
-    public function getCollegesByState(Request $request)
-    {
-        $colleges = College::where('state_id', $request->state_id)->get();
-        return response()->json($colleges);
-    }
 
-    public function predictor(){
-       $predictors = Predictor::paginate(10);
-       return view('admin.predictor_lead' , compact('predictors'));
-    }
 
 
 }

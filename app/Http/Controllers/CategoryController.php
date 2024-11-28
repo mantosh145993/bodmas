@@ -96,6 +96,7 @@ class CategoryController extends Controller
             'category' => $category
         ]);
     }
+
     public function destroyCategory($id) {
         $category = Category::findOrFail($id);
         // Storage::disk('public')->delete($banner->image); // Delete the image file
@@ -119,16 +120,20 @@ class CategoryController extends Controller
     {
         // dd($request->all());
         $categories = [];
-            $categories = Category::where('state_id', $request->state)->get();
+        $categories = Category::where('type', '1')
+        ->whereNull('parent_id')
+        ->get();
         return response()->json(['categories' => $categories]);
     }
 
     public function getSubcategories(Request $request)
     {
+        // dd($request->all());
         $categoryId = $request->get('category_id');
+        $state = $request->get('state');
         $subcategories = [];
         if ($categoryId) {
-            $subcategories = Category::where('parent_id', $categoryId)->get();
+            $subcategories = Category::where('parent_id', $categoryId)->where('state_id',$state)->get();
         }
         return response()->json(['subcategories' => $subcategories]);
     }
