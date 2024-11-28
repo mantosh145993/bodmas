@@ -14,7 +14,7 @@ class CollegeController extends Controller
 {
     public function index()
     {
-        $colleges = $colleges = College::orderBy('id', 'desc')->paginate(10);
+        $colleges = $colleges = College::orderBy('id', 'desc')->get();
         $courses = Course::all();
         $states = State::all();
         return view('admin.college.index', ['colleges'=>$colleges,'courses'=>$courses,'states'=>$states]);

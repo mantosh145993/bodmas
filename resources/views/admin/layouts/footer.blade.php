@@ -38,6 +38,47 @@ ClassicEditor
         ],
         table: {
             contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+        },
+        textColor: {
+            colors: [
+                {
+                    color: 'hsl(0, 75%, 60%)',
+                    label: 'Red'
+                },
+                {
+                    color: 'hsl(30, 75%, 60%)',
+                    label: 'Orange'
+                },
+                {
+                    color: 'hsl(60, 75%, 60%)',
+                    label: 'Yellow'
+                },
+                {
+                    color: 'hsl(120, 75%, 60%)',
+                    label: 'Green'
+                },
+                {
+                    color: 'hsl(180, 75%, 60%)',
+                    label: 'Cyan'
+                },
+                {
+                    color: 'hsl(240, 75%, 60%)',
+                    label: 'Blue'
+                },
+                {
+                    color: 'hsl(300, 75%, 60%)',
+                    label: 'Magenta'
+                },
+                {
+                    color: 'hsl(0, 0%, 0%)',
+                    label: 'Black'
+                },
+                {
+                    color: 'hsl(0, 0%, 30%)',
+                    label: 'Dim gray'
+                }
+            ],
+            columns: 5 // Number of columns in the color picker grid
         }
     })
     .then(editor => {
@@ -59,6 +100,7 @@ ClassicEditor
     .catch(error => {
         console.error('Error initializing editor:', error);
     });
+    
 
 
 </script>
