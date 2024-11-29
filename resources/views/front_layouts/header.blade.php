@@ -174,6 +174,7 @@
                                             @if($menu->childrenForPublic->isNotEmpty())
                                             <ul class="sub-menu">
                                                 @foreach($menu->childrenForPublic as $submenu)
+                                                @if($submenu->grandChildForPublic->isNotEmpty())
                                                 <li class="menu-item-has-children">
                                                     <a href="{{ $submenu->url }}">{{ $submenu->title }}</a>
                                                     @if($submenu->grandChildForPublic->isNotEmpty())
@@ -184,6 +185,18 @@
                                                     </ul>
                                                     @endif
                                                 </li>
+                                                @else
+                                                <li class="">
+                                                    <a href="{{ $submenu->url }}">{{ $submenu->title }}</a>
+                                                    @if($submenu->grandChildForPublic->isNotEmpty())
+                                                    <ul class="sub-menu">
+                                                        @foreach($submenu->grandChildForPublic as $grandChild)
+                                                        <li><a href="{{ $grandChild->url }}">{{ $grandChild->title }}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                    @endif
+                                                </li>
+                                                @endif
                                                 @endforeach
                                             </ul>
                                             @endif
@@ -196,14 +209,6 @@
                             <div class="col-auto d-none d-xl-block">
                                 <div class="header-button">
                                     <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button>
-                                    <!-- <a href="wishlist.html" class="icon-btn">
-                                        <i class="far fa-heart"></i>
-                                        <span class="badge">3</span>
-                                    </a> -->
-                                    <!-- <button type="button" class="icon-btn sideMenuToggler">
-                                        <i class="far fa-shopping-cart"></i>
-                                        <span class="badge">5</span>
-                                    </button> -->
                                     <a href="{{route('contact')}}" class="th-btn ml-25">Contact Us <i class="fas fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>

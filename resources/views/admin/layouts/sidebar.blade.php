@@ -2,11 +2,10 @@
    <div class="sidebar_blog_1">
       <div class="sidebar-header">
          <div class="logo_section">
-            <a href="{{ route('dashboard') }}"><img class="logo_icon img-responsive" src="{{asset('admin/images/logo/logo_icon.png')}}" alt="#" /></a>
+            <a href="{{ route('dashboard') }}"><img class="logo_icon" src="{{asset('admin/images/logo/logo_icon.png')}}" alt="#" /></a>
          </div>
       </div>
       <div class="sidebar_user_info">
-         <div class="icon_setting"></div>
          <div class="user_profle_side">
             <div class="user_info">
                @if(Auth::user()->role == 'admin')
@@ -19,19 +18,12 @@
             </div>
          </div>
       </div>
-      <div class="sidebar_blog_1">
-         <div class="sidebar-header">
-            <div class="logo_section">
-               <a href="{{ route('dashboard') }}"><img class="logo_icon img-responsive" src="{{asset('admin/images/logo/logo_icon.png')}}" alt="#" /></a>
-            </div>
-         </div>
-      </div>
       <div class="sidebar_blog_2">
-      @if(Auth::user()->role == 'admin')
+         @if(Auth::user()->role == 'admin')
          <h4>Admin Dashboard</h4>
-      @elseif(Auth::user()->role == 'user')
-      <h4>User Dashboard</h4>
-      @endif
+         @elseif(Auth::user()->role == 'user')
+         <h4>User Dashboard</h4>
+         @endif
          <!-- <div>{{ Auth::user()->name }}</div> -->
          <ul class="list-unstyled components">
             @if(Auth::user()->role == 'admin')
@@ -39,11 +31,27 @@
                <a href="#all" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All</span></a>
                <ul class="collapse list-unstyled" id="all">
                   <li>
-                     <a href="{{route('predictor.list')}}">> <span>Predictor Lead</span></a>
+                     <a href="{{route('predictor.list')}}"> <i class="fa fa-bar-chart orange_color"></i> <span>Predictor Lead</span></a>
                   </li>
                   <li>
-                     <a href="{{route('guidance.list')}}">> <span>Paid Guidance</span></a>
+                     <a href="{{route('guidance.list')}}"> <i class="fa fa-money orange_color"></i> <span>Paid Guidance</span></a>
                   </li>
+                  <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
+                  <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>All Menu</span></a></li>
+                  <li><a href="{{ route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
+                  @if( Auth::user()->role == 'admin')
+                  <li><a href="{{ route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
+                  @endif
+                  <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
+                  @if( Auth::user()->role == 'admin')
+                  <li><a href="{{route('package.package_list')}}"><i class="fa fa-suitcase orange_color"></i> <span>Packages</span></a></li>
+                  @endif
+                  <li><a href="{{route('notice.notice_list')}}"><i class="fa fa-tty orange_color"></i> <span>Notice Update</span></a></li>
+                  <li><a href="{{route('college.college_list')}}"><i class="fa fa-university orange_color"></i> <span> Colleges</span></a></li>
+                  <li><a href="{{ route('admin.blog') }}"><i class="	fa fa-newspaper-o orange_color"></i> <span>Blogs</span></a></li>
+                  @if( Auth::user()->role == 'admin')
+                  <li><a href="{{ route('admin.permission') }}"><i class="fa fa-stumbleupon orange_color"></i> <span> Permission</span></a></li>
+                  @endif
                </ul>
             </li>
             @endif
@@ -51,105 +59,37 @@
                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-sliders yellow_color"></i> <span>Banner</span></a>
                <ul class="collapse list-unstyled" id="dashboard">
                   <li>
-                     <a href="{{route('admin.banners')}}">> <span>Slider Banner</span></a>
+                     <a href="{{route('admin.banners')}}"> <i class="fa fa-spinner yellow_color"></i> <span>Slider Banner</span></a>
                   </li>
                   <li>
-                     <a href="{{route('banner.page')}}">> <span>Page Banner</span></a>
+                     <a href="{{route('banner.page')}}"> <i class="fa fa-puzzle-piece yellow_color"></i><span>Page Banner</span></a>
                   </li>
                </ul>
             </li>
-
             <li class="active">
                <a href="#category" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cogs yellow_color"></i> <span>Category</span></a>
                <ul class="collapse list-unstyled" id="category">
                   <li>
-                     <a href="{{route('list_category.list')}}">> <span>Category</span></a>
+                     <a href="{{route('list_category.list')}}"> <i class="fa fa-ticket yellow_color"></i> <span>Add New Category</span></a>
                   </li>
-                  <!-- <li>
-                           <a href="#"> <span>Dashboard style 2</span></a>
-                        </li> -->
                </ul>
             </li>
-
-
-            <li><a href="{{ route('admin.blog') }}"><i class="	fa fa-newspaper-o orange_color"></i> <span>Blogs</span></a></li>
-            @if( Auth::user()->role == 'admin')
-            <li><a href="{{ route('admin.permission') }}"><i class="fa fa-stumbleupon orange_color"></i> <span> Permission</span></a></li>
-            @endif
-            <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
-            <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>All Menu</span></a></li>
-            <li><a href="{{ route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
-            @if( Auth::user()->role == 'admin')
-            <li><a href="{{ route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
-            @endif
-            <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
-            @if( Auth::user()->role == 'admin')
-            <li><a href="{{route('package.package_list')}}"><i class="fa fa-suitcase orange_color"></i> <span>Packages</span></a></li>
-            @endif
-            <li><a href="{{route('notice.notice_list')}}"><i class="fa fa-tty orange_color"></i> <span>Notice Update</span></a></li>
-            <li><a href="{{route('college.college_list')}}"><i class="fa fa-university orange_color"></i> <span>All Colleges</span></a></li>
-            <!-- <li>
-
-         <li><a href="{{ route('admin.blog') }}"><i class="	fa fa-newspaper-o orange_color"></i> <span>Blogs</span></a></li>
-         @if(Auth::user()->role == 'admin')
-         <li><a href="{{ route('admin.permission') }}"><i class="fa fa-stumbleupon orange_color"></i> <span> Permission</span></a></li>
-         @endif
-         <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
-         <li><a href="{{ route('menus') }}"><i class="fa fa-server orange_color"></i> <span>All Menu</span></a></li>
-         <li><a href="{{ route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
-         @if(Auth::user()->role == 'admin')
-         <li><a href="{{ route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
-         @endif
-         <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
-         @if(Auth::user()->role == 'admin')
-         <li><a href="{{route('package.package_list')}}"><i class="fa fa-suitcase orange_color"></i> <span>Packages</span></a></li>
-         @endif
-         <li><a href="{{route('notice.notice_list')}}"><i class="fa fa-tty orange_color"></i> <span>Notice Update</span></a></li>
-         <li><a href="{{route('college.college_list')}}"><i class="fa fa-university orange_color"></i> <span>All Colleges</span></a></li>
-         <!-- <li>
-
-                     <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
-                     <ul class="collapse list-unstyled" id="element">
-                        <li><a href="#">> <span>General Elements</span></a></li>
-                        <li><a href="#">> <span>Media Gallery</span></a></li>
-                        <li><a href="#">> <span>Icons</span></a></li>
-                        <li><a href="#">> <span>Invoice</span></a></li>
-                     </ul>
-                  </li>
-                  <li><a href="#"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
+            <li class="active">
+               <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-universal-access yellow_color"></i> <span>Student Dashboard</span></a>
+               <ul class="collapse list-unstyled" id="student">
                   <li>
-                     <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Apps</span></a>
-                     <ul class="collapse list-unstyled" id="apps">
-                        <li><a href="#">> <span>Email</span></a></li>
-                        <li><a href="#">> <span>Calendar</span></a></li>
-                        <li><a href="#">> <span>Media Gallery</span></a></li>
-                     </ul>
+                     <a href="#"> <i class="fa fa-users yellow_color"></i> <span>Student List</span></a>
                   </li>
-                  <li><a href="#"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>
+               </ul>
+            </li>
+            <li class="active">
+               <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-ungroup yellow_color"></i> <span>Payment Dashboard</span></a>
+               <ul class="collapse list-unstyled" id="payment">
                   <li>
-                     <a href="#">
-                        <i class="fa fa-paper-plane red_color"></i> <span>Contact</span></a>
+                     <a href="#"> <i class="fa fa-map-signs yellow_color"></i> <span>Payment List</span></a>
                   </li>
-                  <li class="active">
-                     <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional Pages</span></a>
-                     <ul class="collapse list-unstyled" id="additional_page">
-                        <li>
-                           <a href="#">> <span>Profile</span></a>
-                        </li>
-                        <li>
-                           <a href="#">> <span>Projects</span></a>
-                        </li>
-                        <li>
-                           <a href="#">> <span>Login</span></a>
-                        </li>
-                        <li>
-                           <a href="#">> <span>404 Error</span></a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li><a href="#"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
-                  <li><a href="#"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li> -->
-            <!-- <li><a href="#"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li> -->
+               </ul>
+            </li>
          </ul>
       </div>
 </nav>
