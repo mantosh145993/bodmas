@@ -12,7 +12,13 @@ use Illuminate\Support\Str;
 use SebastianBergmann\CodeCoverage\Report\Html\CustomCssFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\College;
+use App\Models\Page;
+use App\Models\Menu;
+use App\Models\Notice;
+use App\Models\PaidPackage;
+use App\Models\Predictor;
+use App\Models\Medical;
 use function PHPSTORM_META\type;
 
 class AdminController extends Controller
@@ -20,6 +26,28 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function Dashboard(){
+        $collegeCount = College::count();
+        $pageCount = Page::count();
+        $menuCount = Menu::count();
+        $noticeCount = Notice::count();
+        $paidPackageCount = PaidPackage::count();
+        $predictorCount = Predictor::count();
+        $blogCount = Post::count();
+        $cutOffCount = Medical::count();
+        return view('admin.index',
+        [
+            'collegeCount' =>$collegeCount,
+            'pageCount' => $pageCount,
+            'menuCount' => $menuCount,
+            'noticeCount' => $noticeCount,
+            'paidPackageCount' =>$paidPackageCount,
+            'predictorCount' =>$predictorCount,
+            'blogCount' => $blogCount,
+            'cutOffCount' => $cutOffCount
+        ]
+    );
+    }
     public function index()
     {
         return view('admin.index');

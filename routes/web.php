@@ -57,9 +57,7 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('dashboard');
 
     // permission start
     Route::get('/permission', [AdminController::class, 'Permission'])->name('admin.permission');
