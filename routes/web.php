@@ -181,12 +181,12 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
  
    // Guidance 
    Route::get('/guidance/list', [ PaidPackageController::class, 'index'])->name('guidance.list');
-   Route::get('/guidance/create', [ChatController::class, 'create'])->name('guidance.create');
-   Route::post('/guidance/store', [ChatController::class, 'store'])->name('guidance.store');
-   Route::get('/guidance/edit/{id}', [ChatController::class, 'edit'])->name('guidance.edit');
-   Route::put('/guidance/update/{id}', [ChatController::class, 'update'])->name('guidance.update');
-   Route::get('guidance/{slug}', [ChatController::class, 'show'])->name('guidance.view');
-   Route::delete('/guidance/destroy/{id}', [ChatController::class, 'destroy'])->name('guidance.destroy');
+   Route::get('/guidance/create', [PaidPackageController::class, 'create'])->name('guidance.create');
+   Route::post('/guidance/store', [PaidPackageController::class, 'store'])->name('guidance.store');
+   Route::get('/guidance/edit/{id}', [PaidPackageController::class, 'edit'])->name('guidance.edit');
+   Route::post('/guidance/update/{id}', [PaidPackageController::class, 'update'])->name('guidance.update');
+   Route::get('guidance/{id}', [PaidPackageController::class, 'show'])->name('guidance.view');
+   Route::delete('/guidance/destroy/{id}', [PaidPackageController::class, 'destroy'])->name('guidance.destroy');
   // Guidance End
 
 });
