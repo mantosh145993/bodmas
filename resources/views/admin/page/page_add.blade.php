@@ -36,7 +36,7 @@
                                     <input type="checkbox" name="published" value="1"> Published
                                 </label>
                             </div>
-                            <div id="word-count">Word count: 0</div>
+                             <div id="word-count">Word count: 0</div>
                             <button type="submit" class="btn btn-primary">Create Page</button>
                             <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a>
                         </form>

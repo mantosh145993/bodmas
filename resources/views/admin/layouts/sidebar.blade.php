@@ -41,6 +41,9 @@
                   <li>
                      <a href="{{route('predictor.list')}}">> <span>Predictor Lead</span></a>
                   </li>
+                  <li>
+                     <a href="{{route('guidance.list')}}">> <span>Paid Guidance</span></a>
+                  </li>
                </ul>
             </li>
             @endif

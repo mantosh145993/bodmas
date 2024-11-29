@@ -16,6 +16,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PaidPackageController;
 use App\Http\Controllers\PredictController;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadCutofController;
@@ -178,6 +179,15 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
     // College End
  
+   // Guidance 
+   Route::get('/guidance/list', [ PaidPackageController::class, 'index'])->name('guidance.list');
+   Route::get('/guidance/create', [ChatController::class, 'create'])->name('guidance.create');
+   Route::post('/guidance/store', [ChatController::class, 'store'])->name('guidance.store');
+   Route::get('/guidance/edit/{id}', [ChatController::class, 'edit'])->name('guidance.edit');
+   Route::put('/guidance/update/{id}', [ChatController::class, 'update'])->name('guidance.update');
+   Route::get('guidance/{slug}', [ChatController::class, 'show'])->name('guidance.view');
+   Route::delete('/guidance/destroy/{id}', [ChatController::class, 'destroy'])->name('guidance.destroy');
+  // Guidance End
 
 });
 
