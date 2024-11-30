@@ -176,46 +176,49 @@
     }
 </style>
 <script>
-    $(document).ready(function() {
-        $('#blog-form').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                url: "{{ route('admin.store-blog') }}",
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    alert('Post created successfully.');
-                    window.location.href = "{{route('admin.blog')}}";
-                },
-                error: function(xhr) {
-                    var errors = xhr.responseJSON.errors;
-                    var errorMessages = '';
-                    $.each(errors, function(key, value) {
-                        errorMessages += value[0] + '\n';
-                    });
-                    alert('Error:\n' + errorMessages);
-                }
-            });
-        });
+$(document).ready(function() {
+    let isSubmitting = false; // Flag to track form submission
+    let isSaved = false; // Flag to track if the draft is saved
 
-        // Cancel Autosave 
-
-        const cancelButton = document.getElementById('cancelButton');
-        cancelButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            autoSaveDraft();
-            setTimeout(() => {
-                window.location.href = this.href;
-            }, 1000); // 1-second delay to allow the autosave to complete
+    // Submit the form
+    $('#blog-form').on('submit', function(e) {
+        e.preventDefault();
+        isSubmitting = true; // Set the flag to true to prevent autosave
+        var formData = new FormData(this);
+        $.ajax({
+            url: "{{ route('admin.store-blog') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert('Post created successfully.');
+                isSaved = true; // Mark as saved
+                window.location.href = "{{route('admin.blog')}}"; // Redirect
+            },
+            error: function(xhr) {
+                isSubmitting = false; // Reset the flag on error
+                var errors = xhr.responseJSON.errors;
+                var errorMessages = '';
+                $.each(errors, function(key, value) {
+                    errorMessages += value[0] + '\n';
+                });
+                alert('Error:\n' + errorMessages);
+            }
         });
     });
 
-    let autoSaveInterval;
-    let isSaved = false;
+    // Cancel button handler
+    const cancelButton = document.getElementById('cancelButton');
+    cancelButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        autoSaveDraft();
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 1000); // 1-second delay to allow the autosave to complete
+    });
 
+    // Autosave draft
     function autoSaveDraft() {
         const formData = new FormData(document.querySelector('#blog-form'));
         const data = Object.fromEntries(formData);
@@ -231,6 +234,7 @@
             .then(data => {
                 if (data.success) {
                     console.log("Draft saved successfully:", data.post_id);
+                    isSaved = true; // Mark as saved
 
                     // Create a message element
                     const message = document.createElement('div');
@@ -250,20 +254,22 @@
                     // Remove the message after 2 seconds
                     setTimeout(() => {
                         document.body.removeChild(message);
-                    }, 2000);
+                    }, 5000);
                 }
             })
             .catch(error => {
                 console.error("Error auto-saving draft:", error);
             });
     }
-    setInterval(autoSaveDraft, 30000);
-    // Ensure auto-save on page close or refresh
+
+    // Trigger autosave on page unload, except during form submission
     window.addEventListener("beforeunload", function(e) {
-        if (!isSaved) {
+        if (!isSubmitting && !isSaved) {
             autoSaveDraft();
         }
     });
+});
+
 
     // Add tag list 
     let tags = []; // Array to store tags entered by the user
