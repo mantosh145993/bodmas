@@ -53,10 +53,10 @@
                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-sliders yellow_color"></i> <span>Banner</span></a>
                <ul class="collapse list-unstyled" id="dashboard">
                   <li>
-                     <a href="{{route('admin.banners')}}"> <i class="fa fa-spinner yellow_color"></i> <span>Slider Banner</span></a>
+                     <a href="{{route('admin.banners')}}"> <i class="fa fa-spinner orange_color"></i> <span>Slider Banner</span></a>
                   </li>
                   <li>
-                     <a href="{{route('banner.page')}}"> <i class="fa fa-puzzle-piece yellow_color"></i><span>Page Banner</span></a>
+                     <a href="{{route('banner.page')}}"> <i class="fa fa-puzzle-piece orange_color"></i><span>Page Banner</span></a>
                   </li>
                </ul>
             </li>
@@ -64,7 +64,7 @@
                <a href="#category" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-cogs yellow_color"></i> <span>Category</span></a>
                <ul class="collapse list-unstyled" id="category">
                   <li>
-                     <a href="{{route('list_category.list')}}"> <i class="fa fa-ticket yellow_color"></i> <span>Add New Category</span></a>
+                     <a href="{{route('list_category.list')}}"> <i class="fa fa-ticket orange_color"></i> <span>Add New Category</span></a>
                   </li>
                </ul>
             </li>
@@ -72,7 +72,7 @@
                <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-universal-access yellow_color"></i> <span>Student Dashboard</span></a>
                <ul class="collapse list-unstyled" id="student">
                   <li>
-                     <a href="#"> <i class="fa fa-users yellow_color"></i> <span>Student List</span></a>
+                     <a href="#"> <i class="fa fa-users orange_color"></i> <span>Student List</span></a>
                   </li>
                </ul>
             </li>
@@ -80,7 +80,16 @@
                <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-ungroup yellow_color"></i> <span>Payment Dashboard</span></a>
                <ul class="collapse list-unstyled" id="payment">
                   <li>
-                     <a href="#"> <i class="fa fa-map-signs yellow_color"></i> <span>Payment List</span></a>
+                     <a href="#"> <i class="fa fa-map-signs orange_color"></i> <span>Payment List</span></a>
+                  </li>
+               </ul>
+            </li>
+            <li class="active">
+               <a href="#channel" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fa fa-refresh yellow_color"></i> <span>Bodmas Channel Partners</span></a>
+               <ul class="collapse list-unstyled" id="channel">
+                  <li>
+                     <a href="#"> <i class="fa fa-random orange_color"></i> <span>Partner List</span></a>
                   </li>
                </ul>
             </li>

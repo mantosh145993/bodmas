@@ -30,7 +30,7 @@ class ChatController extends Controller
   
     public function index()
     {
-        $message = Chatbot::paginate(5);
+        $message = Chatbot::OrderBy('id','desc')->paginate(20);
         return view('admin.chatbot.chat_list', ['messages' => $message]);
     }
 
@@ -39,7 +39,6 @@ class ChatController extends Controller
         return view('admin.chatbot.chat_create');
     }
 
-  
     public function store(Request $request)
     {
         $validatedData = $request->validate([
