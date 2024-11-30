@@ -53,6 +53,7 @@ class PagesController extends Controller
         // dd(DB::getQueryLog(), $current_blogs);
         $menus = $this->menuHelper->getMenu();
         $blogs = Post::where('slug', $slug)->first();
+        // dd($blogs);
         return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }
 

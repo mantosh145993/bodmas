@@ -60,7 +60,7 @@
                                                         <label for="title">Meta Description</label>
                                                         <input type="text" class="form-control" name="meta_description" value="{{ old('title', $post->meta_description) }}" required>
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <label for="title">Meta Keywords</label>
                                                         <input type="text" class="form-control" name="meta_keywords" value="{{ old('title', $post->meta_keywords) }}" required>
@@ -112,7 +112,7 @@
                                                             id="feature_description"
                                                             class="form-control"
                                                             rows="2"
-                                                            
+
                                                             placeholder="Enter feature description"
                                                             style="height: 50px;">{{$post->feature_description}}</textarea>
                                                     </div>
@@ -121,6 +121,7 @@
                                                         <label for="content">Content</label>
                                                         <textarea name="content" id="editor">{{ old('content', $post->content) }}</textarea>
                                                     </div>
+                                                    <div id="word-count">Word count: 0</div>
                                                     <button type="submit" class="btn btn-primary">Update</button>
                                                     <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 btn-sm">Cancel</a>
                                                 </form>
@@ -193,12 +194,37 @@
                 });
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize CKEditor
+            CKEDITOR.replace('editor');
+
+            // Add word count display logic
+            const wordCountElement = document.getElementById('word-count');
+
+            // Function to calculate word count
+            function calculateWordCount(text) {
+                return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+            }
+
+            // Listen for changes in CKEditor content
+            CKEDITOR.instances.editor.on('change', function() {
+                // Get content from CKEditor
+                const content = CKEDITOR.instances.editor.getData();
+
+                // Calculate word count
+                const wordCount = calculateWordCount(content);
+
+                // Update word count display
+                wordCountElement.textContent = `Word count: ${wordCount}`;
+            });
+        });
     </script>
 </body>
 
 </html>
 <style>
-        .mb-3 {
+    .mb-3 {
         margin-bottom: 1rem;
         /* Adjust spacing as needed */
     }
