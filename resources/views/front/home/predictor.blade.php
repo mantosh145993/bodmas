@@ -63,7 +63,7 @@ Contact Area
                             </div>
 
                             <div class="form-group" id="state-container">
-                                <select name="state" class="nice-select form-select style-white" id="state" required>
+                                <select name="state" class="nice-select form-select style-white" id="state">
                                     <option value="" disabled selected hidden>Select Domicile*</option>
                                     @foreach($states as $state)
                                     <option value="{{$state->id}}">{{$state->name}}</option>

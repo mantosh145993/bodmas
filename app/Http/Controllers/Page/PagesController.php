@@ -96,12 +96,15 @@ class PagesController extends Controller
                 $state = State::all();
                 $colleges = College::where('type', 'Government')->paginate(5);  // 10 items per page
                 $privats = College::where('type', 'Private')->paginate(5);
+                $courses = Course::paginate(10);
                 $menus = $this->menuHelper->getMenu();
+                // dd($courses);
                 return view('front.home.admision', [
                     'menus' => $menus,
                     'states' => $state,
                     'colleges' => $colleges,
-                    'privats' => $privats
+                    'privats' => $privats,
+                    'courses' =>$courses
                 ]);
             case 'admission/cut-off':
                 $Categories = Category::all();

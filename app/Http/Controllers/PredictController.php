@@ -7,6 +7,7 @@ use App\Models\Category\Category;
 use App\Models\College;
 use App\Models\Medical;
 use App\Models\Predictor;
+use App\Models\Course;
 use DB;
 
 class PredictController extends Controller
@@ -98,8 +99,28 @@ class PredictController extends Controller
 
     public function getCollegesByState(Request $request)
     {
-        $colleges = College::where('state_id', $request->state_id)->get();
-        return response()->json($colleges);
+        $stateId = $request->input('state_id');
+        $courseId = $request->input('course_id');
+        $type = $request->input('type');
+        $query = College::query();
+
+        if ($stateId) {
+            $query->where('state_id', $stateId);
+        }
+        if ($courseId) {
+            $query->where('course_id', $courseId);
+        }
+        if ($type) {
+            $query->where('type', $type);
+        }
+    
+        $colleges = $query->get();
+        $courses = Course::all();
+
+        return response()->json([
+            'colleges' => $colleges,
+            'courses' => $courses,
+        ]);
     }
 
     public function predictor(){

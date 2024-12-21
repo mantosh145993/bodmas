@@ -12,7 +12,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $data = Category::paginate(10); // Get 10 records per page
+        $data = Category::orderBy('id','desc')->paginate(10); // Get 10 records per page
         return view('admin.category.list_category', compact('data'));
     }
 
@@ -25,8 +25,7 @@ class CategoryController extends Controller
 
     public function storeCategories(Request $request)
     {
-        // dd($request->all());
-
+        // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -34,7 +33,17 @@ class CategoryController extends Controller
             'parent_id' => 'nullable|exists:categories,id',
             'type' => 'required'
         ]);
-
+    
+        // Check for duplicate category name
+        $duplicate = Category::where('name', $request->input('name'))->first();
+        if ($duplicate) {
+            return response()->json([
+                'errors' => [
+                    'name' => ['Category name already exists!']
+                ]
+            ], 400);
+        }
+    
         // Create a new category instance
         $category = new Category();
         $category->name = $request->input('name');
@@ -42,7 +51,7 @@ class CategoryController extends Controller
         $category->parent_id = $request->input('parent_id');
         $category->type = $request->input('type');
         $category->state_id = $request->input('state_id');
-
+    
         // Handle the image upload
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
@@ -50,13 +59,18 @@ class CategoryController extends Controller
             $request->file('image')->move(public_path('images/category'), $uniqueName);
             $category->image = $uniqueName;
         }
+    
+        // Save the category
         $category->save();
+    
+        // Return success response
         return response()->json([
             'success' => true,
             'message' => 'Category created successfully!',
             'category' => $category
         ]);
     }
+    
 
     public function editcategory($id)
     {
