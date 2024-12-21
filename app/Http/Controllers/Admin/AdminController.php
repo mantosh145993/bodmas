@@ -213,10 +213,9 @@ class AdminController extends Controller
             'feature_image' => $fileName,
             'status' => $request->input('status', Post::STATUS_DRAFT),
             'is_active' => 1,
-            'tags' => $all_tags
+            'tags' => $all_tags,
+            'published_at' => now()
         ]));
-
-        
 
         // Print the last query and its bindings
 

@@ -32,7 +32,7 @@
                     </div>&nbsp;
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <i class="far fa-user"></i>&nbsp;Artical Editor: {{$blogs->author}} &nbsp;
+                            <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
                             <i class="fa-light fa-calendar-days"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
                             <!-- <i class="fa-light fa-book"></i>&nbsp; -->
                         </div>
