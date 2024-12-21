@@ -113,8 +113,8 @@ Servce Area
                                 <label for="typeDropdown">Select Type:</label>
                                 <select name="type" id="typeDropdown">
                                     <option value="">Select a Type</option>
-                                    <option value="Government">Government</option>
-                                    <option value="Private">Private</option>
+                                    <option id="gov" value="Government">Government</option>
+                                    <option id="pvt" value="Private">Private</option>
                                 </select>
                             </li>
 
@@ -126,8 +126,6 @@ Servce Area
                     </div>
                 </aside>
             </div>
-
-
         </div>
     </div>
 </section>
@@ -142,6 +140,30 @@ Servce Area
         const searchButton = $('#searchButton');
         const collegeListContainer = $('.collegeList');
 
+        const stateTypeMapping = {
+            '35': 'Government', // Example: state_id 10 allows only "Government"
+            '36': 'Private', // Example: state_id 35 allows only "Private"
+            // Add other mappings as needed
+        };
+
+        $('#stateDropdown').on('change', function() {
+            const selectedStateId = $(this).val(); // Get the selected state_id
+            const allowedType = stateTypeMapping[selectedStateId]; // Get allowed type for selected state
+            const typeDropdown = $('#typeDropdown');
+
+            // Reset Type Dropdown
+            typeDropdown.val('');
+            typeDropdown.find('option').show(); // Reset visibility of all options
+
+            if (allowedType) {
+                // Hide all options except the allowed type
+                typeDropdown.find('option').each(function() {
+                    if ($(this).val() !== allowedType && $(this).val() !== '') {
+                        $(this).hide();
+                    }
+                });
+            }
+        });
         // Triggered when the search button is clicked
         searchButton.on('click', function() {
             const stateId = stateDropdown.val();

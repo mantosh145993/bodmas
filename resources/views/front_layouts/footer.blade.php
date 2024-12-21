@@ -120,8 +120,8 @@
 					<div class="col-md-6 text-end d-none d-md-block">
 						<div class="footer-links">
 							<ul>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Condition</a></li>
+								<li><a href="privacy-policy">Privacy Policy</a></li>
+								<li><a href="terms-conditions">Terms & Condition</a></li>
 							</ul>
 						</div>
 					</div>
