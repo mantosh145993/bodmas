@@ -36,8 +36,8 @@
                                         <div class="form-group">
                                             <label for="type">Quota Type</label>
                                             <select class="form-control" id="type" name="type" required>
-                                                <option value="Government"{{ $colleges->type ? 'selected' : '' }}>Government</option>
-                                                <option value="Private" {{ $colleges->type ? 'selected' : '' }}>Private</option>
+                                                <option value="Government" {{ $colleges->type == 'Government' ? 'selected' : '' }}>Government</option>
+                                                <option value="Private" {{ $colleges->type == 'Private' ? 'selected' : '' }}>Private</option>
                                             </select>
                                         </div>
 
