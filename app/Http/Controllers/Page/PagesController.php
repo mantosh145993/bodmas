@@ -120,6 +120,41 @@ class PagesController extends Controller
                 return view('front.home.error', [
                     'menus' => $menus
                 ]);
+            case 'paid-guidance':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.paid-guidance', [
+                    'menus' => $menus
+                ]);
+            case 'veterinary':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.veterinary', [
+                    'menus' => $menus
+                ]);
+            case 'ayush':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.ayush', [
+                    'menus' => $menus
+                ]);
+            case 'md-ms-dnb':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.md-ms-dnb', [
+                    'menus' => $menus
+                ]);
+            case 'dental':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.dental', [
+                    'menus' => $menus
+                ]);
+            case 'nursing':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.nursing', [
+                    'menus' => $menus
+                ]);
+            case 'all-paid-guidance':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.paid-guidance.all-paid-guidance', [
+                    'menus' => $menus
+                ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
                 if ($shortLink) {

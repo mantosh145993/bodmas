@@ -342,7 +342,7 @@ Servce Area
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="#" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="all-paid-guidance" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -359,8 +359,7 @@ Servce Area
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">Education Software and PHP
-                                and JS System Script</a></h3>
+                        <h3 class="course-title"><a href="paid-guidance">Paid Guidance For MBBS</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 8</span>
                             <span><i class="fal fa-user"></i>Students 60+</span>
@@ -388,8 +387,7 @@ Servce Area
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX Design
-                                Essential Training</a></h3>
+                        <h3 class="course-title"><a href="veterinary">Paid Guidance For Veterinary</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 9</span>
                             <span><i class="fal fa-user"></i>Students 50+</span>
@@ -417,8 +415,7 @@ Servce Area
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 & Kotlin
-                                Development Course</a></h3>
+                        <h3 class="course-title"><a href="ayush">Paid Guidance For Ayush</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 7</span>
                             <span><i class="fal fa-user"></i>Students 30+</span>
@@ -446,8 +443,7 @@ Servce Area
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data Science and
-                                Business Analysis</a></h3>
+                        <h3 class="course-title"><a href="md-ms-dnb">Paid Guidance For MD/MS/DNB</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 10</span>
                             <span><i class="fal fa-user"></i>Students 20+</span>
@@ -475,8 +471,7 @@ Servce Area
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">Education Software and PHP
-                                and JS System Script</a></h3>
+                        <h3 class="course-title"><a href="dental">Paid Guidance For Dental</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 8</span>
                             <span><i class="fal fa-user"></i>Students 60+</span>
@@ -504,69 +499,10 @@ Servce Area
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX Design
-                                Essential Training</a></h3>
+                        <h3 class="course-title"><a href="nursing">Paid Guidance For Nursing</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 9</span>
                             <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_3.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 & Kotlin
-                                Development Course</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_4.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data Science and
-                                Business Analysis</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                            <span><i class="fal fa-user"></i>Students 20+</span>
                             <span><i class="fal fa-chart-simple"></i>Beginner</span>
                         </div>
                         <div class="course-author">
