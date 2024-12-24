@@ -56,7 +56,7 @@
 
             </aside>
         </div>
-        <div class="col-xl-9 col-lg-8 order-lg-2 mt-5">
+        <div class="col-xl-9 col-lg-8 order-lg-2 mt-5 show-content">
             {!! $page->content !!}
         </div>
     </div>
@@ -66,48 +66,48 @@
 
 
 <style>
-    .page-content-container {
-        /* padding-top: 150px; */
-        /* Adds padding for spacing */
-        padding-bottom: 50px;
-        /* Adds padding for spacing */
-    }
+.show-content h1,
+.show-content h2,
+.show-content h3,
+.show-content h4,
+.show-content h5,
+.show-content h6 {
+    /* font-family: 'Arial', sans-serif; */
+    /* font-family: 'Roboto', sans-serif; */
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Lato', sans-serif; */
+font-family: 'Playfair Display', serif;
+    /* Ensure font compatibility */
+    /* margin: 20px 0 10px; */
+    /* Add spacing for readability */
+    color: #333;
+    /* Neutral color for headings */
+}
 
+.page-content-container p {
+    font-family: 'Georgia', serif;
+    /* Classic font for paragraphs */
+    line-height: 1.6;
+    /* Improve readability */
+    margin-bottom: 15px;
+    color: black;
+}
+@media screen and (max-width: 600px) {
     .page-content-container img {
         max-width: 100%;
-        max-height: 500px;
-        /* Set a maximum height for images */
-        width: auto;
-        /* Allow width to adjust proportionally */
-        height: auto;
-        /* Keep aspect ratio */
-        display: block;
-        /* Remove inline spacing around images */
-        margin: 20px auto;
-        /* Center-align images with space around */
+        max-height: 300px;
+        /* Adjust for smaller screens */
     }
 
-    .page-content-container p,
-    .page-content-container div {
-        text-align: justify;
-        /* Justify text for cleaner alignment */
+    .page-content-container h1 {
+        font-size: 1.8em;
+        /* Scaled-down headings */
     }
 
-    @media screen and (max-width: 600px) {
-        .page-content-container {
-            text-align: -webkit-center;
-        }
+    .page-content-container p {
+        font-size: 1em;
+        /* Slightly smaller text */
     }
+}
 
-    @media screen and (max-width: 600px) {
-        .page-content-container {
-            text-align: -webkit-center;
-        }
-
-        .page-content-container p,
-        .page-content-container div {
-            text-align: justify;
-        }
-
-    }
 </style>

@@ -189,7 +189,6 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
 
 });
 
-
 Route::get('/get-states', [CategoryController::class, 'getStates']);
 Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup');
 Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');
