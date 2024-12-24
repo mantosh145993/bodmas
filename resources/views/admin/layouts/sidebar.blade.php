@@ -27,7 +27,7 @@
          <!-- <div>{{ Auth::user()->name }}</div> -->
          <ul class="list-unstyled components">
             <li class="">
-               <a href="#all" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All Menue</span></a>
+               <a href="#all" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All Menu</span></a>
                <ul class="collapse list-unstyled" id="all">
                   <li>
                      <a href="{{route('predictor.list')}}"> <i class="fa fa-bar-chart orange_color"></i> <span>Predictor Lead</span></a>
@@ -35,7 +35,7 @@
                   <li>
                      <a href="{{route('guidance.list')}}"> <i class="fa fa-money orange_color"></i> <span>Paid Guidance</span></a>
                   </li>
-                  <li><a href="{{ route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
+                  <li><a href="{{route('pages.pages_list') }}"><i class="fa fa-file-powerpoint-o orange_color"></i> <span>Pages</span></a></li>
                   <li><a href="{{route('menus') }}"><i class="fa fa-server orange_color"></i> <span>All Menu</span></a></li>
                   <li><a href="{{route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
                   <li><a href="{{route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
