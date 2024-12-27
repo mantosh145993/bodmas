@@ -101,7 +101,7 @@ class AdminController extends Controller
 
     public function blog()
     {
-        $data = Post::all();
+        $data = Post::orderBy('id','desc')->get();
         return view('admin.blog-list', compact('data'));
     }
 
@@ -229,34 +229,53 @@ class AdminController extends Controller
         return response()->json(['message' => 'Post created successfully.', 'post' => $post]);
     }
 
+    // public function uploadBlog(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'upload' => 'required|image|mimes:jpeg,png,jpg,gif|max:300', // Max size in KB
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json(['error' => $validator->errors()], 422);
+    //     }
+    //     if ($request->hasFile('upload')) {
+    //         $originalName = $request->file('upload')->getClientOriginalName();
+    //         $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+    //         $extension = $request->file('upload')->getClientOriginalExtension();
+    //         $fileName = $fileName . '_' . time() . '.' . $extension;
+    //         $request->file('upload')->move(public_path('images/posts'), $fileName);
+    //         $url = asset('images/posts/' . $fileName);
+
+    //         return response()->json([
+    //             'FileName' => $fileName,
+    //             'uploaded' => 1,
+    //             'url' => $url
+    //         ]);
+    //     }
+    //     return response()->json([
+    //         'error' => 'No file uploaded.'
+    //     ], 400);
+    // }
     public function uploadBlog(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'upload' => 'required|image|mimes:jpeg,png,jpg,gif|max:300', // Max size in KB
-        ]);
+{
+    $request->validate([
+        'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // Validate image (max 5MB)
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 422);
-        }
-        if ($request->hasFile('upload')) {
-            $originalName = $request->file('upload')->getClientOriginalName();
-            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
-            $extension = $request->file('upload')->getClientOriginalExtension();
-            $fileName = $fileName . '_' . time() . '.' . $extension;
-            $request->file('upload')->move(public_path('images/posts'), $fileName);
-            $url = asset('images/posts/' . $fileName);
+    if ($request->hasFile('file')) {
+        $file = $request->file('file');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('uploads'), $filename);
 
-            return response()->json([
-                'FileName' => $fileName,
-                'uploaded' => 1,
-                'url' => $url
-            ]);
-        }
         return response()->json([
-            'error' => 'No file uploaded.'
-        ], 400);
+            'link' => asset('uploads/' . $filename) // Return uploaded file's URL
+        ]);
     }
 
+    return response()->json(['error' => 'File upload failed.'], 400);
+}
+
+    
     public function updatePermissionBlog(Request $request, $id)
     {
         $validated = $request->validate([
