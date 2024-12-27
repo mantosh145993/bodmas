@@ -160,8 +160,11 @@ class PagesController extends Controller
                 if ($shortLink) {
                     return redirect($shortLink->url);
                 }
-                $slug = '/' . $slug;
-                $page = Page::where('menu_slug', $slug)->first();
+                $withoutSlashSlug = $slug;
+                $slug = '/'. $slug;
+                $page = Page::where('menu_slug', $slug)
+                ->orWhere('slug', $withoutSlashSlug)
+                ->first();
                 if ($page) {
                     $packages = Package::all();
                     $id = $page->id;

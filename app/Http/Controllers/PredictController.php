@@ -33,55 +33,96 @@ class PredictController extends Controller
         $categoryId = $request->category;
         $subcategoryId = $request->subcategory;
         $budget = $request->budget;
-        // DB::enableQueryLog();
+        DB::enableQueryLog();
         $category = Category::where('id', $categoryId)->value('name');
         $subcategory = Category::where('id', $subcategoryId)->value('name');
         
-        $lowerRank = ($rank * 5 / 100 - $rank);
-        $upperRank = ($rank * 10 / 100 + $rank);
+        $lowerRank = floor($rank - ($rank * 5 / 100));
+        $upperRank = ceil($rank + ($rank * 10 / 100));
+                
+        // dd($lowerRank);die;
+        // $rankCutoffs = Medical::where('course', $course)
+        //     ->whereIn('category', [$category, $subcategory]) // Filter by category
+        //     ->when(!empty($budget), function ($query) use ($budget) {
+        //         switch ($budget) {
+        //             case '100000': // Less than 1 lakh
+        //                 $query->where('fee', '<', 100000);
+        //                 break;
         
-        $rankCutoffs = Medical::where('course', $course)
+        //             case '400000': // 2 to 4 lakh
+        //                 $query->whereBetween('fee', [200000, 400000]);
+        //                 break;
+        
+        //             case '800000': // 4 to 8 lakh
+        //                 $query->whereBetween('fee', [400000, 800000]);
+        //                 break;
+        
+        //             case '1200000': // 8 to 12 lakh
+        //                 $query->whereBetween('fee', [800000, 1200000]);
+        //                 break;
+        
+        //             case '1800000': // 12 to 18 lakh
+        //                 $query->whereBetween('fee', [1200000, 1800000]);
+        //                 break;
+        
+        //             case '2400000': // 18 to 24 lakh
+        //                 $query->whereBetween('fee', [1800000, 2400000]);
+        //                 break;
+        
+        //             case '3000000': // 24 to 30 lakh
+        //                 $query->whereBetween('fee', [2400000, 3000000]);
+        //                 break;
+        
+        //             case '9000000': // Above 30 lakh
+        //                 $query->where('fee', '>', 3000000);
+        //                 break;
+        //         }
+        //     })
+        //     ->where(function ($query) use ($rank, $lowerRank, $upperRank) {
+        //         $query->whereBetween('rank', [$lowerRank, $upperRank]);
+        //     })
+        //     ->get();          
+        
+            $rankCutoffs = Medical::where('course', $course)
             ->whereIn('category', [$category, $subcategory]) // Filter by category
             ->when(!empty($budget), function ($query) use ($budget) {
                 switch ($budget) {
                     case '100000': // Less than 1 lakh
                         $query->where('fee', '<', 100000);
                         break;
-        
+
                     case '400000': // 2 to 4 lakh
                         $query->whereBetween('fee', [200000, 400000]);
                         break;
-        
+
                     case '800000': // 4 to 8 lakh
                         $query->whereBetween('fee', [400000, 800000]);
                         break;
-        
+
                     case '1200000': // 8 to 12 lakh
                         $query->whereBetween('fee', [800000, 1200000]);
                         break;
-        
+
                     case '1800000': // 12 to 18 lakh
                         $query->whereBetween('fee', [1200000, 1800000]);
                         break;
-        
+
                     case '2400000': // 18 to 24 lakh
                         $query->whereBetween('fee', [1800000, 2400000]);
                         break;
-        
+
                     case '3000000': // 24 to 30 lakh
                         $query->whereBetween('fee', [2400000, 3000000]);
                         break;
-        
+
                     case '9000000': // Above 30 lakh
                         $query->where('fee', '>', 3000000);
                         break;
                 }
             })
-            ->where(function ($query) use ($rank, $lowerRank, $upperRank) {
-                $query->whereBetween('rank', [$lowerRank, $upperRank])
-                    ->orWhere('rank', $rank);
-            })
-            ->get();           
+            ->whereBetween('rank', [$lowerRank, $upperRank]) // Filter by rank range
+            ->get();
+
 
         // dd(DB::getQueryLog(), $rankCutoffs);
         if ($rankCutoffs->isEmpty()) {

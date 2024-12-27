@@ -52,7 +52,9 @@
                                     </tr>
                                     <tr>
                                         <th>#</th>
-                                        <th> Name</th>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Fee</th>
                                         <th>Course</th>
                                         <th>Category</th>
                                         <th>Round</th>
@@ -63,6 +65,8 @@
                                     <tr>
                                         <td>{{ $medical->college_id }}</td>
                                         <td>{{ $medical->college_name }}</td>
+                                        <td>{{ $medical->type }}</td>
+                                        <td>{{ $medical->fee }}</td>
                                         <td>{{ $medical->course }}</td>
                                         <td>{{ $medical->category }}</td>
                                         <td>{{ $medical->round }}</td>

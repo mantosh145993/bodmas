@@ -7,102 +7,36 @@
 </div>
 
 <script>
-//   ClassicEditor
-//     .create(document.querySelector('#editor'), {
-//         ckfinder: {
-//             uploadUrl: "{{route('admin.upload-blog',['_token'=>csrf_token()])}}"
-//         },
-        
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     });
- 
-ClassicEditor
-    .create(document.querySelector('#editor'), {
-        ckfinder: {
-            uploadUrl: "{{route('admin.upload-blog',['_token'=>csrf_token()])}}"
-        },
-        toolbar: [
-            'heading', 
-            '|',
-            'bold', 'italic', 'underline', 'strikethrough', 'textColor', // Text formatting and text color
-            '|',
-            'link', 'imageUpload', // Link and image
-            '|',
-            'bulletedList', 'numberedList', 'blockQuote', // Lists and blockquote
-            '|',
-            'insertTable', 'tableColumn', 'tableRow', 'tableDelete', // Table and rows/columns
-            '|',
-            'undo', 'redo' // Undo and redo actions
-        ],
-        table: {
-            contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
-        },
-        textColor: {
-            colors: [
-                {
-                    color: 'hsl(0, 75%, 60%)',
-                    label: 'Red'
-                },
-                {
-                    color: 'hsl(30, 75%, 60%)',
-                    label: 'Orange'
-                },
-                {
-                    color: 'hsl(60, 75%, 60%)',
-                    label: 'Yellow'
-                },
-                {
-                    color: 'hsl(120, 75%, 60%)',
-                    label: 'Green'
-                },
-                {
-                    color: 'hsl(180, 75%, 60%)',
-                    label: 'Cyan'
-                },
-                {
-                    color: 'hsl(240, 75%, 60%)',
-                    label: 'Blue'
-                },
-                {
-                    color: 'hsl(300, 75%, 60%)',
-                    label: 'Magenta'
-                },
-                {
-                    color: 'hsl(0, 0%, 0%)',
-                    label: 'Black'
-                },
-                {
-                    color: 'hsl(0, 0%, 30%)',
-                    label: 'Dim gray'
-                }
-            ],
-            columns: 5 // Number of columns in the color picker grid
-        }
-    })
-    .then(editor => {
-        console.log('Editor initialized:', editor);
-
-        // Manually calculate word count
-        const wordCountElement = document.getElementById('word-count');
-        editor.model.document.on('change:data', () => {
-            const text = editor.getData();
-            const wordCount = text
-                .replace(/<[^>]*>/g, '') // Remove HTML tags
-                .trim()
-                .split(/\s+/) // Split by whitespace
-                .filter(word => word.length > 0).length;
-
-            wordCountElement.textContent = `Word count: ${wordCount}`;
-        });
-    })
-    .catch(error => {
-        console.error('Error initializing editor:', error);
-    });
-    
-
-
+ new FroalaEditor('#editor', {
+    imageUploadURL: "{{ route('admin.upload-blog', ['_token' => csrf_token()]) }}", // Laravel route for image upload
+    toolbarButtons: [
+        'bold', 'italic', 'underline', 'strikeThrough', 
+        'formatOL', 'formatUL', // Ordered and unordered lists
+        'paragraphFormat', // Add heading tags
+        'insertLink', // Add hyperlink with text
+        'textColor', 'backgroundColor', // Text and background color
+        'insertTable', 'insertImage', // Tables and images
+        'undo', 'redo' // Undo and redo actions
+    ],
+    imageAllowedTypes: ['jpeg', 'jpg', 'png', 'gif'], // Allowed image types
+    imageMaxSize: 5 * 1024 * 1024, // 5MB Max file size
+    paragraphFormat: { // Define paragraph formats (headings and normal text)
+        N: 'Normal',
+        H1: 'Heading 1',
+        H2: 'Heading 2',
+        H3: 'Heading 3',
+        H4: 'Heading 4',
+        H5: 'Heading 5',
+        H6: 'Heading 6'
+    },
+    linkInsertButtons: ['linkBack'], // Enables the option to add text on hyperlinks
+    colorsBackground: [ // Customize background colors
+        '#FFFFFF', '#FF0000', '#00FF00', '#0000FF', '#FFFF00'
+    ],
+    colorsText: [ // Customize text colors
+        '#000000', '#FF0000', '#00FF00', '#0000FF', '#FFFFFF'
+    ]
+});
 </script>
 
    <!-- jQuery -->

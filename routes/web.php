@@ -20,8 +20,13 @@ use App\Http\Controllers\PaidPackageController;
 use App\Http\Controllers\PredictController;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadCutofController;
+use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 
+// payments Razorpay 
+Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+// end payments Razorpay 
 
 // Predictor
 Route::get('/get-categories', [CategoryController::class, 'getCategories']);

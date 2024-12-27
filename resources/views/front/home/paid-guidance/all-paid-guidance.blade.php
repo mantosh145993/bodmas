@@ -21,86 +21,50 @@ Event Area
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="course-box">
+            <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/course_1_1.png" alt="img">
+                        <img src="assets/img/course/mbbs.jpg" alt="mbbs">
                         <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                     </div>
                     <div class="course-content">
                         <div class="course-rating">
                             <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
+                            </div>(8.7)
                         </div>
-                        <h3 class="course-title"><a href="paid-guidance">Paid Guidance For MBBS</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                            <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
+                        <h3 class="course-title"><a href="paid-guidance"> MBBS</a></h3>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <div class="course-box">
+            <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/course_1_2.png" alt="img">
+                        <img src="assets/img/course/veteniary.jpeg" alt="veteniary">
                         <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
                     </div>
                     <div class="course-content">
                         <div class="course-rating">
                             <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
+                            </div>(5.5)
                         </div>
-                        <h3 class="course-title"><a href="veterinary">Paid Guidance For Veterinary</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                            <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
+                        <h3 class="course-title"><a href="veterinary"> Veterinary</a></h3>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <div class="course-box">
+            <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/course_1_3.png" alt="img">
+                        <img src="assets/img/course/ayush.jpg" alt="img">
                         <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
                     </div>
                     <div class="course-content">
                         <div class="course-rating">
                             <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
+                            </div>(8.4)
                         </div>
-                        <h3 class="course-title"><a href="ayush">Paid Guidance For Ayush</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
+                        <h3 class="course-title"><a href="ayush"> Ayush</a></h3>
                     </div>
                 </div>
             </div>
@@ -109,86 +73,50 @@ Event Area
         <hr class="mt-5 mb-6">
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="course-box">
+            <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/course_1_1.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="md-ms-dnb">Paid Guidance For MD/MS/DND</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                            <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_2.png" alt="img">
+                        <img src="assets/img/course/dnd.jpg" alt="img">
                         <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
                     </div>
                     <div class="course-content">
                         <div class="course-rating">
                             <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
+                            </div>(8.7)
                         </div>
-                        <h3 class="course-title"><a href="dental">Paid Guidance For Dental</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                            <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
+                        <h3 class="course-title"><a href="md-ms-dnb">MD/MS/DNB</a></h3>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <div class="course-box">
+            <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/course_1_3.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
+                        <img src="assets/img/course/dental.jpg" alt="img">
+                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                     </div>
                     <div class="course-content">
                         <div class="course-rating">
                             <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
+                            </div>(9.3)
                         </div>
-                        <h3 class="course-title"><a href="nursing">Paid Guidance For Nursing</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
+                        <h3 class="course-title"><a href="dental"> Dental</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+            <div class="course-box">
+                    <div class="course-img">
+                        <img src="assets/img/course/nursing.jpg" alt="nursing">
+                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-rating">
+                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
+                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
+                            </div>(8.4)
                         </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
+                        <h3 class="course-title"><a href="nursing"> Nursing</a></h3>
                     </div>
                 </div>
             </div>
