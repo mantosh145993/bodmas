@@ -6,6 +6,7 @@ use App\Models\Medical;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
+
 use Hash;
   
 class CutoffImport implements ToModel, WithHeadingRow
@@ -17,9 +18,10 @@ class CutoffImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        // dd($row);
+        // dd($row);die;
         return new Medical([
-            'college_name'     => $row['college_name'],
+            'college_name' => $row['college_name'],
+            'fee'    => $row['fee'],
             'course'     => $row['course'],
             'category'    => $row['category'],
             'rank'    => $row['rank'],
@@ -27,7 +29,6 @@ class CutoffImport implements ToModel, WithHeadingRow
             'quota'    => $row['quota'],
             'state_id'    => $row['state'],
             'type'    => $row['type'],
-            'fee'    => $row['fee'],
         ]);
     }
   
@@ -36,14 +37,4 @@ class CutoffImport implements ToModel, WithHeadingRow
      *
      * @return response()
      */
-    // public function rules(): array
-    // {
-    //     return [
-    //         'college_name' => 'required',
-    //         'college_name' => 'required|min:5',
-    //         'category' => 'required',
-    //         'round' => 'round',
-    //         'rank' => 'rank'
-    //     ];
-    // }
 }
