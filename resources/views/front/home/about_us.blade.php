@@ -335,7 +335,7 @@ Blog Area
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="#" class="th-btn">View All Posts<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('blog-all-posts')}}" class="th-btn">View All Posts<i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>

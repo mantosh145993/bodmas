@@ -95,14 +95,15 @@ Event Area
                                     </div>
                                     <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.
                                         NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p> <br><br>
-                                        <div class="row">
-                                            <div class="col-sm-4 package">
-                                            <h5>Final Booking</h5><p>50,000 INR + GST </p><br>
-                                                <a href="#" class="th-btn style4">Book Now</a>
-                                            </div>
-                                            <div class="col-sm-4"> </div>
-                                            <div class="col-sm-4"> </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 package">
+                                            <h5>Guidance Fee For MBBS Package</h5>
+                                            <p>50,000 INR + GST </p><br>
+                                            <a href="#" class="th-btn style4">Book Now</a>
                                         </div>
+                                        <div class="col-sm-4"> </div>
+                                        <div class="col-sm-4"> </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
@@ -142,14 +143,21 @@ Event Area
                                         <p style="color: red;">10% off on all services for Army/ Police/ siblings / single parent.</p>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-sm-4 package"><h5>First installment </h5><p>70,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a></div>
-                                        <div class="col-sm-4 package"><h5>Second Installment</h5><p>30,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a></div>
                                         <div class="col-sm-4 package">
-                                        <h5>Final Booking</h5><p>100,000 INR + GST </p><br>
-                                        <a href="#" class="th-btn style4">Book Now</a>
+                                            <h5>First installment </h5>
+                                            <p>70,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a>
+                                        </div>
+                                        <div class="col-sm-4 package">
+                                            <h5>Second Installment</h5>
+                                            <p>30,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a>
+                                        </div>
+                                        <div class="col-sm-4 package">
+                                            <h5>Final Booking</h5>
+                                            <p>100,000 INR + GST </p><br>
+                                            <a href="#" class="th-btn style4">Book Now</a>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
@@ -189,13 +197,20 @@ Event Area
                                         </ul>
                                         <p style="color: red;">10% off on all services for Army/ Police/ siblings / single parent.</p>
                                         <div class="row">
-                                        <div class="col-sm-4 package"><h5>First installment </h5><p>105000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a></div>
-                                        <div class="col-sm-4 package"><h5>Second Installment</h5><p>45,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a></div>
-                                        <div class="col-sm-4 package">
-                                        <h5>Final Booking</h5><p>150,000 INR + GST </p><br>
-                                        <a href="#" class="th-btn style4">Book Now</a>
+                                            <div class="col-sm-4 package">
+                                                <h5>First installment </h5>
+                                                <p>105000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a>
+                                            </div>
+                                            <div class="col-sm-4 package">
+                                                <h5>Second Installment</h5>
+                                                <p>45,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a>
+                                            </div>
+                                            <div class="col-sm-4 package">
+                                                <h5>Final Booking</h5>
+                                                <p>150,000 INR + GST </p><br>
+                                                <a href="#" class="th-btn style4">Book Now</a>
+                                            </div>
                                         </div>
-                                    </div>
 
                                     </div>
                                 </div>
@@ -303,8 +318,8 @@ Event Area
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div>
                         <span class="h4 course-price">₹50000.00 <span class="tag"></span></span>
-                        <a href="cart.html" class="th-btn">Add To Cart</a>
-                        <a href="cart.html" class="th-btn style4">Buy Now</a>
+                        <a href="#" class="th-btn">Add To Cart</a>
+                        <a href="#" class="th-btn style4">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
                         <div class="info-list">
                             <ul>
@@ -354,12 +369,12 @@ Event Area
                 </ul>
             </div>
             <div class="col-sm-6">
-              <h5>UPI Payment Options</h5>
-              <ul>
-                <li><strong>Paytm UPI : </strong> 9511626721</li>
-                <li><strong>Paytm QR Code : </strong> (Scan the QR code for instant payment) </li>
-              </ul>
-              <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;" >
+                <h5>UPI Payment Options</h5>
+                <ul>
+                    <li><strong>Paytm UPI : </strong> 9511626721</li>
+                    <li><strong>Paytm QR Code : </strong> (Scan the QR code for instant payment) </li>
+                </ul>
+                <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
         </div>
     </div>
@@ -374,112 +389,49 @@ Servce Area
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
                     <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidence</span>
-                        <h2 class="sec-title">Our Popular Paid Guidence</h2>
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
+                        <h2 class="sec-title">Our Popular Paid Guidance</h2>
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="all-paid-guidance" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
-        <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+        <div class="row slider-shadow th-carousel course-slider-1"
+            data-slide-show="4"
+            data-ml-slide-show="3"
+            data-lg-slide-show="3"
+            data-md-slide-show="2"
+            data-sm-slide-show="1"
+            data-arrows="true">
+            <!-- Dynamic Content -->
+            @foreach($paidPackages as $package)
             <div class="col-md-6 col-lg-4">
                 <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/mbbs.jpg" alt="mbbs">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                        <a href="{{ url($package['url']) }}">
+                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
+                        </a>
                     </div>
                     <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
+                        <h3 class="course-title">
+                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                        </h3>
+                        <p>{{ $package['description'] }}</p>
+                        <div class="course-price">
+                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
+                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                            <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
-                        <h3 class="course-title"><a href="paid-guidance"> MBBS</a></h3>
+                        <!-- Book Now Button -->
+                        <div class="text-left">
+                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/veteniary.jpeg" alt="veteniary">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(5.5)
-                        </div>
-                        <h3 class="course-title"><a href="veterinary"> Veterinary</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/ayush.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="ayush"> Ayush</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dnd.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
-                        </div>
-                        <h3 class="course-title"><a href="md-ms-dnb">MD/MS/DNB</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dental.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(9.3)
-                        </div>
-                        <h3 class="course-title"><a href="dental"> Dental</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/nursing.jpg" alt="nursing">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="nursing"> Nursing</a></h3>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -490,57 +442,67 @@ Footer Area
 
 <style>
     .package {
-  background: #0d5ef4 ; /* Light green gradient */
-  border: 1px solid #81c784; /* Subtle border for the package card */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Soft shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Smooth transition on hover */
-  padding: 20px; /* Padding inside the card */
-  text-align: center; /* Center the content */
-}
+        background: #0d5ef4;
+        /* Light green gradient */
+        border: 1px solid #81c784;
+        /* Subtle border for the package card */
+        border-radius: 10px;
+        /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+        /* Soft shadow */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        /* Smooth transition on hover */
+        padding: 20px;
+        /* Padding inside the card */
+        text-align: center;
+        /* Center the content */
+    }
 
 
-.package:hover {
-  transform: translateY(-5px); /* Lift the card slightly on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1); /* Intensified shadow */
-  background: #3498db ; /* Lighter green on hover */
-  
-}
+    .package:hover {
+        transform: translateY(-5px);
+        /* Lift the card slightly on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+        /* Intensified shadow */
+        background: #3498db;
+        /* Lighter green on hover */
 
-.package h5 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
-}
+    }
 
-.package p {
-  font-size: 16px;
-  color: #fff; /* Red color for pricing */
-  margin-bottom: 15px;
-}
+    .package h5 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 10px;
+    }
 
-.package .th-btn.style4 {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #3498db;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
+    .package p {
+        font-size: 16px;
+        color: #fff;
+        /* Red color for pricing */
+        margin-bottom: 15px;
+    }
 
-.package .th-btn.style4:hover {
-  background: #2980b9;
-}
+    .package .th-btn.style4 {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #3498db;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .package {
-    margin-bottom: 20px;
-  }
-}
+    .package .th-btn.style4:hover {
+        background: #2980b9;
+    }
 
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .package {
+            margin-bottom: 20px;
+        }
+    }
 </style>

@@ -28,6 +28,7 @@ class PaidPackageController extends Controller
         // dd($request->all());
         $rules = [
             'package_name' => 'required|string|max:255',
+            'url' => 'required',
             'description' => 'nullable|string',
             'base_price' => 'required|numeric|min:0',
             'gst_rate' => 'required|numeric|min:0|max:100',
@@ -35,6 +36,7 @@ class PaidPackageController extends Controller
         ];
         $messages = [
             'package_name.required' => 'The package name is required.',
+            'url.required' => 'The package URL is required.',
             'base_price.required' => 'The base price is required.',
             'gst_rate.required' => 'The GST rate is required.',
             'image.image' => 'The uploaded file must be an image.',
@@ -54,6 +56,7 @@ class PaidPackageController extends Controller
         }
         PaidPackage::create([
             'package_name' => $request->input('package_name'),
+            'url' => $request->input('url'),
             'description' => $request->input('description'),
             'base_price' => $request->input('base_price'),
             'gst_rate' => $request->input('gst_rate'),
@@ -81,6 +84,7 @@ class PaidPackageController extends Controller
         $paidPackage = PaidPackage::findOrFail($id);
         $rules = [
             'package_name' => 'required|string|max:255',
+            'url' => 'required',
             'description' => 'nullable|string',
             'base_price' => 'required|numeric|min:0',
             'gst_rate' => 'required|numeric|min:0|max:100',
@@ -102,6 +106,7 @@ class PaidPackageController extends Controller
         }
         $paidPackage->update([
             'package_name' => $request->input('package_name'),
+            'url' => $request->input('url'),
             'description' => $request->input('description'),
             'base_price' => $request->input('base_price'),
             'gst_rate' => $request->input('gst_rate'),

@@ -257,24 +257,23 @@ class AdminController extends Controller
     //     ], 400);
     // }
     public function uploadBlog(Request $request)
-{
-    $request->validate([
-        'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // Validate image (max 5MB)
-    ]);
-
-    if ($request->hasFile('file')) {
-        $file = $request->file('file');
-        $filename = time() . '_' . $file->getClientOriginalName();
-        $file->move(public_path('uploads'), $filename);
-
-        return response()->json([
-            'link' => asset('uploads/' . $filename) // Return uploaded file's URL
+    {
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120', // Validate image (max 5MB)
         ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $filename);
+
+            return response()->json([
+                'link' => asset('uploads/' . $filename) // Return uploaded file's URL
+            ]);
+        }
+
+        return response()->json(['error' => 'File upload failed.'], 400);
     }
-
-    return response()->json(['error' => 'File upload failed.'], 400);
-}
-
     
     public function updatePermissionBlog(Request $request, $id)
     {

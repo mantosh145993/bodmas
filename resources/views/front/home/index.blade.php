@@ -329,7 +329,7 @@ About Area
     </div>
 </div>
 <!--==============================
-Servce Area  
+Paid Guidance Area  
 ==============================-->
 <section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
     <div class="container">
@@ -337,115 +337,53 @@ Servce Area
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
                     <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidence</span>
-                        <h2 class="sec-title">Our Popular Paid Guidence</h2>
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
+                        <h2 class="sec-title">Our Popular Paid Guidance</h2>
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="all-paid-guidance" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
-        <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+        <div class="row slider-shadow th-carousel course-slider-1" 
+            data-slide-show="4" 
+            data-ml-slide-show="3" 
+            data-lg-slide-show="3" 
+            data-md-slide-show="2" 
+            data-sm-slide-show="1" 
+            data-arrows="true">
+            <!-- Dynamic Content -->
+            @foreach($paidPackages as $package)
             <div class="col-md-6 col-lg-4">
                 <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/mbbs.jpg" alt="mbbs">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                    <a href="{{ url($package['url']) }}">
+                        <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
+                    </a>
                     </div>
                     <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
+                        <h3 class="course-title">
+                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                        </h3>
+                        <p>{{ $package['description'] }}</p>
+                        <div class="course-price">
+                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> + 
+                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                            <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
-                        <h3 class="course-title"><a href="paid-guidance"> MBBS</a></h3>
+                         <!-- Book Now Button -->
+                        <div class="text-left">
+                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/veteniary.jpeg" alt="veteniary">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(5.5)
-                        </div>
-                        <h3 class="course-title"><a href="veterinary"> Veterinary</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/ayush.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="ayush"> Ayush</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dnd.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
-                        </div>
-                        <h3 class="course-title"><a href="md-ms-dnb">MD/MS/DNB</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dental.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(9.3)
-                        </div>
-                        <h3 class="course-title"><a href="dental"> Dental</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/nursing.jpg" alt="nursing">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="nursing"> Nursing</a></h3>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
+
 <!--==============================
 Cta Area  
 ==============================-->
@@ -1301,7 +1239,7 @@ Blog Area
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="blog.html" class="th-btn">View All Posts<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('blog-all-posts')}}" class="th-btn">View All Posts<i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -1313,7 +1251,6 @@ Blog Area
                     <a href="{{route('blog_details', $blog->slug)}}">
                                 <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
                             </a>
-
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">

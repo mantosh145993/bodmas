@@ -39,10 +39,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script> -->
-<!-- Froala Editor CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.1.2/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
 
-<!-- Froala Editor JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.1.2/js/froala_editor.pkgd.min.js"></script>
+<!-- Froala Editor CSS -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.1.2/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.1.2/js/froala_editor.pkgd.min.js"></script> -->
+
+
+<!-- Include the Froala CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/css/froala_editor.pkgd.min.css" rel="stylesheet">
+
+<!-- Include the Froala JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/js/froala_editor.pkgd.min.js"></script>
+
 
 </head>

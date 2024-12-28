@@ -42,6 +42,12 @@
                                             <input type="text" class="form-control" id="package_name" name="package_name" required>
                                         </div>
 
+                                         <!-- Package URL -->
+                                         <div class="form-group">
+                                            <label for="package_name">Package URL</label>
+                                            <input type="text" class="form-control" id="package_url" name="url" required>
+                                        </div>
+
                                         <!-- Description -->
                                         <div class="form-group">
                                             <label for="description">Description</label>

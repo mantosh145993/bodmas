@@ -18,6 +18,9 @@ use App\Models\Post;
 use Carbon\Carbon;
 use App\Models\Notice;
 use Illuminate\Support\Facades\DB;
+use App\Mail\EnquiryMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\PaidPackage;
 
 class PagesController extends Controller
 {
@@ -26,11 +29,12 @@ class PagesController extends Controller
     {
         $this->menuHelper = $menuHelper;
     }
-
     public function home()
     {
         $menus = $this->menuHelper->getMenu();
         $messages = Message::all();
+        $paidPackages = PaidPackage::all();
+        // dd($paidPackages);die;
         $blogs = Post::where('is_active', '1')->get();
         $notices = Notice::all();
         return view('front.home.index', [
@@ -39,11 +43,10 @@ class PagesController extends Controller
             'states' => $this->menuHelper->getState(),
             'messages' => $messages,
             'blogs' => $blogs,
-            'notices' => $notices
+            'notices' => $notices,
+            'paidPackages' => $paidPackages
         ]);
     }
-
-
     public function blogDetails($slug)
     {
         // DB::enableQueryLog();
@@ -56,7 +59,6 @@ class PagesController extends Controller
         // dd($blogs);
         return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }
-
     public function index($slug = null)
     {
         switch ($slug) {
@@ -120,40 +122,61 @@ class PagesController extends Controller
                 return view('front.home.error', [
                     'menus' => $menus
                 ]);
-            case 'paid-guidance':
+            case 'paid-guidance-mbbs':
                 $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.paid-guidance', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
                 ]);
-            case 'veterinary':
+            case 'paid-guidance-veterinary':
                 $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.veterinary', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
                 ]);
-            case 'ayush':
+            case 'paid-guidance-ayush':
+                $paidPackages = PaidPackage::all();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.paid-guidance.ayush', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
                 ]);
-            case 'md-ms-dnb':
+            case 'paid-guidance-md-ms-dnb':
                 $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.md-ms-dnb', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
                 ]);
-            case 'dental':
+            case 'paid-guidance-dental':
                 $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.dental', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
                 ]);
-            case 'nursing':
+            case 'paid-guidance-nursing':
                 $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.nursing', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
                 ]);
             case 'all-paid-guidance':
                 $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.all-paid-guidance', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages
+                ]);
+            case 'blog-all-posts':
+                $menus = $this->menuHelper->getMenu();
+                $blogs = Post::orderBy('published_at', 'desc')->paginate(12);
+                return view('front.home.all-posts', [
+                    'menus' => $menus,
+                    'blogs' => $blogs
                 ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
@@ -180,4 +203,24 @@ class PagesController extends Controller
                 abort(404, 'Page not found');
         }
     }
+    
+    public function enquiryContact(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'number' => 'required|numeric',
+            'message' => 'required|string',
+        ]);
+
+        try {
+            Mail::to('educationbodmas@gmail.com')->send(new EnquiryMail($validated));
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'error' => $e->getMessage()]);
+        }
+    }
+
+
 }

@@ -9,6 +9,7 @@ class PaidPackage extends Model
     protected $table ="paid_packages";
     protected $fillable = [
         'package_name',
+        'url',
         'description',
         'base_price',
         'gst_rate',
