@@ -27,7 +27,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
 // end payments Razorpay 
-
+Route::get('blog/all-blogs',[App\Http\Controllers\Page\PagesController::class,'fetchBlogs'])->name('blog.all-blogs');
+Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
+Route::post('/faq', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('faq');
+Route::post('/mcc-counselling', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('mcc-counselling');
+Route::post('/blog-all-posts', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('blog-all-posts');
+// Paid Guidance package
+Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
+Route::post('/paid-guidance-mbbs', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('paid-guidance-mbbs');
+// End Paid Guidance Package
 // Predictor
 Route::get('/get-categories', [CategoryController::class, 'getCategories']);
 Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
@@ -199,7 +207,7 @@ Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup')
 Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');
 Route::get('/packages/by-category/{id}', [PackageController::class, 'getPackagesByCategory'])->name('package.byCategory');
 Route::get('/{slug?}', [PagesController::class, 'index'])->where('slug', '.*');
-Route::get('contact', [PageController::class, 'index'])->name('contact');
+Route::get('contact', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('contact');
 Route::get('about', [PageController::class, 'index'])->name('about');
 Route::get('privacy-policy', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('privacy-policy');
 require __DIR__ . '/auth.php';

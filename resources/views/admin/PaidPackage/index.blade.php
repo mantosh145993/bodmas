@@ -30,7 +30,7 @@
                                         <th>GST Rate</th>
                                         <th>GST Amount</th>
                                         <th>Total Price</th>
-                                        <th>Package Image</th>
+                                        <th>URL</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -46,7 +46,8 @@
                                         <td>{{ $package->gst_amount }}</td>
                                         <td>{{ $package->total_price }}</td>
                                         <td>
-                                            <img src="{{ asset('images/paid_package/' . $package->image) }}" alt="{{ $package->package_name }}" style="width: 250px; height: 50px;">
+                                            {{$package->url}}
+                                            <!-- <img src="{{ asset('images/paid_package/' . $package->image) }}" alt="{{ $package->package_name }}" style="width: 250px; height: 50px;"> -->
                                         </td>
                                         <td>
                                             <a href="{{ route('guidance.view', $package->id) }}" class="btn btn-info">View</a>

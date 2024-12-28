@@ -76,7 +76,6 @@
 									<li><a href="#">Blog & Articals</a></li>
 									<li><a href="#">Guidence Fee MBBS</a></li>
 									<li><a href="#">Neet Ug Counselling 2025</a></li>
-									<li><a href="#">Career</a></li>
 								</ul>
 							</div>
 						</div>
@@ -87,11 +86,11 @@
 							<div class="menu-all-pages-container">
 								<ul class="menu">
 									<li><a href="#">Education Loan</a></li>
-									<li><a href="#">MCC Counselling</a></li>
+									<li><a href="{{route('mcc-counselling')}}">MCC Counselling</a></li>
 									<li><a href="#">Payment Terms</a></li>
 									<li><a href="#">Franchise</a></li>
 									<li><a href="#">Partnership</a></li>
-									<li><a href="#">FAQ'S</a></li>
+									<li><a href="{{route('faq')}}">FAQ'S</a></li>
 								</ul>
 							</div>
 						</div>
