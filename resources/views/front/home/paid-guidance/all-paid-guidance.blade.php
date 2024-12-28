@@ -12,114 +12,51 @@ Event Area
 
 <section class="space">
     <div class="container">
-        <div class="mb-35 text-center text-md-start">
+        <!-- Section Title -->
+        <div class="mb-4 text-center text-md-start">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
-                  <h4> Our All Popular Paid Guidence Packages</h4>
+                    <h4>Our All Popular Paid Guidance Packages</h4>
                 </div>
             </div>
         </div>
+        <!-- Course List -->
         <div class="row">
-            <div class="col-md-6 col-lg-4">
-            <div class="course-box">
+            @foreach($paidPackages as $package)
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="course-box h-100">
+                    <!-- Course Image with Link -->
                     <div class="course-img">
-                        <img src="assets/img/course/mbbs.jpg" alt="mbbs">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                        <a href="{{ url($package['url']) }}">
+                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}" class="img-fluid">
+                        </a>
                     </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
+
+                    <!-- Course Content -->
+                    <div class="course-content p-3">
+
+                        <!-- Course Title -->
+                        <h3 class="course-title mb-2">
+                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                        </h3>
+
+                        <!-- Course Description -->
+                        <p class="mb-3">{{ $package['description'] }}</p>
+
+                        <!-- Course Price -->
+                        <div class="course-price">
+                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
+                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                            <strong class="total-price d-block mt-1">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
-                        <h3 class="course-title"><a href="paid-guidance"> MBBS</a></h3>
+                        <!-- Book Now Button -->
+                        <div class="text-left">
+                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-            <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/veteniary.jpeg" alt="veteniary">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(5.5)
-                        </div>
-                        <h3 class="course-title"><a href="veterinary"> Veterinary</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-            <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/ayush.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="ayush"> Ayush</a></h3>
-                    </div>
-                </div>
-            </div>
-            <!-- Repeat similar structure for remaining items -->
-        </div>
-        <hr class="mt-5 mb-6">
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-            <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dnd.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
-                        </div>
-                        <h3 class="course-title"><a href="md-ms-dnb">MD/MS/DNB</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-            <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dental.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(9.3)
-                        </div>
-                        <h3 class="course-title"><a href="dental"> Dental</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-            <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/nursing.jpg" alt="nursing">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="nursing"> Nursing</a></h3>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

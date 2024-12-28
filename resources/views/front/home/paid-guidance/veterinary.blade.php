@@ -43,39 +43,40 @@ Event Area
                             We have categorised our services into different packages to offer you the best services at the most reasonable cost. Please review each package and select the one that best suits your needs.</p>
                     </div>
                     <div class="row">
-                            <h5>Bodmas Paid Counselling Guidance Fee For Veterinary Package</h5>
-                            <p>Govt. / Pvt. Seat in Govt. Colleges / Pvt. College / Universities</p>
-                            <h6> <del style="color: red;"> 70,000 INR + GST </del> &nbsp; 40,000 INR + GST (@18%)</h6>
-                            <h6>Services Included are :</h6>
-                            <ol>
-                                <li>24/7 Query Support On WhatsApp Messages (Not On Calls)</li>
-                                <li>We will provide counselling for more than two states as per your requirements. </li>
-                                <li>Online NEET mock test on our mobile app for your preparation support.</li>
-                                <li>Previous Year Cut Off as per Your Requirment for Govt. and Pvt. Colleges.</li>
-                                <li>Complete guidance for college selection according to NEET score and budget.</li>
-                                <li>Advice and guidance an all kind of required certificates like Domicile, Category, Minority, GAP, EWS, physically challenged and NRI etc.</li>
-                                <li>Bond and bank guarantee details for relevant state will be discussed and explained in detail.</li>
-                                <li>Detail College Analysis like Seat Matrix, Clinical facts and fee structure will be provided.</li>
-                                <li>Complete Support for MCC/Home State/Deemed and Open Pvt. States.</li>
-                                <li>Safety of security deposit will be our responsibility.</li>
-                                <li>All updates related to court cases for fees, seats, domicile or other eligibility criteria will be explained immediately</li>
-                                <li>State wise list of top Government will be provided.</li>
-                                <li>Round wise Strategy to proceed with the counselling.</li>
-                                <li>Choice filling support during every round from our experts.</li>
-                                <li>Merit list and seat matrix will be discussed with parents and student during all round of counselling</li>
-                                <li>Choice filling preferences for all rounds will be done under guidance of Ashok Sir.</li>
-                                <li>Guidance for physical round of Counselling During Mop up Stray vacancy will will be provided.</li>
-                                <li>Refund policy of security deposit will be explained.</li>
-                                <li>Documentation help at the time of reporting at allotted college will be provided.</li>
-                                <li>Video meeting with our expert counsellor will be provided after every round of counselling.</li>
-                            </ol>
-                            <div class="col-sm-4 package mb-5">
-                                <h5>Veterinary Guidance Fee</h5><p>40,000 INR + GST </p><br>
-                                <a href="#" class="th-btn style4">Book Now</a>
-                            </div>
-                            <h6 style="color: red;" >NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</h6>
+                        <h5>Bodmas Paid Counselling Guidance Fee For Veterinary Package</h5>
+                        <p>Govt. / Pvt. Seat in Govt. Colleges / Pvt. College / Universities</p>
+                        <h6> <del style="color: red;"> 70,000 INR + GST </del> &nbsp; 40,000 INR + GST (@18%)</h6>
+                        <h6>Services Included are :</h6>
+                        <ol>
+                            <li>24/7 Query Support On WhatsApp Messages (Not On Calls)</li>
+                            <li>We will provide counselling for more than two states as per your requirements. </li>
+                            <li>Online NEET mock test on our mobile app for your preparation support.</li>
+                            <li>Previous Year Cut Off as per Your Requirment for Govt. and Pvt. Colleges.</li>
+                            <li>Complete guidance for college selection according to NEET score and budget.</li>
+                            <li>Advice and guidance an all kind of required certificates like Domicile, Category, Minority, GAP, EWS, physically challenged and NRI etc.</li>
+                            <li>Bond and bank guarantee details for relevant state will be discussed and explained in detail.</li>
+                            <li>Detail College Analysis like Seat Matrix, Clinical facts and fee structure will be provided.</li>
+                            <li>Complete Support for MCC/Home State/Deemed and Open Pvt. States.</li>
+                            <li>Safety of security deposit will be our responsibility.</li>
+                            <li>All updates related to court cases for fees, seats, domicile or other eligibility criteria will be explained immediately</li>
+                            <li>State wise list of top Government will be provided.</li>
+                            <li>Round wise Strategy to proceed with the counselling.</li>
+                            <li>Choice filling support during every round from our experts.</li>
+                            <li>Merit list and seat matrix will be discussed with parents and student during all round of counselling</li>
+                            <li>Choice filling preferences for all rounds will be done under guidance of Ashok Sir.</li>
+                            <li>Guidance for physical round of Counselling During Mop up Stray vacancy will will be provided.</li>
+                            <li>Refund policy of security deposit will be explained.</li>
+                            <li>Documentation help at the time of reporting at allotted college will be provided.</li>
+                            <li>Video meeting with our expert counsellor will be provided after every round of counselling.</li>
+                        </ol>
+                        <div class="col-sm-4 package mb-5">
+                            <h5>Veterinary Guidance Fee</h5>
+                            <p>40,000 INR + GST </p><br>
+                            <a href="#" class="th-btn style4">Book Now</a>
+                        </div>
+                        <h6 style="color: red;">NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</h6>
+                    </div>
                 </div>
-                            </div>
             </div>
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
@@ -85,8 +86,8 @@ Event Area
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div>
                         <span class="h4 course-price">₹40000.00 <span class="tag"></span></span>
-                        <a href="cart.html" class="th-btn">Add To Cart</a>
-                        <a href="cart.html" class="th-btn style4">Buy Now</a>
+                        <a href="#" class="th-btn">Add To Cart</a>
+                        <a href="#" class="th-btn style4">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
                         <div class="info-list">
                             <ul>
@@ -156,112 +157,49 @@ Servce Area
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
                     <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidence</span>
-                        <h2 class="sec-title">Our Popular Paid Guidence</h2>
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
+                        <h2 class="sec-title">Our Popular Paid Guidance</h2>
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="all-paid-guidance" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
-        <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+        <div class="row slider-shadow th-carousel course-slider-1"
+            data-slide-show="4"
+            data-ml-slide-show="3"
+            data-lg-slide-show="3"
+            data-md-slide-show="2"
+            data-sm-slide-show="1"
+            data-arrows="true">
+            <!-- Dynamic Content -->
+            @foreach($paidPackages as $package)
             <div class="col-md-6 col-lg-4">
                 <div class="course-box">
                     <div class="course-img">
-                        <img src="assets/img/course/mbbs.jpg" alt="mbbs">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                        <a href="{{ url($package['url']) }}">
+                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
+                        </a>
                     </div>
                     <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
+                        <h3 class="course-title">
+                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                        </h3>
+                        <p>{{ $package['description'] }}</p>
+                        <div class="course-price">
+                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
+                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                            <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
-                        <h3 class="course-title"><a href="paid-guidance"> MBBS</a></h3>
+                        <!-- Book Now Button -->
+                        <div class="text-left">
+                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/veteniary.jpeg" alt="veteniary">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(5.5)
-                        </div>
-                        <h3 class="course-title"><a href="veterinary"> Veterinary</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/ayush.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="ayush"> Ayush</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dnd.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.7)
-                        </div>
-                        <h3 class="course-title"><a href="md-ms-dnb">MD/MS/DNB</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/dental.jpg" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(9.3)
-                        </div>
-                        <h3 class="course-title"><a href="dental"> Dental</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/nursing.jpg" alt="nursing">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(8.4)
-                        </div>
-                        <h3 class="course-title"><a href="nursing"> Nursing</a></h3>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -269,7 +207,6 @@ Servce Area
 Footer Area
 ==============================-->
 @stop
-
 <style>
     .package {
         background: #0d5ef4;
