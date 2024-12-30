@@ -14,6 +14,7 @@ use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaidPackageController;
@@ -27,10 +28,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
 // end payments Razorpay 
-Route::get('blog/all-blogs',[App\Http\Controllers\Page\PagesController::class,'fetchBlogs'])->name('blog.all-blogs');
+// Footer route 	
 Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
 Route::post('/faq', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('faq');
 Route::post('/mcc-counselling', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('mcc-counselling');
+Route::post('/payment-term', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('payment-term');
+Route::post('/educational-loan', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('educational-loan');
+Route::post('/bodmas-gallery', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('bodmas-gallery');
+Route::post('/franchise', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('franchise');
+Route::post('/education-loan-for-mbbs-students', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('education-loan-for-mbbs-students');
+Route::post('/neet-ug-counselling-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('neet-ug-counselling-2025');
+// End footer route
 Route::post('/blog-all-posts', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('blog-all-posts');
 // Paid Guidance package
 Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
@@ -199,6 +207,16 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
    Route::get('guidance/{id}', [PaidPackageController::class, 'show'])->name('guidance.view');
    Route::delete('/guidance/destroy/{id}', [PaidPackageController::class, 'destroy'])->name('guidance.destroy');
   // Guidance End
+
+    // Gallery Start
+    Route::get('/gallery/gallery_list', [GalleryController::class, 'index'])->name('gallery.gallery_list');
+    Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
+    Route::get('/gallery/add', [GalleryController::class, 'add'])->name('gallery.add');
+    Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+    Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    // Gallery End
 
 });
 

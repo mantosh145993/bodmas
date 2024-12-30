@@ -70,12 +70,10 @@
 							<h3 class="widget_title">Quick Links</h3>
 							<div class="menu-all-pages-container">
 								<ul class="menu">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Gallery</a></li>
-									<li><a href="#">Blog & Articals</a></li>
-									<li><a href="#">Guidence Fee MBBS</a></li>
-									<li><a href="#">Neet Ug Counselling 2025</a></li>
+									<li><a href="{{route('/')}}">Home</a></li>
+									<li><a href="{{route('about')}}">About Us</a></li>
+									<li><a href="{{route('bodmas-gallery')}}">Gallery</a></li>
+									<li><a href="{{route('neet-ug-counselling-2025')}}">Neet UG Counselling 2025</a></li>
 								</ul>
 							</div>
 						</div>
@@ -85,10 +83,11 @@
 							<h3 class="widget_title">Important Links</h3>
 							<div class="menu-all-pages-container">
 								<ul class="menu">
-									<li><a href="#">Education Loan</a></li>
+									<li><a href="{{route('educational-loan')}}">Education Loan</a></li>
+									<li><a href="{{route('education-loan-for-mbbs-students')}}">Education Loan For MBBS</a></li>
 									<li><a href="{{route('mcc-counselling')}}">MCC Counselling</a></li>
-									<li><a href="#">Payment Terms</a></li>
-									<li><a href="#">Franchise</a></li>
+									<li><a href="{{route('payment-term')}}">Payment Terms</a></li>
+									<li><a href="{{route('franchise')}}">Franchise</a></li>
 									<li><a href="#">Partnership</a></li>
 									<li><a href="{{route('faq')}}">FAQ'S</a></li>
 								</ul>
