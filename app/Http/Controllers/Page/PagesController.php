@@ -178,6 +178,11 @@ class PagesController extends Controller
                     'menus' => $menus,
                     'blogs' => $blogs
                 ]);
+            case 'bodmas-gallery':
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.gallery', [
+                    'menus' => $menus
+                ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
                 if ($shortLink) {

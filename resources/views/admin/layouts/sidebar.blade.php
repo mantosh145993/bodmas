@@ -69,6 +69,14 @@
                </ul>
             </li>
             <li class="active">
+               <a href="#gallery" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-image yellow_color"></i> <span>Bodmas Gallery</span></a>
+               <ul class="collapse list-unstyled" id="gallery">
+                  <li>
+                     <a href="{{route('gallery.gallery_list')}}"> <i class="fa fa-file-picture-o orange_color"></i> <span>Add Gallery</span></a>
+                  </li>
+               </ul>
+            </li>
+            <li class="active">
                <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-universal-access yellow_color"></i> <span>Student Dashboard</span></a>
                <ul class="collapse list-unstyled" id="student">
                   <li>
