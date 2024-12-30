@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
             MenuSeeder::class,
             // You can add more seeders here
         ]);
+        $this->call(GalleryEventSeeder::class);
     }
 }

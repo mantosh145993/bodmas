@@ -353,7 +353,6 @@ Paid Guidance Area
             data-md-slide-show="2" 
             data-sm-slide-show="1" 
             data-arrows="true">
-            <!-- Dynamic Content -->
             @foreach($paidPackages as $package)
             <div class="col-md-6 col-lg-4">
                 <div class="course-box">
@@ -372,7 +371,6 @@ Paid Guidance Area
                             <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
                             <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
-                         <!-- Book Now Button -->
                         <div class="text-left">
                             <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
                         </div>
