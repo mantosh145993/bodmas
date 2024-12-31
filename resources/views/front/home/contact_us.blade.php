@@ -134,7 +134,7 @@ Contact Area
     </div>
     @stop
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#contact-form').on('submit', function (e) {
