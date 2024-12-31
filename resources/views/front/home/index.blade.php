@@ -397,7 +397,7 @@ Cta Area
                         <h2 class="cta-title sec-title">Get Online Guidence</h2>
                         <p class="cta-text">Met Our Best Guider</p>
                     </div>
-                    <a href="#" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn style8">Book Online Session With Us<i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -434,7 +434,7 @@ Why choose us Area
                         <img src="assets/img/normal/student-group_1_1.png" alt="img">
                     </div>
                     <div class="text-end">
-                        <a class="th-btn mt-30" href="#">Get Started <i class="far fa-arrow-right ms-1"></i></a>
+                        <a class="th-btn mt-30" href="{{route('contact')}}">Get Started <i class="far fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -559,8 +559,8 @@ Cta Area
                     business, tec, design, and more.</p>
             </div>
             <div class="btn-group justify-content-center">
-                <a href="#" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                <a href="#" class="th-btn style2">Become A Teacher<i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="{{route('contact')}}" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="{{route('all-paid-guidance')}}" class="th-btn style2">Explore Our Guidance<i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>
@@ -595,11 +595,10 @@ Team Area
                 <div class="title-area mb-30">
                     <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
                     <h2 class="sec-title">Meet Our BODMAS Expert Instructor</h2>
-                    <p class="sec-text mt-20">Graduates of XYZ University have achieved remarkable success in their chosen fields, with many going on to pursue advanced degrees, secure fulfilling careers, and make valuable contributions to their communities.</p>
-                    <p class="sec-text">The university takes pride in its alumni network, which serves as a testament to the quality of education and the opportunities provided by the institution.</p>
+                    <p class="sec-text mt-20">At BODMAS EDUCATION, our mission is to provide personalized and professional educational counselling that helps students identify their strengths, explore their options, and make informed decisions about their future. We are committed to guiding students through the complex process of academic and career planning to ensure they achieve success in their chosen fields.</p>
                 </div>
                 <div class="btn-group mt-30">
-                    <a href="#" class="th-btn">Explore Courses<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('all-paid-guidance')}}" class="th-btn">Explore Paid Guidance<i class="fas fa-arrow-right ms-2"></i></a>
                     <a href="{{route('contact')}}" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
@@ -607,7 +606,7 @@ Team Area
                 <div class="team-card team-card-1-1 team-card-1-1-active mt-0">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_1.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/ashok.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -623,19 +622,15 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Hirmar Ubunti</a></h3>
-                            <span class="team-desig">Instructor</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>2 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 60+</span>
+                            <h3 class="team-title"><a href="team-details.html">Ashok Singh</a></h3>
+                            <span class="team-desig">Founder & CEO</span>
                         </div>
                     </div>
                 </div>
                 <div class="team-card team-card-1-1">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_2.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/nitu.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -651,12 +646,8 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Marvin McKinney</a></h3>
-                            <span class="team-desig">Founder & CEO</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>3 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 50+</span>
+                            <h3 class="team-title"><a href="team-details.html">Mrs. Divya Singh</a></h3>
+                            <span class="team-desig">Director</span>
                         </div>
                     </div>
                 </div>
@@ -665,7 +656,7 @@ Team Area
                 <div class="team-card team-card-1-2 mt-md-0">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_3.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/akash.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -681,19 +672,15 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Courtney Henry</a></h3>
-                            <span class="team-desig">Junior Instructor</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 30+</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Akash</a></h3>
+                            <span class="team-desig">Manager</span>
                         </div>
                     </div>
                 </div>
                 <div class="team-card team-card-1-2 team-card-1-2-active">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_4.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/abhishek.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -709,12 +696,8 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Brooklyn Simmons</a></h3>
-                            <span class="team-desig">Senior Instructor</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 70+</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Abhishek</a></h3>
+                            <span class="team-desig">Senior Executive</span>
                         </div>
                     </div>
                 </div>
@@ -1060,30 +1043,30 @@ Contact Area
         </div>
     </div>
 </div>
-<section class="cta-area-3 space-top">
+<!-- <section class="cta-area-3 space-top">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-30 mb-lg-0">
-                <div class="cta-card" data-bg-src="assets/img/bg/cta-bg_3_1.png">
+                <div class="cta-card" data-bg-src="assets/img/bg/m.jpg">
                     <div class="title-area mb-40">
-                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Courses</span>
-                        <h4 class="sec-title text-white">Get The Best Courses & <br> Upgrade Your Skills </h4>
+                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Services</span>
+                        <h4 class="sec-title text-white"> Our Guidance For MBBS </h4>
                     </div>
-                    <a href="contact.html" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('contact')}}" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="cta-card" data-bg-src="assets/img/bg/cta-bg_3_2.png">
+                <div class="cta-card" data-bg-src="assets/img/bg/e.jpg">
                     <div class="title-area mb-40">
-                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Courses</span>
-                        <h4 class="sec-title text-white">Engaging Courses for <br> Intellectual Exploration</h4>
+                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Services</span>
+                        <h4 class="sec-title text-white"> <br> BDS Exploration</h4>
                     </div>
-                    <a href="contact.html" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('contact')}}" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--==============================
 Testimonial Area  
 ==============================-->
