@@ -52,8 +52,6 @@
                         @endforeach
                     </div>
                 </div>
-
-
             </aside>
         </div>
         <div class="col-xl-9 col-lg-8 order-lg-2 mt-5 show-content">
@@ -62,9 +60,6 @@
     </div>
 </div>
 @stop
-
-
-
 <style>
 .show-content h1,
 .show-content h2,
@@ -72,23 +67,12 @@
 .show-content h4,
 .show-content h5,
 .show-content h6 {
-    /* font-family: 'Arial', sans-serif; */
-    /* font-family: 'Roboto', sans-serif; */
-/* font-family: 'Montserrat', sans-serif; */
-/* font-family: 'Lato', sans-serif; */
 font-family: 'Playfair Display', serif;
-    /* Ensure font compatibility */
-    /* margin: 20px 0 10px; */
-    /* Add spacing for readability */
     color: #333;
-    /* Neutral color for headings */
 }
-
 .page-content-container p {
     font-family: 'Georgia', serif;
-    /* Classic font for paragraphs */
     line-height: 1.6;
-    /* Improve readability */
     margin-bottom: 15px;
     color: black;
 }
@@ -96,18 +80,12 @@ font-family: 'Playfair Display', serif;
     .page-content-container img {
         max-width: 100%;
         max-height: 300px;
-        /* Adjust for smaller screens */
     }
-
     .page-content-container h1 {
         font-size: 1.8em;
-        /* Scaled-down headings */
     }
-
     .page-content-container p {
         font-size: 1em;
-        /* Slightly smaller text */
     }
 }
-
 </style>
