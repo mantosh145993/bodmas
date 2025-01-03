@@ -46,8 +46,8 @@
                            </div>
                            <div class="counter_no">
                               <div>
-                                 <!-- <p class="total_no">{{$pageCount}}</p> -->
-                                 <p class="total_no">102</p>
+                                 <p class="total_no">{{$pageCount}}</p>
+                                 <!-- <p class="total_no">102</p> -->
                                  <p class="head_couter"><strong> Total Pages</strong> </p>
                               </div>
                            </div>

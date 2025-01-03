@@ -6,27 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <style>
-#popupForm {
-    display: none; /* Initially hidden */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: maroon; /* Light gray for a clean and neutral background */
-    color: #212529; /* Dark gray text for excellent readability */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Subtle shadow for professionalism */
-    padding: 30px; /* Spacing inside the form */
-    z-index: 1000;
-    width: 90%; /* Responsive width */
-    max-width: 400px; /* Maximum width */
-    border-radius: 8px; /* Slightly rounded corners for a professional touch */
-    animation: fadeIn 0.5s ease-out; /* Smooth fade-in effect */
-    font-family: 'Roboto', 'Arial', sans-serif; /* Clean and modern font */
-    text-align: left; /* Left-aligned text */
-    border: 1px solid #dee2e6; /* Light border for subtle definition */
-}
+        #popupForm {
+            display: none;
+            /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: maroon;
+            /* Light gray for a clean and neutral background */
+            color: #212529;
+            /* Dark gray text for excellent readability */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            /* Subtle shadow for professionalism */
+            padding: 30px;
+            /* Spacing inside the form */
+            z-index: 1000;
+            width: 90%;
+            /* Responsive width */
+            max-width: 400px;
+            /* Maximum width */
+            border-radius: 8px;
+            /* Slightly rounded corners for a professional touch */
+            animation: fadeIn 0.5s ease-out;
+            /* Smooth fade-in effect */
+            font-family: 'Roboto', 'Arial', sans-serif;
+            /* Clean and modern font */
+            text-align: left;
+            /* Left-aligned text */
+            border: 1px solid #dee2e6;
+            /* Light border for subtle definition */
+        }
 
-        #popupForm h5 {
+        #popupForm h4 {
             color: #ffffff;
             text-align: center;
         }
@@ -85,12 +97,34 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             /* Reduce shadow */
         }
+
+        /* Close Button */
+        #closePopup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            /* Neutral color */
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        #closePopup:hover {
+            color: #ff0000;
+            /* Red color on hover for emphasis */
+        }
     </style>
 </head>
 
 <body>
     <div id="popupOverlay"></div>
     <div id="popupForm">
+        <button id="closePopup" aria-label="Close">&times;</button>
         <h4>Reach Us</h4>
         <form id="enquiryForm">
             @csrf
@@ -129,6 +163,10 @@
             document.getElementById('popupOverlay').style.display = 'none';
             document.getElementById('popupForm').style.display = 'none';
         });
+        closePopup.addEventListener('click', () => {
+                document.getElementById('popupOverlay').style.display = 'none';
+                document.getElementById('popupForm').style.display = 'none';
+         });
 
         document.getElementById('enquiryForm').addEventListener('submit', async (e) => {
             e.preventDefault();

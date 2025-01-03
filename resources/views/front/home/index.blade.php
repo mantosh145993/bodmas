@@ -395,7 +395,7 @@ Cta Area
                     </div>
                     <div class="cta-content">
                         <h2 class="cta-title sec-title">Get Online Guidence</h2>
-                        <p class="cta-text">Met Our Best Guider</p>
+                        <p class="cta-text">Met Our Best Guid </p>
                     </div>
                     <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn style8">Book Online Session With Us<i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
@@ -708,7 +708,7 @@ Team Area
 <!--==============================
 Event Area  
 ==============================-->
-<section class="space" data-bg-src="assets/img/bg/event-bg_1.png">
+<!-- <section class="space" data-bg-src="assets/img/bg/event-bg_1.png">
     <div class="shape-mockup event-shape1 jump" data-top="0" data-left="-60px">
         <img src="assets/img/team/team-shape_1_1.png" alt="img">
     </div>
@@ -981,7 +981,7 @@ Event Area
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--==============================
 Contact Area  
 ==============================-->
