@@ -18,6 +18,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaidPackageController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PredictController;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadCutofController;
@@ -30,16 +31,19 @@ Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->na
 // end payments Razorpay 
 // Footer route 	
 Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
+Route::post('/partner', [App\Http\Controllers\Page\PagesController::class, 'becomPartner'])->name('enquiry.partner');
 Route::post('/faq', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('faq');
 Route::post('/mcc-counselling', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('mcc-counselling');
 Route::post('/payment-term', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('payment-term');
 Route::post('/educational-loan', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('educational-loan');
 Route::post('/bodmas-gallery', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('bodmas-gallery');
 Route::post('/franchise', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('franchise');
+Route::post('/become-a-partner', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('become-a-partner');
 Route::post('/education-loan-for-mbbs-students', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('education-loan-for-mbbs-students');
 Route::post('/neet-ug-counselling-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('neet-ug-counselling-2025');
 // End footer route
 Route::post('/blog-all-posts', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('blog-all-posts');
+Route::get('/get_blogs_by_category', [App\Http\Controllers\Page\PagesController::class, 'getPosts'])->name('get_blogs_by_category');
 // Paid Guidance package
 Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
 Route::post('/paid-guidance-mbbs', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('paid-guidance-mbbs');
@@ -98,7 +102,6 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/posts/{id}/update-status', [AdminController::class, 'updatePermissionBlog']);
     Route::get('view-blog/{id}', [AdminController::class, 'viewBlog'])->name('admin.view-blog');
     Route::post('/autosave', [AdminController::class, 'autoSave'])->name('admin.autosave');
-
     // blog end
 
     // Slider Banner Start
@@ -218,6 +221,9 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     // Gallery End
 
+    // Partner List Start partner.list
+    Route::get('/partner/list', [PartnerController::class, 'index'])->name('partner.list');
+    // Partner End
 });
 
 Route::get('/get-states', [CategoryController::class, 'getStates']);

@@ -34,9 +34,7 @@
                         <div class="blog-meta">
                             <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
                             <i class="fa-light fa-calendar-days"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
-                            <!-- <i class="fa-light fa-book"></i>&nbsp; -->
                         </div>
-                        <h3>{{$blogs->title}}</h3>
                         {!! $blogs->content !!}
                     </div>
                     <div class="share-links clearfix ">
@@ -77,59 +75,6 @@
                     </div>
 
                 </div>
-                <!-- <div class="th-comments-wrap ">
-                        <h2 class="blog-inner-title h5"> Comments (3)</h2>
-                        <ul class="comment-list">
-                            <li class="th-comment-item">
-                                <div class="th-post-comment">
-                                    <div class="comment-avater">
-                                        <img src="assets/img/blog/comment-author-1.jpg" alt="Comment Author">
-                                    </div>
-                                    <div class="comment-content">
-                                        <h3 class="name">Adam Jhon</h3>
-                                        <span class="commented-on">25Aug, 2023 08:56pm</span>
-                                        <p class="text">Through this blog, we aim to inspire readers to embrace education as a lifelong journey and to advocate for quality education that empowers individuals and communities.</p>
-                                        <div class="reply_and_edit">
-                                            <a href="blog-details.html" class="reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="children">
-                                    <li class="th-comment-item">
-                                        <div class="th-post-comment">
-                                            <div class="comment-avater">
-                                                <img src="assets/img/blog/comment-author-2.jpg" alt="Comment Author">
-                                            </div>
-                                            <div class="comment-content">
-                                                <h3 class="name">Marvin McKinney</h3>
-                                                <span class="commented-on">25Aug, 2023 10:56pm</span>
-                                                <p class="text">Education News and Trends: We provide updates on the latest developments and trends in the education sector, including educational research,</p>
-                                                <div class="reply_and_edit">
-                                                    <a href="blog-details.html" class="reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="th-comment-item">
-                                <div class="th-post-comment">
-                                    <div class="comment-avater">
-                                        <img src="assets/img/blog/comment-author-3.jpg" alt="Comment Author">
-                                    </div>
-                                    <div class="comment-content">
-                                        <h3 class="name">Anadi Juila</h3>
-                                        <span class="commented-on">26Aug, 2023 10:00pm</span>
-                                        <p class="text">We discuss strategies to help students make informed decisions about their educational and career paths, ensuring they are prepared for success in the workforce.</p>
-                                        <div class="reply_and_edit">
-                                            <a href="blog-details.html" class="reply-btn"><i class="fas fa-reply"></i>Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>  -->
-                <!-- Comment end -->
                 <!-- Comment Form -->
                 <form class="th-comment-form ">
                     <div class="form-title">
@@ -161,24 +106,6 @@
             </div>
             <div class="col-xxl-4 col-lg-5">
                 <aside class="sidebar-area">
-                    <!-- <div class="widget widget_search  ">
-                            <form class="search-form">
-                                <input type="text" placeholder="Search Product...">
-                                <button type="submit"><i class="far fa-search"></i></button>
-                            </form>
-                        </div>
-                        <div class="widget widget_categories  ">
-                            <h3 class="widget_title">Categories</h3>
-                            <ul>
-                                <li><a href="service-details.html">Design</a><span>(08)</span></li>
-                                <li><a href="service-details.html">Development</a> <span>(12)</span></li>
-                                <li><a href="service-details.html">Photography</a><span>(15)</span></li>
-                                <li><a href="service-details.html">Health</a><span>(21)</span></li>
-                                <li><a href="service-details.html">Health</a><span>(14)</span></li>
-                                <li><a href="service-details.html">Finance</a><span>(05)</span></li>
-                                <li><a href="service-details.html">Technology</a><span>(10)</span></li>
-                            </ul>
-                        </div> -->
                     <div class="widget">
                         <h3 class="widget_title">Recent Posts</h3>
                         <div class="recent-post-wrap">
@@ -197,18 +124,6 @@
                             @endforeach
                         </div>
                     </div>
-                    <!-- <div class="widget widget_tag_cloud  ">
-                            <h3 class="widget_title">Our Tags</h3>
-                            <div class="tagcloud">
-                                <a href="#">Admission</a>
-                                <a href="#">Councelling</a>
-                                <a href="#">Online</a>
-                                <a href="#">Remote</a>
-                                <a href="#">Education</a>
-                                <a href="#">Solution</a>
-                                <a href="#">Students</a>
-                            </div>
-                        </div> -->
                     <div class="widget widget_banner" data-overlay="theme" data-opacity="9" data-bg-src="assets/img/widget/widget-banner-bg.png">
                         <div class="widget-banner">
                             <h4 class="title">Need Help? We Are Here
@@ -228,6 +143,172 @@
 @stop
 
 <style>
+ /* Blog Content Container */
+ .blog-content {
+    font-family: 'Roboto', 'Arial', sans-serif; /* Professional and clean font */
+    color: #212529; /* Neutral dark gray text for readability */
+    line-height: 1.8; /* Comfortable line spacing for better readability */
+    background-color: #ffffff; /* Clean white background */
+    padding: 20px; /* Padding around the content */
+    border-radius: 8px; /* Smooth corners for modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Blog Meta Information */
+.blog-meta {
+    font-size: 14px; /* Smaller font for meta details */
+    color: #6c757d; /* Muted gray for secondary info */
+    margin-bottom: 10px; /* Space below the meta section */
+    padding: 6px;
+}
+
+.blog-meta i {
+    color: #0D5EF4; /* Blue icons for emphasis */
+}
+
+/* Blog Title (H3) */
+.blog-content h3 {
+    font-size: 28px; /* Prominent size for the blog title */
+    color: #000; /* Blue for a professional highlight */
+    margin-bottom: 20px; /* Space below the title */
+    padding: 6px;
+    font-weight: 400 !important;
+}
+
+/* Dynamic Content Typography */
+
+/* Headings */
+.blog-content h1 {
+    font-size: 36px; /* Largest heading size */
+    font-weight: 0; /* Bold for emphasis */
+    margin: 20px 0; /* Space around headings */
+    color: #343a40; /* Slightly darker gray */
+    padding: 6px;
+}
+
+.blog-content h2 {
+    font-size: 30px; /* Second largest heading size */
+    font-weight: 600; /* Semi-bold for clarity */
+    margin: 18px 0;
+    color: #495057; /* Neutral dark gray */
+    padding: 6px;
+}
+
+.blog-content h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 16px 0;
+    color: black;
+    padding: 6px;
+}
+
+.blog-content h4 {
+    font-size: 19px;
+    font-weight: 300; /* Slightly lighter for subheadings */
+    margin: 14px 0;
+    color: black;
+    padding: 6px;
+}
+
+.blog-content h5 {
+    font-size: 18px;
+    font-weight: 200;
+    margin: 12px 0;
+    color: black;
+    padding: 6px;
+}
+
+.blog-content h6 {
+    font-size: 16px;
+    font-weight: 100; /* Normal weight for smaller headings */
+    margin: 10px 0;
+    color: black; /* Muted gray for minor headings */
+    padding: 6px;
+}
+
+/* Paragraphs */
+.blog-content p {
+    font-size: 16px; /* Standard text size */
+    line-height: 1.8; /* Comfortable line spacing */
+    margin-bottom: 16px; /* Space between paragraphs */
+    color: #212529; /* Primary dark gray for text */
+    text-align: justify; /* Clean justified text */
+    padding: 6px;
+}
+
+/* Lists */
+.blog-content ul, .blog-content ol {
+    margin: 20px 0;
+    padding-left: 40px; /* Indentation for lists */
+    color: #212529; /* Standard text color */
+}
+
+.blog-content ul li, .blog-content ol li {
+    margin-bottom: 8px; /* Space between list items */
+}
+
+/* Links */
+.blog-content a {
+    color: #0D5EF4; /* Blue for links */
+    text-decoration: none; /* No underline */
+    font-weight: 500; /* Medium weight for better visibility */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.blog-content a:hover {
+    color: #0941A6; /* Darker blue on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Blockquotes */
+.blog-content blockquote {
+    font-style: italic;
+    color: #6c757d; /* Muted gray for quotes */
+    border-left: 4px solid #0D5EF4; /* Blue left border */
+    padding-left: 16px; /* Indentation for quotes */
+    margin: 20px 0; /* Space around blockquote */
+}
+
+/* Images */
+.blog-content img {
+    max-width: 100%; /* Responsive images */
+    border-radius: 6px; /* Smooth corners */
+    margin: 20px 0; /* Space around images */
+}
+
+/* Tables */
+.blog-content table {
+    width: 100%; /* Full-width tables */
+    border-collapse: collapse; /* No double borders */
+    margin: 20px 0; /* Space around table */
+    font-size: 14px; /* Slightly smaller text for tables */
+}
+
+.blog-content table th, .blog-content table td {
+    border: 1px solid #dee2e6; /* Light gray borders */
+    padding: 10px; /* Spacing inside cells */
+    text-align: left; /* Left-align text */
+}
+
+.blog-content table th {
+    background-color: #f8f9fa; /* Light gray header background */
+    font-weight: 600; /* Semi-bold for headers */
+}
+
+/* Code Blocks */
+.blog-content pre {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 15px;
+    border-radius: 6px; /* Rounded corners */
+    overflow-x: auto; /* Scroll for long lines */
+}
+
+.blog-content code {
+    background-color: #e9ecef; /* Slightly darker gray */
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #d63384; /* Highlight for inline code */
+}
     .author-description {
         background-color: #f9f9f9; /* Light grey background */
         padding: 20px;
