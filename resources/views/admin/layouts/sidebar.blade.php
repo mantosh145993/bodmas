@@ -97,7 +97,7 @@
                   <i class="fa fa-refresh yellow_color"></i> <span>Bodmas Channel Partners</span></a>
                <ul class="collapse list-unstyled" id="channel">
                   <li>
-                     <a href="#"> <i class="fa fa-random orange_color"></i> <span>Partner List</span></a>
+                     <a href="{{route('partner.list')}}"> <i class="fa fa-random orange_color"></i> <span>Partner List</span></a>
                   </li>
                </ul>
             </li>

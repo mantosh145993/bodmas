@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\EnquiryMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PaidPackage;
+use App\Models\Partner;
 
 class PagesController extends Controller
 {
@@ -92,7 +93,7 @@ class PagesController extends Controller
                     'menus' => $menus,
                     'categories' => $categories,
                     'courses' => $course,
-                    'states'=>$states
+                    'states' => $states
                 ]);
             case 'admission/college-list':
                 $state = State::all();
@@ -106,7 +107,7 @@ class PagesController extends Controller
                     'states' => $state,
                     'colleges' => $colleges,
                     'privats' => $privats,
-                    'courses' =>$courses
+                    'courses' => $courses
                 ]);
             case 'admission/cut-off':
                 $Categories = Category::all();
@@ -173,10 +174,12 @@ class PagesController extends Controller
                 ]);
             case 'blog-all-posts':
                 $menus = $this->menuHelper->getMenu();
+                $categories = Category::where('type', '4')->get();
                 $blogs = Post::orderBy('published_at', 'desc')->paginate(12);
                 return view('front.home.all-posts', [
                     'menus' => $menus,
-                    'blogs' => $blogs
+                    'blogs' => $blogs,
+                    'categories' => $categories
                 ]);
             case 'bodmas-gallery':
                 $menus = $this->menuHelper->getMenu();
@@ -189,10 +192,10 @@ class PagesController extends Controller
                     return redirect($shortLink->url);
                 }
                 $withoutSlashSlug = $slug;
-                $slug = '/'. $slug;
+                $slug = '/' . $slug;
                 $page = Page::where('menu_slug', $slug)
-                ->orWhere('slug', $withoutSlashSlug)
-                ->first();
+                    ->orWhere('slug', $withoutSlashSlug)
+                    ->first();
                 if ($page) {
                     $packages = Package::all();
                     $id = $page->id;
@@ -208,18 +211,26 @@ class PagesController extends Controller
                 abort(404, 'Page not found');
         }
     }
-    
     public function enquiryContact(Request $request)
     {
         // dd($request->all());
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'subject' => 'required|string',
             'number' => 'required|numeric',
+            'subject' => 'required|string',
             'message' => 'required|string',
         ]);
-
+        \DB::table('partners')->insert([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone' => $validated['number'],
+            'course' => $validated['subject'],
+            'message' => $validated['message'],
+            'type'=> $request['type'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
         try {
             Mail::to('educationbodmas@gmail.com')->send(new EnquiryMail($validated));
             return response()->json(['success' => true]);
@@ -227,6 +238,51 @@ class PagesController extends Controller
             return response()->json(['success' => false, 'error' => $e->getMessage()]);
         }
     }
-
-
+    
+    public function becomPartner(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'number' => 'required|numeric|digits:10',
+            'message' => 'required|string',
+        ]);
+        try {
+            // Insert data into the database
+            \DB::table('partners')->insert([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'phone' => $validated['number'],
+                'message' => $validated['message'],
+                'type'=> $request['type'],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            // Prepare email data
+            $emailBody = "
+            <h1>New Partner Enquiry Received</h1>
+            <p><strong>Name:</strong> {$validated['name']}</p>
+            <p><strong>Email:</strong> {$validated['email']}</p>
+            <p><strong>Phone Number:</strong> {$validated['number']}</p>
+            <p><strong>Message:</strong> {$validated['message']}</p>
+            ";
+            // Send the email
+            \Mail::html($emailBody, function ($message) use ($validated) {
+                $message->to('educationbodmas@gmail.com')
+                ->subject('New Partner Enquiry from ' . $validated['name']);
+            });
+            return response()->json(['success' => true, 'message' => 'Enquiry submitted successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'error' => $e->getMessage()]);
+        }
+    }
+    
+    public function getPosts(Request $request)
+    {
+        $category_id = $request->get('category_id');
+        $posts = Post::where('category_id', $category_id)->get();
+        return response()->json([
+            'blogs' => $posts,
+        ]);
+    }
 }

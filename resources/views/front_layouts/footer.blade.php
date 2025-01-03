@@ -104,6 +104,10 @@
 								<i class="far fa-envelope"></i>
 								<button type="submit" class="th-btn style3">Subscribe Now <i class="far fa-arrow-right ms-1"></i></button>
 							</form>
+							<!-- Trigger Button -->
+							<button type="button" class="th-btn style3" onclick="goToPartnerRoute()"> 
+								Become a Partner<i class="far fa-arrow-right ms-1"></i>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -135,6 +139,7 @@
 	******************************** -->
 
 <!-- Scroll To Top -->
+
 <div class="scroll-top mb-5">
 	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
 		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
@@ -171,5 +176,10 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
-
 </html>
+<script>
+	function goToPartnerRoute() {
+    window.location.href = "{{ route('become-a-partner') }}";
+}
+
+</script>
