@@ -21,26 +21,52 @@ Event Area
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
                         <h2 class="course-title">Helping Students in making their career.</h2>
-                        <h3 class="course-title"> MBBS Admission Counseling & Guidance Services for 2025-26</h3>
+                        <h3 class="course-title"> Unlock Your Future with Expert MBBS Admission Counselling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
-                        <p>The counselling process requires fast and accurate information with experience that can make a huge difference. Choosing the number of open states for counselling is an important step, as it is common for counselling dates to overlap. Doing the correct choice filling is crucial, as a wrong selection may result in losing security money, which can amount to up to Rs 2 lakh, or in disqualification from future rounds. Moreover, many students with excellent grades often miss out on admissions due to insufficient information. Therefore, our services are tailored to offer you the best possible opportunities.</p>
-                        <strong>Regular News & Updates :</strong>
-                        <p>We will ensure that you stay up-to-date with all the essential information related to NEET, NTA, MCC, state counselling, and MBBS colleges. This package is designed to provide you with all the critical updates concerning MBBS admissions, such as important dates, submission deadlines, and essential instructions. Additionally, our services will function as a calendar and scheduler, ensuring that you complete every necessary action correctly and on time. Our professional team is trained to monitor your progress and provide regular reminders, leaving no room for missed opportunities.</p>
-                        <strong>Documentation and Technical Assistance :</strong>
-                        <p>At times, the registration form for counseling may present technical difficulties, such as issues with uploading images, paying security fees, or meeting eligibility criteria. We can assist you in resolving such issues, and we will also explain the eligibility criteria, such as the benefits of belonging to a particular category or domicile. Together with you, we will create a systematic plan to manage counseling for multiple states while ensuring that you remain eligible for the best opportunities to secure admission to your desired college. As each student has unique priorities, individual planning and preparation are necessary.</p>
-                        <strong>How to Book Services:</strong>
-                        <p>To ensure high-quality services and maintain our 100% delivery ratio, we accept a limited number of bookings on a first-come, first-served basis. We are highly selective and only accept bookings that we are confident we can deliver to a 100% satisfaction level.</p>
-                        <strong>You can apply to our services in following manners:</strong>
-                        <p>1: Apply for our services via the link provided by our counselor or directly on our website.
-                            2: You can apply on our Mobile app “ Bodmas Education “
-                            3: You can directly walk in to our Noida office and fill application form
-                            4: Fill out the Google form to apply for our paid counselling services.
-                            5: Email all required documents as per the details provided by our counselor, along with the duly filled and signed service booking form.
-                            A payment receipt will be shared with you after payment.
-                            Once you have received your payment receipt, sit back and relax. We will take care of all the counselling procedures on your behalf.
-                            Note: If you are not able to book our services through the above-mentioned methods,
-                            You can speak with our team for assistance.
-                            We have categorised our services into different packages to offer you the best services at the most reasonable cost. Please review each package and select the one that best suits your needs.</p>
+                        <p>Choosing the right career path is one of the most important decisions you’ll ever make. If you're aiming for an MBBS degree, the admission process can be complex and overwhelming. That’s where we come in. Our <strong> MBBS Admission Counselling & Guidance Services </strong> are designed to streamline your journey, ensuring you make informed decisions and secure a place at your dream college. Let us help you unlock the doors to a successful medical career!</p>
+
+                        <strong>Why Choose Our Paid Counselling Services?</strong>
+                        <p>The process of MBBS admission can be daunting and filled with numerous deadlines, overlapping counselling dates, and technical hurdles. Our <strong> paid counselling services </strong> offer you a strategic edge. Here's why we are the best choice for you:</p>
+                        <ul>
+                            <li>
+                                <p><strong>Expert Guidance & Fast, Accurate Information : </strong> With years of experience, we understand that timing and precision are everything. Missing key deadlines or making incorrect choices during counselling can cost you your security money (up to ₹2 lakh) or even disqualify you from future rounds. Our team ensures that you’re always a step ahead with timely, accurate advice.</p>
+                            </li>
+                            <li>
+                                <p> <strong>Your Opportunities: </strong> Many high-achieving students lose out on their dream colleges simply because they don’t have access to the right information. We specialize in helping you navigate the complexities of the counselling process, ensuring you never miss a chance to secure admission.
+                            </li>
+                            </p>
+                        </ul>
+                        <p><strong>Regular Updates to Keep You Ahead :</strong> Our services go beyond just counselling. We provide you with real-time updates on everything related to MBBS admissions, including:</p>
+                        <ul>
+                            <li>NEET, NTA, MCC & State Counselling updates</li>
+                            <li>Key dates and deadlines</li>
+                            <li>Important instructions to avoid last-minute confusion</li>
+                        </ul>
+                        <p>Think of us as your personal MBBS admissions calendar and scheduler. We’ll send timely reminders, track your progress, and ensure you meet every deadline—so you never miss a beat!</p>
+                        <strong>Seamless Documentation and Technical Assistance</strong>
+                        <p>Sometimes, technical glitches can hinder your progress—whether it's uploading documents, paying security fees, or understanding eligibility criteria. We’re here to make sure these issues don’t stand in your way:</p>
+                        <ul>
+                            <li><strong> Troubleshooting:</strong> Whether it’s a technical issue or an eligibility concern, we’ll guide you every step of the way.</li>
+                            <li> <strong> Eligibility Clarifications: </strong> If you belong to a particular category or have domicile-specific benefits, we’ll help you leverage these advantages during the admission process.</li>
+                            <li> <strong> State-Specific Counselling Management: </strong>We’ll create a tailored strategy for you, ensuring you can apply to multiple states without compromising your chances of securing the best seat.</li>
+                        </ul>
+                        <strong>How to Book Our Services</strong>
+                        <p>We are committed to providing high-quality, personalized services. To maintain our 100% satisfaction delivery rate, we only accept a limited number of bookings. Here's how you can book our expert counselling services:</p>
+                        <ol>
+                            <li>Apply through the link provided by our counselor or directly on our website.</li>
+                            <li>Use our Mobile App "Bodmas Education" to apply.</li>
+                            <li>Walk-in to our Noida office and fill out the application form in person.</li>
+                            <li>Fill out our Google form to book our counselling services.</li>
+                            <li>Email the required documents, along with the completed service booking form, as provided by our counselor.</li>
+                        </ol>
+                        <p>Once you’ve made the payment, we’ll send you a receipt. Our expert team will handle the entire counselling process for you. </p>
+                        <strong>Flexible Packages to Suit Your Needs</strong>
+                        <p>We’ve designed our counselling services into varied packages to ensure the best value for your needs. Our services are reasonably priced and tailored to offer the highest level of support. We highly encourage you to review the packages and select the one that works best for you.
+                            <i> Note: If you’re unable to book through the methods above, feel free to reach out to our team for assistance. We’re here to help!</i>
+                        </p>
+                        <strong>Let Us Guide You Toward Your Medical Career</strong>
+                        <p>With the right guidance, securing an MBBS seat can be a smooth and successful journey. Let us take care of the complexities while you focus on your goal—becoming a doctor.</p>
+                        <strong>Book our counselling services today and take the first step towards a brighter future in medicine!</strong>
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -109,10 +135,7 @@ Event Area
                             <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
                                 <div class="course-curriculam">
                                     <h6>Bodmas Paid Counselling Guidance Fee For Premium Package</h6>
-                                    <p>Our exclusive package includes the benefits of our Alert and Counseling packages, along with personalized college guidance that fits your budget. All you need to do is provide us with your candidate details and choice of colleges, and our highly trained and experienced professional team will take care of everything, from registration to choice filling and locking.
-                                        With our premium package, you can stay stress-free knowing that our senior team will handle everything. Additionally, during the mop-up round, you will receive high-priority updates about vacant seats to maximize your chances of admission in the final round.</p>
-
-                                    <p><del style="color: red;">150,000 INR + GST </del> &nbsp; 1,00,000 INR + GST (@18%)</p>
+                                    <del style="color: red;">150,000 INR + GST </del> &nbsp; 1,00,000 INR + GST (@18%)</p>
                                     <strong>Services Included are:</strong> <br><br>
                                     <div class="checklist mb-1">
                                         <ul>
@@ -384,7 +407,7 @@ Servce Area
 ==============================-->
 <br><br>
 <section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
-<div class="container">
+    <div class="container">
         <div class="mb-35 text-center text-md-start">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
