@@ -28,7 +28,7 @@ Project Area
     <!--==============================
 Gallery Area  
 ==============================-->
-    <div class="space">
+    <!-- <div class="space">
         <div class="container">
             <div class="row gy-4 masonary-active">
                 <div class="col-md-6 col-xxl-auto filter-item">
@@ -213,8 +213,76 @@ Gallery Area
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <div class="space">
+    <div class="container">
+        <div class="row gy-4 masonary-active">
+            @foreach($events as $event)
+                <div class="col-md-6 col-xxl-4 filter-item">
+                    <div class="gallery-card">
+                        <div class="gallery-img position-relative">
+                            <img src="{{ asset('images/events/' . $event->image_url) }}" alt="{{ $event->title }}" class="img-fluid">
+                            <button class="gallery-btn preview-btn" data-bs-toggle="modal" data-bs-target="#imageModal" 
+                                data-image="{{ asset('images/events/' . $event->image_url) }}" 
+                                data-title="{{ $event->title }}" 
+                                data-tag="{{ $event->tag }}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="gallery-content">
+                            <span class="gallery-tag">{{ $event->tag }}</span>
+                            <h2 class="gallery-title">{{ $event->title }}</h2>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
+
+    <!-- Modal for Image Preview -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" alt="Preview Image" class="img-fluid mb-3">
+                    <h6 id="modalTitle" class="mt-2"></h6>
+                    <p id="modalTag" class="text-muted"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
     <!--==============================
 	Footer Area
 ==============================-->
 @stop
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalTag = document.getElementById('modalTag');
+        
+        document.querySelectorAll('.preview-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const image = button.getAttribute('data-image');
+                const title = button.getAttribute('data-title');
+                const tag = button.getAttribute('data-tag');
+                
+                modalImage.src = image;
+                modalTitle.textContent = title;
+                modalTag.textContent = tag;
+            });
+        });
+    });
+</script>

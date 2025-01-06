@@ -22,6 +22,7 @@ use App\Mail\EnquiryMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PaidPackage;
 use App\Models\Partner;
+use App\Models\GalleryEvent;
 
 class PagesController extends Controller
 {
@@ -35,9 +36,9 @@ class PagesController extends Controller
         $menus = $this->menuHelper->getMenu();
         $messages = Message::all();
         $paidPackages = PaidPackage::all();
-        // dd($paidPackages);die;
         $blogs = Post::where('is_active', '1')->get();
         $notices = Notice::all();
+        $events = GalleryEvent::all();
         return view('front.home.index', [
             'menus' => $menus,
             'banners' => $this->menuHelper->getSlider(),
@@ -45,20 +46,9 @@ class PagesController extends Controller
             'messages' => $messages,
             'blogs' => $blogs,
             'notices' => $notices,
-            'paidPackages' => $paidPackages
+            'paidPackages' => $paidPackages,
+            'events' => $events
         ]);
-    }
-    public function blogDetails($slug)
-    {
-        // DB::enableQueryLog();
-        $currentDate = now();
-        $sevenDaysAgo = now()->subDays(7);
-        $current_blogs = Post::whereBetween('published_at', [$sevenDaysAgo, $currentDate])->limit(10)->get();
-        // dd(DB::getQueryLog(), $current_blogs);
-        $menus = $this->menuHelper->getMenu();
-        $blogs = Post::where('slug', $slug)->first();
-        // dd($blogs);
-        return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }
     public function index($slug = null)
     {
@@ -183,8 +173,10 @@ class PagesController extends Controller
                 ]);
             case 'bodmas-gallery':
                 $menus = $this->menuHelper->getMenu();
+                $events = GalleryEvent::all();
                 return view('front.home.gallery', [
-                    'menus' => $menus
+                    'menus' => $menus,
+                    'events' => $events
                 ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
@@ -210,6 +202,18 @@ class PagesController extends Controller
                 }
                 abort(404, 'Page not found');
         }
+    }
+    public function blogDetails($slug)
+    {
+        // DB::enableQueryLog();
+        $currentDate = now();
+        $sevenDaysAgo = now()->subDays(7);
+        $current_blogs = Post::whereBetween('published_at', [$sevenDaysAgo, $currentDate])->limit(10)->get();
+        // dd(DB::getQueryLog(), $current_blogs);
+        $menus = $this->menuHelper->getMenu();
+        $blogs = Post::where('slug', $slug)->first();
+        // dd($blogs);
+        return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }
     public function enquiryContact(Request $request)
     {
