@@ -86,7 +86,7 @@ Contact Area
 
                             <!-- Form contents as provided -->
                             <div class="form-group">
-                                <select name="course" id="subject" class="nice-select form-select style-white" >
+                                <select name="course" id="subject" class="nice-select form-select style-white">
                                     <option value="" disabled selected hidden>Select a Course*</option>
                                     @foreach($courses as $course)
                                     <option value="{{ $course->title }}">{{ $course->title }}</option>
@@ -119,9 +119,8 @@ Contact Area
             <div class="container mt-5">
                 <h4> Predicted Colleges..</h4>
 
-                <div id="error-message"></div>
                 <!-- Table to display predictions -->
-                <table id="predictions-table">
+                <table id="predictions-table" class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>College Name</th>
@@ -129,22 +128,21 @@ Contact Area
                             <th>Quota</th>
                             <th>Course</th>
                             <th>Category</th>
-                            <th>Cutoff</th>
+                            <th>Rank</th>
                             <th>Round</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <div id="error-message"></div>
                         <!-- Predictions will be inserted here -->
-                    </tbody>
+
                 </table>
             </div>
         </div>
         <!-- Error message container -->
     </div>
-    @stop
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @stop
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const errorMessage = document.getElementById('error-message'); // Ensure this exists in your HTML
@@ -152,7 +150,7 @@ Contact Area
                 event.preventDefault();
                 // Call the validateForm function to check all fields
                 if (!validateForm()) {
-                    return; // Stop execution if validation fails
+                    return; // Stop execution if validation fails all file included here
                 }
                 let formData = new FormData(document.getElementById('predictForm'));
                 fetch("{{ route('predict.college') }}", {
@@ -183,29 +181,69 @@ Contact Area
             });
 
             function displayPredictions(predictions) {
-                const tableBody = document.querySelector('#predictions-table tbody');
+                const table = $('#predictions-table'); // Use jQuery to target the table
                 const errorMessage = document.getElementById('error-message');
-                tableBody.innerHTML = ''; // Clear any existing rows
+
+                // Clear any existing error message
+                errorMessage.innerHTML = '';
 
                 if (predictions && predictions.length > 0) {
-                    errorMessage.innerHTML = ''; // Clear any error message
+                    // Destroy existing DataTable instance if it exists
+                    if ($.fn.DataTable.isDataTable(table)) {
+                        table.DataTable().destroy();
+                    }
+
+                    // Clear table body
+                    table.find('tbody').empty();
+
+                    // Populate the table body with predictions
                     predictions.forEach(prediction => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                <td>${prediction.college_name}</td>
-                <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
-                <td>${prediction.quota == 2 ? 'Pvt':'Govt'}</td>
-                <td>${prediction.course}</td>
-                <td>${prediction.category || 'N/A'}</td>
-                <td>${prediction.rank}</td>
-                <td>${prediction.round || 'N/A'}</td>
+                        const row = `
+                <tr>
+                    <td>${prediction.college_name}</td>
+                    <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
+                    <td>${prediction.quota == 2 ? 'Pvt' : 'Govt'}</td>
+                    <td>${prediction.course}</td>
+                    <td>${prediction.category || 'N/A'}</td>
+                    <td>${prediction.rank}</td>
+                    <td>${prediction.round || 'N/A'}</td>
+                </tr>
             `;
-                        tableBody.appendChild(row);
+                        table.find('tbody').append(row);
                     });
+
+                    // Initialize DataTable
+                    table.DataTable({
+                        paging: true, // Enable pagination
+                        searching: true, // Enable search box
+                        info: true, // Show table information
+                        lengthChange: true, // Allow changing page length
+                        pageLength: 10, // Set default page length
+                        columnDefs: [{
+                                orderable: false,
+                                targets: []
+                            }, // Specify any columns to exclude from sorting
+                        ],
+                        language: {
+                            paginate: {
+                                previous: "Back", // Custom text for "Previous"
+                                next: "More Colleges", // Custom text for "Next"
+                            },
+                            info: "We are present college list according provided rank! ",
+                            infoEmpty: "No data available",
+                            infoFiltered: "(filtered rank from total _MAX_ colleges)",
+                        },
+                    });
+
                 } else {
+                    // Show an error message if no predictions are available
                     errorMessage.innerHTML = `<div class="alert alert-danger">No predictions available.</div>`;
                 }
             }
+
+
+
+
             function validateForm() {
                 let isValid = true; // Track if all validations pass
                 const form = document.getElementById('predictForm');
@@ -266,7 +304,7 @@ Contact Area
             });
             // On selecting a category
             $('#category').change(function() {
-                var state = $('#state').val(); 
+                var state = $('#state').val();
                 var categoryId = $(this).val(); // Get the selected category value
                 $('#subcategory-container').show(); // Show the subcategory container
                 $('#subcategory').html('<option value="" disabled selected hidden>Select Subcategory*</option>'); // Reset subcategories dropdown

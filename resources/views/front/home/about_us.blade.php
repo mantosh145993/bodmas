@@ -62,7 +62,7 @@ Service Area
                             <img src="assets/img/icon/service-icon-3-3.svg" alt="Icon">
                         </div>
                         <h3 class="box-title">Your Future, Our Focus: Personalized Education Plans</h3>
-                        <p class="service-card-text"> BODMAS Education offers a wide range of programs designed to cater to the diverse educational and career goals of students. With a focus on providing personalized guidance, BODMAS Education ensures that students select the best path for their professional futures.</p>
+                        <p class="service-card-text"> BODMAS Education offers a Popular Paid Guidance and career goals for students. With a focus on providing personalized guidance, BODMAS Education ensures that students select the best path for their professional futures.</p>
                     </div>
                 </div>
             </div>
@@ -119,8 +119,7 @@ About Area
                         <div class="about-grid3">
                             <div class="about-grid-icon"><img src="assets/img/icon/about-grid-icon2-1.svg" alt="icon"></div>
                             <div class="details">
-                                <h5>Undergraduate Education</h5>
-                                <p>With flexible courses</p>
+                                <h5>UG Education</h5>
                             </div>
                         </div>
                     </div>
@@ -128,29 +127,11 @@ About Area
                         <div class="about-grid3">
                             <div class="icon"><img src="assets/img/icon/about-grid-icon2-2.svg" alt="icon"></div>
                             <div class="details">
-                                <h5>Postgraduate Education</h5>
-                                <p>Study flexibly online</p>
+                                <h5>PG Education</h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-md-auto">
-                        <div class="about-grid_img mb-30 mb-md-0">
-                            <img src="assets/img/normal/about_1_4.png" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="checklist">
-                            <ul>
-                                <li>Get access to 4,000+ of our top courses</li>
-                                <li>Popular topics to learn now</li>
-                                <li>Find the right instructor for you</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <a href="about.html" class="th-btn mt-40">ABOUT MORE<i class="fa-regular fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>

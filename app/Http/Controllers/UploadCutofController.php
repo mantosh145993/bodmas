@@ -12,7 +12,7 @@ class UploadCutofController extends Controller
 {
     public function index()
     {
-        $medicals = Medical::orderBy('college_id', 'desc')->paginate(10);
+        $medicals = Medical::orderBy('college_id', 'desc')->paginate(100);
         return view('admin.cutoff', compact('medicals'));
     }
 

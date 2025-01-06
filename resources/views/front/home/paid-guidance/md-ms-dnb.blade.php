@@ -21,15 +21,50 @@ Event Area
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
                         <h2 class="course-title">Helping Students in making their career.</h2>
-                        <h3 class="course-title"> MD/MS/DNB Admission Counseling & Guidance Services for 2025-26</h3>
-                        <strong>What Is the Need of Our Paid Counselling Services?</strong>
-                        <p>The counselling process requires fast and accurate information with experience that can make a huge difference. Choosing the number of open states for counselling is an important step, as it is common for counselling dates to overlap. Doing the correct choice filling is crucial, as a wrong selection may result in losing security money, which can amount to up to Rs 2 lakh, or in disqualification from future rounds. Moreover, many students with excellent grades often miss out on admissions due to insufficient information. Therefore, our services are tailored to offer you the best possible opportunities.</p>
-                        <strong>Regular News & Updates :</strong>
-                        <p>We will ensure that you stay up-to-date with all the essential information related to NEET, NTA, MCC, state counselling, and MBBS colleges. This package is designed to provide you with all the critical updates concerning MBBS admissions, such as important dates, submission deadlines, and essential instructions. Additionally, our services will function as a calendar and scheduler, ensuring that you complete every necessary action correctly and on time. Our professional team is trained to monitor your progress and provide regular reminders, leaving no room for missed opportunities.</p>
-                        <strong>Documentation and Technical Assistance :</strong>
-                        <p>At times, the registration form for counseling may present technical difficulties, such as issues with uploading images, paying security fees, or meeting eligibility criteria. We can assist you in resolving such issues, and we will also explain the eligibility criteria, such as the benefits of belonging to a particular category or domicile. Together with you, we will create a systematic plan to manage counseling for multiple states while ensuring that you remain eligible for the best opportunities to secure admission to your desired college. As each student has unique priorities, individual planning and preparation are necessary.</p>
-                        <strong>How to Book Services:</strong>
-                        <p>To ensure high-quality services and maintain our 100% delivery ratio, we accept a limited number of bookings on a first-come, first-served basis. We are highly selective and only accept bookings that we are confident we can deliver to a 100% satisfaction level.</p>
+                        <h3 class="course-title"> Advance Your Medical Career with MD/MS/DNB Admission Counseling & Guidance Services for 2025-26</h3>
+                        <p>As an aspiring postgraduate medical professional, choosing the right path for your MD, MS, or DNB admission is a critical step in your medical career. The admission process can be complex, competitive, and time-sensitive, and even the smallest mistake can result in lost opportunities. That's why our <b>MD/MS/DNB Admission Counseling & Guidance Services</b> are tailored to ensure that you not only navigate this process efficiently but also secure the best possible seat in the right program.</p>
+                        <strong>Why Our Paid Counseling Services Are Essential for You</strong>
+                        <p>The MD/MS/DNB admission process involves multiple stages, and even minor oversights can significantly impact your chances of success. Here’s how our services can make a world of difference:</p>
+                        <ul>
+                            <li>
+                                <p> <b>Expert Advice & Quick Information:</b> Time is crucial during counseling, and making the wrong decision—like incorrect choice filling or missing deadlines—can result in financial penalties or disqualification from future rounds. Our experienced team ensures that you get the most accurate, up-to-date information, helping you make the best decisions.</p>
+                            </li>
+                            <li><b>Avoid Missed Opportunities: </b> Even students with stellar academic records sometimes miss out on the best opportunities because they don’t have access to the right guidance. We’re here to ensure that doesn’t happen to you, with tailored strategies that maximize your chances of securing your desired specialization and institution.</li>
+                        </ul>
+                        <strong>Stay Informed with Real-Time Updates</strong>
+                        <p>We understand that MD/MS/DNB admission is a highly dynamic process, with frequent updates and changing schedules. With our services, you’ll receive:</p>
+                        <ul>
+                            <li>NEET-PG, NBE, NMC, MCC & State Counseling Updates</li>
+                            <li>Important Dates and Deadlines</li>
+                            <li>Key Instructions and Alerts</li>
+                        </ul>
+                        <p>Think of us as your personalized <b> admissions calendar and planner—we </b>will keep you updated with essential reminders and track your progress to ensure you meet every requirement and deadline without fail.</p>
+                        <strong>Overcome Documentation & Technical Challenges</strong>
+                        <p>Sometimes, technical issues like form submission errors, payment failures, or eligibility confusion can delay your process. We’re here to take care of those hurdles:</p>
+                        <ul>
+                            <li>
+                                <p><b>Technical Troubleshooting:</b> If you face any issues during the registration process—whether it’s uploading documents or paying security fees—we’ll guide you through every step to resolve them.</p>
+                            </li>
+                            <li>
+                                <p><b>Eligibility Clarification:</b> Whether you’re from a reserved category or have state-specific advantages, we will help you understand your eligibility and leverage those benefits to your advantage.</p>
+                            </li>
+                            <li><b>Strategic Planning for Multiple States:</b> Applying to multiple states and colleges? We will work with you to create a strategy that ensures you apply to the right colleges and remain eligible for the best opportunities.</li>
+                        </ul>
+                        <strong>How to Book Our Services</strong>
+                        <p>We prioritize <b>quality over quantity </b>to maintain our reputation for excellence. Therefore, we limit the number of bookings we accept, ensuring that each student receives our full attention and support. Here’s how you can book your counseling services:</p>
+                        1. Apply via the link shared by our counsellor or directly on our website.</br>
+                        2. Use our Mobile App "Bodmas Education" to apply.</br>
+                        3. Visit our Noida office and fill out the application form in person.</br>
+                        4. Fill out the Google form to apply for our services.</br>
+                        5. Email the required documents along with the signed service booking form as provided by our counsellor.</br>
+                        <p>Once your payment is processed, we will send you a receipt, and from there on, you can relax while we handle the counselling process for you!</p>
+                        <strong>Tailored Packages to Suit Every Need</strong>
+                        <p>Our services are available in <b> multiple packages </b> to fit your specific requirements and budget. Each package is designed to provide maximum value and the highest level of support for your MD, MS, or DNB admission journey. Review our options and choose the one that best suits your needs.
+                            <i>Note: If you face any difficulty in booking our services, feel free to contact our team for assistance.</i>
+                        </p>
+                        <strong>Let Us Help You Achieve Your Medical Career Goals</strong>
+                        <p>With our guidance, you can take the next step toward your specialization with confidence. Let us handle the complexities while you focus on your future as a medical professional.</p>
+                        <b>Book your MD/MS/DNB counseling services today and take the first step toward a successful career in medicine!</b>
                         <strong>You can apply to our services in following manners:</strong>
                         <p>1: Apply for our services via the link provided by our counselor or directly on our website.
                             2: You can apply on our Mobile app “ Bodmas Education “
@@ -109,10 +144,7 @@ Event Area
                             <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
                                 <div class="course-curriculam">
                                     <h6>Bodmas Paid Counselling Guidance Fee For Premium Package</h6>
-                                    <p>Our exclusive package includes the benefits of our Alert and Counseling packages, along with personalized college guidance that fits your budget. All you need to do is provide us with your candidate details and choice of colleges, and our highly trained and experienced professional team will take care of everything, from registration to choice filling and locking.
-                                        With our premium package, you can stay stress-free knowing that our senior team will handle everything. Additionally, during the mop-up round, you will receive high-priority updates about vacant seats to maximize your chances of admission in the final round.</p>
-
-                                    <p><del style="color: red;">150,000 INR + GST </del> &nbsp; 1,00,000 INR + GST (@18%)</p>
+                                    <del style="color: red;">150,000 INR + GST </del> &nbsp; 1,00,000 INR + GST (@18%)</p>
                                     <strong>Services Included are:</strong> <br><br>
                                     <div class="checklist mb-1">
                                         <ul>
