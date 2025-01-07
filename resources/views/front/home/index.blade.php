@@ -138,7 +138,7 @@ Contact Area
             <div class="row mb-5">
                 <div class="col-xl-4">
                     <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
-                        <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;" >Latest Notice</h2>
+                        <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;" >Latest Notice by Bodmas</h2>
                     </div>
                 </div>
                 <div class="col-xl-8">
@@ -151,11 +151,14 @@ Contact Area
                                     {{$notice->description}}
                                 </div>
                                 <div class="category-card_content">
-                                    <a href="{{ asset('notice/' . $notice->file) }}" class="th-btn" target="_blank" >{{$notice->type}} <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                    <a href="{{ asset('notice/' . $notice->file) }}" class="th-btn" target="_blank" >pdf<i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
+                    </div>
+                    <div class="col-md-auto" style="text-align: end;">
+                        <a href="{{route('all-notification')}}" class="th-btn">View All Notifications <i class="fa-solid fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -287,8 +290,8 @@ About Area
                         <img class="tilt-active" src="{{asset('assets/a/3.jpg')}}" alt="About">
                     </div>
                     <div class="about-grid" data-bg-src="{{asset('assets/a/5.jpg')}}">
-                        <h3 class="about-grid_year"><span class="counter-number">5</span>k<span class="text-theme">+</span></h3>
-                        <p class="about-grid_text">Students Active Our Guidence</p>
+                        <h3 class="about-grid_year"><span class="counter-number">10</span>k<span class="text-theme">+</span></h3>
+                        <p class="about-grid_text">Students Active Under Our Mentorship</p>
                     </div>
                     <div class="img2">
                         <img class="tilt-active" src="{{asset('assets/a/8.jpg')}}" alt="About">
@@ -314,8 +317,8 @@ About Area
                     <div class="col-md-7">
                         <div class="checklist">
                             <ul>
-                                <li>Get access to 10+ of our top Paid Guidence Packages</li>
-                                <li>Find the right instructor for you</li>
+                                <li>Get access to 6+ of our Popular Guidence Packages</li>
+                                <li>Find the right mentor for you</li>
                             </ul>
                         </div>
                     </div>
@@ -394,7 +397,7 @@ Cta Area
                     </div>
                     <div class="cta-content">
                         <h2 class="cta-title sec-title">Get Online Guidence</h2>
-                        <p class="cta-text">Met Our Best Guid </p>
+                        <p class="cta-text">Met Our Best Mentor </p>
                     </div>
                     <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn style8">Book Online Session With Us<i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
@@ -430,7 +433,7 @@ Why choose us Area
                     </div>
                     <div class="student-count jump-reverse">
                         <h5 class="title"><span class="text-theme"><span class="counter-number">10</span>k+</span> Active Students</h5>
-                        <img src="assets/img/normal/student-group_1_1.png" alt="img">
+                        <!-- <img src="assets/img/normal/student-group_1_1.png" alt="img"> -->
                     </div>
                     <div class="text-end">
                         <a class="th-btn mt-30" href="{{route('contact')}}">Get Started <i class="far fa-arrow-right ms-1"></i></a>
@@ -451,7 +454,7 @@ Why choose us Area
                                     <i class="fas fa-check-circle"></i>
                                 </div>
                                 <div class="wcu-box_details">
-                                    <h3 class="box-title">World Class Trainers</h3>
+                                    <h3 class="box-title">World Class Mentor</h3>
                                     <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
                                 </div>
                             </div>
@@ -462,7 +465,7 @@ Why choose us Area
                                     <i class="fas fa-check-circle"></i>
                                 </div>
                                 <div class="wcu-box_details">
-                                    <h3 class="box-title">Easy Learning</h3>
+                                    <h3 class="box-title">Better Mentorship</h3>
                                     <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
                                 </div>
                             </div>
@@ -503,14 +506,14 @@ Counter Area
         <div class="row justify-content-between">
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">3.9</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Successfully</strong> Trained</p>
+                    <h2 class="counter-card_number"><span class="counter-number">10.9</span>k<span class="fw-normal">+</span></h2>
+                    <p class="counter-card_text"><strong>Successfully</strong> Guid</p>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
                     <h2 class="counter-card_number"><span class="counter-number">15.8</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Classes</strong> Completed</p>
+                    <p class="counter-card_text"><strong>Mentorship</strong> Completed</p>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
@@ -521,7 +524,7 @@ Counter Area
             </div>
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">100.2</span>k<span class="fw-normal">+</span></h2>
+                    <h2 class="counter-card_number"><span class="counter-number">22.2</span>k<span class="fw-normal">+</span></h2>
                     <p class="counter-card_text"><strong>Students</strong> Community</p>
                 </div>
             </div>
@@ -553,9 +556,8 @@ Cta Area
         <div class="cta-wrap2">
             <div class="title-area text-center mb-35">
                 <span class="sub-title"><i class="fal fa-book me-2"></i>Are You Ready For This Offer</span>
-                <h2 class="sec-title text-white">40% Offer First <span class="text-theme2">100 Student’s</span> For Featured <br> <span class="fw-normal">Topics by Education Category</span></h2>
-                <p class="cta-text">Get unlimited access to 6,000+ of Bodmas’s top courses for your team. Learn and improve skills across
-                    business, tec, design, and more.</p>
+                <h2 class="sec-title text-white">20% Offer  <span class="text-theme2">On Paid Guidance</span> For Featured <br> <span class="fw-normal">By Bodmas Education</span></h2>
+                <p class="cta-text">Get access of our Popular paid guidance services </p>
             </div>
             <div class="btn-group justify-content-center">
                 <a href="{{route('contact')}}" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
@@ -743,91 +745,6 @@ Event Area
 </section>
 
 <!--==============================
-Contact Area  
-==============================-->
-<div class="space-top">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="title-area mb-lg-0 text-lg-start text-center">
-                    <span class="sub-title"><i class="fal fa-book me-2"></i> Our Trusted Partners</span>
-                    <h2 class="sec-title mb-0">We Have More Than <span class="text-theme"><span class="counter-number">4263</span>+</span> Global Partners</h2>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="client-wrap text-lg-end text-center">
-                    <div class="row gy-40">
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_1.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_2.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_3.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_4.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_5.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_6.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_7.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_8.png" alt="img">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- <section class="cta-area-3 space-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-30 mb-lg-0">
-                <div class="cta-card" data-bg-src="assets/img/bg/m.jpg">
-                    <div class="title-area mb-40">
-                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Services</span>
-                        <h4 class="sec-title text-white"> Our Guidance For MBBS </h4>
-                    </div>
-                    <a href="{{route('contact')}}" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="cta-card" data-bg-src="assets/img/bg/e.jpg">
-                    <div class="title-area mb-40">
-                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Services</span>
-                        <h4 class="sec-title text-white"> <br> BDS Exploration</h4>
-                    </div>
-                    <a href="{{route('contact')}}" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-<!--==============================
 Testimonial Area  
 ==============================-->
 <section class="testi-area-1 overflow-hidden space-bottom" data-bg-src="assets/img/bg/testi_bg_1.png">
@@ -838,9 +755,9 @@ Testimonial Area
         <img src="assets/img/testimonial/testi-bg-shape_1_2.png" alt="img">
     </div>
     <div class="container">
-        <div class="title-area text-center mb-50">
+        <div class="title-area text-left mb-50">
             <span class="sub-title"><i class="fal fa-book me-2"></i> Our Students Testimonials</span>
-            <h2 class="sec-title">Students Say’s About Our University</h2>
+            <h2 class="sec-title">Students Say’s About Our Bodmas Education</h2>
         </div>
         <div class="row">
             <div class="col-xl-12">
@@ -1006,6 +923,17 @@ Blog Area
             </div>
             @endforeach
         </div>
+    </div>
+</section>
+
+ <!-- Map Section  -->
+<section>
+    <div class="container">
+    <div class="map-sec">
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5446.126510817361!2d77.34101701248609!3d28.598692375581777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5b5752aa1a5%3A0xef25f3cdf6f08c3!2sBodmas%20Education%20Services%20Pvt.%20Ltd.!5e1!3m2!1sen!2sin!4v1731306026310!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
     </div>
 </section>
 @stop

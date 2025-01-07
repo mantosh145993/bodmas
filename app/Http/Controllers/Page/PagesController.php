@@ -178,6 +178,15 @@ class PagesController extends Controller
                     'menus' => $menus,
                     'events' => $events
                 ]);
+            case 'all-notification':
+                $menus = $this->menuHelper->getMenu();
+                $notifications = Notice::all();
+                $states = State::all();
+                return view('front.home.all-notification', [
+                    'menus' => $menus,
+                    'notifications' => $notifications,
+                    'states' => $states
+                ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
                 if ($shortLink) {
@@ -287,6 +296,15 @@ class PagesController extends Controller
         $posts = Post::where('category_id', $category_id)->get();
         return response()->json([
             'blogs' => $posts,
+        ]);
+    }
+
+    public function getNotice(Request $request)
+    {
+        $state_id = $request->get('state_id');
+        $notice = Notice::where('state_id', $state_id)->get();
+        return response()->json([
+            'notice' => $notice,
         ]);
     }
 }

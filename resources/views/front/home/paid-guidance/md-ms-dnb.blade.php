@@ -66,11 +66,11 @@ Event Area
                         <p>With our guidance, you can take the next step toward your specialization with confidence. Let us handle the complexities while you focus on your future as a medical professional.</p>
                         <b>Book your MD/MS/DNB counseling services today and take the first step toward a successful career in medicine!</b>
                         <strong>You can apply to our services in following manners:</strong>
-                        <p>1: Apply for our services via the link provided by our counselor or directly on our website.
-                            2: You can apply on our Mobile app “ Bodmas Education “
-                            3: You can directly walk in to our Noida office and fill application form
-                            4: Fill out the Google form to apply for our paid counselling services.
-                            5: Email all required documents as per the details provided by our counselor, along with the duly filled and signed service booking form.
+                        <p>1: Apply for our services via the link provided by our counselor or directly on our website.</br>
+                            2: You can apply on our Mobile app “ Bodmas Education “</br>
+                            3: You can directly walk in to our Noida office and fill application form</br>
+                            4: Fill out the Google form to apply for our paid counselling services.</br>
+                            5: Email all required documents as per the details provided by our counselor, along with the duly filled and signed service booking form.</br>
                             A payment receipt will be shared with you after payment.
                             Once you have received your payment receipt, sit back and relax. We will take care of all the counselling procedures on your behalf.
                             Note: If you are not able to book our services through the above-mentioned methods,
@@ -206,7 +206,6 @@ Event Area
                                             <li>24x7 alerts for counseling and admission-related dates and instructions.</li>
                                             <li>Regular updates to keep you informed about NMC circulars and NBE notices.</li>
                                             <li>Information on admission procedures for multiple state counselling. </li>
-                                            <li>Counselling services for AIQ, deemed universities, government, and private colleges in up to 10 states of your choice (including your home state).</li>
                                             <li>Guaranteed refund if you do not receive admission by the final deadline.</li>
                                             <li>Details regarding the most affordable package available for management quota, NRI, or other quota seats.</li>
                                             <li>Conduct a score-based analysis and recommend the best-fit colleges that fall within your budget.</li>

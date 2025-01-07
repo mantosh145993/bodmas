@@ -41,8 +41,8 @@ class PredictController extends Controller
             ->toArray();
 
         // Calculate rank range
-        $lowerRank = floor($rank - ($rank * 5 / 100));
-        $upperRank = ceil($rank + ($rank * 10 / 100));
+        $lowerRank = floor($rank - ($rank * 4 / 100));
+        $upperRank = ceil($rank + ($rank * 2 / 100));
         // Define budget ranges
         $budgetRanges = [
             '100000' => [0, 100000], // Less than 1 lakh
