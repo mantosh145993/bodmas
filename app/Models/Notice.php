@@ -9,6 +9,7 @@ class Notice extends Model
     protected $table = "notices";
 
     protected $fillable = [
+        'state_id',
         'type',
         'title',
         'description',

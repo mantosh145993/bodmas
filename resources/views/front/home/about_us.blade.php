@@ -98,7 +98,7 @@ About Area
                     </div>
                     <div class="about-grid">
                         <h3 class="about-grid_year"><span class="counter-number">10</span>k+</h3>
-                        <p class="about-grid_text">Students Active Our Courses</p>
+                        <p class="about-grid_text">Students Active Under Our Mentorship</p>
                     </div>
                     <div class="img2">
                         <img class="tilt-active" src="assets/img/normal/about_5_2.png" alt="About">
@@ -115,22 +115,6 @@ About Area
                 </div>
                 <p class="mt-n2 mb-25">Mr. Ashok Kumar, the visionary Founder and CEO of BODMAS Education Services Pvt. Ltd., brings over 20 years of rich experience in the education sector. His expertise and in-depth understanding of the evolving academic landscape have been instrumental in shaping the company’s mission to provide top-notch guidance and counselling to students across India. Under his leadership, BODMAS Education has emerged as a trusted name in the field of education consulting, particularly for competitive exams like NEET, JEE, and MBA, as well as study abroad programs. With a strong focus on student success, Mr. Ashok Kumar has driven BODMAS Education to guide more than 10,000 students in their academic journeys. His extensive knowledge of education systems, both in India and abroad, allows him to offer invaluable insights to students and parents alike, ensuring that they make informed decisions about their academic and career paths. </p>
                 <div class="row mb-35 gy-4">
-                    <div class="col-lg-6">
-                        <div class="about-grid3">
-                            <div class="about-grid-icon"><img src="assets/img/icon/about-grid-icon2-1.svg" alt="icon"></div>
-                            <div class="details">
-                                <h5>UG Education</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-grid3">
-                            <div class="icon"><img src="assets/img/icon/about-grid-icon2-2.svg" alt="icon"></div>
-                            <div class="details">
-                                <h5>PG Education</h5>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -182,7 +166,7 @@ Team Area
     </div>
 
     <div class="container">
-        <div class="title-area text-center">
+        <div class="title-area text-left">
             <span class="sub-title"><i class="fal fa-book me-2"></i> Our Consultant</span>
             <h2 class="sec-title">Meet Our Expert Consultant</h2>
         </div>
