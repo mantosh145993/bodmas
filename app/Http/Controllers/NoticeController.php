@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Notice;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use App\Models\State;
 
 class NoticeController extends Controller
 {
@@ -15,7 +16,8 @@ class NoticeController extends Controller
     public function index()
     {
         $notices = Notice::paginate(6);
-        return view('admin.notice.index', compact('notices'));
+        $states = State::all();
+        return view('admin.notice.index', compact('notices','states'));
     }
 
     public function store(Request $request)
@@ -34,6 +36,7 @@ class NoticeController extends Controller
         // dd(DB::getQueryLog(), $current_blogs);
         $notice = Notice::create(
             [
+                'state_id' => $request->state_id,
                 'type' => $request->type,
                 'title' => $request->title,
                 'description' => $request->description,
@@ -48,6 +51,7 @@ class NoticeController extends Controller
 
     public function show(string $id)
     {
+        $states = State::all();
         $notice = Notice::find($id);
         if (!$notice) {
             return response()->json([
@@ -55,7 +59,8 @@ class NoticeController extends Controller
             ], 404);
         }
         return response()->json([
-            'notice' => $notice
+            'notice' => $notice,
+            'states' => $states
         ]);
     }
 
@@ -85,6 +90,7 @@ class NoticeController extends Controller
         if (!$notice) {
             return response()->json(['message' => 'Notice not found.'], 404);
         }
+        $notice->state_id = $request->input('state_id');
         $notice->type = $request->input('type');
         $notice->title = $request->input('title');
         $notice->description = $request->input('description');

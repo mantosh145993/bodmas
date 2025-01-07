@@ -37,15 +37,16 @@ Route::post('/payment-term', [App\Http\Controllers\Page\PagesController::class, 
 Route::post('/educational-loan', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('educational-loan');
 Route::post('/bodmas-gallery', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('bodmas-gallery');
 Route::post('/franchise', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('franchise');
+Route::post('/all-notification', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-notification');
 Route::post('/become-a-partner', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('become-a-partner');
 Route::post('/education-loan-for-mbbs-students', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('education-loan-for-mbbs-students');
 Route::post('/neet-ug-counselling-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('neet-ug-counselling-2025');
 // End footer route
 Route::post('/blog-all-posts', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('blog-all-posts');
 Route::get('/get_blogs_by_category', [App\Http\Controllers\Page\PagesController::class, 'getPosts'])->name('get_blogs_by_category');
+Route::get('/get_notice_by_state', [App\Http\Controllers\Page\PagesController::class, 'getNotice'])->name('get_notice_by_state');
 // Paid Guidance package
 Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
-Route::post('/paid-guidance-mbbs', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('paid-guidance-mbbs');
 // End Paid Guidance Package
 // Predictor
 Route::get('/get-categories', [CategoryController::class, 'getCategories']);
