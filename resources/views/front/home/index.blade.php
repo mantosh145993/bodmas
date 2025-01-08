@@ -125,7 +125,7 @@ Hero Area
 </div>
 <!--======== / Hero Section ========-->
 <!--==============================
-Contact Area  
+Notice Area  
 ==============================-->
 <div class="space-top">
     <div class="container">
@@ -164,116 +164,6 @@ Contact Area
             </div>
             <hr>
         <!-- Notice Area End  -->
-
-            <!-- <div class="row">
-                <div class="col-xl-4">
-                    <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Admissions</span>
-                        <h2 class="sec-title">Explore Top Admissions</h2>
-                        <a href="#" class="th-btn">View All Admission<i class="fa-regular fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-                <div class="col-xl-8">
-                    <div class="row slider-shadow th-carousel category-slider" data-slide-show="4" data-ml-slide-show="3" data-md-slide-show="3" data-sm-slide-show="2" data-arrows="true" data-xl-arrows="true">
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_1.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">MBBS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_2.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BDS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_3.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BAMS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_4.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BHMS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_1.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BUMS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_2.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BVSC</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_3.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">NURSING</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_4.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">PHARMACY</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div> -->
 
         </div>
     </div>
@@ -374,7 +264,7 @@ Paid Guidance Area
                             <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
                         <div class="text-left">
-                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                            <a href="{{ route('bodmas.payment', ['id' => $package['id']]) }}" class="btn btn-primary">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -926,7 +816,7 @@ Blog Area
     </div>
 </section>
 
- <!-- Map Section  -->
+ <!-- Map Area  -->
 <section>
     <div class="container">
     <div class="map-sec">
