@@ -7,7 +7,7 @@ Event Area
 <section class="container position-relative">
     <div class="row">
         <div class="image-container" style="position: relative;">
-            <img src="{{ asset('assets/img/notice.jpg') }}" alt="" style="height: 350px; width: 100%; object-fit: cover;">
+            <img src="{{ asset('assets/img/no.png') }}" alt="" style="height: 350px; width: 100%; object-fit: cover;">
             <div class="text-overlay" style="
                 position: absolute; 
                 top: 50%; 

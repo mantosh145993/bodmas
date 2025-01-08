@@ -25,8 +25,17 @@ use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 
 // payments Razorpay 
-Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
-Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
+
+Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
+Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
+Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
+Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
+
+
+Route::post('bodmas-payment-store', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+Route::post('payment-success', [RazorpayPaymentController::class, 'verifyPayment'])->name('razorpay.payment.success');
+Route::get('testEnv', [RazorpayPaymentController::class, 'testEnv'])->name('testEnv');
 // end payments Razorpay 
 // Footer route 	
 Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
