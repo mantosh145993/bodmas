@@ -160,7 +160,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="{{route('/')}}"><img style="width: 250px;" src="{{asset('assets/img/Logo.jpg')}}" alt="Bodmas"></a>
+                            <a href="{{route('/')}}"><img style="width: 185px;" src="{{asset('assets/img/Logo.jpg')}}" alt="Bodmas"></a>
                         </div>
                     </div>
                     <div class="col-auto">
