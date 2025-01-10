@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-3 col-lg-4 order-lg-1">
+        <!-- <div class="col-xl-3 col-lg-4 order-lg-1">
             <aside class="sidebar-area sidebar-shop">
                 <div class="widget widget_categories style2">
                     <h3 class="widget_title text-center">Become A Partner</h3>
@@ -49,11 +49,11 @@
                     </form>
                 </div>
             </aside>
-        </div>
-        <div class="col-xl-6 col-lg-8 order-lg-2 mt-5 show-content">
+        </div> -->
+        <div class="col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
             {!! $page->content !!}
         </div>
-        <div class="col-xl-3 col-lg-4 order-lg-3">
+        <!-- <div class="col-xl-3 col-lg-4 order-lg-3">
 
             <div class="widget widget_categories style2">
                 <h3 class="widget_title text-center">Contact Us</h3>
@@ -84,7 +84,7 @@
                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 @stop

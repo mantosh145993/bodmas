@@ -101,8 +101,8 @@ Event Area
                                     <div class="row">
                                         <div class="col-sm-4 package">
                                             <h5>Guidance Package Fee</h5>
-                                            <p>20,000 INR + GST </p><br>
-                                            <a href="#" class="th-btn style4">Book Now</a>
+                                            <p>{{$package->basic_fee}} INR + GST </p><br>
+                                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Book Now</a>
                                         </div>
                                         <div class="col-sm-4"> </div>
                                         <div class="col-sm-4"> </div>
@@ -145,8 +145,8 @@ Event Area
                                     <div class="row">
                                         <div class="col-sm-4 package">
                                             <h5>Ayush Guidance Package Fee</h5>
-                                            <p>30,000 INR + GST </p><br>
-                                            <a href="#" class="th-btn style4">Book Now</a>
+                                            <p>{{$package->premium_fee}} INR + GST </p><br>
+                                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment' => 'premium']) }}" class="btn btn-primary">Book Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -190,104 +190,14 @@ Event Area
                                         <div class="row">
                                             <div class="col-sm-4 package">
                                                 <h5>Premium Guidance Fee For Ayush</h5>
-                                                <p>50,000 INR + GST </p><br>
-                                                <a href="#" class="th-btn style4">Book Now</a>
+                                                <p>{{$package->nri_fee}} INR + GST </p><br>
+                                                <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri']) }}" class="btn btn-primary">Book Now</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                <div class="course-Reviews">
-                                    <div class="th-comments-wrap ">
-                                        <ul class="comment-list">
-                                            <li class="review th-comment-item">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        <img src="assets/img/blog/comment-author-3.jpg" alt="Comment Author">
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">Mark Jack</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>22 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                                                        </div>
-                                                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="review th-comment-item">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        <img src="assets/img/blog/comment-author-2.jpg" alt="Comment Author">
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">Alexa Deo</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                                                        </div>
-                                                        <p class="text">The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="review th-comment-item">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        <img src="assets/img/blog/comment-author-1.jpg" alt="Comment Author">
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">Tara sing</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                                                        </div>
-                                                        <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div> <!-- Comment Form -->
-                                    <div class="th-comment-form ">
-                                        <div class="form-title">
-                                            <h3 class="blog-inner-title ">Add a review</h3>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group rating-select d-flex align-items-center">
-                                                <label>Your Rating</label>
-                                                <p class="stars">
-                                                    <span>
-                                                        <a class="star-1" href="#">1</a>
-                                                        <a class="star-2" href="#">2</a>
-                                                        <a class="star-3" href="#">3</a>
-                                                        <a class="star-4" href="#">4</a>
-                                                        <a class="star-5" href="#">5</a>
-                                                    </span>
-                                                </p>
-                                            </div>
-                                            <div class="col-12 form-group">
-                                                <textarea placeholder="Write a Message" class="form-control"></textarea>
-                                                <i class="text-title far fa-pencil-alt"></i>
-                                            </div>
-                                            <div class="col-md-6 form-group">
-                                                <input type="text" placeholder="Your Name" class="form-control">
-                                                <i class="text-title far fa-user"></i>
-                                            </div>
-                                            <div class="col-md-6 form-group">
-                                                <input type="text" placeholder="Your Email" class="form-control">
-                                                <i class="text-title far fa-envelope"></i>
-                                            </div>
-                                            <div class="col-12 form-group">
-                                                <input id="reviewcheck" name="reviewcheck" type="checkbox">
-                                                <label for="reviewcheck">Save my name, email, and website in this browser for the next time I comment.<span class="checkmark"></span></label>
-                                            </div>
-                                            <div class="col-12 form-group mb-0">
-                                                <button class="th-btn">Post Review <i class="far fa-arrow-right ms-1"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -299,9 +209,8 @@ Event Area
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div>
-                        <span class="h4 course-price">₹20000.00 <span class="tag"></span></span>
-                        <a href="#" class="th-btn">Add To Cart</a>
-                        <a href="#" class="th-btn style4">Buy Now</a>
+                        <span class="h4 course-price">{{$package->base_price}} <span class="tag"></span></span>
+                        <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
                         <div class="info-list">
                             <ul>
