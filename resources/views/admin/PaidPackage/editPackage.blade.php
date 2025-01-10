@@ -58,6 +58,48 @@
                                             <input type="number" class="form-control" id="base_price" name="base_price" value="{{$package->base_price}}">
                                         </div>
 
+                                         <!-- Basic Price (₹) -->
+                                         <div class="form-group">
+                                            <label for="basic_fee">Basic Price (₹)</label>
+                                            <input type="number" class="form-control" id="basic_fee" name="basic_fee" value="{{$package->basic_fee}}">
+                                        </div>
+
+                                        <!-- Premium Price (₹) -->
+                                        <div class="form-group">
+                                            <label for="premium_fee">Premium Price (₹)</label>
+                                            <input type="number" class="form-control" id="premium_fee" name="premium_fee" value="{{$package->premium_fee}}">
+                                        </div>
+
+                                        <!-- NRI Price (₹) -->
+                                        <div class="form-group">
+                                            <label for="nri_fee">NRI Price (₹)</label>
+                                            <input type="number" class="form-control" id="nri_fee" name="nri_fee" value="{{$package->nri_fee}}">
+                                        </div>
+
+                                        <!-- First Installment Premium (₹) -->
+                                        <div class="form-group">
+                                            <label for="first_installment">First Installment Premium (₹)</label>
+                                            <input type="number" class="form-control" id="first_installment" name="first_installment" value="{{$package->first_installment}}">
+                                        </div>
+
+                                         <!-- Second Installment Premium (₹) -->
+                                         <div class="form-group">
+                                            <label for="second_installment">Second Installment Premium (₹)</label>
+                                            <input type="number" class="form-control" id="second_installment" name="second_installment" value="{{$package->second_installment}}">
+                                        </div>
+
+                                          <!-- First Installment NRI (₹) -->
+                                          <div class="form-group">
+                                            <label for="first_installment_premium">First Installment NRI (₹)</label>
+                                            <input type="number" class="form-control" id="first_installment_premium" name="first_installment_premium" value="{{$package->first_installment_premium}}">
+                                        </div>
+
+                                        <!-- Second Installment NRI (₹) -->
+                                        <div class="form-group">
+                                            <label for="second_installment_premium">Second Installment NRI (₹)</label>
+                                            <input type="number" class="form-control" id="second_installment_premium" name="second_installment_premium" value="{{$package->second_installment_premium}}">
+                                        </div>
+
                                         <!-- GST Rate (%): -->
                                         <div class="form-group">
                                             <label for="gst_rate">GST Rate (%):</label>

@@ -104,8 +104,8 @@ Event Area
                                     <div class="row">
                                         <div class="col-sm-4 package">
                                             <h5>Guidance Fee For Dental Package</h5>
-                                            <p>30,000 INR + GST </p><br>
-                                            <a href="#" class="th-btn style4">Book Now</a>
+                                            <p>{{$package->basic_fee}} INR + GST </p><br>
+                                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Book Now</a>
                                         </div>
                                         <div class="col-sm-4"> </div>
                                         <div class="col-sm-4"> </div>
@@ -152,146 +152,11 @@ Event Area
                                     <div class="row ">
                                         <div class="col-sm-4 package">
                                             <h5>Premium Guidance Fee For Dental</h5>
-                                            <p>50,000 INR + GST </p><br>
-                                            <a href="#" class="th-btn style4">Book Now</a>
+                                            <p>{{$package->premium_fee}} INR + GST </p><br>
+                                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'premium'] )}}" class="btn btn-primary th-btn">Book Now</a>
                                         </div>
                                     </div>
 
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
-                                <div class="course-curriculam">
-                                    <h6>Bodmas NRI / MGT Quota MD/MS/DNB guidance Fee</h6>
-                                    <p>Our Services offer top notch planning, documentation support, and technical assistance for NRI/ sponsored candidates. We help getting Top Colleges Others/ IQ seats of Karnataka and Maharashtra</p>
-                                    <p> <del style="color: red;"> 2,00000 INR + GST </del> &nbsp; 1,50,000 INR + GST (@18%)</p>
-                                    <strong>Services Included are:</strong> <br><br>
-                                    <div class="checklist mb-1">
-                                        <ul>
-                                            <li>Communication via SMS, WhatsApp, voice call, email, and one-to-one calls. </li>
-                                            <li>We will provide counselling for more than two states as per your requirements. </li>
-                                            <li>24x7 alerts for counseling and admission-related dates and instructions.</li>
-                                            <li>Regular updates to keep you informed about NMC circulars and NBE notices.</li>
-                                            <li>Information on admission procedures for multiple state counselling. </li>
-                                            <li>Counselling services for AIQ, deemed universities, government, and private colleges in up to 10 states of your choice (including your home state).</li>
-                                            <li>Guaranteed refund if you do not receive admission by the final deadline.</li>
-                                            <li>Details regarding the most affordable package available for management quota, NRI, or other quota seats.</li>
-                                            <li>Conduct a score-based analysis and recommend the best-fit colleges that fall within your budget.</li>
-                                            <li>Personalized counseling service with a dedicated counselor and a 3-level support system.</li>
-                                            <li>Exclusive updates and notifications about available seats during the Mop-Up round, which includes offline and stray vacancy rounds.</li>
-                                            <li>Intensive support in ensuring proper documentation for NRI candidates, as well as keeping them updated on NRI fees, regulations, and procedures.</li>
-                                            <li>Details regarding the least expensive option for Management Quota, NRI, and other quota seats.</li>
-                                            <strong>NOTE : Registration fees & security deposit (if applicable) will be paid by parent only.
-                                                Book now to avail of our services and maximize your chances of getting admission to your desired college.</strong>
-                                        </ul>
-                                        <p style="color: red;">10% off on all services for Army/ Police/ siblings / single parent.</p>
-                                        <div class="row">
-                                            <div class="col-sm-4 package">
-                                                <h5>First installment </h5>
-                                                <p>105000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a>
-                                            </div>
-                                            <div class="col-sm-4 package">
-                                                <h5>Second Installment</h5>
-                                                <p>45,000 INR + GST </p><br><a href="#" class="th-btn style4">Book Now</a>
-                                            </div>
-                                            <div class="col-sm-4 package">
-                                                <h5>Final Booking</h5>
-                                                <p>150,000 INR + GST </p><br>
-                                                <a href="#" class="th-btn style4">Book Now</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                <div class="course-Reviews">
-                                    <div class="th-comments-wrap ">
-                                        <ul class="comment-list">
-                                            <li class="review th-comment-item">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        <img src="assets/img/blog/comment-author-3.jpg" alt="Comment Author">
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">Mark Jack</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>22 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                                                        </div>
-                                                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="review th-comment-item">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        <img src="assets/img/blog/comment-author-2.jpg" alt="Comment Author">
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">Alexa Deo</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                                                        </div>
-                                                        <p class="text">The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="review th-comment-item">
-                                                <div class="th-post-comment">
-                                                    <div class="comment-avater">
-                                                        <img src="assets/img/blog/comment-author-1.jpg" alt="Comment Author">
-                                                    </div>
-                                                    <div class="comment-content">
-                                                        <h4 class="name">Tara sing</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                                                        </div>
-                                                        <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div> <!-- Comment Form -->
-                                    <div class="th-comment-form ">
-                                        <div class="form-title">
-                                            <h3 class="blog-inner-title ">Add a review</h3>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group rating-select d-flex align-items-center">
-                                                <label>Your Rating</label>
-                                                <p class="stars">
-                                                    <span>
-                                                        <a class="star-1" href="#">1</a>
-                                                        <a class="star-2" href="#">2</a>
-                                                        <a class="star-3" href="#">3</a>
-                                                        <a class="star-4" href="#">4</a>
-                                                        <a class="star-5" href="#">5</a>
-                                                    </span>
-                                                </p>
-                                            </div>
-                                            <div class="col-12 form-group">
-                                                <textarea placeholder="Write a Message" class="form-control"></textarea>
-                                                <i class="text-title far fa-pencil-alt"></i>
-                                            </div>
-                                            <div class="col-md-6 form-group">
-                                                <input type="text" placeholder="Your Name" class="form-control">
-                                                <i class="text-title far fa-user"></i>
-                                            </div>
-                                            <div class="col-md-6 form-group">
-                                                <input type="text" placeholder="Your Email" class="form-control">
-                                                <i class="text-title far fa-envelope"></i>
-                                            </div>
-                                            <div class="col-12 form-group">
-                                                <input id="reviewcheck" name="reviewcheck" type="checkbox">
-                                                <label for="reviewcheck">Save my name, email, and website in this browser for the next time I comment.<span class="checkmark"></span></label>
-                                            </div>
-                                            <div class="col-12 form-group mb-0">
-                                                <button class="th-btn">Post Review <i class="far fa-arrow-right ms-1"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -306,8 +171,7 @@ Event Area
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div>
                         <span class="h4 course-price">₹30000.00 <span class="tag"></span></span>
-                        <a href="#" class="th-btn">Add To Cart</a>
-                        <a href="#" class="th-btn style4">Buy Now</a>
+                        <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
                         <div class="info-list">
                             <ul>

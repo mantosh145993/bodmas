@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\PaidPackage;
 use App\Models\Partner;
 use App\Models\GalleryEvent;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class PagesController extends Controller
 {
@@ -37,7 +39,7 @@ class PagesController extends Controller
         $messages = Message::all();
         $paidPackages = PaidPackage::all();
         $blogs = Post::where('is_active', '1')->get();
-        $notices = Notice::all();
+        $notices = Notice::orderBy('created_at', 'desc')->get();
         $events = GalleryEvent::all();
         return view('front.home.index', [
             'menus' => $menus,
@@ -116,44 +118,57 @@ class PagesController extends Controller
             case 'paid-guidance-mbbs':
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
+                $packages = PaidPackage::where('url', 'paid-guidance-mbbs')->firstOrFail();
+                // dd($packages);
                 return view('front.home.paid-guidance.paid-guidance', [
                     'menus' => $menus,
-                    'paidPackages' => $paidPackages
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
                 ]);
             case 'paid-guidance-veterinary':
+                $packages = PaidPackage::where('url', 'paid-guidance-veterinary')->firstOrFail();
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.veterinary', [
                     'menus' => $menus,
-                    'paidPackages' => $paidPackages
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
                 ]);
             case 'paid-guidance-ayush':
+                $packages = PaidPackage::where('url', 'paid-guidance-ayush')->firstOrFail();
                 $paidPackages = PaidPackage::all();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.paid-guidance.ayush', [
                     'menus' => $menus,
-                    'paidPackages' => $paidPackages
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
                 ]);
             case 'paid-guidance-md-ms-dnb':
+                $packages = PaidPackage::where('url', 'paid-guidance-md-ms-dnb')->firstOrFail();
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.md-ms-dnb', [
                     'menus' => $menus,
-                    'paidPackages' => $paidPackages
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
                 ]);
             case 'paid-guidance-dental':
+                $packages = PaidPackage::where('url', 'paid-guidance-dental')->firstOrFail();
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.dental', [
                     'menus' => $menus,
-                    'paidPackages' => $paidPackages
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
                 ]);
             case 'paid-guidance-nursing':
+                $packages = PaidPackage::where('url', 'paid-guidance-nursing')->firstOrFail();
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.nursing', [
                     'menus' => $menus,
-                    'paidPackages' => $paidPackages
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
                 ]);
             case 'all-paid-guidance':
                 $menus = $this->menuHelper->getMenu();
@@ -180,7 +195,7 @@ class PagesController extends Controller
                 ]);
             case 'all-notification':
                 $menus = $this->menuHelper->getMenu();
-                $notifications = Notice::all();
+                $notifications = Notice::orderBy('created_at', 'desc')->get();
                 $states = State::all();
                 return view('front.home.all-notification', [
                     'menus' => $menus,
@@ -240,7 +255,7 @@ class PagesController extends Controller
             'phone' => $validated['number'],
             'course' => $validated['subject'],
             'message' => $validated['message'],
-            'type'=> $request['type'],
+            'type' => $request['type'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -251,7 +266,7 @@ class PagesController extends Controller
             return response()->json(['success' => false, 'error' => $e->getMessage()]);
         }
     }
-    
+
     public function becomPartner(Request $request)
     {
         $validated = $request->validate([
@@ -267,7 +282,7 @@ class PagesController extends Controller
                 'email' => $validated['email'],
                 'phone' => $validated['number'],
                 'message' => $validated['message'],
-                'type'=> $request['type'],
+                'type' => $request['type'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -282,14 +297,14 @@ class PagesController extends Controller
             // Send the email
             \Mail::html($emailBody, function ($message) use ($validated) {
                 $message->to('educationbodmas@gmail.com')
-                ->subject('New Partner Enquiry from ' . $validated['name']);
+                    ->subject('New Partner Enquiry from ' . $validated['name']);
             });
             return response()->json(['success' => true, 'message' => 'Enquiry submitted successfully.']);
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'error' => $e->getMessage()]);
         }
     }
-    
+
     public function getPosts(Request $request)
     {
         $category_id = $request->get('category_id');
