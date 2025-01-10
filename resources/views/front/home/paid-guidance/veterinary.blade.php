@@ -71,8 +71,8 @@ Event Area
                         </ol>
                         <div class="col-sm-4 package mb-5">
                             <h5>Veterinary Guidance Fee</h5>
-                            <p>40,000 INR + GST </p><br>
-                            <a href="#" class="th-btn style4">Book Now</a>
+                            <p>{{$package->basic_fee}} INR + GST </p><br>
+                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Book Now</a>
                         </div>
                         <h6 style="color: red;">NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</h6>
                     </div>
@@ -86,8 +86,7 @@ Event Area
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div>
                         <span class="h4 course-price">₹40000.00 <span class="tag"></span></span>
-                        <a href="#" class="th-btn">Add To Cart</a>
-                        <a href="#" class="th-btn style4">Buy Now</a>
+                        <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
                         <div class="info-list">
                             <ul>

@@ -63,18 +63,23 @@ Event Area
                         Download as PDF
                     </a>
                     <a href="{{ asset('notice/' . $notification->file) }}" target="_blank" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: right;">View Notification</a>
-                    <div class="blog-content" style="background: linear-gradient(135deg, #0d6efd, #6610f2); color: white; padding: 15px; border-radius: 8px;">
-                        <h4 class="box-title" style="color: white;">
+                    <div class="blog-content" style="color: white; padding: 15px; border-radius: 8px;">
+                        <h6 class="blog-content">
                             {{ $notification->title }}
-                        </h4>
+                            @if($notification->created_at && $notification->created_at->isToday())
+                            <span class="new-label">New Notification</span>
+                            @endif
+                        </h6>
                     </div>
-                    <p style="font-size: 1rem; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);">
+                    <p style="color:black">
                         {{ $notification->description }}
                     </p>
                 </div>
             </div>
             @endforeach
         </div>
+
+
 
     </div>
 </section>
@@ -156,15 +161,13 @@ Event Area
 
 <style>
     .blog-content {
-        background: linear-gradient(135deg, #0d6efd, #6610f2);
-        color: white;
-        padding: 15px;
-        border-radius: 8px;
+        background-color: #0d6efd;
+        color: #ffff;
+
     }
 
     .blog-content .box-title {
-        font-size: 1.5rem;
-        font-weight: bold;
+
         margin-bottom: 10px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
@@ -175,36 +178,27 @@ Event Area
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
-    @keyframes blinkColors {
-        0% {
-            color: #0d6efd;
-            /* Blue */
-        }
 
-        25% {
-            color: #6610f2;
-            /* Purple */
-        }
-
-        50% {
-            color: #fd7e14;
-            /* Orange */
-        }
-
-        75% {
-            color: #198754;
-            /* Green */
-        }
-
-        100% {
-            color: #0d6efd;
-            /* Blue */
-        }
-    }
 
     .blink-animation {
         animation: blinkColors 1.5s infinite;
         font-weight: bold;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .new-label {
+        background-color: #ffff;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 5px;
+        font-size: 15px;
+        margin-left: 10px;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
     }
 </style>

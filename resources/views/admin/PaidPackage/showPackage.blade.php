@@ -26,25 +26,71 @@
                         <img src="{{ asset('images/paid_package/' . $paidPackage->image) }}" alt="{{ $paidPackage->package_name }}">
                         @endif
 
-                        <dl>
-                            <dt>Description:</dt>
-                            <dd>{{ $paidPackage->description ?? 'No description provided.' }}</dd>
+                        <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Description</td>
+            <td>{{ $paidPackage->description ?? 'No description provided.' }}</td>
+        </tr>
+        <tr>
+            <td>Base Price</td>
+            <td>₹{{ number_format($paidPackage->base_price, 2) }}</td>
+        </tr>
+        
+        <tr>
+            <td>Basic Price</td>
+            <td>₹{{ number_format($paidPackage->basic_fee, 2) }}</td>
+        </tr>
+        <tr>
+            <td>Premium Price</td>
+            <td>₹{{ number_format($paidPackage->premium_fee, 2) }}</td>
+        </tr>
+        <tr>
+            <td>First Installment Premium</td>
+            <td>₹{{ number_format($paidPackage->first_installment, 2) }}</td>
+        </tr>
+        <tr>
+            <td>Second Installment Premium</td>
+            <td>₹{{ number_format($paidPackage->second_installment, 2) }}</td>
+        </tr>
+        <tr>
+            <td>NRI Price</td>
+            <td>₹{{ number_format($paidPackage->nri_fee, 2) }}</td>
+        </tr>
+        <tr>
+            <td>First Installment NRI</td>
+            <td>₹{{ number_format($paidPackage->first_installment_premium, 2) }}</td>
+        </tr>
+        <tr>
+            <td>Second Installment NRI</td>
+            <td>₹{{ number_format($paidPackage->second_installment_premium, 2) }}</td>
+        </tr>
 
-                            <dt>Base Price:</dt>
-                            <dd>₹{{ number_format($paidPackage->base_price, 2) }}</dd>
+        <tr>
+            <td>GST Rate</td>
+            <td>{{ number_format($paidPackage->gst_rate, 2) }}%</td>
+        </tr>
+        <tr>
+            <td>GST Amount</td>
+            <td>₹{{ number_format($paidPackage->gst_amount, 2) }}</td>
+        </tr>
+        <tr>
+            <td>Total Price</td>
+            <td>₹{{ number_format($paidPackage->total_price, 2) }}</td>
+        </tr>
+        <tr>
+            <td>Created At</td>
+            <td>{{ $paidPackage->created_at ? $paidPackage->created_at->format('d-m-Y H:i') : 'Not available' }}</td>
+        </tr>
+    </tbody>
+</table>
 
-                            <dt>GST Rate:</dt>
-                            <dd>{{ number_format($paidPackage->gst_rate, 2) }}%</dd>
-
-                            <dt>GST Amount:</dt>
-                            <dd>₹{{ number_format($paidPackage->gst_amount, 2) }}</dd>
-
-                            <dt>Total Price:</dt>
-                            <dd>₹{{ number_format($paidPackage->total_price, 2) }}</dd>
-
-                            <dt>Created At:</dt>
-                            <dd>{{ $paidPackage->created_at ? $paidPackage->created_at->format('d-m-Y H:i') : 'Not available' }}</dd>
-                        </dl>
                     </div>
                 </div>
                 <!-- footer -->
