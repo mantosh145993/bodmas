@@ -47,6 +47,9 @@
             <input type="hidden" name="gst" value="{{ $package->gst_rate }}">
             <input type="hidden" name="gst_amount" value="{{ $package->gst_amount }}">
             <input type="hidden" name="price" value="{{ $amount }}">
+            <input type="hidden" name="payment_type" value="{{ $paymentType }}">
+            <input type="hidden" name="package_type" value="{{ $packageType }}">
+            <input type="hidden" name="price" value="{{ $amount }}">
 
               <!-- GST Field -->
               <div class="form-group">

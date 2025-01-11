@@ -13,7 +13,7 @@ class College extends Model
     protected $table = 'colleges';
 
     // Define fillable fields
-    protected $fillable = ['name', 'address', 'state_id','type','course_id','image'];
+    protected $fillable = ['page_id','name', 'address', 'state_id','type','course_id','image'];
 
 
 }

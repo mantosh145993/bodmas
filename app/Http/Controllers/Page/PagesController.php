@@ -322,4 +322,19 @@ class PagesController extends Controller
             'notice' => $notice,
         ]);
     }
+
+    public function showCollege($slug){
+        $page = Page::where('slug', $slug)->first();
+        if ($page) {
+            $id = $page->id;
+            $menus = $this->menuHelper->getMenu();
+            $banner = $this->menuHelper->getBanner($id);
+            return view('front.home.showPage', [
+                'page' => $page,
+                'menus' => $menus,
+                'banner' => $banner
+            ]);
+        }
+        abort(404, 'Page not found');
+        }
 }

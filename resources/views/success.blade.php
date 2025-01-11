@@ -175,6 +175,14 @@
                 <td>{{ $payment->product_name }}</td>
             </tr>
             <tr>
+                <th style="background-color: #f8f9fa;">Package Type</th>
+                <td>{{ $payment->package_type }}</td>
+            </tr>
+            <tr>
+                <th style="background-color: #f8f9fa;">Payment Term</th>
+                <td>{{ $payment->payment_type }}</td>
+            </tr>
+            <tr>
                 <th style="background-color: #f8f9fa;">Payment ID</th>
                 <td>{{ $payment->payment_id }}</td>
             </tr>

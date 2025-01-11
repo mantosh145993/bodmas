@@ -57,6 +57,20 @@
                                             <input type="text" class="form-control" id="name" name="name" value="{{$colleges->name}}" required>
                                         </div>
 
+                                         <!-- College Page -->
+                                            <div class="form-group">
+                                                <label for="page_id">College Page</label>
+                                                <select class="form-control" id="page_id" name="page_id" required>
+                                                    @foreach($pages as $page)
+                                                    <option value="{{ $page->id }}" 
+                                                            @if(isset($colleges->page_id) && $colleges->page_id == $page->id) selected @endif>
+                                                        {{ $page->title }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+
                                         <!-- Address -->
                                         <div class="form-group">
                                             <label for="address">Address</label>

@@ -47,37 +47,40 @@ Event Area
                 </div>
             </div>
         </div>
-        <div class="row" id="blog-container">
-            @foreach($notifications as $notification)
-            <div class="col-md-6 col-xl-3">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <iframe
-                            src="{{ asset('notice/' . $notification->file) }}"
-                            width="50%"
-                            height="250px"
-                            style="border: none;">
-                        </iframe>
-                    </div>
-                    <a class="mt-2 mb-2" href="{{ asset('notice/' . $notification->file) }}" download class="btn btn-primary" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: center;">
-                        Download as PDF
-                    </a>
-                    <a href="{{ asset('notice/' . $notification->file) }}" target="_blank" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: right;">View Notification</a>
-                    <div class="blog-content" style="color: white; padding: 15px; border-radius: 8px;">
-                        <h6 class="blog-content">
-                            {{ $notification->title }}
-                            @if($notification->created_at && $notification->created_at->isToday())
-                            <span class="new-label">New Notification</span>
-                            @endif
-                        </h6>
-                    </div>
-                    <p style="color:black">
-                        {{ $notification->description }}
-                    </p>
+       <div class="row" id="blog-container">
+    @foreach($notifications as $notification)
+        <div class="col-12 col-md-4 col-xl-4">
+            <div class="th-blog blog-single style2">
+                <div class="blog-img">
+                    <iframe
+                        src="{{ asset('notice/' . $notification->file) }}"
+                        width="100%"
+                        height="250px"
+                        style="border: none;">
+                    </iframe>
                 </div>
+                <a class="mt-2 mb-2" href="{{ asset('notice/' . $notification->file) }}" download class="btn btn-primary" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: center;">
+                    Download as PDF
+                </a>
+                <a href="{{ asset('notice/' . $notification->file) }}" target="_blank" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: right;">
+                    View Notification
+                </a>
+                  @if($notification->created_at && $notification->created_at->isToday())
+                            <span class="new-label">New</span>
+                        @endif
+                <div class="blog-content" style="color: white; padding: 15px; border-radius: 8px;">
+                    <h6 class="blog-content">
+                        {{ $notification->title }}
+                    </h6>
+                </div>
+                <p style="color:black">
+                    {{ $notification->description }}
+                </p>
             </div>
-            @endforeach
         </div>
+    @endforeach
+</div>
+
 
 
 
@@ -179,26 +182,13 @@ Event Area
     }
 
 
-
-    .blink-animation {
-        animation: blinkColors 1.5s infinite;
-        font-weight: bold;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
-
     .new-label {
-        background-color: #ffff;
+        background-color: red;
         color: white;
         padding: 8px 20px;
         border-radius: 5px;
         font-size: 15px;
         margin-left: 10px;
-        animation: blink 1s infinite;
     }
 
-    @keyframes blink {
-        50% {
-            opacity: 0;
-        }
-    }
 </style>

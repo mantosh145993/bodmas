@@ -8,6 +8,7 @@ use App\Models\College;
 use App\Models\Medical;
 use App\Models\Predictor;
 use App\Models\Course;
+use App\Models\Page;
 use DB;
 
 class PredictController extends Controller
@@ -103,11 +104,18 @@ class PredictController extends Controller
         }
 
         $colleges = $query->get();
+        if ($colleges->isNotEmpty()) {
+            $pageIds = $colleges->pluck('page_id')->unique(); // Get unique page IDs
+            $pages = Page::whereIn('id', $pageIds)->get();    // Retrieve all matching pages
+        } else {
+            dd('No colleges found');
+        }
         $courses = Course::all();
 
         return response()->json([
             'colleges' => $colleges,
             'courses' => $courses,
+            'pages' => $pages
         ]);
     }
 

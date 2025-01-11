@@ -23,7 +23,10 @@ use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadCutofController;
 use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StripePaymentController;
 
+
+Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent'])->name('payment.intent');
 // payments Razorpay 
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
 
@@ -37,6 +40,8 @@ Route::post('bodmas-payment-store', [RazorpayPaymentController::class, 'store'])
 Route::post('payment-success', [RazorpayPaymentController::class, 'verifyPayment'])->name('razorpay.payment.success');
 Route::get('testEnv', [RazorpayPaymentController::class, 'testEnv'])->name('testEnv');
 // end payments Razorpay 
+// Display College by slug
+Route::get('/show/college/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
 // Footer route 	
 Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
 Route::post('/partner', [App\Http\Controllers\Page\PagesController::class, 'becomPartner'])->name('enquiry.partner');

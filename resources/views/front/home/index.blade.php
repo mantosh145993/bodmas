@@ -127,39 +127,39 @@ Hero Area
 <!--==============================
 Notice Area  
 ==============================-->
-<div class="space-top">
+<div class="">
     <div class="container">
-    <div class="title-area mb-25 mb-lg-0 text-center">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;">Latest Notice by Bodmas</h2>
-        <a href="{{ route('all-notification') }}" class="th-btn">View All Notifications <i class="fa-solid fa-arrow-right ms-2"></i></a>
-    </div>
-</div>
+        <div class="title-area mb-25 mb-lg-0 text-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;">Latest Notifications & Update</h2>
+                <a href="{{ route('all-notification') }}" class="th-btn"> All Notifications <i class="fa-solid fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
 
         <div class="notice-section">
             <div class="row">
                 @foreach($notices as $notice)
-                    <div class="col-12 col-md-4">
-                        <div class="notice-card">
-                            <div class="notice-header">
-                                <h3 class="notice-title">
-                                    <a href="{{ asset('notice/' . $notice->file) }}" target="_blank">
-                                        {{ $notice->title }}
-                                    </a>
-                                    @if($notice->created_at && $notice->created_at->isToday())
-                                    <span class="new-label">New</span>
-                                    @endif
-                                </h3>
-                            </div>
-                            <p class="notice-description">
-                                {{ $notice->description }}
-                            </p>
-                            <div class="notice-actions">
-                                <a href="{{ asset('notice/' . $notice->file) }}" class="btn-pdf" download>Download PDF</a>
-                                <a href="{{ asset('notice/' . $notice->file) }}" class="btn-view" target="_blank">View Notification</a>
-                            </div>
+                <div class="col-12 col-md-4">
+                    <div class="notice-card">
+                        <div class="notice-header">
+                            <h3 class="notice-title">
+                                <a href="{{ asset('notice/' . $notice->file) }}" target="_blank">
+                                    {{ $notice->title }}
+                                </a>
+                                @if($notice->created_at && $notice->created_at->isToday())
+                                <span class="new-label">New</span>
+                                @endif
+                            </h3>
+                        </div>
+                        <p class="notice-description">
+                            {{ $notice->description }}
+                        </p>
+                        <div class="notice-actions">
+                            <a href="{{ asset('notice/' . $notice->file) }}" class="btn-pdf" download>Download PDF</a>
+                            <a href="{{ asset('notice/' . $notice->file) }}" class="btn-view" target="_blank">View Notification</a>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -251,8 +251,8 @@ Paid Guidance Area
                             <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
                         </a>
                     </div>
-                    <div class="course-content">
-                        <h3 class="course-title">
+                    <div class="course-content text-center">
+                        <h3 class="course-title ">
                             <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
                         </h3>
                         <p>{{ $package['description'] }}</p>
@@ -261,7 +261,7 @@ Paid Guidance Area
                             <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
                             <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
                         </div>
-                        <div class="text-left">
+                        <div class="text-center mb-2 mt-2">
                             <a href="{{ url($package['url'])}}" class="btn btn-primary">Book Now</a>
                         </div>
 
@@ -459,7 +459,7 @@ Cta Area
 <!--==============================
 Blog Area  
 ==============================-->
-<section class="overflow-hidden space" id="blog-sec">
+<section class="overflow-hidden space" id="blog-sec" style="height: 680px;">
     <div class="container">
         <div class="mb-35 text-center text-md-start">
             <div class="row align-items-center justify-content-between">
@@ -479,16 +479,22 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="{{route('blog_details', $blog->slug)}}">
-                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
+                        <a href="{{ route('blog_details', $blog->slug) }}">
+                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image" style="width: 100%; height: 200px;object-fit: cover;border-radius: 8px;">
                         </a>
                     </div>
+
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
                             <a href="#"><i class="fa-light fa-clock"></i>{{ $blog->published_at }}</a>
                         </div>
-                        <h4 class="box-title"><a href="{{route('blog_details', $blog->slug)}}">{{ $blog->title }}</a>
+                        <h4 class="box-title">
+                            <a href="{{route('blog_details', $blog->slug)}}">
+                                {{ \Illuminate\Support\Str::words($blog->title, 2) }}
+                            </a>
+                        </h4>
+
                         </h4>
                         <a href="{{route('blog_details', $blog->slug)}}" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
@@ -498,6 +504,7 @@ Blog Area
         </div>
     </div>
 </section>
+
 
 <!--==============================
 Team Area  
@@ -871,24 +878,23 @@ Event Area
     .new-label {
         display: inline-block;
         margin-left: 10px;
-        background-color: #ff4500;
+        background-color: red;
         color: white;
         font-size: 0.8rem;
         font-weight: bold;
         padding: 2px 6px;
         border-radius: 5px;
-        animation: blink 1.5s infinite;
     }
 
     @keyframes blink {
 
         0%,
         100% {
-            background-color: #ff4500;
+            background-color: red;
         }
 
         50% {
-            background-color: #ffa500;
+            background-color: red;
         }
     }
 
