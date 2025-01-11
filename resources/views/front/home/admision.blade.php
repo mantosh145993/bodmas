@@ -183,7 +183,8 @@ Servce Area
                 },
                 success: function(response) {
                     const colleges = response.colleges; // List of colleges
-                    const courses = response.courses; // Optional: List of all courses (if needed)
+                    const courses = response.courses; // List of all courses
+                    const pages = response.pages; // List of pages
                     let collegesHtml = '';
 
                     if (colleges.length > 0) {
@@ -191,21 +192,32 @@ Servce Area
 
                         $.each(colleges, function(index, college) {
                             const course = courses.find(course => course.id === college.course_id);
+
+                            // Find the corresponding page using the college's page_id
+                            const page = pages.find(page => page.id === college.page_id);
+                            const slug = page ? page.slug : null;
+                            const readMoreUrl = slug ? `/show/college/${slug}` : '#';
+
                             collegesHtml += `
-            <div class="college-card" style="display: flex; align-items: center; margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
-                <div style="flex-shrink: 0; margin-right: 15px;">
-                    <img src="/college/${college.image}" alt="${college.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;">
+                <div class="college-card" style="display: flex; align-items: center; margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                    <div style="flex-shrink: 0; margin-right: 15px;">
+                        <img src="/college/${college.image}" alt="${college.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;">
+                    </div>
+                    <div>
+                        <h6>${college.name}</h6>
+                        <p><strong>Course:</strong> ${course ? course.title : 'N/A'}</p>
+                        <p><strong>Type:</strong> ${college.type || 'No types available.'}</p>
+                        <p><strong>Address:</strong> ${college.address || 'No address available.'}</p>
+                        <button class="btn" style="margin-top: 10px;">
+                            <a href="/contact" style="text-decoration: none; color: white; padding: 5px 10px; background-color: #007bff; border-radius: 5px;">Apply Now</a>
+                        </button>
+                        <button class="btn" style="margin-top: 10px;">
+                            <a href="${readMoreUrl}" style="text-decoration: none; color: white; padding: 5px 10px; background-color: #007bff; border-radius: 5px;">
+                                Read More
+                            </a>
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <h6>${college.name}</h6>
-                     <p><strong>Course:</strong> ${course ? course.title : 'N/A'}</p>
-                    <p><strong>Type:</strong> ${college.type || 'No types available.'}</p>
-                    <p><strong>Address:</strong> ${college.address || 'No address available.'}</p>
-                    <button class="btn" style="margin-top: 10px;">
-                        <a href="/contact" style="text-decoration: none; color: white; padding: 5px 10px; background-color: #007bff; border-radius: 5px;">Apply Now</a>
-                    </button>
-                </div>
-            </div>
             `;
                         });
                     } else {

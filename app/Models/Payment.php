@@ -18,6 +18,8 @@ class Payment extends Model
         'payment_id',
         'order_id',
         'product_name',
+        'payment_type',
+        'package_type',
         'quantity',
         'price',
         'amount',

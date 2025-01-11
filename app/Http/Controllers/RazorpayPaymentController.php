@@ -152,13 +152,15 @@ class RazorpayPaymentController extends Controller
 
         try {
             $api->utility->verifyPaymentSignature($attributes); // Verify the payment signature
-          
+        //   dd($request->all());
             // If payment is verified successfully
             $payment = Payment::create([
                 'product_name' => $request->input('product_name'),
                 'payment_id' => $paymentId,
                 'order_id' => $orderId,
                 'price' => $request->input('price'), 
+                'package_type' => $request->input('package_type'),
+                'payment_type' => $request->input('payment_type'),
                 'vendor_gst' => $request->input('vendor_gst'),
                 'amount' => $request->input('amount'), 
                 'gst' => $request->input('gst'), 

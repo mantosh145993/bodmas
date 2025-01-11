@@ -17,6 +17,9 @@ return [
         'key' => env('RAZORPAY_KEY'),
         'secret' => env('RAZORPAY_SECRET'),
     ],
+    'stripe' => [
+        'secret' => env('STRIPE_SECRET'),
+    ],
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
