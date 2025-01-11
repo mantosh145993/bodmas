@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\College;
 use App\Models\State;
 use App\Models\Course;
-use App\Models\Predictor;
+use App\Models\Page;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +25,8 @@ class CollegeController extends Controller
         $colleges = College::paginate(6);
         $courses = Course::all();
         $states = State::all();
-        return view('admin.college.add', ['colleges'=>$colleges,'courses'=>$courses,'states'=>$states]);
+        $pages = Page::orderBy('id', 'desc')->get();  
+        return view('admin.college.add', ['colleges'=>$colleges,'courses'=>$courses,'states'=>$states,'pages'=>$pages]);
     }
 
     public function store(Request $request)
@@ -49,6 +50,7 @@ class CollegeController extends Controller
                 'state_id' => $request->state_id,
                 'type' => $request->type,
                 'course_id' => $request->course_id,
+                'page_id' => $request->page_id,
                 'image' => $file,
                 'name' =>$request->name,
                 'address' =>$request->address
@@ -66,7 +68,8 @@ class CollegeController extends Controller
         $colleges = College::findOrFail($id); 
         $courses = Course::all();
         $states = State::all();
-        return view('admin.college.edit', compact('colleges','courses','states')); 
+        $pages = Page::orderBy('id', 'desc')->get();  
+        return view('admin.college.edit', compact('colleges','courses','states','pages')); 
     }
 
     public function update(Request $request, $id)
@@ -95,6 +98,7 @@ class CollegeController extends Controller
             'state_id' => $request->state_id,
             'type' => $request->type,
             'course_id' => $request->course_id,
+            'page_id' => $request->page_id,
             'name' => $request->name,
             'address' => $request->address,
         ]);

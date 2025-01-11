@@ -57,6 +57,17 @@
                                             <input type="text" class="form-control" id="name" name="name" required>
                                         </div>
 
+                                          <!-- College Page -->
+                                          <div class="form-group">
+                                            <label for="page_id">College Page</label>
+                                            <select class="form-control" id="page_id" name="page_id" required>
+                                                @foreach($pages as $page)
+                                                <option value="{{$page->id}}">{{$page->title}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+
                                         <!-- Address -->
                                         <div class="form-group">
                                             <label for="address">Address</label>
