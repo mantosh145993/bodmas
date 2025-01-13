@@ -70,7 +70,8 @@ class PredictController extends Controller
                 }
             })
             ->whereBetween('rank', [$lowerRank, $upperRank]) // Filter by rank range after budget
-            // ->limit(15)
+            ->orderBy('rank','desc')
+            ->limit(15)
             ->get();
 
         // dd(DB::getQueryLog(), count($rankCutoffs));

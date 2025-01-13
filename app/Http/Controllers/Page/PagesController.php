@@ -202,6 +202,13 @@ class PagesController extends Controller
                     'notifications' => $notifications,
                     'states' => $states
                 ]);
+            case 'become-partner-with-us':
+                $menus = $this->menuHelper->getMenu();
+                $notifications = Notice::orderBy('created_at', 'desc')->get();
+                $states = State::all();
+                return view('front.home.become-partner-with-us', [
+                    'menus' => $menus
+                ]);
             default:
                 $shortLink = ShortLink::where('code', $slug)->first();
                 if ($shortLink) {
