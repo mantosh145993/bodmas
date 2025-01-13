@@ -24,7 +24,19 @@ use App\Http\Controllers\UploadCutofController;
 use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PhonePayController;
 
+
+
+//PAYMENT FORM
+Route::get('payment', [PhonePayController::class, 'index'])->name('payment');
+ 
+//SUBMIT PAYMENT FORM ROUTE
+Route::post('pay-now', [PhonePayController::class, 'submitPaymentForm'])->name('pay-with-phonepe');
+ 
+//CALLBACK ROUTE
+Route::post('confirm', [PhonePayController::class, 'confirmPayment'])->name('confirm');
+ 
 
 Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent'])->name('payment.intent');
 // payments Razorpay 

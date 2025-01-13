@@ -76,8 +76,8 @@ class RazorpayPaymentController extends Controller
             }
             // dd($amount);
             // Razorpay configuration
-            $key = 'rzp_test_WkATe7eC5OTHbN'; // Your Razorpay Key
-            $secret = 'wFWC1ZiNJSokqkt9hjrpTEtE'; // Your Razorpay Secret
+            $key = 'rzp_test_fxMqJ0Or2ej9I4'; // Your Razorpay Key
+            $secret = 'GFrgOZOkETLlvrDi6vS9meDb'; // Your Razorpay Secret
             $api = new Api($key, $secret);
             $orderData = [
                 'receipt' => (string) rand(1000, 9999), // Random receipt ID
@@ -137,8 +137,8 @@ class RazorpayPaymentController extends Controller
     public function processPayment(Request $request)
     {
         // dd($request->all());
-        $key = 'rzp_test_WkATe7eC5OTHbN';
-        $secret = 'wFWC1ZiNJSokqkt9hjrpTEtE';
+        $key = 'rzp_test_fxMqJ0Or2ej9I4';
+        $secret = 'GFrgOZOkETLlvrDi6vS9meDb';
         $paymentId = $request->input('razorpay_payment_id');
         $orderId = $request->input('razorpay_order_id');
         $signature = $request->input('razorpay_signature');
@@ -191,8 +191,8 @@ class RazorpayPaymentController extends Controller
 
     public function verifyPayment(Request $request)
     {
-        $key = 'rzp_test_WkATe7eC5OTHbN';
-        $secret = 'wFWC1ZiNJSokqkt9hjrpTEtE';
+        $key = 'rzp_test_fxMqJ0Or2ej9I4';
+        $secret = 'GFrgOZOkETLlvrDi6vS9meDb';
         $paymentId = $request->input('razorpay_payment_id');
         $orderId = $request->input('razorpay_order_id');
         $signature = $request->input('razorpay_signature');

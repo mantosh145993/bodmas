@@ -29,6 +29,7 @@ class CutoffImport implements ToModel, WithHeadingRow
             'quota'    => $row['quota'],
             'state_id'    => $row['state'],
             'type'    => $row['type'],
+            'seat_type' =>$row['seat_type'],
         ]);
     }
   
