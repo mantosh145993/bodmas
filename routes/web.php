@@ -23,30 +23,18 @@ use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadCutofController;
 use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StripePaymentController;
-use App\Http\Controllers\PhonePayController;
+use App\Http\Controllers\PayController;
 
 
-
-//PAYMENT FORM
-Route::get('payment', [PhonePayController::class, 'index'])->name('payment');
- 
-//SUBMIT PAYMENT FORM ROUTE
-Route::post('pay-now', [PhonePayController::class, 'submitPaymentForm'])->name('pay-with-phonepe');
- 
-//CALLBACK ROUTE
-Route::post('confirm', [PhonePayController::class, 'confirmPayment'])->name('confirm');
- 
-
-Route::post('/create-payment-intent', [StripePaymentController::class, 'createPaymentIntent'])->name('payment.intent');
+Route::get('/pay', [PayController::class, 'index'])->name('pay');
+Route::post('/response', [PayController::class, 'response'])->name('response');
 // payments Razorpay 
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
-
 Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
 Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
-
+// payments Razorpay End
 
 Route::post('bodmas-payment-store', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
 Route::post('payment-success', [RazorpayPaymentController::class, 'verifyPayment'])->name('razorpay.payment.success');

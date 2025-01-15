@@ -88,39 +88,6 @@
     </div>
 </div>
 @stop
-<style>
-    .show-content h1,
-    .show-content h2,
-    .show-content h3,
-    .show-content h4,
-    .show-content h5,
-    .show-content h6 {
-        font-family: 'Playfair Display', serif;
-        color: #333;
-    }
-
-    .page-content-container p {
-        font-family: 'Georgia', serif;
-        line-height: 1.6;
-        margin-bottom: 15px;
-        color: black;
-    }
-
-    @media screen and (max-width: 600px) {
-        .page-content-container img {
-            max-width: 100%;
-            max-height: 300px;
-        }
-
-        .page-content-container h1 {
-            font-size: 1.8em;
-        }
-
-        .page-content-container p {
-            font-size: 1em;
-        }
-    }
-</style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -152,9 +119,9 @@
                 }
             });
         });
-
+        
         // Enquiry Form 
-
+        
         $('#enquiryForm').on('submit', function(e) {
             e.preventDefault();
             let formData = {
@@ -187,6 +154,16 @@
 </script>
 
 <style>
+      [data-f-id="pbf"] {
+    display: none;
+  }
+     .show-content img {
+        width: 100% !important; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+        box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1); /* Apply the same shadow to images */
+        margin-bottom: 1em; /* Add space below images for better layout */
+        border-radius: 20px;
+    }
     .widget {
         margin: 20px 0;
     }
@@ -230,5 +207,36 @@
 
     button:hover {
         background-color: #0056b3;
+    }
+    .show-content h1,
+    .show-content h2,
+    .show-content h3,
+    .show-content h4,
+    .show-content h5,
+    .show-content h6 {
+        font-family: 'Playfair Display', serif;
+        color: #333;
+    }
+
+    .page-content-container p {
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: black;
+    }
+
+    @media screen and (max-width: 600px) {
+        .page-content-container img {
+            max-width: 100%;
+            max-height: 300px;
+        }
+
+        .page-content-container h1 {
+            font-size: 1.8em;
+        }
+
+        .page-content-container p {
+            font-size: 1em;
+        }
     }
 </style>

@@ -337,4 +337,7 @@
         background-color: #f0f8ff; /* Light blue background on hover */
         border-color: #007bff; /* Highlight border on hover */
     }
+    [data-f-id="pbf"] {
+    display: none;
+  }
 </style>
