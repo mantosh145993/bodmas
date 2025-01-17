@@ -1,6 +1,6 @@
 @extends('front_layouts.master')
 @section('content')
-<div class="breadcumb-wrapper " data-bg-src="{{asset('assets/img/bg/blog.jpg')}}" data-overlay="title" data-opacity="8">
+<div class="breadcumb-wrapper " data-bg-src="{{asset('assets/img/bg/blog.jpeg')}}" data-overlay="title" data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="assets/img/bg/breadcumb_shape_1_1.png">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
@@ -76,7 +76,7 @@
 
                 </div>
                 <!-- Comment Form -->
-                <form class="th-comment-form ">
+                <!-- <form class="th-comment-form ">
                     <div class="form-title">
                         <h3 class="blog-inner-title h5">Leave a Reply</h3>
                         <p class="mb-30">Your email address will not be published. Required fields are marked</p>
@@ -102,7 +102,7 @@
                             <button class="th-btn">Submit Message <i class="fas fa-arrow-right ms-1"></i></button>
                         </div>
                     </div>
-                </form>
+                </form> -->
             </div>
             <div class="col-xxl-4 col-lg-5">
                 <aside class="sidebar-area">
@@ -128,7 +128,7 @@
                         <div class="widget-banner">
                             <h4 class="title">Need Help? We Are Here
                                 To Help You</h4>
-                            <div class="logo"><img src="assets/img/logo.svg" alt="img"></div>
+                            <!-- <div class="logo"><img src="assets/img/logo.svg" alt="img"></div> -->
                             <h5 class="subtitle">You Get Online Courses</h5>
                             <a href="tel:+91 9511626721" class="link">+91 9511626721</a>
                             <a href="{{route('contact')}}" class="th-btn style7">Contact Us Now <i class="far fa-arrow-right ms-1"></i></a>
