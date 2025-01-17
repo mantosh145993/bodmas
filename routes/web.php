@@ -26,12 +26,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
 
 
-Route::get('/pay', [PayController::class, 'index'])->name('pay');
-Route::post('/response', [PayController::class, 'response'])->name('response');
+Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
+Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
+Route::post('/response', [PayController::class, 'handleResponse'])->name('response');
 // payments Razorpay 
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
-Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
-Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
+// Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
+// Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
 Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
 // payments Razorpay End

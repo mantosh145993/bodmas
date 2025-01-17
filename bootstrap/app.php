@@ -12,6 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
+        $middleware->validateCsrfTokens(except:[
+            'response*'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
