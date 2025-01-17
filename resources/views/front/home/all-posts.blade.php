@@ -4,25 +4,25 @@
 <!--==============================
 Event Area  
 ==============================-->
-<section class="container position-relative">
-    <div class="row">
-        <div class="image-container" style="position: relative;">
-            <img src="{{ asset('assets/img/all-posts.jpg') }}" alt="" style="height: 350px; width: 100%; object-fit: cover;">
-            <div class="text-overlay" style="
-                position: absolute; 
-                top: 50%; 
-                left: 50%; 
-                transform: translate(-50%, -50%);
-                color: white; 
-                font-size: 24px; 
-                font-weight: bold; 
-                text-align: center; 
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
-                Read All Blogs & Articles
-            </div>
+<div class="breadcumb-wrapper " data-bg-src="{{asset('assets/img/bg/all-post.jpeg')}}" data-overlay="title" data-opacity="8">
+    <div class="breadcumb-shape" data-bg-src="assets/img/bg/breadcumb_shape_1_1.png">
+    </div>
+    <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
+        <img src="{{asset('assets/img/bg/breadcumb_shape_1_2.png')}}" alt="shape">
+    </div>
+    <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" data-left="50px" data-bottom="80px">
+        <img src="{{asset('assets/img/bg/breadcumb_shape_1_3.png')}}" alt="shape">
+    </div>
+    <div class="container">
+        <div class="breadcumb-content text-center">
+            <h1 class="breadcumb-title">Read All Post & Article</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="{{route('/')}}">Home</a></li>
+                <li>News</li>
+            </ul>
         </div>
     </div>
-</section>
+</div>
 
 <!-- blog service area  -->
 <section class="overflow-hidden space" id="blog-sec">

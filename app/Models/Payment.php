@@ -31,6 +31,7 @@ class Payment extends Model
         'number',
         'customer_email',
         'payment_status',
+        'txn_date',
         'payment_method'
     ];
 }

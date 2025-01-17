@@ -1,20 +1,10 @@
-<!doctype html>
-<html lang="en">
+@extends('front_layouts.master')
+@section('content')
 
-<head>
-    <title>Atom Insta Payments</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
 
-<body>
-
-    <div class="container my-5">
-        <h3 class="">Merchant Shop</h3>
-        <p>Transaction Id: {{ $data['txnId'] }}</p>
-        <p>Atom Token Id: {{ $atomTokenId }}</p>
-        <p>Pay Rs. {{ $data['amount'] }}</p>
+    <div class="container my-5 text-center">
+        <h3 class="">Pay Now</h3>
+        <p style="color: black;">Pay Rs. {{ $data['amount'] }}</p>
         <a name="" id="" class="btn btn-primary" href="javascript:openPay()" role="button">Pay Now</a>
     </div>
 
@@ -35,6 +25,4 @@
             let atom = new AtomPaynetz(options, 'uat');
         }
     </script>
-</body>
-
-</html>
+@stop
