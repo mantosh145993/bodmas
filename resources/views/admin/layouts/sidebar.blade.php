@@ -47,6 +47,7 @@
                   @if( Auth::user()->role == 'admin')
                   <li><a href="{{ route('admin.permission') }}"><i class="fa fa-stumbleupon orange_color"></i> <span> Permission</span></a></li>
                   @endif
+                  <li><a href="{{route('form.form_list')}}"><i class="fa fa-crop orange_color"></i> <span> Add Form Link</span></a></li>
                </ul>
             </li>
             <li class="active">

@@ -22,25 +22,54 @@
                 <td style="padding: 8px; border: 1px solid #ddd;">{{ $package->package_name }}</td>
             </tr>
             <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;">Base Price:</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">₹{{ number_format($base_amount, 2) }}</td>
-            </tr>
-            <tr>
                 <td style="padding: 8px; border: 1px solid #ddd;">Payment Term:</td>
                 <td style="padding: 8px; border: 1px solid #ddd;">{{ $paymentType }}</td>
             </tr>
             <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;">Base Price:</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">₹{{ number_format($base_amount, 2) }}</td>
+            </tr>
+
+
+              <!-- Display First Installment if available -->
+              @if(isset($first_installment) && $first_installment)
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;">First Installment:</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">₹{{ number_format($first_installment, 2) }}</td>
+            </tr>
+            @endif
+
+            <!-- Display Second Installment if available -->
+            @if(isset($second_installment) && $second_installment)
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;">Second Installment:</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">₹{{ number_format($second_installment, 2) }}</td>
+            </tr>
+            @endif
+            <!-- Display GST if available -->
+            @if(isset($package->gst_rate) && $package->gst_rate)
+            <tr>
                 <td style="padding: 8px; border: 1px solid #ddd;">GST:</td>
                 <td style="padding: 8px; border: 1px solid #ddd;">{{ $package->gst_rate }} %</td>
             </tr>
+            @endif
+
+            <!-- Display GST Amount if available -->
+            @if(isset($gst_amount) && $gst_amount)
             <tr>
                 <td style="padding: 8px; border: 1px solid #ddd;">GST Amount:</td>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ $gst_amount }}</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">₹{{ number_format($gst_amount, 2) }}</td>
             </tr>
+            @endif
+
+          
+              <!-- Display Total Amount Include with GST if available -->
+              @if(isset($amount) && $amount)
             <tr>
                 <td style="padding: 8px; border: 1px solid #ddd;">Total Amount Include with GST:</td>
                 <td style="padding: 8px; border: 1px solid #ddd;">₹{{ number_format($amount, 2) }}</td>
             </tr>
+            @endif
         </tbody>
     </table>
     <div class="container">
@@ -58,7 +87,7 @@
 
             <!-- User Information Form -->
             <div class="form-group">
-                <input type="text" id="name" name="vendor_gst" class="form-control" placeholder="Enter your GST No." >
+                <input type="text" id="name" name="vendor_gst" class="form-control" placeholder="Enter your GST No.">
             </div>
             <div class="form-group">
                 <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>

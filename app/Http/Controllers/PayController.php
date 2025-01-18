@@ -28,49 +28,6 @@ class PayController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // set your values in below function
-    // public function index()
-    // {
-    // $merchTxnId = uniqid('txn_', true);
-    // $amount = 10.00;
-    // $product_id = "NSE";
-    // $date = date('Y-m-d H:i:s'); // current date
-    // $login = env('ATOM_LOGIN');
-    // $password = env('ATOM_PASSWORD');
-    // $encRequestKey = env('ATOM_ENC_KEY');
-    // $decResponseKey = env('ATOM_DEC_KEY');
-    // $api_url = env('ATOM_API_URL');
-    // $user_email = "xyz@abc.com";
-    // $user_contact_number = "8888888888";
-    // $return_url = route('response');
-    // // $return_url = "https://www.atomtech.in/aipay-tool/response.php"; 
-
-    // $payData = array(
-    //     'login' => $login,
-    //     'password' => $password,
-    //     'amount' => $amount,
-    //     'prod_id' => $product_id,
-    //     'txnId' => $merchTxnId,
-    //     'date' => $date,
-    //     'encKey' => $encRequestKey,
-    //     'decKey' => $decResponseKey,
-    //     'payUrl' => $api_url,
-    //     'email' => $user_email,
-    //     'mobile' => $user_contact_number,
-    //     'txnCurrency' => 'INR',
-    //     'return_url' => $return_url,
-    //     'udf1' => "",  // optional
-    //     'udf2' => "",  // optional 
-    //     'udf3' => "",  // optional
-    //     'udf4' => "",  // optional
-    //     'udf5' => ""   // optional
-    // );
-    // //  dd($payData);
-    //     // dd($return_url);
-    //     $atomTokenId = $this->createTokenId($payData);
-    //     return view('atompay')->with('data', $payData)
-    //         ->with('atomTokenId', $atomTokenId);
-    // }
 
     public function initiatePayment(Request $request, $id)
     {
@@ -81,6 +38,8 @@ class PayController extends Controller
             $installmentType = $request->get('installment');
             switch ($installmentType) {
                 case 'basic':
+                    $first_installment ='';
+                    $second_installment ='';
                     $paymentType = "Final Booking";
                     $packageType = "Basic";
                     $base_amount = $package->basic_fee;
@@ -88,6 +47,8 @@ class PayController extends Controller
                     $gst_amount = (int) $base_amount / 100 * 18;
                     break;
                 case 'premium':
+                    $first_installment ='';
+                    $second_installment ='';
                     $paymentType = "Final Booking";
                     $packageType = "Premium";
                     $base_amount = $package->premium_fee;
@@ -99,16 +60,22 @@ class PayController extends Controller
                     $packageType = "Premium";
                     $base_amount = $package->premium_fee;
                     $amount = (int)$package->first_installment_with_gst;
-                    $gst_amount = (int) $base_amount / 100 * 18;
+                    $first_installment = (int)$package->first_installment;
+                    $second_installment ='';
+                    $gst_amount = (int) $first_installment / 100 * 18;
                     break;
                 case 'premium-2':
                     $packageType = "Premium";
                     $paymentType = "Second Installment";
                     $base_amount = $package->premium_fee;
                     $amount = (int)$package->second_installment_with_gst;
-                    $gst_amount = (int) $base_amount / 100 * 18;
+                    $first_installment ='';
+                    $second_installment = (int)$package->second_installment;
+                    $gst_amount = (int) $second_installment / 100 * 18;
                     break;
                 case 'nri':
+                    $first_installment ='';
+                    $second_installment ='';
                     $packageType = "NRI";
                     $paymentType = "Final Booking";
                     $base_amount = $package->nri_fee;
@@ -120,28 +87,34 @@ class PayController extends Controller
                     $paymentType = "First Installment";
                     $base_amount = $package->nri_fee;
                     $amount = (int)$package->first_installment_with_gst_premium;
-                    $gst_amount = (int) $base_amount / 100 * 18;
+                    $first_installment = (int)$package->first_installment_premium;
+                    $second_installment ='';
+                    $gst_amount = (int) $first_installment / 100 * 18;
                     break;
                 case 'nri-2':
                     $packageType = "NRI";
                     $paymentType = "Second Installment";
                     $base_amount = $package->nri_fee;
                     $amount = (int)$package->second_installment_with_gst_premium;
-                    $gst_amount = (int) $base_amount / 100 * 18;
+                    $first_installment ='';
+                    $second_installment = (int)$package->second_installment_premium;
+                    $gst_amount = (int) $second_installment / 100 * 18;
                     break;
             }
             // dd($amount);
 
             $menus = $this->menuHelper->getMenu();
-            // dd( $orderData);
+            // dd( $second_installment);
             return view('payment', [
                 'package' => $package,
                 'menus' => $menus,
                 'base_amount' => $base_amount,
-                'amount' => $amount,
                 'paymentType' => $paymentType,
                 'packageType' => $packageType,
-                'gst_amount' => $gst_amount
+                'gst_amount' => $gst_amount,
+                'amount' => $amount,
+                'first_installment' => $first_installment,
+                'second_installment' => $second_installment,
             ]);
         } catch (DecryptException $e) {
             return response()->json(['error' => 'Invalid or tampered ID.'], 400);
@@ -175,7 +148,7 @@ class PayController extends Controller
             $api_url = env('ATOM_API_URL');
             $user_email = $email;
             $user_contact_number = $mobile;
-            $return_url = route('response');
+            $return_url = route('payment.response');
             $payData = array(
                 'login' => $login,
                 'password' => $password,
