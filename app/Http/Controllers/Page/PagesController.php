@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\PaidPackage;
 use App\Models\Partner;
 use App\Models\GalleryEvent;
+use App\Models\Link;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 
@@ -101,14 +102,14 @@ class PagesController extends Controller
                     'privats' => $privats,
                     'courses' => $courses
                 ]);
-            case 'admission/cut-off':
-                $Categories = Category::all();
-                $packages = Package::all();
+            case 'admission/application-link':
+                $states = State::all();
+                $links = Link::where('status', 'active')->paginate('10');
                 $menus = $this->menuHelper->getMenu();
-                return view('front.home.package-list', [
+                return view('front.home.link-list', [
                     'menus' => $menus,
-                    'categories' => $Categories,
-                    'packages' => $packages
+                    'states' => $states,
+                    'links' => $links
                 ]);
             case 'admission/private':
                 $menus = $this->menuHelper->getMenu();
@@ -330,7 +331,8 @@ class PagesController extends Controller
         ]);
     }
 
-    public function showCollege($slug){
+    public function showCollege($slug)
+    {
         $page = Page::where('slug', $slug)->first();
         if ($page) {
             $id = $page->id;
@@ -343,5 +345,25 @@ class PagesController extends Controller
             ]);
         }
         abort(404, 'Page not found');
+    }
+
+    public function getLink(Request $request)
+    {
+        $states = State::all();
+    
+        $links = Link::query()
+            ->when($request->state_id, fn ($query, $stateId) => $query->where('state_id', $stateId))
+            ->when($request->type, fn ($query, $type) => $query->where('type', $type))
+            ->where('status', 'active') // Only show active links to users
+            ->with('state') // Eager load state relationship
+            ->paginate(10);
+    
+        // Check if the request is AJAX
+        if ($request->ajax()) {
+            return view('front.home.partial-link-list', compact('links'))->render();
         }
+    
+        return view('front.home.link-list', compact('links', 'states'));
+    }
+    
 }

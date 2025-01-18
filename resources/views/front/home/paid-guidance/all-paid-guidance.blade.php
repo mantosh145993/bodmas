@@ -5,8 +5,24 @@
 Event Area  
 ==============================-->
 <section class="container">
-    <div class="row">
-        <img src="{{ asset('assets/img/guid.jpg') }}" alt="" style="height: 350px;">
+<div class="breadcumb-wrapper " data-bg-src="assets/img/bg/paid.jpg" data-overlay="title" data-opacity="8">
+        <div class="breadcumb-shape" data-bg-src="assets/img/bg/breadcumb_shape_1_1.png">
+        </div>
+        <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
+            <img src="assets/img/bg/breadcumb_shape_1_2.png" alt="shape">
+        </div>
+        <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" data-left="50px" data-bottom="80px">
+            <img src="assets/img/bg/breadcumb_shape_1_3.png" alt="shape">
+        </div>
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Bodmas Paid Guidance</h1>
+                <ul class="breadcumb-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Paid Guidance</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -15,7 +31,7 @@ Event Area
         <!-- Section Title -->
         <div class="mb-4 text-center text-md-start">
             <div class="row align-items-center justify-content-between">
-                <div class="col-md-8">
+                <div class="col-md-8 text">
                     <h4>Our All Popular Paid Guidance Packages</h4>
                 </div>
             </div>
@@ -26,14 +42,15 @@ Event Area
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="course-box h-100">
                     <!-- Course Image with Link -->
-                    <div class="course-img">
+                    <div class="course-img text-center">
                         <a href="{{ url($package['url']) }}">
-                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}" class="img-fluid">
+                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}" class="img-fluid" style="width: 70%; height: 250px;">
                         </a>
                     </div>
 
+
                     <!-- Course Content -->
-                    <div class="course-content p-3">
+                    <div class="course-content p-3 text-center">
 
                         <!-- Course Title -->
                         <h3 class="course-title mb-2">
@@ -41,7 +58,7 @@ Event Area
                         </h3>
 
                         <!-- Course Description -->
-                        <p class="mb-3">{{ $package['description'] }}</p>
+                        {{ $package['description'] }}
 
                         <!-- Course Price -->
                         <div class="course-price">

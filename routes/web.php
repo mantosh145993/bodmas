@@ -13,6 +13,7 @@ use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PackageController;
@@ -28,7 +29,7 @@ use App\Http\Controllers\PayController;
 
 Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
-Route::post('/response', [PayController::class, 'handleResponse'])->name('response');
+Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
 // payments Razorpay 
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
 // Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
@@ -239,8 +240,17 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     // Partner List Start partner.list
     Route::get('/partner/list', [PartnerController::class, 'index'])->name('partner.list');
     // Partner End
-});
 
+    // College Form
+    Route::get('/form/form_list', [FormController::class, 'index'])->name('form.form_list');
+    Route::get('/form/add', [FormController::class, 'create'])->name('form.add');
+    Route::post('/form/store', [FormController::class, 'store'])->name('form.store');
+    Route::get('/form/edit/{id}', [FormController::class, 'edit'])->name('form.edit');
+    Route::post('/form/update/{id}', [FormController::class, 'update'])->name('form.update');
+    Route::delete('/form/destroy/{id}', [FormController::class, 'destroy'])->name('form.destroy');
+    // College Form End
+});
+Route::get('/links/getlinks', [App\Http\Controllers\Page\PagesController::class, 'getLink'])->name('links.getlinks');
 Route::get('/get-states', [CategoryController::class, 'getStates']);
 Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup');
 Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');

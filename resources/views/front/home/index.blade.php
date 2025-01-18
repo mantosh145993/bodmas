@@ -255,7 +255,7 @@ Paid Guidance Area
                         <h3 class="course-title ">
                             <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
                         </h3>
-                        <p>{{ $package['description'] }}</p>
+                        {{ $package['description'] }}
                         <div class="course-price">
                             <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
                             <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
