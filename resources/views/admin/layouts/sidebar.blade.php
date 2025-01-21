@@ -78,6 +78,14 @@
                </ul>
             </li>
             <li class="active">
+               <a href="#offer" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-bullhorn yellow_color"></i> <span>Seasonal Offer</span></a>
+               <ul class="collapse list-unstyled" id="offer">
+                  <li>
+                     <a href="{{route('offer.offer_list')}}"> <i class="fa fa-file-picture-o orange_color"></i> <span>Seasonal Offers</span></a>
+                  </li>
+               </ul>
+            </li>
+            <li class="active">
                <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-universal-access yellow_color"></i> <span>Student Dashboard</span></a>
                <ul class="collapse list-unstyled" id="student">
                   <li>
@@ -89,7 +97,7 @@
                <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-ungroup yellow_color"></i> <span>Payment Dashboard</span></a>
                <ul class="collapse list-unstyled" id="payment">
                   <li>
-                     <a href="#"> <i class="fa fa-map-signs orange_color"></i> <span>Payment List</span></a>
+                     <a href="{{route('payment.paymentList')}}"> <i class="fa fa-map-signs orange_color"></i> <span>Payment List</span></a>
                   </li>
                </ul>
             </li>
