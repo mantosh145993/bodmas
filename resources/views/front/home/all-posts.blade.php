@@ -52,8 +52,8 @@ Event Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="{{ route('blog_details', $blog->slug) }}">
-                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
+                    <a href="{{ route('blog_details', $blog->slug) }}">
+                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image" style="width: 100%; height: 200px;object-fit: cover;border-radius: 8px;">
                         </a>
                     </div>
                     <div class="blog-content">
@@ -62,7 +62,9 @@ Event Area
                             <a href="#"><i class="fa-light fa-clock"></i>{{ $blog->published_at }}</a>
                         </div>
                         <h4 class="box-title">
-                            <a href="{{ route('blog_details', $blog->slug) }}">{{ $blog->title }}</a>
+                        <a href="{{route('blog_details', $blog->slug)}}">
+                                {{ \Illuminate\Support\Str::words($blog->title, 2) }}
+                            </a>
                         </h4>
                         <a href="{{ route('blog_details', $blog->slug) }}" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
                     </div>

@@ -16,6 +16,7 @@ use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaidPackageController;
 use App\Http\Controllers\PartnerController;
@@ -30,12 +31,13 @@ use App\Http\Controllers\PayController;
 Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
 Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
+Route::get('/payment/paymentList/', [PayController::class, 'paymentList'])->name('payment.paymentList');
 // payments Razorpay 
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
 // Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
 // Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
-Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
-Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
+// Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
+// Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
 // payments Razorpay End
 
 Route::post('bodmas-payment-store', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
@@ -249,6 +251,15 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/form/update/{id}', [FormController::class, 'update'])->name('form.update');
     Route::delete('/form/destroy/{id}', [FormController::class, 'destroy'])->name('form.destroy');
     // College Form End
+
+    // Offer Start
+    Route::get('/offer/offer_list', [OfferController::class, 'index'])->name('offer.offer_list');
+    Route::get('/offer/add', [OfferController::class, 'create'])->name('offer.add');
+    Route::post('/offer/store', [OfferController::class, 'store'])->name('offer.store');
+    Route::get('/offer/edit/{id}', [OfferController::class, 'edit'])->name('offer.edit');
+    Route::post('/offer/update/{id}', [OfferController::class, 'update'])->name('offer.update');
+    Route::delete('/offer/destroy/{id}', [OfferController::class, 'destroy'])->name('offer.destroy');
+    // Offer End
 });
 Route::get('/links/getlinks', [App\Http\Controllers\Page\PagesController::class, 'getLink'])->name('links.getlinks');
 Route::get('/get-states', [CategoryController::class, 'getStates']);

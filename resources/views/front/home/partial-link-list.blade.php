@@ -3,9 +3,8 @@
         <tr>
             <th>Title</th>
             <th>Type</th>
-            <th>State</th>
             <th>Links</th>
-            <th>Status</th>
+            <th>State</th>
         </tr>
     </thead>
     <tbody>
@@ -13,15 +12,12 @@
             <tr class="table-row">
                 <td>{{ $link->name }}</td>
                 <td>{{ $link->type }}</td>
-                <td>{{ $link->state->name }}</td>
                 <td>
                     <a href="{{ $link->link }}" target="_blank" class="text-decoration-none text-primary">
                         Visit Link
                     </a>
                 </td>
-                <td>
-                    {{ ucfirst($link->status) }}
-                </td>
+                <td>{{ $link->state->name }}</td>
             </tr>
         @empty
             <tr>
