@@ -11,48 +11,52 @@
                 <!-- Add Package Button -->
                 <div class="midde_cont">
                     <div class="container mt-4">
-                        <a href="{{ route('form.add') }}" class="btn btn-primary mb-3">Add Offer</a>
+                        <a href="{{ route('offer.add') }}" class="btn btn-primary mb-3">Add New Offer</a>
                         <div class="card">
-                            <h3 class="mt-5 ml-5 mb-5">Seasonal Offers</h3>
-                            @if (session('link_success_message'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('link_success_message') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <h3 class="mt-2 ml-2">Bodmas Seasonal Offers</h3>
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
                                 </div>
                             @endif
+
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
                             <!-- College Table -->
                             <table id="collegeTable" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Type</th>
-                                        <th>State</th>
                                         <th>Title</th>
-                                        <th>Link</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Start</th>
+                                        <th>End</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($links as $link)
+                                    @foreach ($offers as $offer)
                                     <tr>
-                                        <td>{{ $link->type }}</td>
-                                        <!-- Match state_id with state name -->
+                                        <td>{{ $offer->title }}</td>
+                                        <td>{{ $offer->description }}</td>
+                                        <td>{{ $offer->price }}</td>
+                                        <td>{{ $offer->start_date }}</td>
+                                        <td>{{ $offer->end_date }}</td>
                                         <td>
-                                            {{ $states->firstWhere('id', $link->state_id)?->name ?? 'Unknown' }}
-                                        </td>
-                                        <td>{{ $link->name }}</td>
-                                        <td>{{ $link->link }}</td>
-                                         <!-- Status with color coding -->
-                                        <td>
-                                            <span style="color: {{ $link->status === 'active' ? 'green' : 'red' }};">
-                                                {{ ucfirst($link->status) }}
+                                            <span style="color: {{ $offer->status === 'active' ? 'green' : 'red' }};">
+                                                {{ ucfirst($offer->status) }}
                                             </span>
                                         </td>
                                         <td>
                                             <button class="btn btn-primary btn-sm">
-                                                <a href="{{ route('form.edit', $link->id) }}" style="color: #fff;">Edit</a>
+                                                <a href="{{ route('offer.edit', $offer->id) }}" style="color: #fff;">Edit</a>
                                             </button>
-                                            <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $link->id }}">Delete</button>
+                                            <button class="btn btn-danger btn-sm delete-btn" data-id="{{ $offer->id }}">Delete</button>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -74,11 +78,11 @@
     $(document).ready(function() {
         // Handle package deletion
         $('.delete-btn').on('click', function() {
-            const packageId = $(this).data('id');
+            const offerId = $(this).data('id');
 
-            if (confirm('Are you sure you want to delete this Link?')) {
+            if (confirm('Are you sure you want to delete this Offer?')) {
                 $.ajax({
-                    url: `{{ route('form.destroy', '') }}/${packageId}`,
+                    url: `{{ route('offer.destroy', '') }}/${offerId}`,
                     type: 'DELETE',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security

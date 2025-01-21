@@ -34,6 +34,11 @@ class PagesController extends Controller
     {
         $this->menuHelper = $menuHelper;
     }
+    public function showOffers()
+    {
+        $offers = DB::select('SELECT * FROM offers WHERE status = "active" ORDER BY start_date DESC');
+        return view('front.front_layouts.header', compact('offers'));
+    }
     public function home()
     {
         $menus = $this->menuHelper->getMenu();
