@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Log;
 class PayController extends Controller
 {
     protected $menuHelper;
+    protected $payment;
 
-    public function __construct(MenuHelper $menuHelper)
+    public function __construct(MenuHelper $menuHelper, Payment $payment)
     {
         $this->menuHelper = $menuHelper;
+        $this->payment = $payment;
     }
     /**
      * Display a listing of the resource.
@@ -344,5 +346,10 @@ class PayController extends Controller
         $hash = openssl_pbkdf2($key1, $salt1, '256', '65536', 'sha512');
         $decrypted = openssl_decrypt($dataEncypted, $method, $hash, OPENSSL_RAW_DATA, $IVbytes);
         return $decrypted;
+    }
+
+    public function paymentList(){
+        $payments = Payment::paginate(15);
+       return view('admin.link.allPayment', compact('payments'));
     }
 }
