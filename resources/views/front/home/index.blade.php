@@ -4,206 +4,9 @@
 <!--==============================
 Hero Area
 ==============================-->
-<!-- <div class="th-hero-wrapper hero-1" id="hero">
-    <div class="hero-slider-1 th-carousel" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true">
-
-
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/one.png"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6">
-                        <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>NEET PG</span> COUNCELLING</span>
-                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">2024
-                                Start <span>Contact Us</span></h2>
-                            <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.6s">+91 9511626721, educationbodmas@gmail.com</p>
-                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="{{route('contact')}}" class="th-btn style3">Get Started<i class="fas fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-lg-end text-center">
-                        <div class="hero-img1">
-                            <img src="assets/img/hero/one1.png" alt="hero">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-shape shape1">
-                <img src="assets/img/hero/shape_1_1.png" alt="shape">
-            </div>
-            <div class="hero-shape shape2">
-                <img src="assets/img/hero/shape_1_2.png" alt="shape">
-            </div>
-            <div class="hero-shape shape3"></div>
-
-            <div class="hero-shape shape4 shape-mockup jump-reverse" data-right="3%" data-bottom="7%">
-                <img src="assets/img/hero/shape_1_3.png" alt="shape">
-            </div>
-            <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
-                <img src="assets/img/hero/shape_1_4.png" alt="shape">
-            </div>
-        </div>
-
-
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/second.png"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6">
-                        <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>BODMAS</span> Education</span>
-                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">Counselling Available Anytime & Anywhere <span class="text-theme">Your Dream Our Mission</span></h2>
-                            <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.6s">"Empowering your educational journey with expert guidance : Bodmas Medical Education Councelling"</p>
-                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="{{route('contact')}}" class="th-btn style3">Book Now<i class="fas fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-lg-end text-center">
-                        <div class="hero-img1">
-                            <img src="assets/img/hero/second2.png" alt="hero">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-shape shape1">
-                <img src="assets/img/hero/shape_1_1.png" alt="shape">
-            </div>
-            <div class="hero-shape shape2">
-                <img src="assets/img/hero/shape_1_2.png" alt="shape">
-            </div>
-            <div class="hero-shape shape3"></div>
-
-            <div class="hero-shape shape4 shape-mockup jump-reverse" data-right="3%" data-bottom="7%">
-                <img src="assets/img/hero/shape_1_3.png" alt="shape">
-            </div>
-            <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
-                <img src="assets/img/hero/shape_1_4.png" alt="shape">
-            </div>
-        </div>
-
-
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/third.png"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6">
-                        <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>Education</span> Loan</span>
-                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">न्यूनतम ब्याज के साथ ले अधिकतम ऋण</h2>
-                            <hp class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">अपने सपने को दे उड़ान <span>बोडमास एजुकेशन के साथ</span> <br> Supported By एक्सिस बैंक </p> <br><br>
-                                <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                    <a href="{{route('contact')}}" class="th-btn style3">Apply Now<i class="fas fa-arrow-right ms-2"></i></a>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-lg-end text-center">
-                        <div class="hero-img1">
-                            <img src="assets/img/hero/third3.png" alt="hero">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-shape shape1">
-                <img src="assets/img/hero/shape_1_1.png" alt="shape">
-            </div>
-            <div class="hero-shape shape2">
-                <img src="assets/img/hero/shape_1_2.png" alt="shape">
-            </div>
-            <div class="hero-shape shape3"></div>
-
-            <div class="hero-shape shape4 shape-mockup jump-reverse" data-right="3%" data-bottom="7%">
-                <img src="assets/img/hero/shape_1_3.png" alt="shape">
-            </div>
-            <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
-                <img src="assets/img/hero/shape_1_4.png" alt="shape">
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- <div class="th-hero-wrapper hero-2" id="hero">
-    <div class="th-hero-bg" data-bg-src="assets/img/hero/hero_bg_2_1.jpg"></div>
-    <div class="container z-index-common">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="hero-style2">
-                    <span class="hero-subtitle">Online e-larning course</span>
-                    <h1 class="hero-title text-theme">Online Education</h1>
-                    <h1 class="hero-title">Feels Like Real Classroom</h1>
-                    <div class="checklist">
-                        <ul>
-                            <li>Get Certified</li>
-                            <li>Gain Job-ready Skills</li>
-                            <li>Great Life</li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                        <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="hero-img2">
-                    <img src="assets/img/hero/one1.png" alt="hero">
-                    <div class="hero-counter-wrap hero-counter1">
-                        <div class="hero-counter_icon">
-                            <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                        </div>
-                        <div class="details">
-                            <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                            <p class="hero-counter_text">Active Students</p>
-                        </div>
-                    </div>
-                    <div class="hero-counter-wrap hero-counter2">
-                        <div class="hero-counter_icon">
-                            <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                        </div>
-                        <div class="details">
-                            <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
-                            <p class="hero-counter_text">Online Video Courses</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-shape shape1">
-        <img src="assets/img/hero/shape_2_1.png" alt="shape">
-    </div>
-    <div class="hero-shape shape2 jump d-sm-block d-none">
-        <img src="assets/img/hero/shape_1_2.png" alt="shape">
-    </div>
-    <div class="hero-shape shape3 d-sm-block d-none">
-        <img src="assets/img/hero/shape_2_3.png" alt="shape">
-    </div>
-    <div class="hero-shape shape4 d-sm-block d-none">
-        <img src="assets/img/hero/shape_2_4.png" alt="shape">
-    </div>
-    <div class="hero-shape shape5 jump d-xxl-block d-none">
-        <img src="assets/img/hero/shape_2_2.png" alt="shape">
-    </div>
-    <div class="ripple-shape">
-        <span class="ripple-1"></span><span class="ripple-2"></span><span class="ripple-3"></span><span class="ripple-4"></span><span class="ripple-5"></span><span class="ripple-6"></span>
-    </div>
-</div> -->
 
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Carousel Indicators -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-    </div>
-
-    <!-- Carousel Items -->
     <div class="carousel-inner">
-        <!-- Slide 1 -->
         <div class="carousel-item active">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
@@ -255,12 +58,12 @@ Hero Area
             </div>
         </div>
 
-        <!-- Slide 2 -->
+
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
                 <div class="container z-index-common">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Online e-learning course</span>
@@ -307,12 +110,12 @@ Hero Area
             </div>
         </div>
 
-        <!-- Slide 3 -->
+
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
                 <div class="container z-index-common">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Online e-learning course</span>
@@ -359,12 +162,12 @@ Hero Area
             </div>
         </div>
 
-        <!-- Slide 4 -->
+
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
                 <div class="container z-index-common">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Online e-learning course</span>
@@ -411,12 +214,12 @@ Hero Area
             </div>
         </div>
 
-        <!-- Slide 5 -->
+
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
                 <div class="container z-index-common">
-                     <div class="row">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Online e-learning course</span>
@@ -463,6 +266,18 @@ Hero Area
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <button class="custom-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span>←</span>
+            </button>
+        </div>
+        <div class="col-sm-6 text-end">
+            <button class="custom-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span>→</span>
+            </button>
+        </div>
+    </div>
 </div>
 
 <!--======== / Hero Section ========-->
@@ -471,13 +286,14 @@ Notice Area
 ==============================-->
 <div class="">
     <div class="container">
-        <div class="title-area mb-25 mb-lg-0 text-center">
-            <div class="d-flex justify-content-between align-items-center">
-                <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;">Latest Notifications & Update</h2>
+        <div class="row mt-5">
+            <div class="col-6">
+                <h2 class="sec-title" style="animation: blink 1s infinite;">Latest Notifications & Update</h2>
+            </div>
+            <div class="col-6 text-end">
                 <a href="{{ route('all-notification') }}" class="th-btn"> All Notifications <i class="fa-solid fa-arrow-right ms-2"></i></a>
             </div>
         </div>
-
         <div class="notice-section">
             <div class="row">
                 @foreach($notices as $notice)
@@ -728,9 +544,7 @@ Why choose us Area
         </div>
     </div>
 </div>
-<!--==============================
-Counter Area  
-==============================-->
+<!-- Counter Area  -->
 <div class="container">
     <div class="counter-area-1 bg-theme" data-bg-src="assets/img/bg/counter-bg_1.png">
         <div class="row justify-content-between">
@@ -761,9 +575,8 @@ Counter Area
         </div>
     </div>
 </div>
-<!--==============================
-Cta Area  
-==============================-->
+
+<!-- Cta Area -->
 <section class="cta-area-2 position-relative space-bottom">
     <div class="cta-bg-img" data-bg-src="{{('assets/img/bg/student.jpg')}}">
     </div>
@@ -798,9 +611,8 @@ Cta Area
 </section>
 
 
-<!--==============================
-Blog Area  
-==============================-->
+
+
 <section class="overflow-hidden space" id="blog-sec" style="height: 680px;">
     <div class="container">
         <div class="mb-35 text-center text-md-start">
@@ -825,7 +637,6 @@ Blog Area
                             <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image" style="width: 100%; height: 200px;object-fit: cover;border-radius: 8px;">
                         </a>
                     </div>
-
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
@@ -989,145 +800,84 @@ Team Area
     </div>
 </div>
 
-<!--==============================
-Testimonial Area  
-==============================-->
-<section class="testi-area-1 overflow-hidden space-bottom" data-bg-src="assets/img/bg/testi_bg_1.png">
-    <div class="shape-mockup testi-bg-shape1 jump" data-right="0" data-top="50%">
-        <img src="assets/img/testimonial/testi-bg-shape_1_1.png" alt="img">
-    </div>
-    <div class="shape-mockup testi-bg-shape2 spin" data-left="0" data-top="15%">
-        <img src="assets/img/testimonial/testi-bg-shape_1_2.png" alt="img">
-    </div>
-    <div class="container">
-        <div class="title-area text-left mb-50">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Our Students Testimonials</span>
-            <h2 class="sec-title">Students Testimonials</h2>
-        </div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="th-carousel testi-slider1 dot-style2 row" id="testimonial-slider1" data-slide-show="2" data-ml-slide-show="2" data-lg-slide-show="1" data-md-slide-show="1" data-dots="true" data-arrows="false">
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
+
+<!-- Testimonial Area -->
+<section class="space" data-bg-src="assets/img/update1/bg/testi_bg_5.jpg" data-overlay="title" data-opacity="9">
+        <div class="container z-index-3">
+            <div class="row justify-content-between align-items-end">
+                <div class="col-md-auto">
+                    <div class="title-area text-center text-md-start">
+                        <span class="sub-title text-white">What Student Says</span>
+                        <h2 class="sec-title fw-medium text-white">Student’s Testimonials</h2>
+                    </div>
+                </div>
+                <div class="col-auto d-none d-md-block">
+                    <div class="sec-btn">
+                        <div class="icon-box">
+                            <button data-slick-prev="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-left"></i></button>
+                            <button data-slick-next="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row th-carousel" id="testiSlide5" data-slide-show="2" data-md-slide-show="1">
+                <div class="col-lg-6">
+                    <div class="testi-list">
+                        <div class="testi-list_img">
+                            <img src="assets/img/update1/testimonial/testi_2_1.jpg" alt="Avater">
+                            <div class="testi-list_quote">
+                                <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
                             </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_1.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">David H. Smith</h3>
-                                    <span class="testi-box_desig">IT Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
+                        </div>
+                        <div class="testi-list_content">
+                            <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                            <h3 class="testi-list_name box-title">Vlademir Hilton</h3>
+                            <span class="testi-list_desig">IT Student</span>
+                            <div class="testi-list_review">
+                                <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testi-list">
+                        <div class="testi-list_img">
+                            <img src="assets/img/update1/testimonial/testi_2_2.jpg" alt="Avater">
+                            <div class="testi-list_quote">
+                                <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
                             </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_2.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">Zara Head Milan</h3>
-                                    <span class="testi-box_desig">Regular Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
+                        </div>
+                        <div class="testi-list_content">
+                            <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                            <h3 class="testi-list_name box-title">Rosana Zarsin</h3>
+                            <span class="testi-list_desig">CSE Student</span>
+                            <div class="testi-list_review">
+                                <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
-                            </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_1.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">David H. Smith</h3>
-                                    <span class="testi-box_desig">IT Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="testi-list">
+                        <div class="testi-list_img">
+                            <img src="assets/img/update1/testimonial/testi_2_3.jpg" alt="Avater">
+                            <div class="testi-list_quote">
+                                <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
-                            </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_2.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">Zara Head Milan</h3>
-                                    <span class="testi-box_desig">Regular Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
+                        <div class="testi-list_content">
+                            <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                            <h3 class="testi-list_name box-title">Abraham Khalil</h3>
+                            <span class="testi-list_desig">GS Student</span>
+                            <div class="testi-list_review">
+                                <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!--==============================
 Event Area  
@@ -1275,5 +1025,47 @@ Event Area
     .btn-view:hover {
         background-color: #0056b3;
     }
+
+    /* General button styling */
+    .custom-prev,
+    .custom-next {
+        position: absolute;
+        top: 50%;
+        /* transform: translateY(-50%); */
+        background-color: #fff;
+        color: #0D5EF4;
+        border: none;
+        /* padding: 10px 20px; */
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 5;
+        /* Ensure buttons are above the carousel */
+        /* transition: background-color 0.3s ease; */
+    }
+
+    /* Specific positioning */
+    .custom-prev {
+        left: 10px;
+        /* Position to the left of the carousel */
+    }
+
+    .custom-next {
+        right: 10px;
+        /* Position to the right of the carousel */
+    }
+
+    /* Hover effects */
+    .custom-prev:hover,
+    .custom-next:hover {
+        background-color: #fff
+    }
+
+    /* Optional: Style the arrow text */
+    /* .custom-prev span, .custom-next span {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+} */
 </style>
 @stop
