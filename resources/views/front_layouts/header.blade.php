@@ -1,21 +1,32 @@
-<!--==============================
-    Sidemenu
-============================== -->
-<div class="sidemenu-wrapper d-none d-lg-block ">
-<!--==============================
-    Sidemenu End
-============================== -->
+<!-- Top Header Section -->
+<?php $offers = DB::select('SELECT * FROM offers WHERE status = "active" ORDER BY start_date DESC'); ?>
+@if(!empty($offers))
+<section class="bg-black">
+    <div class="row  text-center">
+        <div class="col-lg-4 col-md-4 col-xl-4">
+           <span style="font-size: x-large;"> {{$offers[0]->title}}</span> <br>
+           <span style="color:#ffff;">Vaild Till : {{ \Carbon\Carbon::parse($offers[0]->end_date)->format('M d, Y') }}</span>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xl-4 text-center">
+        Save <span style="font-size: x-large; font-family: 'Poppins', sans-serif;"> ₹{{$offers[0]->price}} </span>
 
-<!--==============================
-    Mobile Menu
-  ============================== -->
+        <br><span style="color:#ffff;"> {{$offers[0]->description}} </span>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xl-4 text-center">
+        <a href="{{$offers[0]->join_us}}" class="btn btn-join-us" id="joinUsBtn" target="_blank" >Join Us</a> <br>
+        <span style="color:#ffff;">Avail this Offer</span>
+        </div>
+    </div>
+</section>
+@endif
+<!-- Top Header Section End -->
+<!-- Mobile Menu -->
 <div class="th-menu-wrapper">
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{route('/')}}"><img style="width: 250px;" src="{{asset('assets/img/Logo.jpg')}}" alt="Bodmas"></a>
+            <a href="{{route('/')}}"><img style="width: 250px;" src="{{asset('assets/img/logo1.png')}}" alt="Bodmas"></a>
         </div>
-        <!-- Mobile Menu -->
         <div class="th-mobile-menu d-lg-none">
             <ul>
                 @foreach($menus as $menu)
@@ -43,37 +54,8 @@
         </div>
     </div>
 </div>
-</div>
-<!--==============================
-    Mobile Menu End
-  ============================== -->
-  <!-- Top Header Section -->
-<?php $offers = DB::select('SELECT * FROM offers WHERE status = "active" ORDER BY start_date DESC'); ?>
-@if(!empty($offers))
-<section class="bg-black">
-    <div class="row  text-center">
-        <div class="col-lg-4 col-md-4 col-xl-4">
-           <span style="font-size: x-large;"> {{$offers[0]->title}}</span> <br>
-           <span style="color:#ffff;">Vaild Till : {{ \Carbon\Carbon::parse($offers[0]->end_date)->format('M d, Y') }}</span>
-            <!-- {{$offers[0]->description}} -->
-        </div>
-        <div class="col-lg-4 col-md-4 col-xl-4 text-center">
-        Save <span style="font-size: x-large; font-family: 'Poppins', sans-serif;"> ₹ {{$offers[0]->price}} </span>
-
-        <br><span style="color:#ffff;"> {{$offers[0]->description}} </span>
-        </div>
-        <div class="col-lg-4 col-md-4 col-xl-4 text-center">
-        <a href="{{$offers[0]->join_us}}" class="btn btn-join-us" id="joinUsBtn" target="_blank" >Join Us</a> <br>
-        <span style="color:#ffff;">Avail this Offer</span>
-        </div>
-    </div>
-</section>
-@endif
-<!-- Top Header Section End -->
-
-<!--==============================
-	Header Area
-==============================-->
+<!-- Mobile Menu End -->
+<!-- Header Area -->
 <header class="th-header header-layout1">
     <div class="header-top">
         <div class="container">
@@ -109,15 +91,13 @@
             </div>
         </div>
     </div>
-    
     <div class="sticky-wrapper">
-        <!-- Main Menu Area -->
         <div class="menu-area">
             <div class="container">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="header-logo">
-                            <a href="{{route('/')}}"><img style="width: 185px;" src="{{asset('assets/img/Logo.jpg')}}" alt="Bodmas"></a>
+                            <a href="{{route('/')}}"><img style="width: 185px;" src="{{asset('assets/img/logo1.png')}}" alt="Bodmas"></a>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -176,17 +156,15 @@
         </div>
     </div>
 </header>
-<!--==============================
-	Header Area End
-==============================-->
-
+<!-- Header Area End -->
+ 
 <style>
     /* Add this to your CSS file */
 .bg-black {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 20px;
+    padding: 13px;
     color: #f9a825;
 }
 /* Basic Button Style */
@@ -270,7 +248,4 @@
     box-shadow: 0 0 15px rgba(255, 111, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
 }
-
-
-
 </style>
