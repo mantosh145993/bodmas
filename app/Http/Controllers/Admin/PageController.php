@@ -55,8 +55,7 @@ class PageController extends Controller
         // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'published' => 'boolean'
+            'content' => 'required|string'
         ]);
         $slug = Str::slug($request->title);
         $page = Page::findOrFail($id);

@@ -43,7 +43,6 @@
                                     <input type="checkbox" name="published" value="1" {{ $page->published ? 'checked' : '' }}> Published
                                 </label>
                             </div>
-                            <div id="word-count">Word count: 0</div>
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Update Page</button>
                             <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a><br><br>
@@ -90,30 +89,6 @@
                     alert('Error:\n' + errorMessages);
                 }
             });
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-        // Initialize CKEditor
-        CKEDITOR.replace('editor');
-
-        // Add word count display logic
-        const wordCountElement = document.getElementById('word-count');
-
-        // Function to calculate word count
-        function calculateWordCount(text) {
-            return text.trim().split(/\s+/).filter(word => word.length > 0).length;
-        }
-
-        // Listen for changes in CKEditor content
-        CKEDITOR.instances.editor.on('change', function() {
-            // Get content from CKEditor
-            const content = CKEDITOR.instances.editor.getData();
-
-            // Calculate word count
-            const wordCount = calculateWordCount(content);
-
-            // Update word count display
-            wordCountElement.textContent = `Word count: ${wordCount}`;
         });
     });
 </script>

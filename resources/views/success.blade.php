@@ -167,7 +167,7 @@
                 </div>
                  <!-- Logo Section -->
                 <div class="col-sm-4 d-flex justify-content-center align-items-center">
-                    <img style="width: 200px; height: 200px;" src="{{ asset('assets/img/Logo.jpg') }}" alt="Bodmas">
+                    <img style="width: 200px; height: 200px;" src="{{asset('assets/img/logo1.png')}}" alt="Bodmas">
                 </div>
             </div>
             <tr>

@@ -75,6 +75,7 @@
 									<li><a href="{{route('bodmas-gallery')}}">Gallery</a></li>
 									<li><a href="{{route('neet-ug-counselling-2025')}}">Neet UG Counselling 2025</a></li>
 									<li><a href="{{route('neet-ug-counselling-2025')}}">Our Achivements</a></li>
+									<li><a href="{{route('all-states')}}">All States</a></li>
 								</ul>
 							</div>
 						</div>

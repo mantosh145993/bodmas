@@ -15,7 +15,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notices = Notice::paginate(6);
+        $notices = Notice::orderBy('id', 'desc')->paginate(20);
         $states = State::all();
         return view('admin.notice.index', compact('notices','states'));
     }
