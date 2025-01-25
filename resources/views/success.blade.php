@@ -26,9 +26,9 @@
 
     .table th,
     .table td {
-        padding: 12px;
+        /* padding: 12px; */
         border: 1px solid #e5e7eb;
-        font-size: large;
+        /* font-size: large; */
     }
 
     .table td {
@@ -160,9 +160,9 @@
                     <ul class="large-font-list">
                         <li>Receipt No. {{ $payment->id }}</li>
                         <li>Date: {{ $payment->created_at->format('d-m-Y H:i:s') }}</li>
-                        <li>GSTIN: {{ $payment->vendor_gst }}</li>
-                        <li>Bill To: {{ $payment->customer_name }}</li>
-                        <li>Mo: {{ $payment->number }}</li>
+                        <li>GSTIN: {{ $payment->vendor_gst ? $payment->vendor_gst : 'N/A' }}</li>
+                        <li>Bill To: {{ $payment->customer_name ? $payment->customer_name : 'N/A' }}</li>
+                        <li>Mo: {{ $payment->number ? $payment->number : 'N/A' }}</li>
                     </ul>
                 </div>
                  <!-- Logo Section -->
@@ -170,50 +170,72 @@
                     <img style="width: 200px; height: 200px;" src="{{asset('assets/img/logo1.png')}}" alt="Bodmas">
                 </div>
             </div>
+            @if(isset($payment->product_name ) && $payment->product_name )
             <tr>
-                <th style="background-color: #f8f9fa;">Course</th>
+                <th style="background-color: #f8f9fa;">Product (Course/Paid Guidance/Paid CutOff/Mentorship Program)</th>
                 <td>{{ $payment->product_name }}</td>
             </tr>
+            @endif
+            @if(isset($payment->package_type ) && $payment->package_type )
             <tr>
                 <th style="background-color: #f8f9fa;">Package Type</th>
                 <td>{{ $payment->package_type }}</td>
             </tr>
+            @endif
+            @if(isset($payment->payment_type ) && $payment->payment_type )
             <tr>
                 <th style="background-color: #f8f9fa;">Payment Term</th>
                 <td>{{ $payment->payment_type }}</td>
             </tr>
+            @endif
+            @if(isset($payment->payment_id ) && $payment->payment_id )
             <tr>
                 <th style="background-color: #f8f9fa;">Payment ID</th>
                 <td>{{ $payment->payment_id }}</td>
             </tr>
+            @endif
+            @if(isset($payment->order_id ) && $payment->order_id )
             <tr>
                 <th style="background-color: #f8f9fa;">Order ID</th>
                 <td>{{ $payment->order_id }}</td>
             </tr>
+            @endif
+            @if(isset($payment->price ) && $payment->price )
             <tr>
                 <th style="background-color: #f8f9fa;">Base Price</th>
                 <td>INR {{ number_format($payment->price) }}</td>
             </tr>
+            @endif
+            @if(isset($payment->gst ) && $payment->gst )
             <tr>
                 <th style="background-color: #f8f9fa;">GST</th>
                 <td>{{ number_format($payment->gst) }} %</td>
             </tr>
+            @endif
+            @if(isset($payment->gst_amount ) && $payment->gst_amount )
             <tr>
                 <th style="background-color: #f8f9fa;">GST Amount</th>
                 <td>INR {{ number_format($payment->gst_amount, 2) }}</td>
             </tr>
+            @endif
+            @if(isset($payment->amount ) && $payment->amount )
             <tr>
                 <th style="background-color: #f8f9fa;">Amount</th>
                 <td>INR {{ number_format($payment->amount, 2) }}</td>
             </tr>
+            @endif
+            @if(isset($payment->payment_status ) && $payment->payment_status )
             <tr>
                 <th style="background-color: #f8f9fa;">Status</th>
                 <td style="color: #28a745; font-weight: bold;">{{ ucfirst($payment->payment_status) }}</td>
             </tr>
+            @endif
+            @if(isset($payment->created_at ) && $payment->created_at )
             <tr>
                 <th style="background-color: #f8f9fa;">Date</th>
                 <td>{{ $payment->created_at->format('d-m-Y H:i:s') }}</td>
             </tr>
+            @endif
         </table>
         <!-- Success Circle Logo -->
         <!-- Success Circle Logo and Text -->

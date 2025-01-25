@@ -40,7 +40,7 @@
                   <li><a href="{{route('chat.chat_list') }}"><i class="fa fa-clone orange_color"></i> <span>Chat Bot</span></a></li>
                   <li><a href="{{route('cutoff.list') }}"><i class="fa fa-print orange_color"></i> <span>Upload Cutoff</span></a></li>
                   <li><a href="{{route('short.link')}}"><i class="fa fa-ellipsis-h orange_color"></i> <span>Short Link</span></a></li>
-                  <li><a href="{{route('package.package_list')}}"><i class="fa fa-suitcase orange_color"></i> <span>Packages</span></a></li>
+                  <li><a href="{{route('package.package_list')}}"><i class="fa fa-suitcase orange_color"></i> <span>Paid Cutoff</span></a></li>
                   <li><a href="{{route('notice.notice_list')}}"><i class="fa fa-tty orange_color"></i> <span>Notice Update</span></a></li>
                   <li><a href="{{route('college.college_list')}}"><i class="fa fa-university orange_color"></i> <span> Colleges</span></a></li>
                   <li><a href="{{ route('admin.blog') }}"><i class="	fa fa-newspaper-o orange_color"></i> <span>Blogs</span></a></li>

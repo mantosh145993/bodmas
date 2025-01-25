@@ -7,12 +7,13 @@ use App\Models\Package;
 use Illuminate\Support\Str;
 use App\Models\Category\Category;
 use App\Models\Post;
+use App\Models\State;
 
 class PackageController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = State::all();
         $packages = Package::paginate(6);
         return view('admin.Package.index', compact('packages', 'categories'));
     }
