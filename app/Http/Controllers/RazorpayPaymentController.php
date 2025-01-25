@@ -17,7 +17,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 class RazorpayPaymentController extends Controller
 {
     protected $menuHelper;
-
+    
     public function __construct(MenuHelper $menuHelper)
     {
         $this->menuHelper = $menuHelper;
@@ -30,75 +30,94 @@ class RazorpayPaymentController extends Controller
             $decryptedId = Crypt::decryptString($id);
             $package = PaidPackage::findOrFail($decryptedId);
             $installmentType = $request->get('installment');
-            switch($installmentType){
+            switch ($installmentType) {
                 case 'basic':
+                    $first_installment = '';
+                    $second_installment = '';
                     $paymentType = "Final Booking";
                     $packageType = "Basic";
                     $base_amount = $package->basic_fee;
                     $amount = (int)$package->basic_fee_with_gst;
-                break;
+                    $gst_amount = (int) $base_amount / 100 * 18;
+                    break;
                 case 'premium':
+                    $first_installment = '';
+                    $second_installment = '';
                     $paymentType = "Final Booking";
                     $packageType = "Premium";
                     $base_amount = $package->premium_fee;
-                    $amount = (int)$package->premium_fee_with_gst ;
-                break;
+                    $amount = (int)$package->premium_fee_with_gst;
+                    $gst_amount = (int) $base_amount / 100 * 18;
+                    break;
                 case 'premium-1':
                     $paymentType = "First Installment";
                     $packageType = "Premium";
                     $base_amount = $package->premium_fee;
-                    $amount = (int)$package->first_installment_with_gst ;
-                break;
+                    $amount = (int)$package->first_installment_with_gst;
+                    $first_installment = (int)$package->first_installment;
+                    $second_installment = '';
+                    $gst_amount = (int) $first_installment / 100 * 18;
+                    break;
                 case 'premium-2':
                     $packageType = "Premium";
                     $paymentType = "Second Installment";
                     $base_amount = $package->premium_fee;
-                    $amount = (int)$package->second_installment_with_gst ;
-                break;
+                    $amount = (int)$package->second_installment_with_gst;
+                    $first_installment = '';
+                    $second_installment = (int)$package->second_installment;
+                    $gst_amount = (int) $second_installment / 100 * 18;
+                    break;
                 case 'nri':
+                    $first_installment = '';
+                    $second_installment = '';
                     $packageType = "NRI";
                     $paymentType = "Final Booking";
                     $base_amount = $package->nri_fee;
                     $amount = (int)$package->nri_fee_with_gst;
-                break;
+                    $gst_amount = (int) $base_amount / 100 * 18;
+                    break;
                 case 'nri-1':
                     $packageType = "NRI";
                     $paymentType = "First Installment";
                     $base_amount = $package->nri_fee;
-                    $amount = (int)$package->first_installment_with_gst_premium ;
-                break;
+                    $amount = (int)$package->first_installment_with_gst_premium;
+                    $first_installment = (int)$package->first_installment_premium;
+                    $second_installment = '';
+                    $gst_amount = (int) $first_installment / 100 * 18;
+                    break;
                 case 'nri-2':
                     $packageType = "NRI";
                     $paymentType = "Second Installment";
                     $base_amount = $package->nri_fee;
                     $amount = (int)$package->second_installment_with_gst_premium;
-                break;
+                    $first_installment = '';
+                    $second_installment = (int)$package->second_installment_premium;
+                    $gst_amount = (int) $second_installment / 100 * 18;
+                    break;
             }
-            // dd($amount);
-            // Razorpay configuration
-            $key = 'rzp_test_fxMqJ0Or2ej9I4'; // Your Razorpay Key
-            $secret = 'GFrgOZOkETLlvrDi6vS9meDb'; // Your Razorpay Secret
+            $key = env('RAZORPAY_KEY');
+            $secret = env('RAZORPAY_SECRET');
             $api = new Api($key, $secret);
             $orderData = [
-                'receipt' => (string) rand(1000, 9999), // Random receipt ID
-                'amount' => $amount* 100, // Amount in paise (converted from INR)
+                'receipt' => (string) rand(1000, 9999),
+                'amount' => $amount*100,
                 'currency' => 'INR',
-                'payment_capture' => 1, // Auto-capture enabled
+                'payment_capture' => 1,
             ];
-            
             // Create the order using Razorpay API
             $razorpayOrder = $api->order->create($orderData);
             $menus = $this->menuHelper->getMenu();
-            // dd( $orderData);
-            return view('payment', [
-                'package' => $package,
+            return view('paymentRazorpay', [
                 'razorpayOrder' => $razorpayOrder,
+                'package' => $package,
                 'menus' => $menus,
-                'key' => $key, 
-                'base_amount' =>$base_amount,
-                'amount' => $amount,
+                'base_amount' => $base_amount,
                 'paymentType' => $paymentType,
-                'packageType' => $packageType
+                'packageType' => $packageType,
+                'gst_amount' => $gst_amount,
+                'amount' => $amount,
+                'first_installment' => $first_installment,
+                'second_installment' => $second_installment,
             ]);
         } catch (DecryptException $e) {
             return response()->json(['error' => 'Invalid or tampered ID.'], 400);
@@ -106,93 +125,82 @@ class RazorpayPaymentController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-    // public function initiatePayment(Request $request, $id)
-    // {
-    //     try {
-    //         $decryptedId = Crypt::decryptString($id);
-    //         $package = PaidPackage::findOrFail($decryptedId);
-    //         $key = 'rzp_test_WkATe7eC5OTHbN';
-    //         $secret = 'wFWC1ZiNJSokqkt9hjrpTEtE';
-    //         $api = new Api($key, $secret);
-    //         $orderData = [
-    //             'receipt' => (string) rand(1000, 9999),
-    //             'amount' => $package->total_price * 100, // amount in paise
-    //             'currency' => 'INR',
-    //             'payment_capture' => 1, // auto-capture
-    //         ];
-    //         $razorpayOrder = $api->order->create($orderData);
-    //         $menus = $this->menuHelper->getMenu();
-    //         return view('payment', [
-    //             'package' => $package,
-    //             'razorpayOrder' => $razorpayOrder,
-    //             'menus' => $menus,
-    //             'key' => $key,
-    //         ]);
-    //     } catch (DecryptException $e) {
-    //         return response()->json(['error' => 'Invalid or tampered ID.'], 400);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['error' => $e->getMessage()], 500);
-    //     }
-    // }
+
     public function processPayment(Request $request)
     {
-        // dd($request->all());
-        $key = 'rzp_test_fxMqJ0Or2ej9I4';
-        $secret = 'GFrgOZOkETLlvrDi6vS9meDb';
+        $amount = intval(str_replace(',', '', $request->input('total_amount')));
+        $package_type = $request->package_type;
+        $package_name = $request->package_name;
+        $base_price = intval(str_replace(',', '', $request->input('base_price')));
+        $payment_term = $request->payment_term;
+        $gst_rate = (int) $request->gst_rate;
+        $gst_amount = intval(str_replace(',', '', $request->input('gst_amount')));
+        $name = $request->name;
+        $email = $request->email;
+        $mobile = $request->mobile;
+        $vendor_gst = $request->vendor_gst;
+        $merchTxnId = $request->razorpay_payment_id;
+    
+        $key = env('RAZORPAY_KEY');
+        $secret = env('RAZORPAY_SECRET');
         $paymentId = $request->input('razorpay_payment_id');
         $orderId = $request->input('razorpay_order_id');
         $signature = $request->input('razorpay_signature');
         $api = new Api($key, $secret);
-
+    
         $attributes = [
             'razorpay_order_id' => $orderId,
             'razorpay_payment_id' => $paymentId,
-            'razorpay_signature' => $signature
+            'razorpay_signature' => $signature,
         ];
-
+    
         try {
-            $api->utility->verifyPaymentSignature($attributes); // Verify the payment signature
-        //   dd($request->all());
-            // If payment is verified successfully
+            // Verify the payment signature
+            $api->utility->verifyPaymentSignature($attributes);
+    
+            // Save the payment record in the database
             $payment = Payment::create([
-                'product_name' => $request->input('product_name'),
-                'payment_id' => $paymentId,
+                'product_name' => $package_name,
+                'payment_id' => $merchTxnId,
                 'order_id' => $orderId,
-                'price' => $request->input('price'), 
-                'package_type' => $request->input('package_type'),
-                'payment_type' => $request->input('payment_type'),
-                'vendor_gst' => $request->input('vendor_gst'),
-                'amount' => $request->input('amount'), 
-                'gst' => $request->input('gst'), 
-                'gst_amount' => $request->input('gst_amount'), 
-                'customer_name' => $request->input('name'),
-                'number' => $request->input('number'),
-                'payment_status' => 'success'
+                'price' => $base_price,
+                'package_type' => $package_type,
+                'payment_type' => $payment_term,
+                'vendor_gst' => $vendor_gst,
+                'amount' => $amount,
+                'gst' => $gst_rate,
+                'gst_amount' => $gst_amount,
+                'customer_name' => $name,
+                'cutomer_email' => $email,
+                'number' => $mobile,
+                'payment_status' => "success"
             ]);
+    
+            // Encrypt the payment ID
             $encryptedId = Crypt::encryptString($payment->id);
-            return redirect()->route('payment.success', ['id' => $encryptedId]);
+    
+            // Return JSON response with success status and payment ID
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Payment processed successfully!',
+                'payment_id' => $payment->id,
+                'redirect_url' => route('payment.success', ['id' => $encryptedId]),
+            ], 200);
         } catch (\Exception $e) {
-            Payment::create([
-                'product_name' => $request->input('product_name'),
-                'payment_id' => $paymentId,
-                'order_id' => $orderId,
-                'price' => $request->input('price'), 
-                'vendor_gst' => $request->input('vendor_gst'),
-                'amount' => $request->input('amount'), 
-                'gst' => $request->input('gst'), 
-                'gst_amount' => $request->input('gst_amount'), 
-                'customer_name' => $request->input('name'),
-                'number' => $request->input('number'),
-                'payment_status' => 'success'
-            ]);
-            return redirect()->route('payment.failed');
+            // Handle any errors and return a failure response
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+                'redirect_url' => route('payment.failed'),
+            ], 500);
         }
     }
+    
 
     public function verifyPayment(Request $request)
     {
-        $key = 'rzp_test_fxMqJ0Or2ej9I4';
-        $secret = 'GFrgOZOkETLlvrDi6vS9meDb';
+        $key = env('RAZORPAY_KEY');
+        $secret = env('RAZORPAY_SECRET');
         $paymentId = $request->input('razorpay_payment_id');
         $orderId = $request->input('razorpay_order_id');
         $signature = $request->input('razorpay_signature');

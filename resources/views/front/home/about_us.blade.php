@@ -71,19 +71,31 @@ Service Area
 
 <!-- Vision and mission  -->
 <section>
-    <div class="container">
-        <div class="row">
+    <div class="container mb-5">
+        <div class="row gy-4">
+            <!-- Mission Section -->
             <div class="col-sm-6">
-            <h3 class="sec-title">Mission</h3>
-            <p class="service-card-text"> At BODMAS EDUCATION, our mission is to provide personalized and professional educational counselling that helps students identify their strengths, explore their options, and make informed decisions about their future. We are committed to guiding students through the complex process of academic and career planning to ensure they achieve success in their chosen fields.</p>
+                <div class="mission">
+                    <h3 class="sec-title">Mission</h3>
+                    <p class="service-card-text">
+                        At BODMAS EDUCATION, our mission is to provide personalized and professional educational counselling that helps students identify their strengths, explore their options, and make informed decisions about their future. We are committed to guiding students through the complex process of academic and career planning to ensure they achieve success in their chosen fields.
+                    </p>
+                </div>
             </div>
+
+            <!-- Vision Section -->
             <div class="col-sm-6">
-            <h3 class="sec-title">Vision</h3>
-            <p class="service-card-text"> BODMAS EDUCATION envisions becoming the go-to educational consultancy for students across India, offering unparalleled support in making life-changing academic decisions. We aspire to be at the forefront of educational guidance, continuously helping students achieve their aspirations and contribute positively to society.</p>
+                <div class="vision">
+                    <h3 class="sec-title">Vision</h3>
+                    <p class="service-card-text">
+                        BODMAS EDUCATION envisions becoming the go-to educational consultancy for students across India, offering unparalleled support in making life-changing academic decisions. We aspire to be at the forefront of educational guidance, continuously helping students achieve their aspirations and contribute positively to society.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Vision and mission End  -->
 <!--==============================
 About Area  
@@ -120,39 +132,7 @@ About Area
         </div>
     </div>
 </div>
-<!--==============================
-Counter Area  
-==============================-->
-<div class="counter-area-2" data-bg-src="assets/img/bg/counter-bg_1.png">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">3.9</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Successfully</strong> Trained</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">15.8</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Classes</strong> Completed</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">97.5</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Satisfaction</strong> Rate</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">100.2</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Students</strong> Community</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--==============================
 Team Area  
 ==============================-->
@@ -343,7 +323,7 @@ Cta Area
                         <h2 class="cta-title sec-title">Get Online Consultant</h2>
                         <p class="cta-text">Met our best Consultant</p>
                     </div>
-                    <a href="#" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="{{route('about')}}" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -356,4 +336,64 @@ Cta Area
 <!--==============================
 	Footer Area
 ==============================-->
+
+<style>
+    .service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ensures cards take up the full height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+/* Mission Section */
+.mission {
+    background-color: #f4f8fc; /* Light Blue */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #0b3d91; /* Navy Blue Text */
+}
+
+/* Vision Section */
+.vision {
+    background-color: #fff4e6; /* Light Peach */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #d35400; /* Orange Text */
+}
+
+/* Shared styles */
+/* .sec-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+} */
+
+.service-card-text {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.service-card-content {
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+}
+
+.service-card-icon {
+    margin-bottom: 15px;
+}
+
+.box-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    min-height: 50px; /* Ensure title sections are uniform in height */
+}
+
+
+</style>
 @stop

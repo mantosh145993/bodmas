@@ -34,11 +34,6 @@ class PagesController extends Controller
     {
         $this->menuHelper = $menuHelper;
     }
-    public function showOffers()
-    {
-        $offers = DB::select('SELECT * FROM offers WHERE status = "active" ORDER BY start_date DESC');
-        return view('front.front_layouts.header', compact('offers'));
-    }
     public function home()
     {
         $menus = $this->menuHelper->getMenu();
@@ -109,7 +104,7 @@ class PagesController extends Controller
                 ]);
             case 'admission/application-link':
                 $states = State::all();
-                $links = Link::where('status', 'active')->paginate('10');
+                $links = Link::where('status', 'active')->get();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.link-list', [
                     'menus' => $menus,
