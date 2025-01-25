@@ -32,7 +32,7 @@ Hero Area
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="assets/img/hero/one1.png" alt="hero">
+                                <img src="assets/img/hero/Untitled-1.png" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">

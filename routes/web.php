@@ -28,22 +28,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
 
 
-Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
-Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
-Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
+// Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
+// Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
+// Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
 Route::get('/payment/paymentList/', [PayController::class, 'paymentList'])->name('payment.paymentList');
+
 // payments Razorpay 
+Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
-// Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
-// Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
-// Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
-// Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
+Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
+Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
+Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
 // payments Razorpay End
 
-Route::post('bodmas-payment-store', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
-Route::post('payment-success', [RazorpayPaymentController::class, 'verifyPayment'])->name('razorpay.payment.success');
-Route::get('testEnv', [RazorpayPaymentController::class, 'testEnv'])->name('testEnv');
-// end payments Razorpay 
 // Display College by slug
 Route::get('/show/college/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
 // Footer route 	
@@ -59,6 +56,7 @@ Route::post('/all-notification', [App\Http\Controllers\Page\PagesController::cla
 Route::post('/become-a-partner', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('become-a-partner');
 Route::post('/education-loan-for-mbbs-students', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('education-loan-for-mbbs-students');
 Route::post('/neet-ug-counselling-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('neet-ug-counselling-2025');
+Route::post('/all-states', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-states');
 // End footer route
 Route::post('/blog-all-posts', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('blog-all-posts');
 Route::get('/get_blogs_by_category', [App\Http\Controllers\Page\PagesController::class, 'getPosts'])->name('get_blogs_by_category');
