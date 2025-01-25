@@ -33,13 +33,17 @@ use App\Http\Controllers\PayController;
 // Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
 Route::get('/payment/paymentList/', [PayController::class, 'paymentList'])->name('payment.paymentList');
 
-// payments Razorpay 
+// payments Razorpay Paid Guidance
 Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
 Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
 Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
-// payments Razorpay End
+// payments Razorpay Paid Guidance End
+
+// Paid Cutoff Payment
+Route::post('/payment/paidcutoff', [RazorpayPaymentController::class, 'paidcutoff'])->name('payment.paidcutoff');
+// Paid Cutoff Payment End
 
 // Display College by slug
 Route::get('/show/college/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
@@ -190,14 +194,14 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/shorten', [ShortLinkController::class, 'store'])->name('short.store');
     // end shorten url
 
-    // Package Start
+    // Paid Cutoff Start
     Route::get('/package/package_list', [PackageController::class, 'index'])->name('package.package_list');
     Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');
     Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');
     Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('package.edit');
     Route::post('/package/update/{id}', [PackageController::class, 'update'])->name('package.update');
     Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('package.destroy');
-    // Package End
+    // Paid Cutoff End
 
     // Notice Start
     Route::get('/notice/notice_list', [NoticeController::class, 'index'])->name('notice.notice_list');

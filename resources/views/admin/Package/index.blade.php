@@ -13,11 +13,13 @@
                 <!-- Add Package Button -->
                 <div class="midde_cont">
                     <div class="container mt-4">
-                        <button class="btn green_bg mb-2" id="addPackageBtn" data-toggle="modal" data-target="#packageModal"><h6 style="color:#fff">Add New Package</h6></button>
+                        <button class="btn green_bg mb-2" id="addPackageBtn" data-toggle="modal" data-target="#packageModal">
+                            <h6 style="color:#fff">Add New Package</h6>
+                        </button>
                         <div class="card">
-                               
-                            <h1 class="mt-5 ml-5 mb-5">Available Packages</h1>
-                         
+
+                            <h1 class="mt-5 ml-5 mb-5">Paid Cutoff Packages</h1>
+
                             <!-- Package List -->
                             <div class="package-list row container ml-1">
                                 @foreach ($packages as $package)
@@ -39,7 +41,7 @@
                                 @endforeach
                             </div>
                             <!-- Pagination Links -->
-                            <div >
+                            <div>
                                 {{ $packages->links() }}
                             </div>
                         </div>
@@ -78,9 +80,9 @@
                                         <input type="number" class="form-control" id="regularPrice" name="ragular_price" step="0.01">
                                     </div>
                                     <div class="form-group">
-                                        <label for="category">Category</label>
+                                        <label for="category">State</label>
                                         <select class="form-control" id="categoryShow" name="category" required>
-                                            <option value="">Select Category</option>
+                                            <option value="">Select state</option>
                                             @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
@@ -199,7 +201,13 @@
                     $('#categoryShow').val(response.package.category ? response.package.category : '');
                     if (response.package.images) {
                         const imageUrl = `{{ asset('images/package/') }}/${response.package.images}`;
-                        $('#currentImageShow').attr('src', imageUrl).show();
+                        $('#currentImageShow')
+                            .attr('src', imageUrl)
+                            .css({
+                                text_align: 'cenetr',
+                                height: '300px'
+                            }) // Set your desired size here
+                            .show();
                         $('#packageImage').hide();
                         $('#imglable').hide();
                     } else {
@@ -297,10 +305,10 @@
                     type: 'DELETE',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security
-                     },
+                    },
                     success: function(response) {
-                        alert(response.message); 
-                        location.reload(); 
+                        alert(response.message);
+                        location.reload();
                     },
                     error: function(xhr) {
                         alert(xhr.responseJSON?.message || 'Error deleting package.'); // Show error message

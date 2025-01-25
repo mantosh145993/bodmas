@@ -26,6 +26,7 @@ use App\Models\GalleryEvent;
 use App\Models\Link;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Razorpay\Api\Api;
 
 class PagesController extends Controller
 {
@@ -81,12 +82,14 @@ class PagesController extends Controller
                 $categories = Category::where('type', '1')->get();
                 $course = Course::all();
                 $states = State::all();
+                $paidCutoffs = Package::all();
                 $menus = $this->menuHelper->getMenu();
                 return view('front.home.predictor', [
                     'menus' => $menus,
                     'categories' => $categories,
                     'courses' => $course,
-                    'states' => $states
+                    'states' => $states,
+                    'paidCutoffs'=> $paidCutoffs
                 ]);
             case 'admission/college-list':
                 $state = State::all();
@@ -365,5 +368,24 @@ class PagesController extends Controller
     
         return view('front.home.link-list', compact('links', 'states'));
     }
+
+    public function store(Request $request)
+        {
+            // Create a Razorpay API instance
+            $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+
+            // Retrieve Razorpay payment details
+            $payment = $api->payment->fetch($request->payment_id);
+
+            // Verify the payment
+            try {
+                $payment->capture(array('amount' => $payment->amount));  // Capture the payment
+                // Handle success (update order status, etc.)
+                return redirect()->route('success.page');  // Redirect to success page
+            } catch (\Exception $e) {
+                // Handle failure
+                return redirect()->route('failure.page');  // Redirect to failure page
+            }
+        }
     
 }
