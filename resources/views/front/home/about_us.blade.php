@@ -106,14 +106,14 @@ About Area
             <div class="col-xl-6 mb-50 mb-xl-0">
                 <div class="img-box4">
                     <div class="img1">
-                        <img class="tilt-active" src="assets/img/normal/about_5_1.png" alt="About">
+                        <img class="tilt-active" src="assets/img/normal/ashok-sir.jpg" alt="About">
                     </div>
                     <div class="about-grid">
                         <h3 class="about-grid_year"><span class="counter-number">10</span>k+</h3>
                         <p class="about-grid_text">Students Active Under Our Mentorship</p>
                     </div>
                     <div class="img2">
-                        <img class="tilt-active" src="assets/img/normal/about_5_2.png" alt="About">
+                        <img class="tilt-active" src="assets/img/normal/cta_4_shape1.png" alt="About">
                     </div>
                     <div class="shape1 shape-mockup jump" data-bottom="0" data-left="-46px">
                         <img src="assets/img/normal/about_5_1shape.png" alt="About">
@@ -147,8 +147,8 @@ Team Area
 
     <div class="container">
         <div class="title-area text-left">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Our Consultant</span>
-            <h2 class="sec-title">Meet Our Expert Consultant</h2>
+            <span class="sub-title"><i class="fal fa-book me-2"></i> Our Consultants    </span>
+            <h2 class="sec-title">Meet Our Expert Consultants</h2>
         </div>
         <div class="row th-carousel slider-shadow" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="1">
             <!-- Single Item -->
@@ -165,11 +165,6 @@ Team Area
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
-                                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="team-content">
@@ -193,11 +188,6 @@ Team Area
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
-                                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="team-content">
@@ -221,11 +211,6 @@ Team Area
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
-                                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="team-content">
@@ -249,11 +234,6 @@ Team Area
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
-                                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                            </div>
                         </div>
                     </div>
                     <div class="team-content">

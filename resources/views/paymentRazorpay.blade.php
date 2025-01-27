@@ -79,6 +79,7 @@
             <!-- Hidden Inputs for Package Details -->
             <input type="hidden" name="package_type" value="{{ $packageType }}">
             <input type="hidden" name="package_name" value="{{ $package->package_name }}">
+            <input type="hidden" name="package_id" value="{{ $package->id }}">
             <input type="hidden" name="base_price" value="{{ number_format($base_amount, 2) }}">
             <input type="hidden" name="payment_term" value="{{ $paymentType }}">
             <input type="hidden" name="gst_amount" value="{{ $gst_amount }}">

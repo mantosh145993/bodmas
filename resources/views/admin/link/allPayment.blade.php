@@ -17,15 +17,13 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>P-id</th>
-                                        <th>P-name</th>
-                                        <th>P-type</th>
-                                        <th>P-mode</th>
-                                        <th>P-price</th>
-                                        <th>P-gst</th>
-                                        <th>P-gst ₹</th>
-                                        <th>V-gst</th>
+                                        <th>Cutomer Name</th>
+                                        <th> Number</th>
+                                        <th>Product Id</th>
+                                        <th>Product Name</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Price</th>
                                         <th>Status</th>
                                         <th>Txn-Date</th>
                                     </tr>
@@ -36,14 +34,12 @@
                                     <tr>
                                         <td>{{$index++}}</td>
                                         <td>{{$payment->customer_name}}</td>
+                                        <td>{{$payment->number}}</td>
                                         <td>{{ $payment->payment_id }}</td>
                                         <td>{{ $payment->product_name }}</td>
                                         <td>{{ $payment->package_type }}</td>
                                         <td>{{ $payment->payment_type }}</td>
                                         <td>{{ $payment->amount }}</td>
-                                        <td>{{ $payment->gst." %" }} </td>
-                                        <td>{{ $payment->gst_amount ? $payment->gst_amount : 'N/A' }}</td>
-                                        <td>{{ $payment->vendor_gst ? $payment->vendor_gst : 'N/A' }}</td>
                                         <td>{{$payment->payment_status == "SUCCESS" ? $payment->payment_status : 'N/A'}}</td>
                                         <td>{{$payment->txn_date ? $payment->txn_date : 'N/A'}}</td>
                                     </tr>
