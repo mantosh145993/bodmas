@@ -31,6 +31,13 @@
                                             <p class="card-text">{{ $package->description }}</p>
                                             <p><strong>Sale Price:</strong> ₹{{ number_format($package->sale_price, 2) }}</p>
                                             <p><strong>Regular Price:</strong> ₹<del style="color:red">{{ number_format($package->ragular_price, 2) }}</del></p>
+                                            <p><strong>PDF:</strong> 
+                                                @if($package->file)
+                                                    <a href="{{ asset('images/package/package_pdf/' . $package->file) }}" target="_blank">Click here to view PDF</a>
+                                                @else
+                                                    <span>No PDF available</span>
+                                                @endif
+                                            </p>
                                             <!-- Action Buttons -->
                                             <button class="btn green_bg view-btn" data-id="{{ $package->id }}" data-toggle="modal" data-target="#packageModal" style="color:#fff">View</button>
                                             <button class="btn btn-warning btn-sm update-btn" data-id="{{ $package->id }}" data-toggle="modal" data-target="#updatePackageModal">Update</button>
@@ -70,6 +77,11 @@
                                         <label for="images" id="imglable">Package Image</label>
                                         <input type="file" class="form-control-file" id="packageImage" name="images">
                                         <img id="currentImageShow" src="" alt="Current Package Image" class="mt-2" style="max-height: 400px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="file" id="pdflable">Upload PDF Cut Off</label>
+                                        <input type="file" class="form-control-file" id="packagePdf" name="file">
+                                        <img id="currentPdfShow" src=""  class="mt-2" style="max-height: 400px;">
                                     </div>
                                     <div class="form-group">
                                         <label for="packagePrice">Sale Price</label>
@@ -126,6 +138,11 @@
                                         <img id="currentImage" src="" alt="Current Package Image" class="mt-2" style="max-height: 150px;">
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="file" id="pdflable">Upload PDF Cut Off</label>
+                                        <input type="file" class="form-control-file" id="updatepackagePdf" name="file">
+                                        <img id="currentPdfShow" src=""  class="mt-2" style="max-height: 400px;">
+                                    </div>
 
                                     <!-- Sale Price -->
                                     <div class="form-group">
@@ -213,6 +230,21 @@
                     } else {
                         $('#currentImageShow').hide(); // Hide image if there's no image URL
                     }
+                    if (response.package.file) {
+                    const pdfUrl = `{{ asset('images/package/package_pdf') }}/${response.package.file}`;
+                    $('#currentPdfShow')
+                        .attr('src', pdfUrl)
+                        .css({
+                            'text-align': 'center',  // Corrected CSS property name
+                            'height': '300px'  // Set your desired height for the iframe
+                        })
+                        .show();  // Show the PDF iframe
+                    $('#packagePdf').hide();  // Hide package PDF upload section
+                    $('#pdflable').hide();  // Hide the label for the PDF file
+                } else {
+                    $('#currentPdfShow').hide();  // Hide the iframe if no file exists
+                }
+
                 },
                 error: function() {
                     alert('Could not retrieve package details.');
@@ -241,6 +273,22 @@
                         $('#currentImage').attr('src', imageUrl).show();
                     } else {
                         $('#currentImage').hide(); // Hide image if there's no image URL
+                    }
+                     // Handling the PDF file
+                    if (response.package.file) {
+                        const pdfUrl = `{{ asset('images/package/') }}/${response.package.file}`;
+                        $('#currentPdfShow')
+                            .attr('src', pdfUrl)
+                            .css({
+                                'text-align': 'center',  // Corrected CSS property name
+                                'height': '400px',  // Set desired height for the iframe (adjust as needed)
+                                'width': '100%'  // Ensure the iframe is responsive
+                            })
+                            .show();  // Show the PDF iframe
+                        $('#packagePdf').hide();  // Hide package PDF upload section
+                        $('#pdflable').hide();  // Hide the label for the PDF file
+                    } else {
+                        $('#currentPdfShow').hide();  // Hide the iframe if no file exists
                     }
                 },
                 error: function() {

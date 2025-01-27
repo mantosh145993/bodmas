@@ -11,6 +11,7 @@ class Package extends Model
     protected $fillable =
     [
         "product_name",
+        'file',
         "images",
         "description",
         "sale_price",
