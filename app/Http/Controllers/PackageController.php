@@ -33,8 +33,15 @@ class PackageController extends Controller
             $uniqueName = Str::uuid() . '.' . $extension;
             $request->file('images')->move(public_path('images/package'), $uniqueName);
         }
+        if ($request->hasFile('file')) {
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $uniqueFileName = Str::uuid() . '.' . $extension;  // Corrected the variable name
+            $request->file('file')->move(public_path('images/package/package_pdf'), $uniqueFileName);  // Use the correct variable name
+        }
+        
         $package = Package::create([
             'product_name' => $request->product_name,
+            'file' => $uniqueFileName,
             'images' => $uniqueName,
             'description' => $request->description,
             'sale_price' => $request->sale_price,
@@ -61,6 +68,7 @@ class PackageController extends Controller
     public function edit(string $id)
     {
         $package = Package::find($id);
+        // dd($package);
         if (!$package) {
             return response()->json([
                 'message' => 'Package not found.'
@@ -98,6 +106,13 @@ class PackageController extends Controller
             $request->file('images')->move(public_path('images/package'), $uniqueName);
             $package->images = $uniqueName;
         }
+        if ($request->hasFile('file')) {
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $uniqueFileName = Str::uuid() . '.' . $extension;  // Corrected the variable name
+            $request->file('file')->move(public_path('images/package/package_pdf'), $uniqueFileName);  // Use the correct variable name
+            $package->file = $uniqueFileName;
+        }
+        
         $package->save();
         return response()->json([
             'message' => 'Package updated successfully',

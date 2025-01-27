@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Page;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helpers\MenuHelper;
@@ -184,7 +182,10 @@ class PagesController extends Controller
             case 'blog-all-posts':
                 $menus = $this->menuHelper->getMenu();
                 $categories = Category::where('type', '4')->get();
-                $blogs = Post::orderBy('published_at', 'desc')->paginate(12);
+                $blogs = Post::where('is_active', '1')
+                ->orderBy('published_at', 'desc')
+                ->paginate(12);
+
                 return view('front.home.all-posts', [
                     'menus' => $menus,
                     'blogs' => $blogs,
@@ -260,7 +261,7 @@ class PagesController extends Controller
             'subject' => 'required|string',
             'message' => 'required|string',
         ]);
-        \DB::table('partners')->insert([
+        DB::table('partners')->insert([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['number'],
@@ -319,7 +320,8 @@ class PagesController extends Controller
     public function getPosts(Request $request)
     {
         $category_id = $request->get('category_id');
-        $posts = Post::where('category_id', $category_id)->get();
+        $posts = Post::where('category_id', $category_id)
+        ->where('is_active','1')->get();
         return response()->json([
             'blogs' => $posts,
         ]);

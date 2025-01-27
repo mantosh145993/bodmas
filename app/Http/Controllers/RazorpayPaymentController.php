@@ -10,6 +10,7 @@ use App\Models\PaidPackage;
 use App\Models\Payment;
 use Dotenv\Dotenv;
 use App\Helpers\MenuHelper;
+use App\Models\Package;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -28,18 +29,23 @@ class RazorpayPaymentController extends Controller
     public function paidcutoff(Request $request)
     {
         $input = $request->all();
+        // dd($input);
         $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
         if (!empty($input['razorpay_payment_id'])) {
             try {
                 $payment = $api->payment->fetch($input['razorpay_payment_id']);
                 $response = $payment->capture(['amount' => $payment['amount']]);
                 if ($response) {
+                    // dd($response);
                     $paymentRecord = Payment::create([
                         'product_name' => $response->description ?? 'N/A', // Use description from response
                         'payment_id' => $response->id,
                         'order_id' => $response->order_id,
+                        'product_id' => $request->cutoff_id,
                         'amount' => $response->amount / 100, // Convert to INR (from paise)
                         'payment_status' => $response->status,
+                        'customer_name'=> $request->name,
+                        'number' => $request->number
                     ]);
                     return redirect()->route('payment.success', Crypt::encryptString($paymentRecord->id));
                 }
@@ -257,8 +263,9 @@ class RazorpayPaymentController extends Controller
     {
         $decryptedId = Crypt::decryptString($id);
         $payment = Payment::findOrFail($decryptedId);
+        $cutOffData = Package::where('id', $payment->product_id)->first();
         $menus = $this->menuHelper->getMenu();
-        return view('success', compact('menus', 'payment'));
+        return view('success', compact('menus', 'payment','cutOffData'));
     }
 
     public function failed()

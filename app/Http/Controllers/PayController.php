@@ -349,7 +349,7 @@ class PayController extends Controller
     }
 
     public function paymentList(){
-        $payments = Payment::paginate(15);
+        $payments = Payment::all();
        return view('admin.link.allPayment', compact('payments'));
     }
 }

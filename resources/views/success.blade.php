@@ -236,6 +236,17 @@
                 <td>{{ $payment->created_at->format('d-m-Y H:i:s') }}</td>
             </tr>
             @endif
+            @if(isset($cutOffData) && $cutOffData)
+            <tr>
+                <th style="background-color: #f8f9fa;">Paid Cutoff</th>
+                <td style="color: #28a745; font-weight: bold;">
+                    <a href="{{ asset('images/package/package_pdf/' . $cutOffData->file) }}" download="{{ $cutOffData->file }}">
+                        Download CutOff
+                    </a>
+                </td>
+            </tr>
+        @endif
+
         </table>
         <!-- Success Circle Logo -->
         <!-- Success Circle Logo and Text -->

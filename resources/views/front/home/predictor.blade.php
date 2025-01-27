@@ -28,72 +28,6 @@
 Contact Area  
 ==============================-->
 
-    <section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="paid-cutoff-sec">
-        <div class="container">
-            <div class="mb-35 text-center text-md-start">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md-8">
-                        <div class="title-area mb-md-0">
-                            <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Cutoffs</span>
-                            <h2 class="sec-title">Our Popular Paid Cutoffs</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-auto">
-
-                    </div>
-                </div>
-            </div>
-            <div class="row slider-shadow th-carousel course-slider-1"
-                data-slide-show="4"
-                data-ml-slide-show="3"
-                data-lg-slide-show="3"
-                data-md-slide-show="2"
-                data-sm-slide-show="1"
-                data-arrows="true">
-                @foreach($paidCutoffs as $cutoff)
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-box">
-                        <div class="course-img">
-                            <a href="#">
-                                <!-- Assuming you have an image field for the cutoffs -->
-                                <img src="{{ asset('images/package/' . $cutoff['images']) }}" alt="{{ $cutoff['product_name'] }}">
-                            </a>
-                        </div>
-                        <div class="course-content text-center">
-                            <h3 class="course-title">
-
-                            </h3>
-                            <!-- Display the cutoff value -->
-                            {{$cutoff['product_name']}}
-                            <div class="course-price">
-                                <!-- You can add more pricing information if needed -->
-                                <del style="color:red"> <span class="base-price">₹{{ number_format($cutoff['ragular_price'], 2) }}</span></del>
-                                <strong class="total-price">Total: ₹{{ number_format($cutoff['sale_price'], 2) }}</strong>
-                            </div>
-                            <div class="text-center mb-2 mt-2">
-                                <form action="{{ route('payment.paidcutoff') }}" method="POST">
-                                    @csrf
-                                    <script
-                                        src="https://checkout.razorpay.com/v1/checkout.js"
-                                        data-key="{{ env('RAZORPAY_KEY') }}"
-                                        data-amount="{{ $cutoff['sale_price'] * 100 }}"
-                                        data-buttontext="Pay Now"
-                                        data-name="{{ $cutoff['package_name'] }}"
-                                        data-description="{{ $cutoff['product_name'] }}"
-                                        data-image="{{ asset('assets/img/logo1.png') }}"
-                                        data-theme.color="#0D5EF4">
-                                    </script>
-
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 
     <div class="space" id="contact-sec">
         <div class="container">
@@ -211,17 +145,82 @@ Contact Area
         </div>
         <!-- Error message container -->
     </div>
+
+    <!-- Paid Cutoff  -->
+    <section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="paid-cutoff-sec">
+        <div class="container">
+            <div class="mb-35 text-center text-md-start">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-8">
+                        <div class="title-area mb-md-0">
+                            <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Cutoffs</span>
+                            <h2 class="sec-title">Our Popular Paid Cutoffs</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-auto">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row slider-shadow th-carousel course-slider-1"
+                data-slide-show="4"
+                data-ml-slide-show="3"
+                data-lg-slide-show="3"
+                data-md-slide-show="2"
+                data-sm-slide-show="1"
+                data-arrows="true">
+                @foreach($paidCutoffs as $cutoff)
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-box">
+                        <div class="course-img">
+                            <img src="{{ asset('images/package/' . $cutoff['images']) }}" alt="{{ $cutoff['product_name'] }}">
+                        </div>
+                        <div class="course-content text-center">
+                            <h3 class="course-title">
+                            </h3>
+                            {{$cutoff['product_name']}}
+                            <div class="course-price">
+                                <del style="color:red"> <span class="base-price">₹{{ number_format($cutoff['ragular_price'], 2) }}</span></del>
+                                <strong class="total-price">Total: ₹{{ number_format($cutoff['sale_price'], 2) }}</strong>
+                            </div>
+                            <div class="text-center mb-2 mt-2">
+                                <form action="{{ route('payment.paidcutoff') }}" method="POST">
+                                    <input type="hidden" name="cutoff_id" value="{{$cutoff['id'] }}">
+                                    @csrf
+                                    <script
+                                        src="https://checkout.razorpay.com/v1/checkout.js"
+                                        data-id="{{ $cutoff['id'] }}"
+                                        data-key="{{ env('RAZORPAY_KEY') }}"
+                                        data-amount="{{ $cutoff['sale_price'] * 100 }}"
+                                        data-buttontext="Pay Now"
+                                        data-name="{{ $cutoff['package_name'] }}"
+                                        data-description="{{ $cutoff['product_name'] }}"
+                                        data-prefill.name="{{ $cutoff['id'] }}"
+                                        data-prefill.email="email"
+                                        data-image="{{ asset('assets/img/logo1.png') }}"
+                                        data-theme.color="#0D5EF4">
+                                    </script>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- Paid Cutoff end  -->
     <style>
-    .razorpay-payment-button {
-        background-color: #0D5EF4 !important;
-        color: white !important;
-        border: none !important;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-</style>
+        .razorpay-payment-button {
+            background-color: #0D5EF4 !important;
+            color: white !important;
+            border: none !important;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     @stop
     <script>
         document.addEventListener("DOMContentLoaded", function() {
