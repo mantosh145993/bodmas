@@ -128,6 +128,7 @@
         <h4>Reach Us</h4>
         <form id="enquiryForm">
             @csrf
+            <input type="hidden" name="type" value="2" id="type" >
             <div>
                 <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
             </div>
