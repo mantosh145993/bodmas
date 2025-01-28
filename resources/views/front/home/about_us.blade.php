@@ -106,7 +106,7 @@ About Area
             <div class="col-xl-6 mb-50 mb-xl-0">
                 <div class="img-box4">
                     <div class="img1">
-                        <img class="tilt-active" src="assets/img/normal/ashok-sir.jpg" alt="About">
+                        <img class="tilt-active" src="{{asset('assets/img/normal/ashok-sir.JPG')}}" alt="About">
                     </div>
                     <div class="about-grid">
                         <h3 class="about-grid_year"><span class="counter-number">10</span>k+</h3>
@@ -249,7 +249,8 @@ Team Area
 <!--==============================
 Blog Area  
 ==============================-->
-<section class="overflow-hidden space" id="blog-sec">
+
+<section class="overflow-hidden space" id="blog-sec" style="height: 680px;">
     <div class="container">
         <div class="mb-35 text-center text-md-start">
             <div class="row align-items-center justify-content-between">
@@ -269,8 +270,8 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="{{route('blog_details', $blog->slug)}}">
-                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
+                        <a href="{{ route('blog_details', $blog->slug) }}">
+                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image" style="width: 100%; height: 200px;object-fit: cover;border-radius: 8px;">
                         </a>
                     </div>
                     <div class="blog-content">
@@ -278,7 +279,12 @@ Blog Area
                             <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
                             <a href="#"><i class="fa-light fa-clock"></i>{{ $blog->published_at }}</a>
                         </div>
-                        <h4 class="box-title"><a href="{{route('blog_details', $blog->slug)}}">{{ $blog->title }}</a>
+                        <h4 class="box-title">
+                            <a href="{{route('blog_details', $blog->slug)}}">
+                                {{ \Illuminate\Support\Str::words($blog->title, 2) }}
+                            </a>
+                        </h4>
+
                         </h4>
                         <a href="{{route('blog_details', $blog->slug)}}" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
@@ -288,6 +294,8 @@ Blog Area
         </div>
     </div>
 </section>
+
+
 <!--==============================
 Cta Area  
 ==============================-->

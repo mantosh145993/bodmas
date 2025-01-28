@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Page;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helpers\MenuHelper;
@@ -87,7 +89,7 @@ class PagesController extends Controller
                     'categories' => $categories,
                     'courses' => $course,
                     'states' => $states,
-                    'paidCutoffs'=> $paidCutoffs
+                    'paidCutoffs' => $paidCutoffs
                 ]);
             case 'admission/college-list':
                 $state = State::all();
@@ -183,8 +185,8 @@ class PagesController extends Controller
                 $menus = $this->menuHelper->getMenu();
                 $categories = Category::where('type', '4')->get();
                 $blogs = Post::where('is_active', '1')
-                ->orderBy('published_at', 'desc')
-                ->paginate(12);
+                    ->orderBy('published_at', 'desc')
+                    ->paginate(12);
 
                 return view('front.home.all-posts', [
                     'menus' => $menus,
@@ -253,7 +255,6 @@ class PagesController extends Controller
     }
     public function enquiryContact(Request $request)
     {
-        // dd($request->all());
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -261,23 +262,44 @@ class PagesController extends Controller
             'subject' => 'required|string',
             'message' => 'required|string',
         ]);
-        DB::table('partners')->insert([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'phone' => $validated['number'],
-            'course' => $validated['subject'],
-            'message' => $validated['message'],
-            'type' => $request['type'],
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+
         try {
+            DB::table('partners')->insert([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'phone' => $validated['number'],
+                'course' => $validated['subject'],
+                'message' => $validated['message'],
+                'type' => $request['type'],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
             Mail::to('educationbodmas@gmail.com')->send(new EnquiryMail($validated));
-            return response()->json(['success' => true]);
+
+            return response()->json(['success' => true, 'message' => 'Your enquiry has been sent successfully!']);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->getCode() == 23000) {
+                // Duplicate entry error
+                return response()->json([
+                    'success' => false,
+                    'error' => "The email {$validated['email']} has already been used to submit an enquiry."
+                ]);
+            }
+
+            // Other database errors
+            return response()->json([
+                'success' => false,
+                'error' => 'An unexpected error occurred. Please try again later.'
+            ]);
         } catch (\Exception $e) {
-            return response()->json(['success' => false, 'error' => $e->getMessage()]);
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+            ]);
         }
     }
+
 
     public function becomPartner(Request $request)
     {
@@ -321,7 +343,7 @@ class PagesController extends Controller
     {
         $category_id = $request->get('category_id');
         $posts = Post::where('category_id', $category_id)
-        ->where('is_active','1')->get();
+            ->where('is_active', '1')->get();
         return response()->json([
             'blogs' => $posts,
         ]);
@@ -355,39 +377,43 @@ class PagesController extends Controller
     public function getLink(Request $request)
     {
         $states = State::all();
-    
+
         $links = Link::query()
-            ->when($request->state_id, fn ($query, $stateId) => $query->where('state_id', $stateId))
-            ->when($request->type, fn ($query, $type) => $query->where('type', $type))
+            ->when($request->state_id, fn($query, $stateId) => $query->where('state_id', $stateId))
+            ->when($request->type, fn($query, $type) => $query->where('type', $type))
             ->where('status', 'active') // Only show active links to users
             ->with('state') // Eager load state relationship
             ->paginate(10);
-    
+
         // Check if the request is AJAX
         if ($request->ajax()) {
             return view('front.home.partial-link-list', compact('links'))->render();
         }
-    
+
         return view('front.home.link-list', compact('links', 'states'));
     }
 
     public function store(Request $request)
-        {
-            // Create a Razorpay API instance
-            $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+    {
+        // Create a Razorpay API instance
+        $api = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
 
-            // Retrieve Razorpay payment details
-            $payment = $api->payment->fetch($request->payment_id);
+        // Retrieve Razorpay payment details
+        $payment = $api->payment->fetch($request->payment_id);
 
-            // Verify the payment
-            try {
-                $payment->capture(array('amount' => $payment->amount));  // Capture the payment
-                // Handle success (update order status, etc.)
-                return redirect()->route('success.page');  // Redirect to success page
-            } catch (\Exception $e) {
-                // Handle failure
-                return redirect()->route('failure.page');  // Redirect to failure page
-            }
+        // Verify the payment
+        try {
+            $payment->capture(array('amount' => $payment->amount));  // Capture the payment
+            // Handle success (update order status, etc.)
+            return redirect()->route('success.page');  // Redirect to success page
+        } catch (\Exception $e) {
+            // Handle failure
+            return redirect()->route('failure.page');  // Redirect to failure page
         }
-    
+    }
+
+    public function sendMailPage(){
+        $menus = $this->menuHelper->getMenu();
+       return view('front.email',compact('menus'));
+    } 
 }

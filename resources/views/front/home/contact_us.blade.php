@@ -86,6 +86,7 @@ Contact Area
                         <div class="container">
                             <form id="contact-form">
                                 @csrf
+                                <input type="hidden" name="type" value="1" id="type" >
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -136,40 +137,66 @@ Contact Area
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#contact-form').on('submit', function (e) {
-            e.preventDefault(); // Prevent the default form submission
+   $(document).ready(function () {
+    $('#contact-form').on('submit', function (e) {
+        e.preventDefault(); // Prevent the default form submission
 
-            // Get form data
-            const formData = {
-                _token: $('input[name="_token"]').val(),
-                name: $('#name').val(),
-                email: $('#email').val(),
-                subject: $('#subject').val(),
-                number: $('#number').val(),
-                message: $('#message').val()
-            };
+        // Get form data
+        const formData = {
+            _token: $('input[name="_token"]').val(),
+            name: $('#name').val(),
+            email: $('#email').val(),
+            subject: $('#subject').val(),
+            number: $('#number').val(),
+            message: $('#message').val()
+        };
 
-            // Show a loading message
-            $('#message-box').html('<p class="alert alert-info">Sending your message...</p>');
+        // Show a SweetAlert loading message
+        Swal.fire({
+            title: 'Sending...',
+            text: 'Please wait while your enquiry is being sent.',
+            icon: 'info',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
 
-            // Send AJAX request
-            $.ajax({
-                url: "{{ route('enquiry.contact') }}", // Laravel route
-                type: "POST",
-                data: formData,
-                success: function (response) {
-                    if (response.success) {
-                        $('#message-box').html('<p class="alert alert-success">Your enquiry has been sent successfully!</p>');
-                        $('#contact-form')[0].reset(); // Reset the form
-                    } else {
-                        $('#message-box').html('<p class="alert alert-danger">Something went wrong. Please try again later.</p>');
-                    }
-                },
-                error: function (xhr) {
-                    $('#message-box').html('<p class="alert alert-danger">Failed to send message. Please check your inputs and try again.</p>');
+        // Send AJAX request
+        $.ajax({
+            url: "{{ route('enquiry.contact') }}", // Laravel route
+            type: "POST",
+            data: formData,
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: response.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+
+                    // Reset the form
+                    $('#contact-form')[0].reset();
+                } else {
+                    Swal.fire({
+                        title: 'Duplicate Entry',
+                        text: response.error,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
-            });
+            },
+            error: function (xhr) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Failed to send the enquiry. Please check your inputs or try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
         });
     });
+});
 </script>
