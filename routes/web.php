@@ -31,7 +31,6 @@ use App\Http\Controllers\PayController;
 // Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
 // Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
 // Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
-Route::get('/payment/paymentList/', [PayController::class, 'paymentList'])->name('payment.paymentList');
 
 // payments Razorpay Paid Guidance
 Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
@@ -39,8 +38,9 @@ Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment
 Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
 Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
+Route::get('/payment/paymentList/', [PayController::class, 'paymentList'])->name('payment.paymentList');
 // payments Razorpay Paid Guidance End
-
+Route::get('bodmas/enquiry',[App\Http\Controllers\Page\PagesController::class, 'sendMailPage'])->name('bodmas.enquiry');
 // Paid Cutoff Payment
 Route::post('/payment/paidcutoff', [RazorpayPaymentController::class, 'paidcutoff'])->name('payment.paidcutoff');
 // Paid Cutoff Payment End
