@@ -31,7 +31,9 @@ use App\Http\Controllers\PayController;
 // Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
 // Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
 // Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
-
+Route::get('/sitemap.xml', function () {
+    return response()->file(storage_path('app/public/sitemap.xml'), ['Content-Type' => 'application/xml']);
+});
 // payments Razorpay Paid Guidance
 Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');

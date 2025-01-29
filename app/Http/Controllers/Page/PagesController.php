@@ -202,7 +202,7 @@ class PagesController extends Controller
                 ]);
             case 'all-notification':
                 $menus = $this->menuHelper->getMenu();
-                $notifications = Notice::orderBy('created_at', 'desc')->get();
+                $notifications = Notice::orderBy('created_at', 'desc')->paginate('20');
                 $states = State::all();
                 return view('front.home.all-notification', [
                     'menus' => $menus,
@@ -250,6 +250,13 @@ class PagesController extends Controller
         // dd(DB::getQueryLog(), $current_blogs);
         $menus = $this->menuHelper->getMenu();
         $blogs = Post::where('slug', $slug)->first();
+        $postKey = 'post_' . $blogs->id;
+
+        if (!session()->has($postKey)) {
+            $blogs->incrementViews();
+            session()->put($postKey, true);
+        }
+        // $blogs->incrementViews();
         // dd($blogs);
         return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }

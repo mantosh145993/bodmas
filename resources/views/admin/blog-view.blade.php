@@ -28,6 +28,7 @@
                                     </div>
                                     <div class="table_section padding_infor_info">
                                         <div class="table-responsive-sm">
+                                        <li class="list-group-item"><strong>Blog Views : </strong>{{ $post->views }}</li>
                                             <ul class="list-group">
                                               <li class="list-group-item"><strong>Post Category:</strong> 
                                              @foreach($categories as $cat)

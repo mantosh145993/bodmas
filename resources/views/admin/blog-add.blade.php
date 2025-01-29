@@ -177,14 +177,11 @@
 </style>
 <script>
 $(document).ready(function() {
-    let isSubmitting = false; // Flag to track form submission
-    let isSaved = false; // Flag to track if the draft is saved
-
-    // Submit the form
     $('#blog-form').on('submit', function(e) {
         e.preventDefault();
-        isSubmitting = true; // Set the flag to true to prevent autosave
+        var isSubmitting = true; // Set the flag to true to prevent autosave
         var formData = new FormData(this);
+
         $.ajax({
             url: "{{ route('admin.store-blog') }}",
             type: 'POST',
@@ -192,83 +189,60 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(response) {
-                alert('Post created successfully.');
-                isSaved = true; // Mark as saved
-                window.location.href = "{{route('admin.blog')}}"; // Redirect
+                // SweetAlert success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Post created successfully!',
+                    text: 'Your new blog post has been created.',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    // if (result.isConfirmed) {
+                    //     window.location.href = "{{route('admin.blog')}}"; // Redirect after success
+                    // }
+                });
+                isSubmitting = false; // Reset the flag after successful submission
             },
             error: function(xhr) {
-                isSubmitting = false; // Reset the flag on error
-                var errors = xhr.responseJSON.errors;
-                var errorMessages = '';
-                $.each(errors, function(key, value) {
-                    errorMessages += value[0] + '\n';
-                });
-                alert('Error:\n' + errorMessages);
+                // Reset the flag on error
+                isSubmitting = false;
+
+                // Check for validation errors and display them
+                if (xhr.status === 422) {
+                    var errors = xhr.responseJSON.errors;
+                    var errorMessages = '';
+                    $.each(errors, function(key, value) {
+                        errorMessages += value[0] + '\n';
+                    });
+
+                    // SweetAlert error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error creating post',
+                        text: errorMessages,
+                        confirmButtonText: 'OK'
+                    });
+                } else if (xhr.status === 403) {
+                    // Handle Forbidden error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Forbidden',
+                        text: 'You do not have permission to perform this action.',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    // Handle other errors
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'An unexpected error occurred',
+                        text: 'Please try again later.',
+                        confirmButtonText: 'OK'
+                    });
+                }
             }
         });
     });
-
-    // Cancel button handler
-    const cancelButton = document.getElementById('cancelButton');
-    cancelButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        autoSaveDraft();
-        setTimeout(() => {
-            window.location.href = this.href;
-        }, 1000); // 1-second delay to allow the autosave to complete
-    });
-
-    // Autosave draft
-    function autoSaveDraft() {
-        const formData = new FormData(document.querySelector('#blog-form'));
-        const data = Object.fromEntries(formData);
-        // Send an AJAX request to auto-save
-        fetch("{{ route('admin.autosave') }}", {
-                method: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log("Draft saved successfully:", data.post_id);
-                    isSaved = true; // Mark as saved
-
-                    // Create a message element
-                    const message = document.createElement('div');
-                    message.textContent = "Draft saved successfully!";
-                    message.style.position = 'fixed';
-                    message.style.bottom = '20px';
-                    message.style.right = '20px';
-                    message.style.backgroundColor = '#28a745'; // Green background
-                    message.style.color = '#fff'; // White text
-                    message.style.padding = '10px 20px';
-                    message.style.borderRadius = '5px';
-                    message.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
-                    message.style.zIndex = '1000';
-                    message.style.fontSize = '14px';
-                    document.body.appendChild(message);
-
-                    // Remove the message after 2 seconds
-                    setTimeout(() => {
-                        document.body.removeChild(message);
-                    }, 5000);
-                }
-            })
-            .catch(error => {
-                console.error("Error auto-saving draft:", error);
-            });
-    }
-
-    // Trigger autosave on page unload, except during form submission
-    window.addEventListener("beforeunload", function(e) {
-        if (!isSubmitting && !isSaved) {
-            autoSaveDraft();
-        }
-    });
 });
+
 
 
     // Add tag list 
