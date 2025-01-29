@@ -306,6 +306,7 @@ class AdminController extends Controller
 
     public function updateBlog(Request $request, $id)
     {
+        // dd($request->all());
         // Validate the incoming request data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',

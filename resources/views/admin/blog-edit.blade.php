@@ -169,32 +169,56 @@
     </style>
 
     <script>
-        $(document).ready(function() {
-            $('#blog-form').on('submit', function(e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: "{{ route('admin.update-blog', $post->id) }}", // Change to the update route
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        alert('Post updated successfully.');
-                        window.location.href = "{{ route('admin.blog') }}"; // Redirect after success
-                    },
-                    error: function(xhr) {
-                        var errors = xhr.responseJSON.errors;
-                        var errorMessages = '';
-                        $.each(errors, function(key, value) {
-                            errorMessages += value[0] + '\n';
-                        });
-                        alert('Error:\n' + errorMessages);
-                    }
-                });
-            });
-        });
+       $(document).ready(function() {
+    $('#blog-form').on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
 
+        $.ajax({
+            url: "{{ route('admin.update-blog', $post->id) }}", // Use the correct route for update
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                // Success - Show SweetAlert success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Post updated successfully!',
+                    text: 'Your blog post has been updated.',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    // if (result.isConfirmed) {
+                    //     window.location.href = "{{ route('admin.blog') }}"; // Redirect after success
+                    // }
+                });
+            },
+            error: function(xhr) {
+                // Error - Show SweetAlert error message
+                if (xhr.status === 403) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Forbidden',
+                        text: 'You do not have permission to perform this action.',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    var errors = xhr.responseJSON.errors;
+                    var errorMessages = '';
+                    $.each(errors, function(key, value) {
+                        errorMessages += value[0] + '\n';
+                    });
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error updating post',
+                        text: errorMessages,
+                        confirmButtonText: 'OK'
+                    });
+                }
+            }
+        });
+    });
+});
         document.addEventListener("DOMContentLoaded", function() {
             // Initialize CKEditor
             CKEDITOR.replace('editor');

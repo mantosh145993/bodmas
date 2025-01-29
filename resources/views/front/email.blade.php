@@ -7,25 +7,29 @@
             <h2 class="animate-charcter text-center">Bodmas Education Services Pvt Ltd</h2>
             <div class="links">
                 <p>BODMAS Education Services Pvt. Ltd. (BODMAS EDUCATION) is a leading educational consultancy firm dedicated to providing expert guidance and counselling for undergraduate (UG) and postgraduate (PG) students. Have a inquiry or some feedback for us? Fill out the form
-                    below to contact our team. At BODMAS EDUCATION, our mission is to provide personalized and professional educational counselling that helps students identify their strengths, explore their options, and make informed decisions about their future. We are committed to guiding students through the complex process of academic and career planning to ensure they achieve success in their chosen fields. </p>
+                    below to contact our team. At BODMAS EDUCATION, our mission is to provide personalized and professional educational counselling that helps students identify their strengths, explore their options, and make informed decisions about their future. We are committed to guiding students through the complex process of academic and career planning to ensure they achieve success in their chosen fields.
+                    Mr. Ashok Kumar, the visionary Founder and CEO of BODMAS Education Services Pvt. Ltd., brings over 20 years of rich experience in the education sector. His expertise and in-depth understanding of the evolving academic landscape have been instrumental in shaping the company’s mission to provide top-notch guidance and counselling to students across India. Under his leadership, BODMAS Education has emerged as a trusted name in the field of education consulting, particularly for competitive exams like NEET, JEE, and MBA, as well as study abroad programs.
+                </p>
             </div>
         </div>
         <div class="contact-form-wrapper">
             <form id="contact-form">
                 @csrf
+                <h2>Get in Touch for 2025 Application</h2>
+                <p>Have Any Questions?</p>
                 <input type="hidden" name="type" value="1" id="type">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div>
                         <div class="form-group">
                             <input type="text" class="form-control style-white" name="name" id="name" placeholder="Your Name*" required>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div>
                         <div class="form-group">
                             <input type="email" class="form-control style-white" name="email" id="email" placeholder="Email Address*" required>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div>
                         <div class="form-group">
                             <select name="subject" id="subject" class="form-select style-white" required>
                                 <option value="" disabled selected hidden>Select Subject*</option>
@@ -36,7 +40,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div>
                         <div class="form-group">
                             <input type="tel" class="form-control style-white" name="number" id="number" placeholder="Phone Number*" required pattern="[0-9]{10}">
                         </div>
@@ -68,70 +72,71 @@
         </div>
     </div>
 </section>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-   $(document).ready(function () {
-    $('#contact-form').on('submit', function (e) {
-        e.preventDefault(); // Prevent the default form submission
+    $(document).ready(function() {
+        $('#contact-form').on('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
 
-        // Get form data
-        const formData = {
-            _token: $('input[name="_token"]').val(),
-            name: $('#name').val(),
-            email: $('#email').val(),
-            subject: $('#subject').val(),
-            number: $('#number').val(),
-            message: $('#message').val()
-        };
+            // Get form data
+            const formData = {
+                _token: $('input[name="_token"]').val(),
+                name: $('#name').val(),
+                email: $('#email').val(),
+                subject: $('#subject').val(),
+                number: $('#number').val(),
+                message: $('#message').val()
+            };
 
-        // Show a SweetAlert loading message
-        Swal.fire({
-            title: 'Sending...',
-            text: 'Please wait while your enquiry is being sent.',
-            icon: 'info',
-            allowOutsideClick: false,
-            showConfirmButton: false,
-            didOpen: () => {
-                Swal.showLoading();
-            }
-        });
+            // Show a SweetAlert loading message
+            Swal.fire({
+                title: 'Sending...',
+                text: 'Please wait while your enquiry is being sent.',
+                icon: 'info',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
 
-        // Send AJAX request
-        $.ajax({
-            url: "{{ route('enquiry.contact') }}", // Laravel route
-            type: "POST",
-            data: formData,
-            success: function (response) {
-                if (response.success) {
+            // Send AJAX request
+            $.ajax({
+                url: "{{ route('enquiry.contact') }}", // Laravel route
+                type: "POST",
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+
+                        // Reset the form
+                        $('#contact-form')[0].reset();
+                    } else {
+                        Swal.fire({
+                            title: 'Duplicate Entry',
+                            text: response.error,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function(xhr) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: response.message,
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    });
-
-                    // Reset the form
-                    $('#contact-form')[0].reset();
-                } else {
-                    Swal.fire({
-                        title: 'Duplicate Entry',
-                        text: response.error,
+                        title: 'Error!',
+                        text: 'Failed to send the enquiry. Please check your inputs or try again later.',
                         icon: 'error',
                         confirmButtonText: 'OK'
                     });
                 }
-            },
-            error: function (xhr) {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Failed to send the enquiry. Please check your inputs or try again later.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            }
+            });
         });
     });
-});
 </script>
 
 @stop
@@ -151,16 +156,6 @@
         font-weight: 500;
     }
 
-    /* h2.animate-charcter::before {
-  content: "";
-  position: absolute;
-  bottom: -42px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(../images/border.png) no-repeat center center;
-  background-size: contain;
-} */
 
     .btn-12 {
         width: 100%;
@@ -375,4 +370,4 @@
         opacity: .7;
         color: #000;
     }
-</style>
+</style>    

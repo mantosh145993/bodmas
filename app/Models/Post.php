@@ -30,7 +30,8 @@ class Post extends Model
         'feature_description',
         'author',
         'author_description',
-        'status'
+        'status',
+        'views'
     ];
 
     // Define relationships
@@ -49,5 +50,10 @@ class Post extends Model
     public function scopePublished($query)
     {
         return $query->where('status', self::STATUS_PUBLISHED);
+    }
+    
+    public function incrementViews()
+    {
+        $this->increment('views');
     }
 }
