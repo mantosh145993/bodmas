@@ -47,44 +47,45 @@ Event Area
                 </div>
             </div>
         </div>
-       <div class="row" id="blog-container">
-    @foreach($notifications as $notification)
-        <div class="col-12 col-md-4 col-xl-4">
-            <div class="th-blog blog-single style2">
-                <div class="blog-img">
-                    <iframe
-                        src="{{ asset('notice/' . $notification->file) }}"
-                        width="100%"
-                        height="250px"
-                        style="border: none;">
-                    </iframe>
+        <div class="row" id="blog-container">
+            @foreach($notifications as $notification)
+            <div class="col-12 col-md-4 col-xl-4">
+                <div class="th-blog blog-single style2">
+                    <div class="blog-img">
+                        <iframe
+                            src="{{ asset('notice/' . $notification->file) }}"
+                            width="100%"
+                            height="250px"
+                            style="border: none;">
+                        </iframe>
+                    </div>
+                    <a class="mt-2 mb-2" href="{{ asset('notice/' . $notification->file) }}" download class="btn btn-primary" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: center;">
+                        Download as PDF
+                    </a>
+                    <a href="{{ asset('notice/' . $notification->file) }}" target="_blank" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: right;">
+                        View Notification
+                    </a>
+                    @if($notification->created_at && $notification->created_at->isToday())
+                    <span class="new-label">New</span>
+                    @endif
+                    <div class="blog-content" style="color: white; padding: 15px; border-radius: 8px;">
+                        <h6 class="blog-content">
+                            {{ $notification->title }}
+                        </h6>
+                    </div>
+                    <p style="color:black">
+                        {{ $notification->description }}
+                    </p>
                 </div>
-                <a class="mt-2 mb-2" href="{{ asset('notice/' . $notification->file) }}" download class="btn btn-primary" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: center;">
-                    Download as PDF
-                </a>
-                <a href="{{ asset('notice/' . $notification->file) }}" target="_blank" style="display: inline-block; padding: 3px 5px; color: white; background-color: #0d6efd; border: none; border-radius: 5px; text-decoration: none; font-size: 1rem; text-align: right;">
-                    View Notification
-                </a>
-                  @if($notification->created_at && $notification->created_at->isToday())
-                            <span class="new-label">New</span>
-                        @endif
-                <div class="blog-content" style="color: white; padding: 15px; border-radius: 8px;">
-                    <h6 class="blog-content">
-                        {{ $notification->title }}
-                    </h6>
-                </div>
-                <p style="color:black">
-                    {{ $notification->description }}
-                </p>
             </div>
+            @endforeach
         </div>
-    @endforeach
+    </div>
+    <!-- Pagination -->
+<div class="pagination-container text-center mt-4">
+    {{ $notifications->links('pagination::bootstrap-4') }}
 </div>
 
-
-
-
-    </div>
 </section>
 <!-- Notice service area end  -->
 
@@ -163,6 +164,32 @@ Event Area
 @stop
 
 <style>
+    /* Custom Pagination Styling */
+.pagination-container .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.pagination-container .pagination a,
+.pagination-container .pagination span {
+    padding: 8px 15px;
+    color: #0d6efd;
+    background-color: white;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.pagination-container .pagination a:hover,
+.pagination-container .pagination span:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
     .blog-content {
         background-color: #0d6efd;
         color: #ffff;
@@ -190,5 +217,4 @@ Event Area
         font-size: 15px;
         margin-left: 10px;
     }
-
 </style>

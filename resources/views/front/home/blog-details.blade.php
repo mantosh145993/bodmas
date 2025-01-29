@@ -31,10 +31,11 @@
                         <img src="{{asset('images/feature/'. $blogs->feature_image)}}" alt="Blog Image">
                     </div>&nbsp;
                     <div class="blog-content">
-                        <div class="blog-meta">
-                            <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
-                            <i class="fa-light fa-calendar-days"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
-                        </div>
+                    <div class="blog-meta">
+                        <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
+                        <i class="far fa-calendar-alt"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
+                        <i class="far fa-eye"></i> Views: {{ $blogs->views }}
+                    </div>
                         {!! $blogs->content !!}
                     </div>
                     <div class="share-links clearfix ">
@@ -71,6 +72,7 @@
                         <div class="author-description">
                             <span class="author-name">{{ $blogs->author }}</span>
                             <p class="author-bio">{{ $blogs->author_description }}</p>
+                            
                         </div>
                     </div>
 
@@ -149,7 +151,7 @@
     color: #212529; /* Neutral dark gray text for readability */
     line-height: 1.8; /* Comfortable line spacing for better readability */
     background-color: #ffffff; /* Clean white background */
-    padding: 20px; /* Padding around the content */
+    padding: 20px!important; /* Padding around the content */
     border-radius: 8px; /* Smooth corners for modern look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
@@ -233,7 +235,7 @@
     margin-bottom: 16px; /* Space between paragraphs */
     color: #212529; /* Primary dark gray for text */
     text-align: justify; /* Clean justified text */
-    padding: 6px;
+    padding: px;
 }
 
 /* Lists */
