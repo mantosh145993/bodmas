@@ -4,7 +4,7 @@
     # Redirect www to non-www and enforce HTTPS
     RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
     RewriteCond %{HTTPS} off
-    RewriteRule ^ https://pilot.bodmas.co.in%{REQUEST_URI} [L,R=301,NE]
+    RewriteRule ^ https://bodmas.co.in%{REQUEST_URI} [L,R=301,NE]
 
     # Handle Laravel routing, excluding /admin
     RewriteCond %{REQUEST_URI} !^/admin
