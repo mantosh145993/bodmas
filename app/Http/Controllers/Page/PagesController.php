@@ -231,11 +231,20 @@ class PagesController extends Controller
                     $id = $page->id;
                     $menus = $this->menuHelper->getMenu();
                     $banner = $this->menuHelper->getBanner($id);
+                    $paidGuidance = PaidPackage::select('package_name','url')->get();
+                    $colleges = College::select('colleges.type', 'colleges.page_id', 'colleges.state_id', 'states.name as state_name','pages.slug','colleges.course_id')
+                    ->where('colleges.course_id', '1')
+                    ->join('states', 'colleges.state_id', '=', 'states.id')
+                    ->join('pages', 'colleges.page_id', '=', 'pages.id')
+                    ->get();
+                    // dd($colleges);
                     return view('front.home.showPage', [
                         'page' => $page,
                         'menus' => $menus,
                         'banner' => $banner,
-                        'packages' => $packages
+                        'packages' => $packages,
+                        'paidGuidance' => $paidGuidance,
+                        'colleges' => $colleges
                     ]);
                 }
                 abort(404, 'Page not found');

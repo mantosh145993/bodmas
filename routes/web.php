@@ -2,6 +2,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\SliderBannerController;
 use App\Http\Controllers\CategoryController;
@@ -86,10 +88,13 @@ Route::post('/chat/createChat', [ChatController::class, 'createChat'])->name('ch
 // Public routes 
 Route::get('/', [PagesController::class, 'home'])->name('/');
 Route::get('/admin', [AuthenticatedSessionController::class, 'login'])->name('admin');
-Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
+// Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
 Route::post('/admin/dashboard', [AuthenticatedSessionController::class, 'store'])->name('admin.dashboard');
 Route::get('test_category', [TestController::class, 'testCategory'])->name('test_category');
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('admin.register');
+Route::get('/forgot-password', [PasswordController::class, 'crforgot-passwordeate'])->name('admin.forgot-password');
+Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+->name('password.reset');
 // Public routes end
 
 // Profile routes (protected by 'auth' start)
@@ -274,4 +279,5 @@ Route::get('/{slug?}', [PagesController::class, 'index'])->where('slug', '.*');
 Route::get('contact', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('contact');
 Route::get('about', [PageController::class, 'index'])->name('about');
 Route::get('privacy-policy', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('privacy-policy');
+
 require __DIR__ . '/auth.php';

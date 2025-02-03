@@ -26,9 +26,9 @@
         </div>
     </div>
     <div class="row">
-        <!-- <div class="col-xl-3 col-lg-4 order-lg-1">
+        <div class="col-xl-3 col-lg-4 order-lg-1">
             <aside class="sidebar-area sidebar-shop">
-                <div class="widget widget_categories style2">
+                <!-- <div class="widget widget_categories style2">
                     <h3 class="widget_title text-center">Become A Partner</h3>
                     <form id="partnerForm" method="POST" class="p-3 shadow rounded bg-white">
                         @csrf
@@ -47,19 +47,53 @@
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Submit</button>
                     </form>
+                </div> -->
+                <div class="widget  ">
+                    <h3 class="widget_title text-center">Meeting With Ashok Sir</h3>
+                    <!-- Buttons for Booking Consultation -->
+                    <div class="text-center mt-3">
+                        <a href="https://meetpro.club/bodmas?isCpBranding=false" target="_blank"
+                            class="btn btn-primary btn-lg d-block mb-2 fw-bold shadow-sm"
+                            style="border-radius: 8px;">
+                            📅 Book Online Consultation
+                        </a>
+
+                        <a href="https://meetpro.club/bodmas?isCpBranding=false" target="_blank"
+                            class="btn btn-outline-dark btn-lg d-block fw-bold shadow-sm"
+                            style="border-radius: 8px;">
+                            🏢 Book Offline Consultation
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Mentorship Program Section -->
+                <div class="widget widget_categories style2 mt-4">
+                    <h3 class="widget_title text-center">Our Mentorship Program</h3>
+                    <ul class="list-unstyled p-3 shadow rounded bg-white">
+                        <li><a href="#">Mentorship Program for JEE</a></li>
+                        <li><a href="#">Mentorship Program for NEET UG</a></li>
+                        <li><a href="#">Mentorship Program for Law Aspirants</a></li>
+                        <li><a href="#">Mentorship Program for CUET Aspirants</a></li>
+                        <li><a href="#">Mentorship Timetable</a></li>
+                    </ul>
                 </div>
             </aside>
-        </div> -->
-        <div class="col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
-            {!! $page->content !!}
         </div>
-        <!-- <div class="col-xl-3 col-lg-4 order-lg-3">
+        <?php
+        $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
+        $updatedContent = str_replace("https://pilot.bodmas.co.in", $currentDomain, $page->content);
+        // dd($currentDomain);
+        ?>
+        <div class="col-xl-6 col-lg-8 order-lg-2 mt-5 show-content">
+            {!! $updatedContent !!}
+        </div>
+        <div class="col-xl-3 col-lg-4 order-lg-3">
 
-            <div class="widget widget_categories style2">
+            <!-- <div class="widget widget_categories style2">
                 <h3 class="widget_title text-center">Contact Us</h3>
                 <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
                     @csrf
-                    <input type="hidden" id="typeEnquiry"  name="type" value="2">
+                    <input type="hidden" id="typeEnquiry" name="type" value="2">
                     <div class="mb-3">
                         <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Enter Name" required>
                     </div>
@@ -83,8 +117,69 @@
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>
+            </div> -->
+            <div class="widget widget_categories style2">
+                <h3 class="widget_title text-center">Paid Guidance Program</h3>
+                <ul class="list-unstyled p-3 shadow rounded bg-white">
+                    @foreach ($paidGuidance as $guidance)
+                    <li>
+                        <a href="{{ url($guidance->url) }}" target="_blank">{{ $guidance->package_name }}</a>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
-        </div> -->
+
+            <div class="widget widget_categories style2">
+    <h3 class="widget_title text-center">State Wise Colleges</h3>
+    
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs" id="courseTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="mbbs-tab" data-bs-toggle="tab" href="#mbbs" role="tab">MBBS Colleges</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="bds-tab" data-bs-toggle="tab" href="#bds" role="tab">BDS Colleges</a>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="courseTabsContent">
+        <!-- MBBS Tab -->
+        <div class="tab-pane fade show active" id="mbbs" role="tabpanel">
+            <ul class="list-group">
+                @foreach($colleges->where('course_id', 1)->groupBy('state_name') as $state => $collegeList)
+                    <li class="list-group-item">
+                        <strong>{{ $state }}</strong> 
+                        <ul class="ps-3">
+                            @foreach($collegeList as $college)
+                                <li><a href="{{ url('show/college/'.$college->slug) }}">{{ $college->slug }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <!-- BDS Tab -->
+        <div class="tab-pane fade" id="bds" role="tabpanel">
+            <ul class="list-group">
+                @foreach($colleges->where('course_id', 2)->groupBy('state_name') as $state => $collegeList)
+                    <li class="list-group-item">
+                        <strong>{{ $state }}</strong> 
+                        <ul class="ps-3">
+                            @foreach($collegeList as $college)
+                                <li><a href="{{ url('show/college/'.$college->slug) }}">{{ $college->slug }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+        </div>
     </div>
 </div>
 @stop
@@ -119,9 +214,9 @@
                 }
             });
         });
-        
+
         // Enquiry Form 
-        
+
         $('#enquiryForm').on('submit', function(e) {
             e.preventDefault();
             let formData = {
@@ -154,16 +249,22 @@
 </script>
 
 <style>
-      [data-f-id="pbf"] {
-    display: none;
-  }
-     .show-content img {
-        width: 100% !important; /* Make images responsive */
-        height: auto; /* Maintain aspect ratio */
-        box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1); /* Apply the same shadow to images */
-        margin-bottom: 1em; /* Add space below images for better layout */
+    [data-f-id="pbf"] {
+        display: none;
+    }
+
+    .show-content img {
+        width: 100% !important;
+        /* Make images responsive */
+        height: auto;
+        /* Maintain aspect ratio */
+        box-shadow: 0 20px 8px rgba(0, 0, 0, 0.1);
+        /* Apply the same shadow to images */
+        margin-bottom: 1em;
+        /* Add space below images for better layout */
         border-radius: 20px;
     }
+
     .widget {
         margin: 20px 0;
     }
@@ -208,6 +309,7 @@
     button:hover {
         background-color: #0056b3;
     }
+
     .show-content h1,
     .show-content h2,
     .show-content h3,
