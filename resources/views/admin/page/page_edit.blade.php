@@ -24,7 +24,14 @@
                         <form id="page-form" action="{{ route('pages.update', $page->id) }}" method="POST">
                             @csrf
                             @method('PUT') <!-- Add this line for PUT request -->
-
+                            <div class="form-group">
+                                <label for="state_id">Select State</label>
+                                <select class="form-control" id="state_id" name="state_id" required>
+                                    @foreach($states as $state)
+                                    <option value="{{ $state->id }}"{{ $state->id == $page->state_id ? 'selected' : '' }}>{{ $state->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <!-- Title Input -->
                             <div class="form-group">
                                 <label for="title">Title</label>

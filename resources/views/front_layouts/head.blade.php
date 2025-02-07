@@ -17,6 +17,7 @@
     <!--==============================
 	  Google Fonts
 	============================== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
   <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Google tag (gtag.js) -->

@@ -185,6 +185,7 @@ Servce Area
                     const colleges = response.colleges; // List of colleges
                     const courses = response.courses; // List of all courses
                     const pages = response.pages; // List of pages
+                    const states = response.states; // List of State
                     let collegesHtml = '';
 
                     if (colleges.length > 0) {
@@ -196,7 +197,10 @@ Servce Area
                             // Find the corresponding page using the college's page_id
                             const page = pages.find(page => page.id === college.page_id);
                             const slug = page ? page.slug : null;
-                            const readMoreUrl = slug ? `/show/college/${slug}` : '#';
+                            const state = states.find(state => state.id === college.state_id); // Find matching state
+                            const stateName = state ? state.name : 'unknown-state';
+                            const courseName = course.title;
+                            const readMoreUrl = slug ? `/${stateName}/${courseName}/${slug}` : '#';
 
                             collegesHtml += `
                 <div class="college-card" style="display: flex; align-items: center; margin-bottom: 15px; border: 1px solid #ddd; padding: 10px; border-radius: 5px;">

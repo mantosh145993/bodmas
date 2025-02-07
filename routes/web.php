@@ -15,6 +15,7 @@ use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\CookieConsentController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
@@ -36,6 +37,11 @@ use App\Http\Controllers\PayController;
 Route::get('/sitemap.xml', function () {
     return response()->file(storage_path('app/public/sitemap.xml'), ['Content-Type' => 'application/xml']);
 });
+
+// cookies 
+Route::post('cookie/cookie-consent', [CookieConsentController ::class, 'store'])->name('cookie');
+Route::get('video-meeting-counselling',[App\Http\Controllers\Page\PagesController::class, 'metting'])->name('video-meeting-counselling');
+// cookies end
 // payments Razorpay Paid Guidance
 Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
 Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
@@ -51,6 +57,8 @@ Route::post('/payment/paidcutoff', [RazorpayPaymentController::class, 'paidcutof
 
 // Display College by slug
 Route::get('/show/college/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
+// Route::get('/{state}/{course}/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
+
 // Footer route 	
 Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
 Route::post('/partner', [App\Http\Controllers\Page\PagesController::class, 'becomPartner'])->name('enquiry.partner');
