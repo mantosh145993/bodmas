@@ -176,12 +176,45 @@
 <script src="{{ asset('assets/js/nice-select.min.js') }}"></script>
 <!-- Main Js File -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
-
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 <script>
 	function goToPartnerRoute() {
     window.location.href = "{{ route('become-a-partner') }}";
 }
+window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+            palette: {
+                popup: { background: "#000" },
+                button: { background: "#0D5EF4" }
+            },
+            theme: "classic",
+            content: {
+                message: "We use cookies to ensure you get the best experience on our website.",
+                dismiss: "Got it!",
+                link: "Learn more",
+                href: "{{ route('privacy-policy') }}" // Privacy policy link
+            },
+            onStatusChange: function(status) {
+                console.log("Cookie consent status:", status); // Debugging
+
+                // Send data even when dismissed
+                if (status === 'allow' || status === 'dismiss') {
+                    fetch('/cookie', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ consent: status })
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log("Consent saved:", data))
+                    .catch(error => console.error("Fetch error:", error));
+                }
+            }
+        });
+    });
 
 </script>

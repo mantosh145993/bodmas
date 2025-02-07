@@ -127,4 +127,31 @@
         .package-details dd {
             margin: 0 0 10px 0;
         }
+        /* // youtube section  */
+        .youtube-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FF0000; /* YouTube red */
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .youtube-button:hover {
+        background-color: #CC0000; /* Darker red on hover */
+    }
+
+    .youtube-button i {
+        margin-right: 8px;
+    }
+
+    .youtube-container {
+        text-align: center;
+        margin-top: 20px;
+    }
 </style>
