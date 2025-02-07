@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Page;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\State;
 
 class PageController extends Controller
 {
@@ -19,7 +20,8 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Page::findOrFail($id);
-        return view('admin.page.page_edit', compact('page'));
+        $states = State::all();
+        return view('admin.page.page_edit', compact('page','states'));
     }
 
     public function view($slug)
@@ -30,7 +32,8 @@ class PageController extends Controller
 
     public function create()
     {
-        return view('admin.page.page_add');
+        $states = State::all();
+        return view('admin.page.page_add',compact('states'));
     }
 
     public function store(Request $request)
@@ -45,6 +48,7 @@ class PageController extends Controller
         $page->title = $validatedData['title'];
         $page->content = $validatedData['content'];
         $page->slug = $slug;
+        $page->state_id = $request->state_id;
         $page->published = $validatedData['published'] ?? false; 
         $page->save();
         return response()->json(['message' => 'Page created successfully.', 'page' => $page]);

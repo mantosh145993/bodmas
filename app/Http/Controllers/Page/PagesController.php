@@ -232,11 +232,12 @@ class PagesController extends Controller
                     $menus = $this->menuHelper->getMenu();
                     $banner = $this->menuHelper->getBanner($id);
                     $paidGuidance = PaidPackage::select('package_name','url')->get();
-                    $colleges = College::select('colleges.type', 'colleges.page_id', 'colleges.state_id', 'states.name as state_name','pages.slug','colleges.course_id')
-                    ->where('colleges.course_id', '1')
-                    ->join('states', 'colleges.state_id', '=', 'states.id')
-                    ->join('pages', 'colleges.page_id', '=', 'pages.id')
-                    ->get();
+                    $colleges = Page::select('pages.slug', 'states.name as state_name')
+                    ->join('states', 'states.id', '=', 'pages.state_id')
+                    ->whereNotNull('pages.state_id') // Ensure the page has a valid state_id
+                    ->orderBy('states.name')
+                    ->get()
+                    ->groupBy('state_name');
                     // dd($colleges);
                     return view('front.home.showPage', [
                         'page' => $page,
@@ -316,7 +317,6 @@ class PagesController extends Controller
         }
     }
 
-
     public function becomPartner(Request $request)
     {
         $validated = $request->validate([
@@ -374,21 +374,33 @@ class PagesController extends Controller
         ]);
     }
 
-    public function showCollege($slug)
+    public function showCollege($state, $course, $slug)
     {
         $page = Page::where('slug', $slug)->first();
+
         if ($page) {
             $id = $page->id;
             $menus = $this->menuHelper->getMenu();
             $banner = $this->menuHelper->getBanner($id);
+            $paidGuidance = PaidPackage::select('package_name','url')->get();
+            $colleges = College::select('colleges.type', 'colleges.page_id', 'colleges.state_id', 'states.name as state_name','pages.slug','colleges.course_id')
+            ->where('colleges.course_id', '1')
+            ->join('states', 'colleges.state_id', '=', 'states.id')
+            ->join('pages', 'colleges.page_id', '=', 'pages.id')
+            ->get();
             return view('front.home.showPage', [
                 'page' => $page,
                 'menus' => $menus,
-                'banner' => $banner
+                'banner' => $banner,
+                'state' => $state,
+                'course' => $course,
+                'paidGuidance' => $paidGuidance,
+                'colleges' => $colleges
             ]);
         }
         abort(404, 'Page not found');
     }
+
 
     public function getLink(Request $request)
     {
@@ -432,4 +444,9 @@ class PagesController extends Controller
         $menus = $this->menuHelper->getMenu();
        return view('front.email',compact('menus'));
     } 
+
+    public function metting() {
+        return redirect('https://meetpro.club/bodmas?isCpBranding=false');
+    }
+    
 }

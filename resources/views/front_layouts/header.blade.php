@@ -146,7 +146,7 @@
                             <div class="col-auto d-none d-xl-block">
                                 <div class="header-button">
                                     <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button>
-                                    <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn ml-25">Book <i class="fa fa-play-circle"></i> Consult</a>
+                                    <a href="{{route('video-meeting-counselling')}}" class="th-btn ml-25">Book <i class="fa fa-play-circle"></i> Consult</a>
                                 </div>
                             </div>
                         </div>

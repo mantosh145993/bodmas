@@ -9,6 +9,8 @@ use App\Models\Medical;
 use App\Models\Predictor;
 use App\Models\Course;
 use App\Models\Page;
+use App\Models\State;
+
 use DB;
 
 class PredictController extends Controller
@@ -93,7 +95,8 @@ class PredictController extends Controller
         $courseId = $request->input('course_id');
         $type = $request->input('type');
         $query = College::query();
-
+        $state = State::where('id',$stateId)->get();
+        // dd($state);
         if ($stateId) {
             $query->where('state_id', $stateId);
         }
@@ -116,7 +119,8 @@ class PredictController extends Controller
         return response()->json([
             'colleges' => $colleges,
             'courses' => $courses,
-            'pages' => $pages
+            'pages' => $pages,
+            'states' =>$state
         ]);
     }
 
