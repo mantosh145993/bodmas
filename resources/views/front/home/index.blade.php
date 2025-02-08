@@ -14,19 +14,19 @@ Hero Area
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
-                                <span class="hero-subtitle">Online e-learning course</span>
-                                <h1 class="hero-title text-theme">Online Education</h1>
-                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h1 class="hero-title text-theme">Don’t Wait  </h1>
+                                <h5>Apply Now! NEET UG Registration</h5>
                                 <div class="checklist">
                                     <ul>
-                                        <li>Get Certified</li>
-                                        <li>Gain Job-ready Skills</li>
-                                        <li>Great Life</li>
+                                        <li> Now Open</li>
+                                        <li>Take the First Step</li>
+                                        <li>Towards Your Dream Career!</li>
                                     </ul>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -37,19 +37,11 @@ Hero Area
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                                        <p class="hero-counter_text">Active Students</p>
-                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
-                                        <p class="hero-counter_text">Online Video Courses</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -66,19 +58,18 @@ Hero Area
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
-                                <span class="hero-subtitle">Online e-learning course</span>
-                                <h1 class="hero-title text-theme">Online Education</h1>
-                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h1 class="hero-title text-theme">Book One-to-One </h1>
+                                <h5>Meeting with Ashok Sir</h5>
                                 <div class="checklist">
                                     <ul>
-                                        <li>Get Certified</li>
-                                        <li>Gain Job-ready Skills</li>
-                                        <li>Great Life</li>
+                                        <li>Personalized Guidance</li>
+                                        <li> Expert Insights</li>
+                                        <li>Clear Doubts</li>
                                     </ul>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('video-meeting-counselling')}}" class="th-btn">Book Now<i class="fas fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -89,19 +80,11 @@ Hero Area
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                                        <p class="hero-counter_text">Active Students</p>
-                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
-                                        <p class="hero-counter_text">Online Video Courses</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -118,19 +101,19 @@ Hero Area
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
-                                <span class="hero-subtitle">Online e-learning course</span>
-                                <h1 class="hero-title text-theme">Online Education</h1>
-                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd </span>
+                                <h1 class="hero-title text-theme">Low Rank? </h1>
+                                <h5>No Problem! Get Into Top Colleges with Our Paid Guidance! </h5>
                                 <div class="checklist">
                                     <ul>
-                                        <li>Get Certified</li>
-                                        <li>Gain Job-ready Skills</li>
-                                        <li>Great Life</li>
+                                        <li> Low Fees</li>
+                                        <li>High Opportunities</li>
+                                        <li>Let Us Help You Get there!</li>
                                     </ul>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -141,18 +124,18 @@ Hero Area
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
+                                </div>
+                                 <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
                                         <p class="hero-counter_text">Active Students</p>
                                     </div> -->
-                                </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
-                                        <p class="hero-counter_text">Online Video Courses</p>
+                                     <!-- <div class="details">
+                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
+                                        <p class="hero-counter_text">Active Students</p>
                                     </div> -->
                                 </div>
                             </div>
@@ -170,19 +153,20 @@ Hero Area
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
-                                <span class="hero-subtitle">Online e-learning course</span>
-                                <h1 class="hero-title text-theme">Online Education</h1>
-                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd </span>
+                                <h1 class="hero-title text-theme">Limited Seats</h1>
+                                <h5>Act fast for secure your spot in the Best Medical College</h5>
                                 <div class="checklist">
                                     <ul>
-                                        <li>Get Certified</li>
-                                        <li>Gain Job-ready Skills</li>
-                                        <li>Great Life</li>
+                                        <li>Govt Colleges</li>
+                                        <li>Pvt Colleges</li>
+                                        <li>Get Expert Guidance to Help You Succeed!</li>
                                     </ul>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -222,19 +206,19 @@ Hero Area
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
-                                <span class="hero-subtitle">Online e-learning course</span>
-                                <h1 class="hero-title text-theme">Online Education</h1>
-                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h1 class="hero-title text-theme">Mentorship</h1>
+                                <h5>Get Our Metorship program Prepare Smarter, Score Higher – Join Now!</h5>
                                 <div class="checklist">
                                     <ul>
-                                        <li>Get Certified</li>
-                                        <li>Gain Job-ready Skills</li>
-                                        <li>Great Life</li>
+                                        <li>Latest Updates</li>
+                                        <li> Mock Tests Series</li>
+                                        <li>Exam Prepration Tips!</li>
                                     </ul>
                                 </div>
                                 <div class="btn-group">
-                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{url('mentorship')}}" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +234,7 @@ Hero Area
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -266,25 +250,25 @@ Hero Area
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-style2">
-                                <span class="hero-subtitle">Online e-learning course</span>
-                                <h1 class="hero-title text-theme">Online Education</h1>
-                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h1 class="hero-title text-theme">Preparation</h1>
+                                <h5>Starts Here document Checklist for NEET UG</h5>
                                 <div class="checklist">
-                                    <ul>
-                                        <li>Get Certified</li>
-                                        <li>Gain Job-ready Skills</li>
-                                        <li>Great Life</li>
-                                    </ul>
+                                    <!-- <ul>
+                                        <li>Stay Ready </li>
+                                        <li>No Surprises</li>
+                                        <li>Prepare Smarter</li>
+                                    </ul> -->
                                 </div>
                                 <div class="btn-group">
-                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/one1.png')}}" alt="hero">
+                                <img src="{{asset('assets/img/hero/6.png')}}" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
@@ -294,7 +278,7 @@ Hero Area
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -840,82 +824,82 @@ Team Area
 
 
 <!-- Testimonial Area -->
-<section class="space" data-bg-src="assets/img/update1/bg/testi_bg_5.jpg" data-overlay="title" data-opacity="9">
-        <div class="container z-index-3">
-            <div class="row justify-content-between align-items-end">
-                <div class="col-md-auto">
-                    <div class="title-area text-center text-md-start">
-                        <span class="sub-title text-white">What Student Says</span>
-                        <h2 class="sec-title fw-medium text-white">Student’s Testimonials</h2>
+<!-- <section class="space" data-bg-src="assets/img/update1/bg/testi_bg_5.jpg" data-overlay="title" data-opacity="9">
+    <div class="container z-index-3">
+        <div class="row justify-content-between align-items-end">
+            <div class="col-md-auto">
+                <div class="title-area text-center text-md-start">
+                    <span class="sub-title text-white">What Student Says</span>
+                    <h2 class="sec-title fw-medium text-white">Student’s Testimonials</h2>
+                </div>
+            </div>
+            <div class="col-auto d-none d-md-block">
+                <div class="sec-btn">
+                    <div class="icon-box">
+                        <button data-slick-prev="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-left"></i></button>
+                        <button data-slick-next="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="col-auto d-none d-md-block">
-                    <div class="sec-btn">
-                        <div class="icon-box">
-                            <button data-slick-prev="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-left"></i></button>
-                            <button data-slick-next="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="row th-carousel" id="testiSlide5" data-slide-show="2" data-md-slide-show="1">
+            <div class="col-lg-6">
+                <div class="testi-list">
+                    <div class="testi-list_img">
+                        <img src="assets/img/update1/testimonial/testi_2_1.jpg" alt="Avater">
+                        <div class="testi-list_quote">
+                            <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
+                        </div>
+                    </div>
+                    <div class="testi-list_content">
+                        <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                        <h3 class="testi-list_name box-title">Vlademir Hilton</h3>
+                        <span class="testi-list_desig">IT Student</span>
+                        <div class="testi-list_review">
+                            <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row th-carousel" id="testiSlide5" data-slide-show="2" data-md-slide-show="1">
-                <div class="col-lg-6">
-                    <div class="testi-list">
-                        <div class="testi-list_img">
-                            <img src="assets/img/update1/testimonial/testi_2_1.jpg" alt="Avater">
-                            <div class="testi-list_quote">
-                                <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
-                            </div>
+            <div class="col-lg-6">
+                <div class="testi-list">
+                    <div class="testi-list_img">
+                        <img src="assets/img/update1/testimonial/testi_2_2.jpg" alt="Avater">
+                        <div class="testi-list_quote">
+                            <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
                         </div>
-                        <div class="testi-list_content">
-                            <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
-                            <h3 class="testi-list_name box-title">Vlademir Hilton</h3>
-                            <span class="testi-list_desig">IT Student</span>
-                            <div class="testi-list_review">
-                                <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
-                            </div>
+                    </div>
+                    <div class="testi-list_content">
+                        <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                        <h3 class="testi-list_name box-title">Rosana Zarsin</h3>
+                        <span class="testi-list_desig">CSE Student</span>
+                        <div class="testi-list_review">
+                            <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="testi-list">
-                        <div class="testi-list_img">
-                            <img src="assets/img/update1/testimonial/testi_2_2.jpg" alt="Avater">
-                            <div class="testi-list_quote">
-                                <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
-                            </div>
-                        </div>
-                        <div class="testi-list_content">
-                            <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
-                            <h3 class="testi-list_name box-title">Rosana Zarsin</h3>
-                            <span class="testi-list_desig">CSE Student</span>
-                            <div class="testi-list_review">
-                                <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
-                            </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testi-list">
+                    <div class="testi-list_img">
+                        <img src="assets/img/update1/testimonial/testi_2_3.jpg" alt="Avater">
+                        <div class="testi-list_quote">
+                            <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testi-list">
-                        <div class="testi-list_img">
-                            <img src="assets/img/update1/testimonial/testi_2_3.jpg" alt="Avater">
-                            <div class="testi-list_quote">
-                                <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
-                            </div>
-                        </div>
-                        <div class="testi-list_content">
-                            <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
-                            <h3 class="testi-list_name box-title">Abraham Khalil</h3>
-                            <span class="testi-list_desig">GS Student</span>
-                            <div class="testi-list_review">
-                                <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
-                            </div>
+                    <div class="testi-list_content">
+                        <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                        <h3 class="testi-list_name box-title">Abraham Khalil</h3>
+                        <span class="testi-list_desig">GS Student</span>
+                        <div class="testi-list_review">
+                            <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section> -->
 
 <!--==============================
 Event Area  
