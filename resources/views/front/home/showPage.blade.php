@@ -70,13 +70,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </div>
 <div class="row">
-    <div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
-        <?php
-        $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
-        $updatedContent = str_replace("https://pilot.bodmas.co.in", $currentDomain, $page->content);
-        ?>
-        {!! $updatedContent !!}
-    </div>
+<div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
+    <?php
+    $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
+    $updatedContent = str_replace(
+        ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"], 
+        $currentDomain, 
+        $page->content
+    );
+    ?>
+    {!! $updatedContent !!}
+</div>
+
 </div>
 </div>
 </div>
