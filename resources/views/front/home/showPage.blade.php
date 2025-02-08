@@ -85,8 +85,7 @@
 </div>
 </div>
 </div>
-<div class="row">
-    <!-- Paid Guidance Program Section -->
+<!-- <div class="row">
     <div class="col-lg-6 mb-4">
         <div class="widget widget_categories style2 p-3 shadow rounded bg-white">
             <h3 class="widget_title text-center">Paid Guidance Program</h3>
@@ -102,13 +101,12 @@
         </div>
     </div>
 
-    <!-- All States Section -->
     <div class="col-lg-6 mb-4">
         <h3 class="widget_title text-center">All States</h3>
         <ul class="list-group">
             @foreach($colleges as $state => $collegeList)
                 <li class="list-group-item border-0 mb-3 shadow-sm rounded">
-                    <strong class="text-uppercase">{{ $state }}</strong> <!-- Display State Name -->
+                    <strong class="text-uppercase">{{ $state }}</strong>
                     <ul class="ps-3 mt-2">
                         @foreach($collegeList as $college)
                             <li>
@@ -122,7 +120,7 @@
             @endforeach
         </ul>
     </div>
-</div>
+</div> -->
 
 @stop
 
