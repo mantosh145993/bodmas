@@ -32,24 +32,24 @@ Hero Area
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="assets/img/hero/Untitled-1.png" alt="hero">
+                                <img src="{{asset('assets/img/hero/1.png')}}" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
                                         <p class="hero-counter_text">Active Students</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
                                         <p class="hero-counter_text">Online Video Courses</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -84,24 +84,24 @@ Hero Area
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="assets/img/hero/one1.png" alt="hero">
+                                <img src="{{asset('assets/img/hero/2.png')}}" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
                                         <p class="hero-counter_text">Active Students</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
                                         <p class="hero-counter_text">Online Video Courses</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -136,24 +136,24 @@ Hero Area
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="assets/img/hero/one1.png" alt="hero">
+                                <img src="{{asset('assets/img/hero/3.png')}}" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
                                         <p class="hero-counter_text">Active Students</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
                                         <p class="hero-counter_text">Online Video Courses</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -188,24 +188,24 @@ Hero Area
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="assets/img/hero/one1.png" alt="hero">
+                                <img src="{{asset('assets/img/hero/4.png')}}" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
                                         <p class="hero-counter_text">Active Students</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <div class="details">
+                                    <!-- <div class="details">
                                         <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
                                         <p class="hero-counter_text">Online Video Courses</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -240,24 +240,17 @@ Hero Area
                         </div>
                         <div class="col-xl-6">
                             <div class="hero-img2">
-                                <img src="assets/img/hero/one1.png" alt="hero">
+                                <img src="{{asset('assets/img/hero/5.png')}}" alt="hero">
                                 <div class="hero-counter-wrap hero-counter1">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                    <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                                        <p class="hero-counter_text">Active Students</p>
                                     </div>
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
-                                        <p class="hero-counter_text">Online Video Courses</p>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -265,6 +258,51 @@ Hero Area
                 </div>
             </div>
         </div>
+
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2" id="hero">
+                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
+                <div class="container z-index-common">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Online e-learning course</span>
+                                <h1 class="hero-title text-theme">Online Education</h1>
+                                <h1 class="hero-title">Feels Like Real Classroom</h1>
+                                <div class="checklist">
+                                    <ul>
+                                        <li>Get Certified</li>
+                                        <li>Gain Job-ready Skills</li>
+                                        <li>Great Life</li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <a href="course.html" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="course.html" class="th-btn style5">Our Courses<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="hero-img2">
+                                <img src="{{asset('assets/img/hero/one1.png')}}" alt="hero">
+                                <div class="hero-counter-wrap hero-counter1">
+                                    <div class="hero-counter_icon">
+                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
+                                    </div>
+                                </div>
+                                <div class="hero-counter-wrap hero-counter2">
+                                    <div class="hero-counter_icon">
+                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="row">
         <div class="col-sm-6 text-left">
