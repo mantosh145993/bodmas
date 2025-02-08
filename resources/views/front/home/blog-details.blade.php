@@ -36,7 +36,18 @@
                         <i class="far fa-calendar-alt"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
                         <i class="far fa-eye"></i> Views: {{ $blogs->views }}
                     </div>
-                        {!! $blogs->content !!}
+                    <div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
+                        <?php
+                        $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
+                        $updatedContent = str_replace(
+                            ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"], 
+                            $currentDomain, 
+                            $blogs->content
+                        );
+                        ?>
+                        {!! $updatedContent !!}
+                    </div>
+
                     </div>
                     <div class="share-links clearfix ">
                         <div class="row justify-content-between">
