@@ -1,6 +1,7 @@
 @extends('front_layouts.master')
 @section('content')
-@include('admin.popup.home')
+<!-- @include('admin.popup.home') -->
+@include('admin.popup.banner')
 <!--==============================
 Hero Area
 ==============================-->
