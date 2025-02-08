@@ -48,19 +48,19 @@
             <div class="col-12">
                 <ul class="nav nav-tabs d-flex justify-content-between w-100" id="mentorshipTabs" role="tablist">
                     <li class="nav-item flex-grow-1 text-center" role="presentation">
-                        <a href="{{ url('mentorship/jee') }}" class="nav-link active bg-primary text-white">JEE</a>
+                        <a href="{{ url('mentorship/mentorship-program-for-jee') }}" class="nav-link active bg-primary text-white">JEE</a>
                     </li>
                     <li class="nav-item flex-grow-1 text-center" role="presentation">
-                        <a href="{{ url('mentorship/neet') }}" class="nav-link bg-success text-white">NEET UG</a>
+                        <a href="{{ url('mentorship/mentorship-program-for-neet-ug') }}" class="nav-link bg-success text-white">NEET UG</a>
                     </li>
                     <li class="nav-item flex-grow-1 text-center" role="presentation">
-                        <a href="{{ url('mentorship/law') }}" class="nav-link bg-danger text-white">Law Aspirants</a>
+                        <a href="{{ url('mentorship/mentorship-program-for-law-aspirants') }}" class="nav-link bg-danger text-white">Law Aspirants</a>
                     </li>
                     <li class="nav-item flex-grow-1 text-center" role="presentation">
-                        <a href="{{ url('mentorship/cuet') }}" class="nav-link bg-warning text-dark">CUET Aspirants</a>
+                        <a href="{{ url('mentorship/mentorship-program-for-cuet') }}" class="nav-link bg-warning text-dark">CUET Aspirants</a>
                     </li>
                     <li class="nav-item flex-grow-1 text-center" role="presentation">
-                        <a href="{{ url('mentorship/timetable') }}" class="nav-link bg-info text-dark">Timetable</a>
+                        <a href="{{ url('mentorship/mentorship-timetable') }}" class="nav-link bg-info text-dark">Timetable</a>
                     </li>
                 </ul>
             </div>

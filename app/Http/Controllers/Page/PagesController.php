@@ -223,6 +223,7 @@ class PagesController extends Controller
                 }
                 $withoutSlashSlug = $slug;
                 $slug = '/' . $slug;
+                // dd($slug);
                 $page = Page::where('menu_slug', $slug)
                     ->orWhere('slug', $withoutSlashSlug)
                     ->first();
