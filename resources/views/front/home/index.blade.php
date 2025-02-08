@@ -125,18 +125,10 @@ Hero Area
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
                                 </div>
-                                 <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                                        <p class="hero-counter_text">Active Students</p>
-                                    </div> -->
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                     <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                                        <p class="hero-counter_text">Active Students</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -155,8 +147,8 @@ Hero Area
                             <div class="hero-style2">
 
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd </span>
-                                <h1 class="hero-title text-theme">Limited Seats</h1>
-                                <h5>Act fast for secure your spot in the Best Medical College</h5>
+                                <h1 class="hero-title text-theme">Limited Seats </br> Act Fast Now</h1>
+                                <h5>For secure your spot in the Best Medical College</h5>
                                 <div class="checklist">
                                     <ul>
                                         <li>Govt Colleges</li>
@@ -177,19 +169,11 @@ Hero Area
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">16500</span>+</h3>
-                                        <p class="hero-counter_text">Active Students</p>
-                                    </div> -->
                                 </div>
                                 <div class="hero-counter-wrap hero-counter2">
                                     <div class="hero-counter_icon">
                                         <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
                                     </div>
-                                    <!-- <div class="details">
-                                        <h3 class="hero-counter_number"><span class="counter-number">7500</span>+</h3>
-                                        <p class="hero-counter_text">Online Video Courses</p>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -207,8 +191,8 @@ Hero Area
                         <div class="col-lg-6">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
-                                <h1 class="hero-title text-theme">Mentorship</h1>
-                                <h5>Get Our Metorship program Prepare Smarter, Score Higher – Join Now!</h5>
+                                <h1 class="hero-title text-theme">Avail Mentorship</h1>
+                                <h5>Get Our Metorship program </br> Prepare Smarter, Score Higher – Join Now!</h5>
                                 <div class="checklist">
                                     <ul>
                                         <li>Latest Updates</li>
