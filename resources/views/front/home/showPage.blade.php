@@ -69,58 +69,56 @@
     <!-- Bootstrap JS (Required for Tabs) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </div>
-<div class="row">
-<div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
-    <?php
-    $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
-    $updatedContent = str_replace(
-        ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"], 
-        $currentDomain, 
-        $page->content
-    );
-    ?>
-    {!! $updatedContent !!}
-</div>
+<div class="row container">
+    <!-- Main Content Section -->
+    <div class="page-content-container col-xl-9 col-lg-8 order-lg-2 mt-5 show-content">
+        <?php
+        $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
+        $updatedContent = str_replace(
+            ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"],
+            $currentDomain,
+            $page->content
+        );
+        ?>
+        {!! $updatedContent !!}
+    </div>
 
-</div>
-</div>
-</div>
-<!-- <div class="row">
-    <div class="col-lg-6 mb-4">
-        <div class="widget widget_categories style2 p-3 shadow rounded bg-white">
-            <h3 class="widget_title text-center">Paid Guidance Program</h3>
-            <ul class="list-unstyled">
-                @foreach ($paidGuidance as $guidance)
-                    <li class="mb-2">
-                        <a href="{{ url($guidance->url) }}" target="_blank" class="btn btn-primary w-100 text-white">
-                            {{ $guidance->package_name }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+    <!-- Sidebar Contact Form -->
+    <div class="col-xl-3 col-lg-4 mt-5 container">
+        <div class="widget widget_categories style2">
+            <h3 class="widget_title text-center">Enquiry Now</h3>
+            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                @csrf
+                <input type="hidden" id="typeEnquiry" name="type" value="2">
+                <div class="mb-3">
+                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder=" Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder=" Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                </div>
+                <div class="mb-3">
+                    <select name="subject" id="subject" class="form-select style-white" required>
+                        <option value="" disabled selected hidden>Select Course*</option>
+                        <option value="mbbs">MBBS</option>
+                        <option value="bds">BDS</option>
+                        <option value="bums">BUMS</option>
+                        <option value="bhms">BHMS</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder=" Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
         </div>
     </div>
+</div>
 
-    <div class="col-lg-6 mb-4">
-        <h3 class="widget_title text-center">All States</h3>
-        <ul class="list-group">
-            @foreach($colleges as $state => $collegeList)
-                <li class="list-group-item border-0 mb-3 shadow-sm rounded">
-                    <strong class="text-uppercase">{{ $state }}</strong>
-                    <ul class="ps-3 mt-2">
-                        @foreach($collegeList as $college)
-                            <li>
-                                <a href="{{ url($college->slug) }}" class="btn btn-outline-secondary w-100 text-dark">
-                                    {{ $state }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-</div> -->
+</div>
+</div>
 
 @stop
 

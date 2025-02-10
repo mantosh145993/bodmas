@@ -31,22 +31,22 @@
                         <img src="{{asset('images/feature/'. $blogs->feature_image)}}" alt="Blog Image">
                     </div>&nbsp;
                     <div class="blog-content">
-                    <div class="blog-meta">
-                        <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
-                        <i class="far fa-calendar-alt"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
-                        <i class="far fa-eye"></i> Views: {{ $blogs->views }}
-                    </div>
-                    <div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
-                        <?php
-                        $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
-                        $updatedContent = str_replace(
-                            ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"], 
-                            $currentDomain, 
-                            $blogs->content
-                        );
-                        ?>
-                        {!! $updatedContent !!}
-                    </div>
+                        <div class="blog-meta">
+                            <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
+                            <i class="far fa-calendar-alt"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
+                            <i class="far fa-eye"></i> Views: {{ $blogs->views }}
+                        </div>
+                        <div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
+                            <?php
+                            $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
+                            $updatedContent = str_replace(
+                                ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"],
+                                $currentDomain,
+                                $blogs->content
+                            );
+                            ?>
+                            {!! $updatedContent !!}
+                        </div>
 
                     </div>
                     <div class="share-links clearfix ">
@@ -83,7 +83,7 @@
                         <div class="author-description">
                             <span class="author-name">{{ $blogs->author }}</span>
                             <p class="author-bio">{{ $blogs->author_description }}</p>
-                            
+
                         </div>
                     </div>
 
@@ -137,220 +137,388 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="widget widget_banner" data-overlay="theme" data-opacity="9" data-bg-src="assets/img/widget/widget-banner-bg.png">
+                    <!-- <div class="widget widget_banner" data-overlay="theme" data-opacity="9" data-bg-src="assets/img/widget/widget-banner-bg.png">
                         <div class="widget-banner">
                             <h4 class="title">Need Help? We Are Here
                                 To Help You</h4>
-                            <!-- <div class="logo"><img src="assets/img/logo.svg" alt="img"></div> -->
                             <h5 class="subtitle">You Get Online Courses</h5>
                             <a href="tel:+91 9511626721" class="link">+91 9511626721</a>
                             <a href="{{route('contact')}}" class="th-btn style7">Contact Us Now <i class="far fa-arrow-right ms-1"></i></a>
                         </div>
-                    </div>
+                    </div> -->
                 </aside>
+
+                <div class="widget widget_categories style2">
+                    <h3 class="widget_title text-center">Enquiry Now</h3>
+                    <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                        @csrf
+                        <input type="hidden" id="typeEnquiry" name="type" value="2">
+                        <div class="mb-3">
+                            <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder=" Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder=" Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                        </div>
+                        <div class="mb-3">
+                            <select name="subject" id="subject" class="form-select style-white" required>
+                                <option value="" disabled selected hidden>Select Course*</option>
+                                <option value="mbbs">MBBS</option>
+                                <option value="bds">BDS</option>
+                                <option value="bums">BUMS</option>
+                                <option value="bhms">BHMS</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea id="messageEnquiry" name="message" class="form-control" placeholder=" Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#partnerForm').on('submit', function(e) {
+            e.preventDefault();
+            let formData = {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                number: $('#number').val(),
+                message: $('#message').val(),
+                type: $('#type').val(),
+                _token: $('input[name="_token"]').val(), // CSRF token
+            };
+            $.ajax({
+                url: "{{ route('enquiry.partner') }}", // Adjust the route name if needed
+                type: "POST",
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        alert('We will connect soon!');
+                        $('#partnerForm')[0].reset(); // Reset the form
+                    } else {
+                        alert('Failed to submit enquiry: ' + response.error);
+                    }
+                },
+                error: function(xhr) {
+                    alert('An error occurred: ' + xhr.responseText);
+                }
+            });
+        });
 
+        // Enquiry Form 
+
+        $('#enquiryForm').on('submit', function(e) {
+            e.preventDefault();
+            let formData = {
+                name: $('#nameEnquiry').val(),
+                email: $('#emailEnquiry').val(),
+                number: $('#numberEnquiry').val(),
+                subject: $('#subject').val(),
+                message: $('#messageEnquiry').val(),
+                type: $('#typeEnquiry').val(),
+                _token: $('input[name="_token"]').val(), // CSRF token
+            };
+            $.ajax({
+                url: "{{ route('enquiry.contact') }}", // Adjust the route name if needed
+                type: "POST",
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        alert('Enquiry submitted successfully!');
+                        $('#enquiryForm')[0].reset(); // Reset the form
+                    } else {
+                        alert('Failed to submit enquiry: ' + response.error);
+                    }
+                },
+                error: function(xhr) {
+                    alert('An error occurred: ' + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
 @stop
 
 <style>
- /* Blog Content Container */
- .blog-content {
-    font-family: 'Roboto', 'Arial', sans-serif; /* Professional and clean font */
-    color: #212529; /* Neutral dark gray text for readability */
-    line-height: 1.8; /* Comfortable line spacing for better readability */
-    background-color: #ffffff; /* Clean white background */
-    padding: 20px!important; /* Padding around the content */
-    border-radius: 8px; /* Smooth corners for modern look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
+    /* Blog Content Container */
+    .blog-content {
+        font-family: 'Roboto', 'Arial', sans-serif;
+        /* Professional and clean font */
+        color: #212529;
+        /* Neutral dark gray text for readability */
+        line-height: 1.8;
+        /* Comfortable line spacing for better readability */
+        background-color: #ffffff;
+        /* Clean white background */
+        padding: 20px !important;
+        /* Padding around the content */
+        border-radius: 8px;
+        /* Smooth corners for modern look */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Subtle shadow for depth */
+    }
 
-/* Blog Meta Information */
-.blog-meta {
-    font-size: 14px; /* Smaller font for meta details */
-    color: #6c757d; /* Muted gray for secondary info */
-    margin-bottom: 10px; /* Space below the meta section */
-    padding: 6px;
-}
+    /* Blog Meta Information */
+    .blog-meta {
+        font-size: 14px;
+        /* Smaller font for meta details */
+        color: #6c757d;
+        /* Muted gray for secondary info */
+        margin-bottom: 10px;
+        /* Space below the meta section */
+        padding: 6px;
+    }
 
-.blog-meta i {
-    color: #0D5EF4; /* Blue icons for emphasis */
-}
+    .blog-meta i {
+        color: #0D5EF4;
+        /* Blue icons for emphasis */
+    }
 
-/* Blog Title (H3) */
-.blog-content h3 {
-    font-size: 28px; /* Prominent size for the blog title */
-    color: #000; /* Blue for a professional highlight */
-    margin-bottom: 20px; /* Space below the title */
-    padding: 6px;
-    font-weight: 400 !important;
-}
+    /* Blog Title (H3) */
+    .blog-content h3 {
+        font-size: 28px;
+        /* Prominent size for the blog title */
+        color: #000;
+        /* Blue for a professional highlight */
+        margin-bottom: 20px;
+        /* Space below the title */
+        padding: 6px;
+        font-weight: 400 !important;
+    }
 
-/* Dynamic Content Typography */
+    /* Dynamic Content Typography */
 
-/* Headings */
-.blog-content h1 {
-    font-size: 36px; /* Largest heading size */
-    font-weight: 0; /* Bold for emphasis */
-    margin: 20px 0; /* Space around headings */
-    color: #343a40; /* Slightly darker gray */
-    padding: 6px;
-}
+    /* Headings */
+    .blog-content h1 {
+        font-size: 36px;
+        /* Largest heading size */
+        font-weight: 0;
+        /* Bold for emphasis */
+        margin: 20px 0;
+        /* Space around headings */
+        color: #343a40;
+        /* Slightly darker gray */
+        padding: 6px;
+    }
 
-.blog-content h2 {
-    font-size: 30px; /* Second largest heading size */
-    font-weight: 600; /* Semi-bold for clarity */
-    margin: 18px 0;
-    color: #495057; /* Neutral dark gray */
-    padding: 6px;
-}
+    .blog-content h2 {
+        font-size: 30px;
+        /* Second largest heading size */
+        font-weight: 600;
+        /* Semi-bold for clarity */
+        margin: 18px 0;
+        color: #495057;
+        /* Neutral dark gray */
+        padding: 6px;
+    }
 
-.blog-content h3 {
-    font-size: 26px;
-    font-weight: 600;
-    margin: 16px 0;
-    color: black;
-    padding: 6px;
-}
+    .blog-content h3 {
+        font-size: 26px;
+        font-weight: 600;
+        margin: 16px 0;
+        color: black;
+        padding: 6px;
+    }
 
-.blog-content h4 {
-    font-size: 19px;
-    font-weight: 300; /* Slightly lighter for subheadings */
-    margin: 14px 0;
-    color: black;
-    padding: 6px;
-}
+    .blog-content h4 {
+        font-size: 19px;
+        font-weight: 300;
+        /* Slightly lighter for subheadings */
+        margin: 14px 0;
+        color: black;
+        padding: 6px;
+    }
 
-.blog-content h5 {
-    font-size: 18px;
-    font-weight: 200;
-    margin: 12px 0;
-    color: black;
-    padding: 6px;
-}
+    .blog-content h5 {
+        font-size: 18px;
+        font-weight: 200;
+        margin: 12px 0;
+        color: black;
+        padding: 6px;
+    }
 
-.blog-content h6 {
-    font-size: 16px;
-    font-weight: 100; /* Normal weight for smaller headings */
-    margin: 10px 0;
-    color: black; /* Muted gray for minor headings */
-    padding: 6px;
-}
+    .blog-content h6 {
+        font-size: 16px;
+        font-weight: 100;
+        /* Normal weight for smaller headings */
+        margin: 10px 0;
+        color: black;
+        /* Muted gray for minor headings */
+        padding: 6px;
+    }
 
-/* Paragraphs */
-.blog-content p {
-    font-size: 16px; /* Standard text size */
-    line-height: 1.8; /* Comfortable line spacing */
-    margin-bottom: 16px; /* Space between paragraphs */
-    color: #212529; /* Primary dark gray for text */
-    text-align: justify; /* Clean justified text */
-    padding: px;
-}
+    /* Paragraphs */
+    .blog-content p {
+        font-size: 16px;
+        /* Standard text size */
+        line-height: 1.8;
+        /* Comfortable line spacing */
+        margin-bottom: 16px;
+        /* Space between paragraphs */
+        color: #212529;
+        /* Primary dark gray for text */
+        text-align: justify;
+        /* Clean justified text */
+        padding: px;
+    }
 
-/* Lists */
-.blog-content ul, .blog-content ol {
-    margin: 20px 0;
-    padding-left: 40px; /* Indentation for lists */
-    color: #212529; /* Standard text color */
-}
+    /* Lists */
+    .blog-content ul,
+    .blog-content ol {
+        margin: 20px 0;
+        padding-left: 40px;
+        /* Indentation for lists */
+        color: #212529;
+        /* Standard text color */
+    }
 
-.blog-content ul li, .blog-content ol li {
-    margin-bottom: 8px; /* Space between list items */
-}
+    .blog-content ul li,
+    .blog-content ol li {
+        margin-bottom: 8px;
+        /* Space between list items */
+    }
 
-/* Links */
-.blog-content a {
-    color: #0D5EF4; /* Blue for links */
-    text-decoration: none; /* No underline */
-    font-weight: 500; /* Medium weight for better visibility */
-    transition: color 0.3s ease; /* Smooth hover effect */
-}
+    /* Links */
+    .blog-content a {
+        color: #0D5EF4;
+        /* Blue for links */
+        text-decoration: none;
+        /* No underline */
+        font-weight: 500;
+        /* Medium weight for better visibility */
+        transition: color 0.3s ease;
+        /* Smooth hover effect */
+    }
 
-.blog-content a:hover {
-    color: #0941A6; /* Darker blue on hover */
-    text-decoration: underline; /* Add underline on hover */
-}
+    .blog-content a:hover {
+        color: #0941A6;
+        /* Darker blue on hover */
+        text-decoration: underline;
+        /* Add underline on hover */
+    }
 
-/* Blockquotes */
-.blog-content blockquote {
-    font-style: italic;
-    color: #6c757d; /* Muted gray for quotes */
-    border-left: 4px solid #0D5EF4; /* Blue left border */
-    padding-left: 16px; /* Indentation for quotes */
-    margin: 20px 0; /* Space around blockquote */
-}
+    /* Blockquotes */
+    .blog-content blockquote {
+        font-style: italic;
+        color: #6c757d;
+        /* Muted gray for quotes */
+        border-left: 4px solid #0D5EF4;
+        /* Blue left border */
+        padding-left: 16px;
+        /* Indentation for quotes */
+        margin: 20px 0;
+        /* Space around blockquote */
+    }
 
-/* Images */
-.blog-content img {
-    max-width: 100%; /* Responsive images */
-    border-radius: 6px; /* Smooth corners */
-    margin: 20px 0; /* Space around images */
-}
+    /* Images */
+    .blog-content img {
+        max-width: 100%;
+        /* Responsive images */
+        border-radius: 6px;
+        /* Smooth corners */
+        margin: 20px 0;
+        /* Space around images */
+    }
 
-/* Tables */
-.blog-content table {
-    width: 100%; /* Full-width tables */
-    border-collapse: collapse; /* No double borders */
-    margin: 20px 0; /* Space around table */
-    font-size: 14px; /* Slightly smaller text for tables */
-}
+    /* Tables */
+    .blog-content table {
+        width: 100%;
+        /* Full-width tables */
+        border-collapse: collapse;
+        /* No double borders */
+        margin: 20px 0;
+        /* Space around table */
+        font-size: 14px;
+        /* Slightly smaller text for tables */
+    }
 
-.blog-content table th, .blog-content table td {
-    border: 1px solid #dee2e6; /* Light gray borders */
-    padding: 10px; /* Spacing inside cells */
-    text-align: left; /* Left-align text */
-}
+    .blog-content table th,
+    .blog-content table td {
+        border: 1px solid #dee2e6;
+        /* Light gray borders */
+        padding: 10px;
+        /* Spacing inside cells */
+        text-align: left;
+        /* Left-align text */
+    }
 
-.blog-content table th {
-    background-color: #f8f9fa; /* Light gray header background */
-    font-weight: 600; /* Semi-bold for headers */
-}
+    .blog-content table th {
+        background-color: #f8f9fa;
+        /* Light gray header background */
+        font-weight: 600;
+        /* Semi-bold for headers */
+    }
 
-/* Code Blocks */
-.blog-content pre {
-    background-color: #f8f9fa; /* Light gray background */
-    padding: 15px;
-    border-radius: 6px; /* Rounded corners */
-    overflow-x: auto; /* Scroll for long lines */
-}
+    /* Code Blocks */
+    .blog-content pre {
+        background-color: #f8f9fa;
+        /* Light gray background */
+        padding: 15px;
+        border-radius: 6px;
+        /* Rounded corners */
+        overflow-x: auto;
+        /* Scroll for long lines */
+    }
 
-.blog-content code {
-    background-color: #e9ecef; /* Slightly darker gray */
-    padding: 2px 4px;
-    border-radius: 4px;
-    color: #d63384; /* Highlight for inline code */
-}
+    .blog-content code {
+        background-color: #e9ecef;
+        /* Slightly darker gray */
+        padding: 2px 4px;
+        border-radius: 4px;
+        color: #d63384;
+        /* Highlight for inline code */
+    }
+
     .author-description {
-        background-color: #f9f9f9; /* Light grey background */
+        background-color: #f9f9f9;
+        /* Light grey background */
         padding: 20px;
-        border-radius: 10px; /* Rounded corners */
-        border: 1px solid #ddd; /* Subtle border */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-        max-width: 100%; /* Limit the width for better readability */
+        border-radius: 10px;
+        /* Rounded corners */
+        border: 1px solid #ddd;
+        /* Subtle border */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        /* Soft shadow for depth */
+        max-width: 100%;
+        /* Limit the width for better readability */
     }
 
     .author-name {
-        display: block; /* Ensure the name is on its own line */
+        display: block;
+        /* Ensure the name is on its own line */
         font-size: 18px;
         font-weight: bold;
-        color: #333; /* Dark text for better readability */
-        margin-bottom: 10px; /* Space between name and bio */
+        color: #333;
+        /* Dark text for better readability */
+        margin-bottom: 10px;
+        /* Space between name and bio */
     }
 
     .author-bio {
         font-size: 14px;
-        line-height: 1.6; /* Better line spacing */
-        color: #555; /* Softer color for description text */
-        margin: 0; /* Remove default margin for clean alignment */
+        line-height: 1.6;
+        /* Better line spacing */
+        color: #555;
+        /* Softer color for description text */
+        margin: 0;
+        /* Remove default margin for clean alignment */
     }
 
     .author-description:hover {
-        background-color: #f0f8ff; /* Light blue background on hover */
-        border-color: #007bff; /* Highlight border on hover */
+        background-color: #f0f8ff;
+        /* Light blue background on hover */
+        border-color: #007bff;
+        /* Highlight border on hover */
     }
+
     [data-f-id="pbf"] {
-    display: none;
-  }
+        display: none;
+    }
 </style>
