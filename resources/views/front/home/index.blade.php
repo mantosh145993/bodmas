@@ -8,83 +8,88 @@ Hero Area
 
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+        <!-- Slide 1 -->
         <div class="carousel-item active">
-            <div class="th-hero-wrapper hero-2" id="hero">
-                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
-                <div class="container z-index-common">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero-style2">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/1.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
+                            <div class="hero-style2 " >
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
-                                <h1 class="hero-title text-theme">Don’t Wait  </h1>
-                                <h5>Apply Now! NEET UG Registration</h5>
-                                <div class="checklist">
-                                    <ul>
-                                        <li> Now Open</li>
-                                        <li>Take the First Step</li>
-                                        <li>Towards Your Dream Career!</li>
-                                    </ul>
-                                </div>
+                                <h3 >Don’t Wait Apply Now!</h3>
+                                <h5> NEET UG Registration</h5>
+                                <ul class="checklist">
+                                    <li>Now Open</li>
+                                    <li>Take the First Step</li>
+                                    <li>Towards Your Dream Career!</li>
+                                </ul>
                                 <div class="btn-group">
-                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6">
-                            <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/1.png')}}" alt="hero">
-                                <div class="hero-counter-wrap hero-counter1">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="hero-counter-wrap hero-counter2">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Slide 2 -->
         <div class="carousel-item">
-            <div class="th-hero-wrapper hero-2" id="hero">
-                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
-                <div class="container z-index-common">
-                    <div class="row">
-                        <div class="col-lg-6">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/2.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
-                                <h1 class="hero-title text-theme">Book One-to-One </h1>
+                                <h3>Book One-to-One Session</h3>
                                 <h5>Meeting with Ashok Sir</h5>
-                                <div class="checklist">
-                                    <ul>
-                                        <li>Personalized Guidance</li>
-                                        <li> Expert Insights</li>
-                                        <li>Clear Doubts</li>
-                                    </ul>
-                                </div>
-                                <div class="btn-group">
-                                    <a href="{{route('video-meeting-counselling')}}" class="th-btn">Book Now<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                </div>
+                                <ul class="checklist">
+                                    <li>Personalized Guidance</li>
+                                    <li>Expert Insights</li>
+                                    <li>Clear Doubts</li>
+                                </ul>
+                                <a href="{{route('video-meeting-counselling')}}" class="th-btn">Book Now</a>
                             </div>
                         </div>
-                        <div class="col-xl-6">
-                            <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/2.png')}}" alt="hero">
-                                <div class="hero-counter-wrap hero-counter1">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="hero-counter-wrap hero-counter2">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/3.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Low Rank? No Problem! </h3>
+                                <h5>Get Into Top Colleges with Our Paid Guidance! Meeting with Ashok Sir</h5>
+                                <ul class="checklist">
+                                    <li>Low Fees</li>
+                                    <li>High Opportunities</li>
+                                    <li>Let Us Help You Get there!</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
                                 </div>
                             </div>
                         </div>
@@ -93,85 +98,30 @@ Hero Area
             </div>
         </div>
 
+        <!-- Slide 4 -->
         <div class="carousel-item">
-            <div class="th-hero-wrapper hero-2" id="hero">
-                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
-                <div class="container z-index-common">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero-style2">
-                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd </span>
-                                <h1 class="hero-title text-theme">Low Rank? </h1>
-                                <h5>No Problem! Get Into Top Colleges with Our Paid Guidance! </h5>
-                                <div class="checklist">
-                                    <ul>
-                                        <li> Low Fees</li>
-                                        <li>High Opportunities</li>
-                                        <li>Let Us Help You Get there!</li>
-                                    </ul>
-                                </div>
-                                <div class="btn-group">
-                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/3.png')}}" alt="hero">
-                                <div class="hero-counter-wrap hero-counter1">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="hero-counter-wrap hero-counter2">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
 
-        <div class="carousel-item">
-            <div class="th-hero-wrapper hero-2" id="hero">
-                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
-                <div class="container z-index-common">
-                    <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/4.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
                             <div class="hero-style2">
-
-                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd </span>
-                                <h1 class="hero-title text-theme">Limited Seats </br> Act Fast Now</h1>
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Limited Seats
+                                Act Fast Now</h3>
                                 <h5>For secure your spot in the Best Medical College</h5>
-                                <div class="checklist">
-                                    <ul>
-                                        <li>Govt Colleges</li>
-                                        <li>Pvt Colleges</li>
-                                        <li>Get Expert Guidance to Help You Succeed!</li>
-                                    </ul>
-                                </div>
+                                <ul class="checklist">
+                                    <li>Govt Colleges</li>
+                                    <li>Pvt Colleges</li>
+                                    <li>Get Expert Guidance to Help You Succeed!</li>
+                                </ul>
                                 <div class="btn-group">
-                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/4.png')}}" alt="hero">
-                                <div class="hero-counter-wrap hero-counter1">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="hero-counter-wrap hero-counter2">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                                    </div>
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
                                 </div>
                             </div>
                         </div>
@@ -180,42 +130,30 @@ Hero Area
             </div>
         </div>
 
+        <!-- Slide 5 -->
         <div class="carousel-item">
-            <div class="th-hero-wrapper hero-2" id="hero">
-                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
-                <div class="container z-index-common">
-                    <div class="row">
-                        <div class="col-lg-6">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/5.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
-                                <h1 class="hero-title text-theme">Avail Mentorship</h1>
-                                <h5>Get Our Metorship program </br> Prepare Smarter, Score Higher – Join Now!</h5>
-                                <div class="checklist">
-                                    <ul>
-                                        <li>Latest Updates</li>
-                                        <li> Mock Tests Series</li>
-                                        <li>Exam Prepration Tips!</li>
-                                    </ul>
-                                </div>
+                                <h3>Avail Our Mentorship Program</h3>
+                                <h5>Get Our Metorship program
+                                Prepare Smarter, Score Higher – Join Now!</h5>
+                                <ul class="checklist">
+                                    <li>Latest Updates</li>
+                                    <li>Mock Tests Series</li>
+                                    <li>Exam Prepration Tips!</li>
+                                </ul>
                                 <div class="btn-group">
-                                    <a href="{{url('mentorship')}}" class="th-btn">Get Started<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/5.png')}}" alt="hero">
-                                <div class="hero-counter-wrap hero-counter1">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="hero-counter-wrap hero-counter2">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                                    </div>
-
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
                                 </div>
                             </div>
                         </div>
@@ -224,37 +162,24 @@ Hero Area
             </div>
         </div>
 
+        <!-- Slide 6 -->
         <div class="carousel-item">
-            <div class="th-hero-wrapper hero-2" id="hero">
-                <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
-                <div class="container z-index-common">
-                    <div class="row">
-                        <div class="col-lg-6">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/6.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
-                                <h1 class="hero-title text-theme">Preparation</h1>
+                                <h3>Preparation</h3>
                                 <h5>Starts Here document Checklist for NEET UG</h5>
-                                <div class="checklist">
-                                </div>
                                 <div class="btn-group">
-                                    <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance<i class="fas fa-long-arrow-right ms-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="hero-img2">
-                                <img src="{{asset('assets/img/hero/6.png')}}" alt="hero">
-                                <div class="hero-counter-wrap hero-counter1">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon1.svg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="hero-counter-wrap hero-counter2">
-                                    <div class="hero-counter_icon">
-                                        <img src="assets/img/icon/hero2-counter-icon2.svg" alt="img">
-                                    </div>
-
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
                                 </div>
                             </div>
                         </div>
@@ -263,19 +188,50 @@ Hero Area
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6 text-left">
-            <button class="custom-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span>←</span>
-            </button>
-        </div>
-        <div class="col-sm-6 text-end">
-            <button class="custom-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span>→</span>
-            </button>
-        </div>
-    </div>
+
+    <!-- Properly Positioned Previous and Next Buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
+
+<!-- Additional CSS for Styling -->
+<style>
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .carousel-control-prev {
+        left: 15px;
+    }
+
+    .carousel-control-next {
+        right: 15px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+        filter: invert(1);
+        /* Makes arrows white */
+    }
+</style>
+
+
 
 <!--======== / Hero Section ========-->
 <!--==============================
