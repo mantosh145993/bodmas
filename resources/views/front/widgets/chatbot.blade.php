@@ -10,7 +10,7 @@ date_default_timezone_set('Asia/Kolkata');
                 <!-- Start chat widget -->
                 <div class="card" id="chat-widget">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <span>Chat with Bodmas AI</span>
+                        <span>Bodmas</span>
                         <!-- Close button -->
                         <button type="button" class="btn btn-sm btn-light" onclick="closeChatWidget()" aria-label="Close">
                             &times;
@@ -57,16 +57,16 @@ date_default_timezone_set('Asia/Kolkata');
                     <div class="card-footer">
                         <div class="input-group">
                             <input id="input-me" type="text" name="messages" class="form-control input-sm" placeholder="Type your message here..." />
-                            <span class="input-group-append">
-                                <input type="button" class="btn btn-primary" value="Send" onclick="send_msg()">
-                            </span>
                         </div>
+                        <span class="input-group-append">
+                            <input type="button" class="btn btn-primary" value="Send" onclick="send_msg()">
+                        </span>
                     </div>
                 </div>
                 <!-- End chat widget -->
 
                 <!-- Small AI Icon for reopening the chat -->
-                <div id="ai-icon" onclick="showChatWidget()" style="display: none; cursor: pointer; position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                <div id="ai-icon" onclick="showChatWidget()" style="display: none; cursor: pointer; position: fixed; bottom: 10px; right: 20px; width: 70px; height: 70px; background-color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                     <img src="{{ asset('front/chatbot/bot_avatar.png') }}" alt="AI Icon" style="width: 30px; height: 30px;">
                 </div>
             </div>
@@ -121,6 +121,10 @@ date_default_timezone_set('Asia/Kolkata');
 
 </html>
 <style>
+    /* Chat Widget */
+#chat-widget {
+    display: none; /* Hidden by default */
+}
     .blinking-text {
         animation: blinker 1.5s linear infinite;
         color: #007bff;
@@ -178,7 +182,7 @@ date_default_timezone_set('Asia/Kolkata');
     .messages-box {
         overflow-y: auto;
         /* Allow scrolling */
-        max-height: 300px;
+        max-height: 200px;
         /* Limit height for better UI */
     }
 

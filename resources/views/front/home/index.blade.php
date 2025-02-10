@@ -1,7 +1,7 @@
 @extends('front_layouts.master')
 @section('content')
 <!-- @include('admin.popup.home') -->
-@include('admin.popup.banner')
+<!-- @include('admin.popup.banner') -->
 <!--==============================
 Hero Area
 ==============================-->
@@ -51,7 +51,6 @@ Hero Area
             </div>
         </div>
 
-
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
@@ -93,7 +92,6 @@ Hero Area
                 </div>
             </div>
         </div>
-
 
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
@@ -138,7 +136,6 @@ Hero Area
             </div>
         </div>
 
-
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
                 <div class="th-hero-bg" style="background-image: url('assets/img/hero/hero_bg_2_1.jpg');"></div>
@@ -182,7 +179,6 @@ Hero Area
                 </div>
             </div>
         </div>
-
 
         <div class="carousel-item">
             <div class="th-hero-wrapper hero-2" id="hero">
@@ -239,11 +235,6 @@ Hero Area
                                 <h1 class="hero-title text-theme">Preparation</h1>
                                 <h5>Starts Here document Checklist for NEET UG</h5>
                                 <div class="checklist">
-                                    <!-- <ul>
-                                        <li>Stay Ready </li>
-                                        <li>No Surprises</li>
-                                        <li>Prepare Smarter</li>
-                                    </ul> -->
                                 </div>
                                 <div class="btn-group">
                                     <a href="{{route('contact')}}" class="th-btn">Contact Us<i class="fas fa-long-arrow-right ms-2"></i></a>
@@ -271,7 +262,6 @@ Hero Area
                 </div>
             </div>
         </div>
-
     </div>
     <div class="row">
         <div class="col-sm-6 text-left">
@@ -291,7 +281,7 @@ Hero Area
 <!--==============================
 Notice Area  
 ==============================-->
-<div class="">
+<div class="d-none d-md-block">
     <div class="container">
         <div class="row mt-5">
             <div class="col-6">
