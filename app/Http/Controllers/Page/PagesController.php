@@ -40,7 +40,7 @@ class PagesController extends Controller
         $menus = $this->menuHelper->getMenu();
         $messages = Message::all();
         $paidPackages = PaidPackage::all();
-        $blogs = Post::where('is_active', '1')->get();
+        $blogs = Post::where('is_active', '1')->orderBy('created_at', 'desc')->get();
         $notices = Notice::orderBy('created_at', 'desc')->get();
         $events = GalleryEvent::all();
         return view('front.home.index', [

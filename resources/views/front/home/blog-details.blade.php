@@ -34,7 +34,7 @@
                         <div class="blog-meta">
                             <i class="far fa-user"></i>&nbsp;Editor: {{$blogs->author}} &nbsp;
                             <i class="far fa-calendar-alt"></i> Published at: &nbsp;{{$blogs->published_at}} &nbsp;
-                            <i class="far fa-eye"></i> Views: {{ $blogs->views }}
+                            <!-- <i class="far fa-eye"></i> Views: {{ $blogs->views }} -->
                         </div>
                         <div class="container page-content-container col-xl-12 col-lg-8 order-lg-2 mt-5 show-content">
                             <?php
