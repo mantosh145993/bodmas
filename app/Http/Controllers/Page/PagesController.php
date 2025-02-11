@@ -174,6 +174,15 @@ class PagesController extends Controller
                     'paidPackages' => $paidPackages,
                     'package' => $packages
                 ]);
+            case 'paid-guidance-engineering':
+                $packages = PaidPackage::where('url', 'paid-guidance-engineering')->firstOrFail();
+                $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
+                return view('front.home.paid-guidance.engineering', [
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
+                ]);
             case 'all-paid-guidance':
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();

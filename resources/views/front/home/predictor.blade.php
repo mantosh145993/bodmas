@@ -121,27 +121,29 @@ Contact Area
                 </div>
             </div>
             <div class="container mt-5">
-                <h4> Predicted Colleges..</h4>
+                <h4>Predicted Colleges</h4>
 
-                <!-- Table to display predictions -->
-                <table id="predictions-table" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>College Name</th>
-                            <th>Fee</th>
-                            <th>Quota</th>
-                            <th>Course</th>
-                            <th>Category</th>
-                            <th>Rank</th>
-                            <th>Round</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <div id="error-message"></div>
-                        <!-- Predictions will be inserted here -->
-
-                </table>
+                <div class="table-responsive"> <!-- Added this wrapper for responsiveness -->
+                    <table id="predictions-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Fee</th>
+                                <th>Quota</th>
+                                <th>Course</th>
+                                <th>Category</th>
+                                <th>Rank</th>
+                                <th>Round</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div id="error-message"></div>
+                            <!-- Predictions will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
         <!-- Error message container -->
     </div>
