@@ -69,53 +69,78 @@
     <!-- Bootstrap JS (Required for Tabs) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </div>
-<div class="row container">
-    <!-- Main Content Section -->
-    <div class="page-content-container col-xl-9 col-lg-8 order-lg-2 mt-5 show-content">
-        <?php
-        $currentDomain = request()->getSchemeAndHttpHost(); // Get the current domain
-        $updatedContent = str_replace(
-            ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"],
-            $currentDomain,
-            $page->content
-        );
-        ?>
-        {!! $updatedContent !!}
-    </div>
+<div class="container">
+    <div class="row">
+        <!-- Main Content Section -->
+        <div class="page-content-container col-xl-9 col-lg-8 order-lg-2 mt-5 show-content">
+            <?php
+            $currentDomain = request()->getSchemeAndHttpHost();
+            $updatedContent = str_replace(
+                ["https://pilot.bodmas.co.in", "https://pilot.bodmaseducation.com"],
+                $currentDomain,
+                $page->content
+            );
+            ?>
+            
+            <!-- Ensure tables inside the content are responsive -->
+            <div class="table-responsive">
+                {!! $updatedContent !!}
+            </div>
+        </div>
 
-    <!-- Sidebar Contact Form -->
-    <div class="col-xl-3 col-lg-4 mt-5 container">
-        <div class="widget widget_categories style2">
-            <h3 class="widget_title text-center">Enquiry Now</h3>
-            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
-                @csrf
-                <input type="hidden" id="typeEnquiry" name="type" value="2">
-                <div class="mb-3">
-                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder=" Name" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder=" Email" required>
-                </div>
-                <div class="mb-3">
-                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
-                </div>
-                <div class="mb-3">
-                    <select name="subject" id="subject" class="form-select style-white" required>
-                        <option value="" disabled selected hidden>Select Course*</option>
-                        <option value="mbbs">MBBS</option>
-                        <option value="bds">BDS</option>
-                        <option value="bums">BUMS</option>
-                        <option value="bhms">BHMS</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder=" Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Submit</button>
-            </form>
+        <!-- Sidebar Contact Form -->
+        <div class="col-xl-3 col-lg-4 mt-5">
+            <div class="widget widget_categories style2">
+                <h3 class="widget_title text-center">Enquiry Now</h3>
+                <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                    @csrf
+                    <input type="hidden" id="typeEnquiry" name="type" value="2">
+                    <div class="mb-3">
+                        <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                    </div>
+                    <div class="mb-3">
+                        <select name="subject" id="subject" class="form-select" required>
+                            <option value="" disabled selected hidden>Select Course*</option>
+                            <option value="mbbs">MBBS</option>
+                            <option value="bds">BDS</option>
+                            <option value="bums">BUMS</option>
+                            <option value="bhms">BHMS</option>
+                            <option value="btech">B.Tech</option>
+                            <option value="mba">MBA</option>
+                            <option value="law">LAW</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
+<style>
+    /* Ensure tables are responsive */
+    .table-responsive table {
+        width: 100%;
+        min-width: 600px; /* Prevents table from shrinking too much */
+    }
+
+    @media (max-width: 768px) {
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+</style>
+
 
 </div>
 </div>
