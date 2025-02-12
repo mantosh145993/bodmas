@@ -5,14 +5,14 @@
     <!--==============================
     Breadcumb
 ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/jee.jpg" data-overlay="title" data-opacity="8">
-        <div class="breadcumb-shape" data-bg-src="assets/img/bg/breadcumb_shape_1_1.png">
+    <div class="breadcumb-wrapper " data-bg-src="{{asset('assets/img/bg/jee.jpg')}}" data-overlay="title" data-opacity="8">
+        <div class="breadcumb-shape" data-bg-src="{{asset('assets/img/bg/breadcumb_shape_1_1.png')}}">
         </div>
         <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
-            <img src="assets/img/bg/breadcumb_shape_1_2.png" alt="shape">
+            <img src="{{asset('assets/img/bg/breadcumb_shape_1_2.png')}}" alt="shape">
         </div>
         <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" data-left="50px" data-bottom="80px">
-            <img src="assets/img/bg/breadcumb_shape_1_3.png" alt="shape">
+            <img src="{{asset('assets/img/bg/breadcumb_shape_1_3.png')}}" alt="shape">
         </div>
         <div class="container">
             <div class="breadcumb-content text-center">
@@ -95,7 +95,7 @@ Contact Area
 
                                 {{-- Define jeeCourse array --}}
                                 @php
-                                    $jeeCourse = ['IIT', 'IIIT', 'GFTI'];
+                                    $jeeCourse = ['NIT', 'IIIT', 'GFTI'];
                                 @endphp
 
                                 {{-- Loop through jeeCourse array --}}
@@ -136,6 +136,7 @@ Contact Area
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Brance</th>
                                 <th>Fee</th>
                                 <th>Quota</th>
                                 <th>Course</th>
@@ -290,6 +291,7 @@ Contact Area
                         const row = `
                 <tr>
                     <td>${prediction.college_name}</td>
+                     <td>${prediction.branch ? prediction.branch : 'N/A'}</td>
                     <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
                     <td>${prediction.quota == 2 ? 'Pvt' : 'Govt'}</td>
                     <td>${prediction.course}</td>

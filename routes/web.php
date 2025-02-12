@@ -29,7 +29,7 @@ use App\Http\Controllers\UploadCutofController;
 use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
-
+use App\Http\Controllers\YouTubeController;
 
 // Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
 // Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
@@ -79,7 +79,7 @@ Route::get('/get_blogs_by_category', [App\Http\Controllers\Page\PagesController:
 Route::get('/get_notice_by_state', [App\Http\Controllers\Page\PagesController::class, 'getNotice'])->name('get_notice_by_state');
 // Paid Guidance package
 Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
-Route::post('/jee-main-college-predictor-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('jee-main-college-predictor-2025');
+Route::post('/predictor/jee-main-college-predictor-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('predictor/jee-main-college-predictor-2025');
 // End Paid Guidance Package 
 // Predictor
 Route::get('/get-categories', [CategoryController::class, 'getCategories']);
@@ -269,7 +269,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/form/update/{id}', [FormController::class, 'update'])->name('form.update');
     Route::delete('/form/destroy/{id}', [FormController::class, 'destroy'])->name('form.destroy');
     // College Form End
-
+    
     // Offer Start
     Route::get('/offer/offer_list', [OfferController::class, 'index'])->name('offer.offer_list');
     Route::get('/offer/add', [OfferController::class, 'create'])->name('offer.add');
@@ -278,6 +278,14 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/offer/update/{id}', [OfferController::class, 'update'])->name('offer.update');
     Route::delete('/offer/destroy/{id}', [OfferController::class, 'destroy'])->name('offer.destroy');
     // Offer End
+
+      // You Tube Start
+      Route::get('/youtube/vedio_list', [YouTubeController::class, 'index'])->name('youtube.vedio_list');
+      Route::get('/youtube/add', [YouTubeController::class, 'create'])->name('youtube.add');
+      Route::post('/youtube/store', [YouTubeController::class, 'store'])->name('youtube.store');
+      Route::get('/youtube/edit/{id}', [OfferController::class, 'edit'])->name('youtube.edit');
+      Route::delete('/youtube/destroy/{id}', [YouTubeController::class, 'destroy'])->name('youtube.destroy');
+      // youtube End
 });
 Route::get('/links/getlinks', [App\Http\Controllers\Page\PagesController::class, 'getLink'])->name('links.getlinks');
 Route::get('/get-states', [CategoryController::class, 'getStates']);

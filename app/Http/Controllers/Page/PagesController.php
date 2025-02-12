@@ -27,6 +27,7 @@ use App\Models\Link;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Razorpay\Api\Api;
+use App\Models\YouTubeVideo;
 
 class PagesController extends Controller
 {
@@ -43,6 +44,7 @@ class PagesController extends Controller
         $blogs = Post::where('is_active', '1')->orderBy('created_at', 'desc')->get();
         $notices = Notice::orderBy('created_at', 'desc')->get();
         $events = GalleryEvent::all();
+        $videos = YouTubeVideo::latest()->get();
         return view('front.home.index', [
             'menus' => $menus,
             'banners' => $this->menuHelper->getSlider(),
@@ -51,7 +53,8 @@ class PagesController extends Controller
             'blogs' => $blogs,
             'notices' => $notices,
             'paidPackages' => $paidPackages,
-            'events' => $events
+            'events' => $events,
+            'videos' => $videos
         ]);
     }
     public function index($slug = null)
@@ -92,7 +95,7 @@ class PagesController extends Controller
                     'paidCutoffs' => $paidCutoffs
                 ]);
             
-            case 'jee-main-college-predictor-2025':
+            case 'predictor/jee-main-college-predictor-2025':
                 $menus = $this->menuHelper->getMenu();
                 $notifications = Notice::orderBy('created_at', 'desc')->get();
                 $states = State::all();
