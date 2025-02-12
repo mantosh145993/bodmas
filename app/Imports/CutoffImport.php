@@ -21,6 +21,8 @@ class CutoffImport implements ToModel, WithHeadingRow
         // dd($row);die;
         return new Medical([
             'college_name' => $row['college_name'],
+            'seat_type' =>$row['seat_type'],
+            'branch' =>$row['branch'],
             'fee'    => $row['fee'],
             'course'     => $row['course'],
             'category'    => $row['category'],
@@ -29,7 +31,6 @@ class CutoffImport implements ToModel, WithHeadingRow
             'quota'    => $row['quota'],
             'state_id'    => $row['state'],
             'type'    => $row['type'],
-            // 'seat_type' =>$row['seat_type'],
         ]);
     }
   

@@ -79,7 +79,8 @@ Route::get('/get_blogs_by_category', [App\Http\Controllers\Page\PagesController:
 Route::get('/get_notice_by_state', [App\Http\Controllers\Page\PagesController::class, 'getNotice'])->name('get_notice_by_state');
 // Paid Guidance package
 Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
-// End Paid Guidance Package
+Route::post('/jee-main-college-predictor-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('jee-main-college-predictor-2025');
+// End Paid Guidance Package 
 // Predictor
 Route::get('/get-categories', [CategoryController::class, 'getCategories']);
 Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);

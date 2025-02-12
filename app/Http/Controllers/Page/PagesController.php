@@ -91,6 +91,21 @@ class PagesController extends Controller
                     'states' => $states,
                     'paidCutoffs' => $paidCutoffs
                 ]);
+            
+            case 'jee-main-college-predictor-2025':
+                $menus = $this->menuHelper->getMenu();
+                $notifications = Notice::orderBy('created_at', 'desc')->get();
+                $states = State::all();
+                $course = Course::all();
+                $states = State::all();
+                $paidCutoffs = Package::all();
+                return view('front.home.engineeringPredictor', [
+                    'menus' => $menus,
+                    'states' =>$states,
+                    'courses' => $course,
+                    'states' => $states,
+                    'paidCutoffs' => $paidCutoffs
+                ]);
             case 'admission/college-list':
                 $state = State::all();
                 $colleges = College::where('type', 'Government')->paginate(5);  // 10 items per page
