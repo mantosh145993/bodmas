@@ -8,8 +8,69 @@ Hero Area
 
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        <!-- Slide 1 -->
+
         <div class="carousel-item active">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/7.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
+                            <div class="hero-style2 ">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Counselling Intelligence And Admission Science</h3>
+                                <h5> Engineering Counselling and Admission process Information </h5>
+                                <ul class="checklist">
+                                    <li>Join Youtube live session</li>
+                                    <li>Every Wednesday</li>
+                                    <li>Time - 5 PM</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="https://www.youtube.com/@BodmasMedical" class="th-btn style5">Join Live Session</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/8.jpeg')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
+                            <div class="hero-style2 ">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Every Saturday Evening with Ashok Sir!</h3>
+                                <h5> NEET UG updates and Information</h5>
+                                <ul class="checklist">
+                                    <li>Join Youtube live session </li>
+                                    <li>Every saturday</li>
+                                    <li>Time - 7:00 PM</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="https://www.youtube.com/@bodmasEngineering" class="th-btn style5">Join Live Session</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="carousel-item">
             <div class="th-hero-wrapper hero-2">
                 <div class="th-hero-bg"></div>
                 <div class="container">
@@ -18,9 +79,9 @@ Hero Area
                             <img src="{{asset('assets/img/hero/1.png')}}" alt="hero" class="img-fluid">
                         </div>
                         <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
-                            <div class="hero-style2 " >
+                            <div class="hero-style2 ">
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
-                                <h3 >Don’t Wait Apply Now!</h3>
+                                <h3>Don’t Wait Apply Now!</h3>
                                 <h5> NEET UG Registration</h5>
                                 <ul class="checklist">
                                     <li>Now Open</li>
@@ -112,7 +173,7 @@ Hero Area
                             <div class="hero-style2">
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
                                 <h3>Limited Seats
-                                Act Fast Now</h3>
+                                    Act Fast Now</h3>
                                 <h5>For secure your spot in the Best Medical College</h5>
                                 <ul class="checklist">
                                     <li>Govt Colleges</li>
@@ -145,7 +206,7 @@ Hero Area
                                 <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
                                 <h3>Avail Our Mentorship Program</h3>
                                 <h5>Get Our Metorship program
-                                Prepare Smarter, Score Higher – Join Now!</h5>
+                                    Prepare Smarter, Score Higher – Join Now!</h5>
                                 <ul class="checklist">
                                     <li>Latest Updates</li>
                                     <li>Mock Tests Series</li>
@@ -199,40 +260,6 @@ Hero Area
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
-<!-- Additional CSS for Styling -->
-<style>
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 50px;
-        height: 50px;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* Semi-transparent background */
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-    }
-
-    .carousel-control-prev {
-        left: 15px;
-    }
-
-    .carousel-control-next {
-        right: 15px;
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        width: 20px;
-        height: 20px;
-        filter: invert(1);
-        /* Makes arrows white */
-    }
-</style>
-
-
-
 <!--======== / Hero Section ========-->
 <!--==============================
 Notice Area  
@@ -277,6 +304,31 @@ Notice Area
     </div>
 </div>
 
+
+<!-- You Tube Section  -->
+
+<div class="container mt-5">
+    <div class="title-area mb-md-0">
+        <span class="sub-title"><i class="fal fa-book me-2"></i> Latest Video</span>
+        <h2 class="sec-title">Latest Videos</h2>
+    </div>
+    <div class="row">
+        @foreach($videos as $video)
+        <div class="col-md-3 mb-0">
+            <div class="video-item">
+                <h5 class="video-title">{{ $video->title }}</h5>
+                <iframe width="100%" height="200"
+                    src="https://www.youtube.com/embed/{{ $video->video_id }}"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+                <p class="sub-title">{{ $video->description }}</p>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+<!-- End You Tube Section  -->
 <!--==============================
 About Area  
 ==============================-->
@@ -1020,5 +1072,47 @@ Event Area
     font-size: 24px;
     line-height: 1;
 } */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .carousel-control-prev {
+        left: 15px;
+    }
+
+    .carousel-control-next {
+        right: 15px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+        filter: invert(1);
+        /* Makes arrows white */
+    }
+
+    .video-item {
+        text-align: center;
+    }
+
+    .video-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .video-description {
+        font-size: 14px;
+        color: #666;
+    }
 </style>
 @stop

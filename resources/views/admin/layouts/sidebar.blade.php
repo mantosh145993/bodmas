@@ -86,6 +86,14 @@
                </ul>
             </li>
             <li class="active">
+               <a href="#youtube" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-area-chart yellow_color"></i> <span>Upload youTube</span></a>
+               <ul class="collapse list-unstyled" id="youtube">
+                  <li>
+                     <a href="{{route('youtube.vedio_list')}}"> <i class="fa fa-file-picture-o orange_color"></i> <span>Upload Video</span></a>
+                  </li>
+               </ul>
+            </li>
+            <li class="active">
                <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-universal-access yellow_color"></i> <span>Student Dashboard</span></a>
                <ul class="collapse list-unstyled" id="student">
                   <li>
