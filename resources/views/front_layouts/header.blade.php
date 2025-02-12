@@ -66,6 +66,7 @@
                             <li><i class="far fa-phone"></i><a href="tel:+91 9511626721">+91 9511626721</a></li>
                             <li class="d-none d-xl-inline-block"><i class="far fa-envelope"></i><a href="mailto:educationbodmas@gmail.com">educationbodmas@gmail.com</a></li>
                             <li><i class="far fa-clock"></i>Mon - Sat: 09:00 - 19:00</li>
+                            <li><i class="fa fa-bar-chart"></i><a class="blink" href="{{route('jee-main-college-predictor-2025')}}" > JEE Main Predictor 2025 </a></li>
                         </ul>
                     </div>
                 </div>
@@ -159,6 +160,16 @@
 <!-- Header Area End -->
  
 <style>
+    @keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
     /* Add this to your CSS file */
 .bg-black {
     position: sticky;
