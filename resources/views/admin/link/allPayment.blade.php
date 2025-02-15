@@ -19,7 +19,7 @@
                                         <th>#</th>
                                         <th>Cutomer Name</th>
                                         <th> Number</th>
-                                        <th>Product Id</th>
+                                        <th>Payment Id</th>
                                         <th>Product Name</th>
                                         <th>Type</th>
                                         <th>Status</th>
@@ -40,8 +40,8 @@
                                         <td>{{ $payment->package_type }}</td>
                                         <td>{{ $payment->payment_type }}</td>
                                         <td>{{ $payment->amount }}</td>
-                                        <td>{{$payment->payment_status == "SUCCESS" ? $payment->payment_status : 'N/A'}}</td>
-                                        <td>{{$payment->txn_date ? $payment->txn_date : 'N/A'}}</td>
+                                        <td>{{$payment->payment_status == "captured" ? $payment->payment_status : 'N/A'}}</td>
+                                        <td>{{$payment->created_at ? $payment->created_at : 'N/A'}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

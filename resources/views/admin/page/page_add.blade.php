@@ -24,14 +24,31 @@
                         <form id="page-form" action="{{ route('pages.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="state_id">Select State</label>
-                                <select class="form-control" id="state_id" name="state_id" required>
+                                <label for="course_id">Select State (Only Applicable for state college)</label>
+                                <select class="form-control" id="course_id" name="course_id" >
+                                    <option value="">Select Courses</option>
+                                    @foreach($courses as $course)
+                                    <option value="{{$course->id}}">{{$course->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="state_id">Select State  (Only Applicable for state college)</label>
+                                <select class="form-control" id="state_id" name="state_id" >
+                                    <option value="">Select State</option>
                                     @foreach($states as $state)
                                     <option value="{{$state->id}}">{{$state->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="hierarchy">Select Hierarchy (Only Applicable for state college)</label>
+                                <select class="form-control" id="hierarchy" name="hierarchy" >
+                                    <option value="">Select Hierarchy</option>
+                                    <option value="1">Parent Page</option>
+                                    <option value="2">Child Page</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>

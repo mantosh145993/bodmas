@@ -81,7 +81,7 @@
                 $page->content
             );
             ?>
-            
+
             <!-- Ensure tables inside the content are responsive -->
             <div class="table-responsive">
                 {!! $updatedContent !!}
@@ -90,6 +90,23 @@
 
         <!-- Sidebar Contact Form -->
         <div class="col-xl-3 col-lg-4 mt-5">
+            <!-- /////////////////// -->
+            <div class="widget widget_categories style2">
+                <h6 class="widget_title text-center">Explore State Colleges by Course</h6>
+                <select id="courseSelect" class="">
+                    <option value="">First Select Course</option>
+                    @foreach($courses as $course)
+                    <option value="{{ $course->id }}">{{ $course->title }}</option>
+                    @endforeach
+                </select>
+
+                <h6 class=" text-center mt-3">Discover Colleges Across States</h6>
+                <ul id="stateList" class="list-group"></ul>
+
+            </div>
+
+
+            <!-- //////////// -->
             <div class="widget widget_categories style2">
                 <h3 class="widget_title text-center">Enquiry Now</h3>
                 <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
@@ -130,7 +147,8 @@
     /* Ensure tables are responsive */
     .table-responsive table {
         width: 100%;
-        min-width: 600px; /* Prevents table from shrinking too much */
+        min-width: 600px;
+        /* Prevents table from shrinking too much */
     }
 
     @media (max-width: 768px) {
@@ -138,6 +156,32 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
+    }
+
+    .state-item {
+        background-color: #f8f9fa;
+        /* Light Gray */
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .state-item:hover {
+        background-color: #0D5EF4;
+        /* Your logo color */
+        color: white;
+    }
+
+    .state-item a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        display: block;
+    }
+
+    .state-item:hover a {
+        color: white;
     }
 </style>
 
@@ -207,6 +251,37 @@
                     alert('An error occurred: ' + xhr.responseText);
                 }
             });
+        });
+    });
+
+
+    $(document).ready(function() {
+        $('#courseSelect').on('change', function() {
+            let course_id = $(this).val();
+            $('#stateList').html(''); // Clear previous states
+
+            if (course_id) {
+                $.ajax({
+                    url: "{{ route('getStatesByCourse') }}",
+                    type: "GET",
+                    data: {
+                        course_id: course_id
+                    },
+                    success: function(states) {
+                        if (states.length > 0) {
+                            $.each(states, function(index, state) {
+                                $('#stateList').append(
+                                    '<li class="list-group-item state-item">' +
+                                    '<a href="/' + state.page_slug + '">' + state.name + '</a>' +
+                                    '</li>'
+                                );
+                            });
+                        } else {
+                            $('#stateList').html('<li class="list-group-item text-muted">No states available</li>');
+                        }
+                    }
+                });
+            }
         });
     });
 </script>

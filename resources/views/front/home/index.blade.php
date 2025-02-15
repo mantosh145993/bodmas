@@ -29,7 +29,7 @@ Hero Area
                                 </ul>
                                 <div class="btn-group">
                                     <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
-                                    <a href="https://www.youtube.com/@BodmasMedical" class="th-btn style5">Join Live Session</a>
+                                    <a href="https://www.youtube.com/@BodmasEngineering" class="th-btn style5">Join Live Session</a>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ Hero Area
                                 </ul>
                                 <div class="btn-group">
                                     <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
-                                    <a href="https://www.youtube.com/@bodmasEngineering" class="th-btn style5">Join Live Session</a>
+                                    <a href="https://www.youtube.com/@bodmasMedical" class="th-btn style5">Join Live Session</a>
                                 </div>
                             </div>
                         </div>

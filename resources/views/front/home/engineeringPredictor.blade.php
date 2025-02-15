@@ -34,8 +34,8 @@ Contact Area
             <div class="row">
                 <div class="col-xl-12">
                     <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                        <span class="sub-title">JEE Predictor !</span>
-                        <h2 class="border-title">JEE College Predictor </h2>
+                        <span class="sub-title">JEE Main Predictor !</span>
+                        <h2 class="border-title">JEE Main College Predictor </h2>
                         <p class="mt-n1 mb-30 sec-text">Built using the latest data from official government websites, this predictor is free, reliable and easy to use.</p>
                         @if ($errors->any())
                         <div class="alert alert-danger">
