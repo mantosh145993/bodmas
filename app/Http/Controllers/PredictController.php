@@ -25,7 +25,7 @@ class PredictController extends Controller
         $predictor->state = $request->state;
         $predictor->course = $request->course;
         $predictor->budget = $request->budget;
-        // $predictor->save();
+        $predictor->save();
         // dd($request->name);
 
         $course = $request->course;

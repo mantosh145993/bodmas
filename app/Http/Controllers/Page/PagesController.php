@@ -260,6 +260,7 @@ class PagesController extends Controller
                     $menus = $this->menuHelper->getMenu();
                     $banner = $this->menuHelper->getBanner($id);
                     $paidGuidance = PaidPackage::select('package_name','url')->get();
+                    $courses = Course::all();
                     $colleges = Page::select('pages.slug', 'states.name as state_name')
                     ->join('states', 'states.id', '=', 'pages.state_id')
                     ->whereNotNull('pages.state_id') // Ensure the page has a valid state_id
@@ -273,7 +274,8 @@ class PagesController extends Controller
                         'banner' => $banner,
                         'packages' => $packages,
                         'paidGuidance' => $paidGuidance,
-                        'colleges' => $colleges
+                        'colleges' => $colleges,
+                        'courses' => $courses
                     ]);
                 }
                 abort(404, 'Page not found');
@@ -476,5 +478,18 @@ class PagesController extends Controller
     public function metting() {
         return redirect('https://meetpro.club/bodmas?isCpBranding=false');
     }
-    
+    public function getStatesByCourse(Request $request)
+    {
+        // dd($request->course_id);
+        $course_id = $request->course_id;
+
+        $states = Page::select('states.id', 'states.name', 'pages.slug as page_slug')
+            ->join('states', 'states.id', '=', 'pages.state_id')
+            ->where('pages.course_id', $course_id) // Bind course_id with state_id
+            ->where('pages.hierarchy', 1)
+            ->distinct()
+            ->get();
+
+        return response()->json($states);
+    }
 }

@@ -12,7 +12,7 @@
 
                 <div class="midde_cont">
                     <div class="container">
-                        <h1 class="mt-2 mb-2">Predictor Data</h1>
+                        <h1 class="mt-2 mb-2">Predictor lead data</h1>
 
                         @if(session('success'))
                         <div class="alert alert-success">
@@ -31,6 +31,7 @@
                                         <th>State</th>
                                         <th>Course</th>
                                         <th>Budget</th>
+                                        <th>Created At</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,6 +45,7 @@
                                         <td>{{ $predictor->state }}</td>
                                         <td>{{ $predictor->course }}</td>
                                         <td>{{ $predictor->budget }}</td>
+                                        <td>{{ $predictor->created_at }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
