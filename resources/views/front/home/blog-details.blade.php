@@ -54,19 +54,23 @@
                             <div class="col-md-auto">
                                 <span class="share-links-title">Tags:</span>
                                 <div class="tagcloud">
-                                    @if($blogs->tags)
+                                @if(!empty($blogs->tags)) 
                                     @php
-                                    // Decode the JSON string into an array
-                                    $tags = json_decode($blogs->tags, true);
+                                        // Decode JSON safely
+                                        $tags = json_decode($blogs->tags, true);
                                     @endphp
 
-                                    @foreach($tags as $tag)
-                                    <a href=""> <span class="tag">{{ $tag }}</span> </a>
-                                    @endforeach
+                                    @if(is_array($tags) && count($tags) > 0)
+                                        @foreach($tags as $tag)
+                                            <a href="#"><span class="tag">{{ $tag }}</span></a>
+                                        @endforeach
                                     @else
-                                    <p>No tags available</p>
+                                        <p>No tags available</p>
                                     @endif
-                                </div>
+                                @else
+                                    <p>No tags available</p>
+                                @endif
+                            </div>
                             </div>
                             <div class="col-md-auto text-xl-end">
                                 <span class="share-links-title">Share:</span>

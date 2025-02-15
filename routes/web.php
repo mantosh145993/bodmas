@@ -39,6 +39,7 @@ Route::get('/sitemap.xml', function () {
 });
 
 // cookies 
+Route::get('getStatesByCourse', [App\Http\Controllers\Page\PagesController::class, 'getStatesByCourse'])->name('getStatesByCourse');
 Route::post('cookie/cookie-consent', [CookieConsentController ::class, 'store'])->name('cookie');
 Route::get('video-meeting-counselling',[App\Http\Controllers\Page\PagesController::class, 'metting'])->name('video-meeting-counselling');
 // cookies end

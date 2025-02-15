@@ -92,9 +92,15 @@ Contact Area
                             <div class="form-group">
                                 <select name="course" id="subject" class="nice-select form-select style-white">
                                     <option value="" disabled selected hidden>Select a Course*</option>
-                                    @foreach($courses as $course)
-                                    <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                    @endforeach
+                                    {{-- Define jeeCourse array --}}
+                                @php
+                                    $jeeCourse = ['MBBS', 'BDS', 'BAMS'];
+                                @endphp
+
+                                {{-- Loop through jeeCourse array --}}
+                                @foreach($jeeCourse as $course)
+                                    <option value="{{ $course }}">{{ $course }}</option>
+                                @endforeach
                                 </select>
                             </div>
 
