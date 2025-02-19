@@ -12,8 +12,9 @@ class CategoryController extends Controller
 
     public function index()
     {
+        $states = State::all();
         $data = Category::orderBy('id','desc')->paginate(10); // Get 10 records per page
-        return view('admin.category.list_category', compact('data'));
+        return view('admin.category.list_category', compact('data','states'));
     }
 
     public function createCategories()

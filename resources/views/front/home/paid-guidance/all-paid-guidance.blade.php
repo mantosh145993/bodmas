@@ -81,8 +81,8 @@ Event Area
 <section>
     <div class="container">
         <div class="row">
-            <h5>How to Book Our Paid Counselling Services for Nursing & Pharmacy Admissions</h5>
-            <p>At Bodmas Education, we are committed to delivering top-quality services with a 100% success ratio. To maintain this standard, we accept a limited number of bookings on a first-come, first-served basis. We prioritize students whose requirements align with our expertise to ensure that we meet their expectations with complete satisfaction.</p>
+            <!-- <h5>How to Book Our Paid Counselling Services for Nursing & Pharmacy Admissions</h5>
+            <p>At Bodmas Education, we are committed to delivering top-quality services with a 100% success ratio. To maintain this standard, we accept a limited number of bookings on a first-come, first-served basis. We prioritize students whose requirements align with our expertise to ensure that we meet their expectations with complete satisfaction.</p> -->
             <h5>Ways to Apply for Our Counselling Services</h5>
             <ol>
                 <li><strong>Apply via the Bodmas Paid Guidance Link on our Website:</strong>

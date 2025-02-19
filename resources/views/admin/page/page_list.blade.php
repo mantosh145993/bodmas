@@ -39,7 +39,7 @@
                                     <td>{{ $page->published ? 'Yes' : 'No' }}</td>
                                     <td>{{ $page->created_at ? $page->created_at->format('Y-m-d') : 'N/A' }}</td>
                                     <td>
-                                        <a href="{{ route('pages.view', $page->slug) }}" class="btn btn-info">View</a>
+                                        <a href="{{ route('pages.view', $page->id) }}" class="btn btn-info">View</a>
                                         <a href="{{ route('pages.edit', $page->id) }}" class="btn btn-warning">Edit</a>
                                         <form action="{{ route('pages.destroy', $page->id) }}" method="POST" style="display: inline;">
                                             @csrf

@@ -602,9 +602,9 @@ Why choose us Area
 
     <div class="container text-center">
         <div class="cta-wrap2">
-            <div class="title-area text-center mb-35">
+            <div class="title-area text-center mb-35">    
                 <span class="sub-title"><i class="fal fa-book me-2"></i>Are You Ready For This Offer</span>
-                <h2 class="sec-title text-white">Offer <span class="text-theme2">On Paid Guidance</span> For Featured <br> <span class="fw-normal">By Bodmas Education</span></h2>
+                <h2 class="sec-title text-white">Get 10% discount <span class="text-theme2"> on all Paid Guidance Services</span> at Bodmas Education, <br> <span class="fw-normal">until 31st March 2025</span></h2>
                 <p class="cta-text">Get access of our Popular paid guidance services </p>
             </div>
             <div class="btn-group justify-content-center">

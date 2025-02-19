@@ -166,7 +166,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/pages/store', [PageController::class, 'store'])->name('pages.store');
     Route::get('/pages/edit/{id}', [PageController::class, 'edit'])->name('pages.edit');
     Route::put('/pages/update/{id}', [PageController::class, 'update'])->name('pages.update');
-    Route::get('pages/{slug}', [PageController::class, 'view'])->name('pages.view');
+    Route::get('pages/show/{id}', [PageController::class, 'view'])->name('pages.view');
     Route::delete('/pages/destroy/{id}', [PageController::class, 'destroy'])->name('pages.destroy');
     // Pages End
 
