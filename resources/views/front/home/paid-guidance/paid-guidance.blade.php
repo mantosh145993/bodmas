@@ -11,7 +11,7 @@ Event Area
                 <div class="course-single">
                     <div class="course-single-top">
                         <div class="course-img">
-                            <img src="{{asset('assets/img/mbbs.jpg')}}" alt="MBBS">
+                        <img src="{{asset('assets/img/mbbs.png')}}" alt="MBBS">
                         </div>
                         <div class="course-meta style2">
                             <span><i class="fal fa-user"></i>Students 1600+</span>

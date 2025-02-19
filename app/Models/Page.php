@@ -8,12 +8,10 @@ use Illuminate\Support\Str;
 class Page extends Model
 {
     protected $table = 'pages';
-
     protected $fillable = ['title', 'slug','menu_slug', 'content', 'published','state_id','course_id','hierarchy'];
     protected static function boot()
     {
         parent::boot();
-
         static::saving(function ($page) {
             if (empty($page->slug)) {
                 $page->slug = Str::slug($page->title, '-');

@@ -91,11 +91,11 @@ Contact Area
                             <!-- Form contents as provided -->
                             <div class="form-group">
                             <select name="course" id="subject" class="nice-select form-select style-white">
-                                <option value="" disabled selected hidden>Select a Course*</option>
+                                <option value="" disabled selected hidden>Select a Institute*</option>
 
                                 {{-- Define jeeCourse array --}}
                                 @php
-                                    $jeeCourse = ['NIT', 'IIIT', 'GFTI'];
+                                    $jeeCourse = ['NIT', 'IIT', 'GFTI','CSAB SPECIAL ROUND','DASA','IISER','WBJEE'];
                                 @endphp
 
                                 {{-- Loop through jeeCourse array --}}
@@ -139,7 +139,7 @@ Contact Area
                                 <th>Brance</th>
                                 <th>Fee</th>
                                 <th>Quota</th>
-                                <th>Course</th>
+                                <th>Institute</th>
                                 <th>Category</th>
                                 <th>Rank</th>
                                 <th>Round</th>
