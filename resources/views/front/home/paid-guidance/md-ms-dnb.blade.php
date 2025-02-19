@@ -11,7 +11,7 @@ Event Area
                 <div class="course-single">
                     <div class="course-single-top">
                         <div class="course-img">
-                            <img src="{{asset('assets/img/md-ms-dnb.jpg')}}" alt="MD/MS/DNB">
+                        <img src="{{asset('assets/img/dnb.png')}}" alt="MD/MS/DNB">
                             <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                             <span class="tag bg-theme">BEST SELLER</span> -->
                         </div>

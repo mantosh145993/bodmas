@@ -26,11 +26,13 @@ class PageController extends Controller
         return view('admin.page.page_edit', compact('page','states','courses'));
     }
 
-    public function view($slug)
+    public function view($id)
     {
-        $page = Page::where('slug', $slug)->firstOrFail();
+        // echo "HHEETRFY";die;
+        $page =  Page::findOrFail($id);
         return view('admin.page.page_view', compact('page'));
     }
+    
 
     public function create()
     {
@@ -156,16 +158,10 @@ class PageController extends Controller
 
     return redirect()->back()->with('success', 'Page updated successfully!');
 }
-
-
     public function destroy($id)
     {
         $page = Page::findOrFail($id);
         $page->delete();
         return redirect()->route('pages.pages_list')->with('success', 'Page deleted successfully!');
     }
-
-  
-
-
 }
