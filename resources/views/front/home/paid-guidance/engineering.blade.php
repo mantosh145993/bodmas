@@ -24,7 +24,7 @@ Event Area
                         <h3 class="course-title"> What We Offer:</h3>
                         <p>Welcome to Bodmas Education, your trusted partner in securing admissions to top engineering colleges! We provide a comprehensive Paid Guidance Service designed to help students like you navigate the complex college admission process with ease.</p>
                         At Bodmas Education, we aim to make sure every student gets the chance to study at their dream college, aligning with their rank and budget. We believe in personalized counseling that ensures the best possible outcomes for our students.</p>
-                    
+                    <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
                         <p> Our dedicated and experienced expert, Mr. Ashok Sir, plays a pivotal role in the entire counseling process. With years of experience in the field, Ashook Sir provides insightful guidance, helping students choose the right college based on their rank, preferences, and financial considerations.</p>
                         <ul>
                             <li>Expert Counseling: Receive tailored advice based on your rank and aspirations.</li>
@@ -234,8 +234,9 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
+  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
                         </div>
-                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class="far fa-share-nodes me-2"></i>Share This Packages</a>
+                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
                 </aside>
             </div>
@@ -281,6 +282,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
+            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>

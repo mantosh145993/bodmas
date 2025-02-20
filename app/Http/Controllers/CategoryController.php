@@ -133,11 +133,12 @@ class CategoryController extends Controller
     // / Fetch categories based on quota
     public function getCategories(Request $request)
     {
-        // dd($request->all());
         $categories = [];
         $categories = Category::where('type', '1')
+        ->where('state_id',$request->state)
         ->whereNull('parent_id')
         ->get();
+        // dd($request->all());
         return response()->json(['categories' => $categories]);
     }
 

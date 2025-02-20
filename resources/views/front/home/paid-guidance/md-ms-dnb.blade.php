@@ -23,6 +23,7 @@ Event Area
                         <h2 class="course-title">Helping Students in making their career.</h2>
                         <h3 class="course-title"> Advance Your Medical Career with MD/MS/DNB Admission Counseling & Guidance Services for 2025-26</h3>
                         <p>As an aspiring postgraduate medical professional, choosing the right path for your MD, MS, or DNB admission is a critical step in your medical career. The admission process can be complex, competitive, and time-sensitive, and even the smallest mistake can result in lost opportunities. That's why our <b>MD/MS/DNB Admission Counseling & Guidance Services</b> are tailored to ensure that you not only navigate this process efficiently but also secure the best possible seat in the right program.</p>
+                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
                         <strong>Why Our Paid Counseling Services Are Essential for You</strong>
                         <p>The MD/MS/DNB admission process involves multiple stages, and even minor oversights can significantly impact your chances of success. Here’s how our services can make a world of difference:</p>
                         <ul>
@@ -259,8 +260,9 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
+  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
                         </div>
-                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class="far fa-share-nodes me-2"></i>Share This Packages</a>
+                        <a href="#" class="th-btn style6 mt-35 mb-0"><i></i></a>
                     </div>
                 </aside>
             </div>
@@ -306,6 +308,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
+             <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>
