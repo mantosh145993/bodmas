@@ -94,7 +94,19 @@ class PagesController extends Controller
                     'states' => $states,
                     'paidCutoffs' => $paidCutoffs
                 ]);
-            
+            case 'predictor/neet-predictor':
+                $categories = Category::where('type', '1')->get();
+                $course = Course::all();
+                $states = State::all();
+                $paidCutoffs = Package::all();
+                $menus = $this->menuHelper->getMenu();
+                return view('front.home.predictor', [
+                    'menus' => $menus,
+                    'categories' => $categories,
+                    'courses' => $course,
+                    'states' => $states,
+                    'paidCutoffs' => $paidCutoffs
+                ]);
             case 'predictor/jee-main-college-predictor-2025':
                 $menus = $this->menuHelper->getMenu();
                 $notifications = Notice::orderBy('created_at', 'desc')->get();

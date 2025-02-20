@@ -16,6 +16,7 @@ Event Area
                             <span class="tag bg-theme">BEST SELLER</span> -->
                         </div>
                         <div class="course-meta style2">
+                        
                             <!-- <span><i class="fal fa-file"></i>Lesson 8</span> -->
                             <span><i class="fal fa-user"></i>Students 1600+</span>
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
@@ -24,6 +25,10 @@ Event Area
                         <h3 class="course-title"> BVSc Admission Counseling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>The counselling process requires fast and accurate information with experience that can make a huge difference. Choosing the number of open states for counselling is an important step, as it is common for counselling dates to overlap. Doing the correct choice filling is crucial, as a wrong selection may result in losing security money, which can amount to up to Rs 2 lakh, or in disqualification from future rounds. Moreover, many students with excellent grades often miss out on admissions due to insufficient information. Therefore, our services are tailored to offer you the best possible opportunities.</p>
+                        <a href="{{ route('video-meeting-counselling') }}">
+    <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#">
+</a>
+
                         <strong>Regular News & Updates :</strong>
                         <p>We will ensure that you stay up-to-date with all the essential information related to NEET, NTA, MCC, state counselling, and MBBS colleges. This package is designed to provide you with all the critical updates concerning MBBS admissions, such as important dates, submission deadlines, and essential instructions. Additionally, our services will function as a calendar and scheduler, ensuring that you complete every necessary action correctly and on time. Our professional team is trained to monitor your progress and provide regular reminders, leaving no room for missed opportunities.</p>
                         <strong>Documentation and Technical Assistance :</strong>
@@ -96,8 +101,9 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
+  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
                         </div>
-                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class="far fa-share-nodes me-2"></i>Share This Packages</a>
+                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
                 </aside>
             </div>
@@ -143,6 +149,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
+            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>

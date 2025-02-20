@@ -21,7 +21,7 @@ Event Area
                         <h3 class="course-title"> Unlock Your Future with Expert MBBS Admission Counselling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>Choosing the right career path is one of the most important decisions you’ll ever make. If you're aiming for an MBBS degree, the admission process can be complex and overwhelming. That’s where we come in. Our <strong> MBBS Admission Counselling & Guidance Services </strong> are designed to streamline your journey, ensuring you make informed decisions and secure a place at your dream college. Let us help you unlock the doors to a successful medical career!</p>
-
+<a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
                         <strong>Why Choose Our Paid Counselling Services?</strong>
                         <p>The process of MBBS admission can be daunting and filled with numerous deadlines, overlapping counselling dates, and technical hurdles. Our <strong> paid counselling services </strong> offer you a strategic edge. Here's why we are the best choice for you:</p>
                         <ul>
@@ -33,6 +33,7 @@ Event Area
                             </li>
                             </p>
                         </ul>
+ <!--<img src="{{ asset('assets/img/3.png') }}" alt="#>-->
                         <p><strong>Regular Updates to Keep You Ahead :</strong> Our services go beyond just counselling. We provide you with real-time updates on everything related to MBBS admissions, including:</p>
                         <ul>
                             <li>NEET, NTA, MCC & State Counselling updates</li>
@@ -56,6 +57,7 @@ Event Area
                             <li>Fill out our Google form to book our counselling services.</li>
                             <li>Email the required documents, along with the completed service booking form, as provided by our counselor.</li>
                         </ol>
+<!--<img src="{{ asset('assets/img/2.png') }}" alt="#>-->
                         <p>Once you’ve made the payment, we’ll send you a receipt. Our expert team will handle the entire counselling process for you. </p>
                         <strong>Flexible Packages to Suit Your Needs</strong>
                         <p>We’ve designed our counselling services into varied packages to ensure the best value for your needs. Our services are reasonably priced and tailored to offer the highest level of support. We highly encourage you to review the packages and select the one that works best for you.
@@ -240,7 +242,7 @@ Event Area
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
                         <div class="th-video">
-                            <img src="assets/img/widget/video_1.jpg" alt="video">
+                            <img src="{{asset('assets/img/widget/video_1.jpg')}}" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div>
                         <span class="h4 course-price">{{$package->basic_fee}} <span class="tag"></span></span>
@@ -254,8 +256,9 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
+                        <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
                         </div>
-                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class="far fa-share-nodes me-2"></i>Share This Packages</a>
+                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
                 </aside>
             </div>
@@ -265,7 +268,9 @@ Event Area
 
 <section>
     <div class="container">
+         
         <div class="row">
+         
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
@@ -301,6 +306,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
+             <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>

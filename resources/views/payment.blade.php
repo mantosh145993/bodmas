@@ -101,6 +101,9 @@
                 <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Enter your mobile number" pattern="[0-9]{10}" maxlength="10" required>
             </div>
 
+            <div class="form-group">
+                <input type="file" id="file" name="file" class="form-control" >
+            </div>
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-primary mt-3">Proceed for payment</button>
             </div>
