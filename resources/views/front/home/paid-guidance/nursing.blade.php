@@ -23,6 +23,7 @@ Event Area
                         <h2 class="course-title">Helping Students in making their career.</h2>
                         <h3 class="course-title"> Bodmas Paid Counselling Guidance Fee for Nursing & Pharmacy Admissions for 2025-26</h3>
                         <p>Navigating the admission process for nursing and pharmacy programs can be complicated, with multiple deadlines, eligibility criteria, and document submissions. At Bodmas Education, we provide paid counselling services to make this journey seamless and stress-free. Whether you are aiming for a top nursing college or looking to pursue pharmacy courses, our expert team will guide you at every step, from application to admission.</p>
+                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
                         <strong>Regular News & Updates :</strong>
                         <p>With our customized counselling packages, you’ll never miss an opportunity. Focus on building your future, and let us take care of the admission formalities for you.</p>
                         <strong>Helping You Build a Successful Career in Nursing & Pharmacy :</strong>
@@ -163,8 +164,9 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
+  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
                         </div>
-                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class="far fa-share-nodes me-2"></i>Share This Packages</a>
+                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
                 </aside>
             </div>
@@ -221,6 +223,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
+            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>

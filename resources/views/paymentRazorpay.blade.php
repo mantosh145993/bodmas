@@ -101,6 +101,12 @@
             <div class="form-group">
                 <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="Enter your mobile number" pattern="[0-9]{10}" maxlength="10" required>
             </div>
+            <div class="form-group">
+            <label for="file" class="form-label">
+                Upload a document if you have served in the Army, Police, or have a sibling/single parent in service.
+            </label>
+            <input type="file" id="file" name="file" class="form-control">
+</div>
 
             <div class="form-group text-center">
                 <button type="button" id="payNowButton" class="btn btn-primary mt-3">Proceed for Payment</button>
