@@ -70,6 +70,7 @@
                 <option value="" disabled selected>{{ __('Select Role') }}</option>
                 <option value="admin">{{ __('Admin') }}</option>
                 <option value="user">{{ __('User') }}</option>
+                <option value="marketing">{{ __('Marketing') }}</option>
             </select>
 
             <x-input-error :messages="$errors->get('role')" class="mt-2" />

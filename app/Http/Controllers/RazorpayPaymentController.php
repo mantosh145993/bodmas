@@ -14,7 +14,7 @@ use App\Models\Package;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Encryption\DecryptException;
-
+use Illuminate\Support\Str;
 
 class RazorpayPaymentController extends Controller
 {
@@ -63,6 +63,7 @@ class RazorpayPaymentController extends Controller
 
     public function initiatePayment(Request $request, $id)
     {
+        // dd($request->all());
         try {
             // Decrypt the package ID
             $decryptedId = Crypt::decryptString($id);
@@ -133,6 +134,14 @@ class RazorpayPaymentController extends Controller
                     $gst_amount = (int) $second_installment / 100 * 18;
                     break;
             }
+            $dicountAmount =0;
+            if ($request->has('discount') && $request->discount == "1") {
+                $amount = $amount - ($amount * 0.10); // Apply 10% discount
+                $dicountAmount = $amount;
+            }
+            
+            // dd($amount);       
+                         
             $key = env('RAZORPAY_KEY');
             $secret = env('RAZORPAY_SECRET');
             $api = new Api($key, $secret);
@@ -156,6 +165,8 @@ class RazorpayPaymentController extends Controller
                 'amount' => $amount,
                 'first_installment' => $first_installment,
                 'second_installment' => $second_installment,
+                'discount' => $request->discount,
+                'dicountAmount' =>$dicountAmount
             ]);
         } catch (DecryptException $e) {
             return response()->json(['error' => 'Invalid or tampered ID.'], 400);
@@ -166,6 +177,7 @@ class RazorpayPaymentController extends Controller
 
     public function processPayment(Request $request)
     {
+        // dd($request->file());
         $amount = intval(str_replace(',', '', $request->input('total_amount')));
         $package_type = $request->package_type;
         $package_name = $request->package_name;
@@ -195,10 +207,15 @@ class RazorpayPaymentController extends Controller
         try {
             // Verify the payment signature
             $api->utility->verifyPaymentSignature($attributes);
-    
+            if ($request->hasFile('file')) {
+                $extension = $request->file('file')->getClientOriginalExtension();
+                $uniqueFileName = Str::uuid() . '.' . $extension;  // Corrected the variable name
+                $request->file('file')->move(public_path('images/discount'), $uniqueFileName);  // Use the correct variable name
+            }
             // Save the payment record in the database
             $payment = Payment::create([
                 'product_name' => $package_name,
+                'file'=> $uniqueFileName,
                 'payment_id' => $merchTxnId,
                 'order_id' => $orderId,
                 'price' => $base_price,

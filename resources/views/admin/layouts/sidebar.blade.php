@@ -14,6 +14,9 @@
                @elseif(Auth::user()->role == 'user')
                <h6> User : {{ Auth::user()->name }}</h6>
                <p><span class="online_animation"></span> Online</p>
+               @elseif(Auth::user()->role == 'marketing')
+               <h6> User : {{ Auth::user()->name }}</h6>
+               <p><span class="online_animation"></span> Online</p>
                @endif
             </div>
          </div>
@@ -23,9 +26,12 @@
          <h4>Admin Dashboard</h4>
          @elseif(Auth::user()->role == 'user')
          <h4>User Dashboard</h4>
+         @elseif(Auth::user()->role == 'marketing')
+         <h4>Marketing Dashboard</h4>
          @endif
          <!-- <div>{{ Auth::user()->name }}</div> -->
          <ul class="list-unstyled components">
+            @if(Auth::user()->role!='marketing')
             <li class="">
                <a href="#all" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-navicon yellow_color"></i> <span>All Menu</span></a>
                <ul class="collapse list-unstyled" id="all">
@@ -101,6 +107,7 @@
                   </li>
                </ul>
             </li>
+            @if(Auth::user()->role=='admin')
             <li class="active">
                <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-ungroup yellow_color"></i> <span>Payment Dashboard</span></a>
                <ul class="collapse list-unstyled" id="payment">
@@ -118,6 +125,19 @@
                   </li>
                </ul>
             </li>
+            @endif
+            @endif
+            @if(Auth::user()->role!='user')
+            <li class="active">
+               <a href="#leads" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fa fa-database yellow_color"></i> <span>Lead Management</span></a>
+               <ul class="collapse list-unstyled" id="leads">
+                  <li>
+                     <a href="{{route('partner.list')}}"> <i class="fa fa-random orange_color"></i> <span>Partner List</span></a>
+                  </li>
+               </ul>
+            </li>
+            @endif
          </ul>
       </div>
 </nav>

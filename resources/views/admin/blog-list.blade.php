@@ -41,13 +41,10 @@
                                           <th>ID</th>
                                           <th>Title</th>
                                           <th>Slug</th>
-                                          <!-- <th>Excerpt</th>
-                                          <th> Title</th>
-                                          <th> Keywords</th>
-                                          <th> Dscripption</th> -->
                                           <th>Feature Image</th>
                                           <th>Author</th>
-                                          <th> Status</th>
+                                          <th>Status</th>
+                                          <th>Views</th>
                                           <th>Active</th>
                                           <th>Action</th>
                                           <!-- <th>Active</th> -->
@@ -73,6 +70,17 @@
                                                 </button>
                                                 {{ $post->is_active ? 'Published' : 'Draft' }}
                                           </td>
+                                          <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                                                <span style="display: inline-block; background: #0D5EF4; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">
+                                                   👁️ {{ $post->views }}
+                                                </span>
+                                                <br>
+                                                <span style="font-size: 14px; color: #555;">
+                                                   🕒 {{ \Carbon\Carbon::parse($post->updated_at)->format('d M, Y | h:i A') }}
+                                                </span>
+                                             </td>
+
+
                                           <td>
                                              <input type="checkbox" class="toggle-active" data-id="{{ $post->id }}" {{ $post->is_active ? 'checked' : '' }}>
                                           </td>
