@@ -264,6 +264,7 @@ Hero Area
 <!--==============================
 Notice Area  
 ==============================-->
+
 <div class="d-none d-md-block">
     <div class="container">
         <div class="row mt-5">
@@ -306,7 +307,6 @@ Notice Area
 
 
 <!-- You Tube Section  -->
-
 <div class="container mt-5">
     <div class="title-area mb-md-0">
         <span class="sub-title"><i class="fal fa-book me-2"></i> Latest Video</span>
@@ -327,6 +327,15 @@ Notice Area
         @endforeach
     </div>
 </div>
+
+<!-- Mock test  -->
+<section class="container mt-5">
+    <div>
+        <div class="row">
+            <img src="{{asset('assets/img/mock2.png')}}" alt="Mock Test Bodmas">
+        </div>
+    </div>
+</section>
 
 <!-- End You Tube Section  -->
 <!--==============================
@@ -615,9 +624,7 @@ Why choose us Area
     </div>
 </section>
 
-
-
-
+<!-- blog section  -->
 <section class="overflow-hidden space" id="blog-sec" style="height: 680px;">
     <div class="container">
         <div class="mb-35 text-center text-md-start">
@@ -637,11 +644,14 @@ Why choose us Area
             @foreach($blogs as $blog)
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="{{ route('blog_details', $blog->slug) }}">
-                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image" style="width: 100%; height: 200px;object-fit: cover;border-radius: 8px;">
-                        </a>
-                    </div>
+                <div class="blog-img">
+    <a href="{{ route('blog_details', $blog->slug) }}">
+        <img src="{{ asset('images/feature/' . $blog->feature_image) }}" 
+             alt="Blog Image" 
+             style="width: 100%; height: auto; max-height: 200px; object-fit: cover; border-radius: 8px;">
+    </a>
+</div>
+
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
@@ -662,8 +672,6 @@ Why choose us Area
         </div>
     </div>
 </section>
-
-
 <!--==============================
 Team Area  
 ==============================-->
@@ -804,8 +812,6 @@ Team Area
         </div>
     </div>
 </div>
-
-
 <!-- Testimonial Area -->
 <!-- <section class="space" data-bg-src="assets/img/update1/bg/testi_bg_5.jpg" data-overlay="title" data-opacity="9">
     <div class="container z-index-3">

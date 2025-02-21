@@ -19,6 +19,7 @@ class Payment extends Model
         'order_id',
         'product_id',
         'product_name',
+        'file',
         'payment_type',
         'package_type',
         'quantity',

@@ -66,6 +66,7 @@
                             <li><i class="far fa-phone"></i><a href="tel:+91 9511626721">+91 9511626721</a></li>
                             <li class="d-none d-xl-inline-block"><i class="far fa-envelope"></i><a href="mailto:educationbodmas@gmail.com">educationbodmas@gmail.com</a></li>
                             <li><i class="far fa-clock"></i>Mon - Sat: 09:00 - 19:00</li>
+                            <li><i class="fa fa-graduation-cap"></i><a href="https://mock.bodmas.co.in/">Unlock success with Online Mock Test</a></li>
                         </ul>
                     </div>
                 </div>

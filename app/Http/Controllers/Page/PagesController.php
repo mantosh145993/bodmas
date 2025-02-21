@@ -304,11 +304,8 @@ class PagesController extends Controller
         $blogs = Post::where('slug', $slug)->first();
         $postKey = 'post_' . $blogs->id;
 
-        if (!session()->has($postKey)) {
-            $blogs->incrementViews();
-            session()->put($postKey, true);
-        }
-        // $blogs->incrementViews();
+
+        $blogs->incrementViews();
         // dd($blogs);
         return view('front.home.blog-details', ['blogs' => $blogs, 'menus' => $menus, 'current_blogs' => $current_blogs]);
     }
