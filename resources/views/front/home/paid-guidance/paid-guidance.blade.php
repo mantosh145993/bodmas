@@ -11,7 +11,7 @@ Event Area
                 <div class="course-single">
                     <div class="course-single-top">
                         <div class="course-img">
-                        <img src="{{asset('assets/img/mbbs.png')}}" alt="MBBS">
+                            <img src="{{asset('assets/img/mbbs.png')}}" alt="MBBS">
                         </div>
                         <div class="course-meta style2">
                             <span><i class="fal fa-user"></i>Students 1600+</span>
@@ -21,7 +21,7 @@ Event Area
                         <h3 class="course-title"> Unlock Your Future with Expert MBBS Admission Counselling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>Choosing the right career path is one of the most important decisions you’ll ever make. If you're aiming for an MBBS degree, the admission process can be complex and overwhelming. That’s where we come in. Our <strong> MBBS Admission Counselling & Guidance Services </strong> are designed to streamline your journey, ensuring you make informed decisions and secure a place at your dream college. Let us help you unlock the doors to a successful medical career!</p>
-<a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
+                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#"></a>
                         <strong>Why Choose Our Paid Counselling Services?</strong>
                         <p>The process of MBBS admission can be daunting and filled with numerous deadlines, overlapping counselling dates, and technical hurdles. Our <strong> paid counselling services </strong> offer you a strategic edge. Here's why we are the best choice for you:</p>
                         <ul>
@@ -33,7 +33,7 @@ Event Area
                             </li>
                             </p>
                         </ul>
- <!--<img src="{{ asset('assets/img/3.png') }}" alt="#>-->
+                        <!--<img src="{{ asset('assets/img/3.png') }}" alt="#>-->
                         <p><strong>Regular Updates to Keep You Ahead :</strong> Our services go beyond just counselling. We provide you with real-time updates on everything related to MBBS admissions, including:</p>
                         <ul>
                             <li>NEET, NTA, MCC & State Counselling updates</li>
@@ -57,7 +57,7 @@ Event Area
                             <li>Fill out our Google form to book our counselling services.</li>
                             <li>Email the required documents, along with the completed service booking form, as provided by our counselor.</li>
                         </ol>
-<!--<img src="{{ asset('assets/img/2.png') }}" alt="#>-->
+                        <!--<img src="{{ asset('assets/img/2.png') }}" alt="#>-->
                         <p>Once you’ve made the payment, we’ll send you a receipt. Our expert team will handle the entire counselling process for you. </p>
                         <strong>Flexible Packages to Suit Your Needs</strong>
                         <p>We’ve designed our counselling services into varied packages to ensure the best value for your needs. Our services are reasonably priced and tailored to offer the highest level of support. We highly encourage you to review the packages and select the one that works best for you.
@@ -115,16 +115,31 @@ Event Area
                                             </div>
                                         </div>
                                     </div>
-                                    <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.
-                                        NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p> <br><br>
+                                    <!-- Basic Package  -->
+                                    <!-- Checkbox for Discount -->
+                                    <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.<br>NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p>
+                                    <input type="checkbox" id="discountCheckbox">
+                                    <label for="discountCheckbox" style="color: red; font-weight: bold;">
+                                        Check if you have served in the Army, Police, or have a sibling/single parent in service.
+                                    </label>
+                                    <!-- Checkbox for Discount end -->
                                     <div class="row">
                                         <div class="col-sm-4 package">
                                             <h5>Guidance Fee For MBBS Package</h5>
-                                            <p>{{$package->basic_fee }} INR + GST </p><br>
-                                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment' => 'basic']) }}" class="btn btn-primary">Book Now</a>
+                                            <p id="packagePrice">{{$package->basic_fee }} INR + GST </p><br>
+                                            <a id="bookNow" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment' => 'basic', 'discount' => 0]) }}" class="btn btn-primary">Book Now</a>
                                         </div>
-                                        <div class="col-sm-4"> </div>
-                                        <div class="col-sm-4"> </div>
+                                        <div class="col-sm-4">
+                                            <ul>
+                                                <li> <strong> BODMAS EDUCATION SERVICES PRIVATE LIMITED </strong></li>
+                                                <li> <strong>Bank Name : </strong> ICICI Bank </li>
+                                                <li> <strong>Account Type : </strong> Current</li>
+                                                <li> <strong>Account No : </strong> 157805009329</li>
+                                                <li> <strong>IFSC Code : </strong> ICIC0001578</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4"><img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -155,25 +170,29 @@ Event Area
                                             <li>Refund policy of security deposit will be explained.</li>
                                             <li>Documentation help at the time of reporting at allotted college will be provided.</li>
                                             <li>Video meeting with our expert counsellor will be provided after every round of counselling.</li>
-                                            <strong>NOTE : Registration fees & security deposit (if applicable) will be paid by parent only.
-
-                                                Book now to avail of our services and maximize your chances of getting admission to your desired college.</strong>
                                         </ul>
-                                        <p style="color: red;">10% off on all services for Army/ Police/ siblings / single parent.</p>
                                     </div>
+                                      <!-- Premium Package  -->
+                                    <!-- Checkbox for Discount -->
+                                    <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.<br>NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p>
+                                    <input type="checkbox" id="discountCheckboxPremium">
+                                    <label for="discountCheckboxPremium" style="color: red; font-weight: bold;">
+                                        Check if you have served in the Army, Police, or have a sibling/single parent in service.
+                                    </label>
+                                    <!-- Checkbox for Discount end -->
                                     <div class="row ">
                                         <div class="col-sm-4 package">
                                             <h5>First installment </h5>
-                                            <p>{{$package->first_installment}} INR + GST </p><br> <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'premium-1']) }}" class="btn btn-primary">Book Now</a>
+                                            <p id="packagePrice">{{$package->first_installment}} INR + GST </p><br> <a id="bookNowpremium-1" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'premium-1']) }}" class="btn btn-primary">Book Now</a>
                                         </div>
                                         <div class="col-sm-4 package">
                                             <h5>Second Installment</h5>
-                                            <p>{{$package->second_installment}} INR + GST </p><br> <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'premium-2']) }}" class="btn btn-primary">Book Now</a>
+                                            <p id="packagePrice">{{$package->second_installment}} INR + GST </p><br> <a id="bookNowpremium-2" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'premium-2']) }}" class="btn btn-primary">Book Now</a>
                                         </div>
                                         <div class="col-sm-4 package">
                                             <h5>Final Booking</h5>
-                                            <p>{{$package->premium_fee}} INR + GST </p><br>
-                                            <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment' => 'premium']) }}" class="btn btn-primary">Book Now</a>
+                                            <p id="packagePrice">{{$package->premium_fee}} INR + GST </p><br>
+                                            <a id="bookNowpremium-3" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment' => 'premium']) }}" class="btn btn-primary">Book Now</a>
                                         </div>
                                     </div>
 
@@ -210,24 +229,28 @@ Event Area
                                             <li>Documentaion Support for NRI Quata Stdents for Govt. and Pvt. Colleges.</li>
                                             <li>Detail fee Structure of NRI Quata as per your Requerment.</li>
                                             <li>Help During Physical Counselling to NRI Students</li>
-                                            <strong>NOTE : Registration fees & security deposit (if applicable) will be paid by parent only.
-
-                                                Book now to avail of our services and maximize your chances of getting admission to your desired college.</strong>
                                         </ul>
-                                        <p style="color: red;">10% off on all services for Army/ Police/ siblings / single parent.</p>
+                                        <!-- NRI Packages  -->
+                                         <!-- Checkbox for Discount -->
+                                        <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.<br>NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p>
+                                        <input type="checkbox" id="discountCheckboxNri">
+                                        <label for="discountCheckboxNri" style="color: red; font-weight: bold;">
+                                            Check if you have served in the Army, Police, or have a sibling/single parent in service.
+                                        </label>
+                                    <!-- Checkbox for Discount end -->
                                         <div class="row">
                                             <div class="col-sm-4 package">
                                                 <h5>First installment </h5>
-                                                <p>{{$package->first_installment_premium}} INR + GST </p><br> <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri-1']) }}" class="btn btn-primary">Book Now</a>
+                                                <p id="packagePrice">{{$package->first_installment_premium}} INR + GST </p><br> <a id="bookNowNri1" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri-1']) }}" class="btn btn-primary">Book Now</a>
                                             </div>
                                             <div class="col-sm-4 package">
                                                 <h5>Second Installment</h5>
-                                                <p>{{$package->second_installment_premium}} INR + GST </p><br> <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri-2']) }}" class="btn btn-primary">Book Now</a>
+                                                <p>{{$package->second_installment_premium}} INR + GST </p><br> <a id="bookNowNri2" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri-2']) }}" class="btn btn-primary">Book Now</a>
                                             </div>
                                             <div class="col-sm-4 package">
                                                 <h5>Final Booking</h5>
                                                 <p>{{$package->nri_fee}} INR + GST </p><br>
-                                                <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri']) }}" class="btn btn-primary">Book Now</a>
+                                                <a id="bookNowNri3" href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'nri']) }}" class="btn btn-primary">Book Now</a>
                                             </div>
                                         </div>
 
@@ -256,7 +279,7 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
-                        <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
+                            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
                         <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
@@ -268,9 +291,9 @@ Event Area
 
 <section>
     <div class="container">
-         
+
         <div class="row">
-         
+
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
@@ -306,7 +329,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
-             <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
+            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>
@@ -314,61 +337,105 @@ Event Area
 Servce Area  
 ==============================-->
 <br><br>
-<section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
-    <div class="container">
-        <div class="mb-35 text-center text-md-start">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-8">
-                    <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
-                        <h2 class="sec-title">Our Popular Paid Guidance</h2>
-                    </div>
-                </div>
-                <div class="col-md-auto">
-                    <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="row slider-shadow th-carousel course-slider-1"
-            data-slide-show="4"
-            data-ml-slide-show="3"
-            data-lg-slide-show="3"
-            data-md-slide-show="2"
-            data-sm-slide-show="1"
-            data-arrows="true">
-            <!-- Dynamic Content -->
-            @foreach($paidPackages as $package)
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <a href="{{ url($package['url']) }}">
-                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">
-                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
-                        </h3>
-                        <p>{{ $package['description'] }}</p>
-                        <div class="course-price">
-                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
-                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
-                            <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
-                        </div>
-                        <!-- Book Now Button -->
-                        <div class="text-left">
-                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+<section class=" space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
+                <div class="container">
+                    <div class="mb-35 text-center text-md-start">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-md-8">
+                                <div class="title-area mb-md-0">
+                                    <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
+                                    <h2 class="sec-title">Our Popular Paid Guidance</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
+                    <div class="row slider-shadow th-carousel course-slider-1"
+                        data-slide-show="4"
+                        data-ml-slide-show="3"
+                        data-lg-slide-show="3"
+                        data-md-slide-show="2"
+                        data-sm-slide-show="1"
+                        data-arrows="true">
+                        <!-- Dynamic Content -->
+                        @foreach($paidPackages as $package)
+                        <div class="col-md-6 col-lg-4">
+                            <div class="course-box">
+                                <div class="course-img">
+                                    <a href="{{ url($package['url']) }}">
+                                        <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
+                                    </a>
+                                </div>
+                                <div class="course-content">
+                                    <h3 class="course-title">
+                                        <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                                    </h3>
+                                    <p>{{ $package['description'] }}</p>
+                                    <div class="course-price">
+                                        <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
+                                        <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                                        <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
+                                    </div>
+                                    <!-- Book Now Button -->
+                                    <div class="text-left">
+                                        <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
 </section>
 <!--==============================
 Footer Area
 ==============================-->
+<script>
+    // Basic Package Discount 
+document.getElementById('discountCheckbox').addEventListener('change', function() {
+    let bookNowLink = document.getElementById('bookNow');
+    let url = new URL(bookNowLink.href);
+    // Set discount=1 if checked, else discount=0
+    url.searchParams.set('discount', this.checked ? '1' : '0');
+    bookNowLink.href = url.toString();
+});
+//    Premium Package Discount 
+document.getElementById('discountCheckboxPremium').addEventListener('change', function() {
+    let premiumButtons = [
+        document.getElementById('bookNowpremium-1'),
+        document.getElementById('bookNowpremium-2'),
+        document.getElementById('bookNowpremium-3')
+    ];
+
+    premiumButtons.forEach(bookNowLink => {
+        if (bookNowLink) { // Ensure the button exists
+            let url = new URL(bookNowLink.href, window.location.origin);
+            url.searchParams.set('discount', this.checked ? '1' : '0');
+            bookNowLink.href = url.toString();
+        }
+    });
+});
+
+//    NRI Package Discount 
+document.getElementById('discountCheckboxNri').addEventListener('change', function() {
+    let premiumButtons = [
+        document.getElementById('bookNowNri1'),
+        document.getElementById('bookNowNri2'),
+        document.getElementById('bookNowNri3')
+    ];
+
+    premiumButtons.forEach(bookNowLink => {
+        if (bookNowLink) { // Ensure the button exists
+            let url = new URL(bookNowLink.href, window.location.origin);
+            url.searchParams.set('discount', this.checked ? '1' : '0');
+            bookNowLink.href = url.toString();
+        }
+    });
+});
+
+</script>
 @stop
 
 <style>

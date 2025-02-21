@@ -21,6 +21,7 @@
                                         <th> Number</th>
                                         <th>Payment Id</th>
                                         <th>Product Name</th>
+                                        <th>File</th>
                                         <th>Type</th>
                                         <th>Status</th>
                                         <th>Price</th>
@@ -37,6 +38,30 @@
                                         <td>{{$payment->number}}</td>
                                         <td>{{ $payment->payment_id }}</td>
                                         <td>{{ $payment->product_name }}</td>
+                                        <td>
+                                            @php
+                                                $filePath = $payment->file ? asset('images/discount/' . $payment->file) : null;
+                                                $fileExtension = $filePath ? pathinfo($payment->file, PATHINFO_EXTENSION) : null;
+                                            @endphp
+
+                                            @if($filePath && file_exists(public_path('images/discount/' . $payment->file)))
+                                                @if(in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif']))
+                                                    <!-- Display image if the file is an image -->
+                                                    <img src="{{ $filePath }}" alt="Uploaded Document" style="width: 250px; height: 50px; object-fit: cover;">
+                                                @elseif($fileExtension === 'pdf')
+                                                    <!-- Show download link for PDF files -->
+                                                    <a href="{{ $filePath }}" target="_blank" style="color: blue; font-weight: bold;">View PDF</a>
+                                                @else
+                                                    <!-- Generic download link for other file types -->
+                                                    <a href="{{ $filePath }}" download style="color: green; font-weight: bold;">Download File</a>
+                                                @endif
+                                            @else
+                                                <!-- Show error message if no file is uploaded -->
+                                                <span style="color: red; font-weight: bold;">No file uploaded</span>
+                                            @endif
+                                        </td>
+
+
                                         <td>{{ $payment->package_type }}</td>
                                         <td>{{ $payment->payment_type }}</td>
                                         <td>{{ $payment->amount }}</td>

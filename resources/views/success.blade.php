@@ -165,7 +165,7 @@
                         <li>Mo: {{ $payment->number ? $payment->number : 'N/A' }}</li>
                     </ul>
                 </div>
-                 <!-- Logo Section -->
+                <!-- Logo Section -->
                 <div class="col-sm-4 d-flex justify-content-center align-items-center">
                     <img style="width: 200px; height: 200px;" src="{{asset('assets/img/logo1.png')}}" alt="Bodmas">
                 </div>
@@ -230,6 +230,35 @@
                 <td style="color: #28a745; font-weight: bold;">{{ ucfirst($payment->payment_status) }}</td>
             </tr>
             @endif
+            @if(isset($payment->file) && $payment->file)
+            @php
+            $filePath = asset('images/discount/' . $payment->file);
+            $fileExists = file_exists(public_path('images/discount/' . $payment->file));
+            @endphp
+
+            <tr>
+                <th style="background-color: #f8f9fa;">Discount Certificate</th>
+                @if($fileExists)
+                <td style="color: #28a745; font-weight: bold;">
+                    @if(Str::endsWith($payment->file, ['jpg', 'jpeg', 'png', 'gif']))
+                    <img src="{{ $filePath }}" alt="Discount Certificate" style="width: 150px; height: 50px; object-fit: cover; border-radius: 5px;">
+                    @elseif(Str::endsWith($payment->file, ['pdf']))
+                    <a href="{{ $filePath }}" target="_blank" style="color: blue; font-weight: bold;">View PDF</a>
+                    @else
+                    <a href="{{ $filePath }}" download style="color: green; font-weight: bold;">Download File</a>
+                    @endif
+                </td>
+                @else
+                <td style="color: red; font-weight: bold;">File Not Found</td>
+                @endif
+            </tr>
+            @else
+            <tr>
+                <th style="background-color: #f8f9fa;">Discount Certificate</th>
+                <td style="color: red; font-weight: bold;">No file uploaded</td>
+            </tr>
+            @endif
+
             @if(isset($payment->created_at ) && $payment->created_at )
             <tr>
                 <th style="background-color: #f8f9fa;">Date</th>
@@ -245,7 +274,7 @@
                     </a>
                 </td>
             </tr>
-        @endif
+            @endif
 
         </table>
         <!-- Success Circle Logo -->
