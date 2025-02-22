@@ -37,7 +37,7 @@ use App\Http\Controllers\YouTubeController;
 Route::get('/sitemap.xml', function () {
     return response()->file(storage_path('app/public/sitemap.xml'), ['Content-Type' => 'application/xml']);
 });
-
+Route::get('enquiry-form', [App\Http\Controllers\Page\PagesController::class, 'LeadForm'])->name('enquiry-form');
 // cookies 
 Route::get('getStatesByCourse', [App\Http\Controllers\Page\PagesController::class, 'getStatesByCourse'])->name('getStatesByCourse');
 Route::post('cookie/cookie-consent', [CookieConsentController ::class, 'store'])->name('cookie');

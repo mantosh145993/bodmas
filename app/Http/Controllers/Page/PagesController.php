@@ -311,6 +311,7 @@ class PagesController extends Controller
     }
     public function enquiryContact(Request $request)
     {
+        // dd($request->all());
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -500,5 +501,10 @@ class PagesController extends Controller
             ->get();
 
         return response()->json($states);
+    }
+
+    public function LeadForm(){
+        // echo "Hello";
+        return view('front.home.lead');
     }
 }
