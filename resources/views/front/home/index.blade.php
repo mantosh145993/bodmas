@@ -332,7 +332,7 @@ Notice Area
 <section class="container mt-5">
     <div>
         <div class="row">
-            <img src="{{asset('assets/img/mock2.png')}}" alt="Mock Test Bodmas">
+          <a href="https://mock.bodmas.co.in/"> <img src="{{asset('assets/img/mock2.png')}}" alt="Mock Test Bodmas"></a> 
         </div>
     </div>
 </section>
@@ -611,7 +611,7 @@ Why choose us Area
 
     <div class="container text-center">
         <div class="cta-wrap2">
-            <div class="title-area text-center mb-35">    
+            <div class="title-area text-center mb-35">
                 <span class="sub-title"><i class="fal fa-book me-2"></i>Are You Ready For This Offer</span>
                 <h2 class="sec-title text-white">Get 10% discount <span class="text-theme2"> on all Paid Guidance Services</span> at Bodmas Education, <br> <span class="fw-normal">until 31st March 2025</span></h2>
                 <p class="cta-text">Get access of our Popular paid guidance services </p>
@@ -644,13 +644,13 @@ Why choose us Area
             @foreach($blogs as $blog)
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
-                <div class="blog-img">
-    <a href="{{ route('blog_details', $blog->slug) }}">
-        <img src="{{ asset('images/feature/' . $blog->feature_image) }}" 
-             alt="Blog Image" 
-             style="width: 100%; height: auto; max-height: 200px; object-fit: cover; border-radius: 8px;">
-    </a>
-</div>
+                    <div class="blog-img">
+                        <a href="{{ route('blog_details', $blog->slug) }}">
+                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}"
+                                alt="Blog Image"
+                                style="width: 100%; height: auto; max-height: 200px; object-fit: cover; border-radius: 8px;">
+                        </a>
+                    </div>
 
                     <div class="blog-content">
                         <div class="blog-meta">
