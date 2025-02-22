@@ -99,10 +99,8 @@
                     <option value="{{ $course->id }}">{{ $course->title }}</option>
                     @endforeach
                 </select>
-
                 <h6 class=" text-center mt-3">Discover Colleges Across States</h6>
                 <ul id="stateList" class="list-group"></ul>
-
             </div>
 
 
