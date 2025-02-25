@@ -24,7 +24,7 @@ Event Area
                         <h3 class="course-title"> What We Offer:</h3>
                         <p>Welcome to Bodmas Education, your trusted partner in securing admissions to top engineering colleges! We provide a comprehensive Paid Guidance Service designed to help students like you navigate the complex college admission process with ease.</p>
                         At Bodmas Education, we aim to make sure every student gets the chance to study at their dream college, aligning with their rank and budget. We believe in personalized counseling that ensures the best possible outcomes for our students.</p>
-                    <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
+                    <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#"></a>
                         <p> Our dedicated and experienced expert, Mr. Ashok Sir, plays a pivotal role in the entire counseling process. With years of experience in the field, Ashook Sir provides insightful guidance, helping students choose the right college based on their rank, preferences, and financial considerations.</p>
                         <ul>
                             <li>Expert Counseling: Receive tailored advice based on your rank and aspirations.</li>
@@ -34,6 +34,9 @@ Event Area
                             <li>Guaranteed Support: Our team is here to answer all your queries and support you at every stage.</li>
 
                         </ul>
+                        <a href="{{ route('enquiry-form') }}" target="_blank">
+                            <img src="{{ asset('assets/img/bg/engineering.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
                         <strong>Why Choose Bodmas Education?</strong>
                        
                         <ul>
@@ -46,6 +49,43 @@ Event Area
                         <p>Ready to take the next step toward your engineering career? Contact us today and benefit from Bodmas Education’s Paid Guidance Service to get the admission you deserve at the top colleges!</p>
                       
                        
+                    </div>
+                     <!-- //////////// -->
+                     <div class="widget widget_categories style2">
+                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
+                            </h3>
+                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                                @csrf
+                                <input type="hidden" id="typeEnquiry" name="type" value="2">
+                                <div class="mb-3">
+                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                                </div>
+                                <div class="mb-3">
+                                    <select name="subject" id="subject" class="form-select" required>
+                                        <option value="" disabled selected hidden>Select Course*</option>
+                                        <option value="mbbs">MBBS</option>
+                                        <option value="bds">BDS</option>
+                                        <option value="bums">BUMS</option>
+                                        <option value="bhms">BHMS</option>
+                                        <option value="btech">B.Tech</option>
+                                        <option value="mba">MBA</option>
+                                        <option value="law">LAW</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </form>
+                        </div>
+                        <div class="course-img" id="section1">
+                        <img src="{{asset('assets/img/bg/Engineering.png')}}" alt="Engineering Guidance">
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -219,10 +259,10 @@ Event Area
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
-                        <div class="th-video">
+                        <!-- <div class="th-video">
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
+                        </div> -->
                         <span class="h4 course-price">{{$package->basic_fee}} <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
@@ -234,7 +274,7 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
-  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
+  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
                         <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
@@ -247,6 +287,7 @@ Event Area
 <section>
     <div class="container">
         <div class="row">
+        <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including Engineering, MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
@@ -345,6 +386,39 @@ Servce Area
 <!--==============================
 Footer Area
 ==============================-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+      // Enquiry Form 
+
+      $('#enquiryForm').on('submit', function(e) {
+        e.preventDefault();
+        let formData = {
+            name: $('#nameEnquiry').val(),
+            email: $('#emailEnquiry').val(),
+            number: $('#numberEnquiry').val(),
+            subject: $('#subject').val(),
+            message: $('#messageEnquiry').val(),
+            type: $('#typeEnquiry').val(),
+            _token: $('input[name="_token"]').val(), // CSRF token
+        };
+        $.ajax({
+            url: "{{ route('enquiry.contact') }}", // Adjust the route name if needed
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    alert('Enquiry submitted successfully!');
+                    $('#enquiryForm')[0].reset(); // Reset the form
+                } else {
+                    alert('Failed to submit enquiry: ' + response.error);
+                }
+            },
+            error: function(xhr) {
+                alert('An error occurred: ' + xhr.responseText);
+            }
+        });
+    });
+</script>
 @stop
 
 <style>

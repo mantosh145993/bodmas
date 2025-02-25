@@ -1,6 +1,10 @@
 <!-- Chat bot  -->
  @include('front.widgets.chatbot');
  <!-- Chat bot end -->
+  <!-- WhatsApp Chat Button -->
+<a href="https://wa.me/919511626721?text=Hello%20I%20have%20a%20question" target="_blank" class="whatsapp-chat-button">
+    <img src="{{ asset('assets/img/w.png') }}" alt="WhatsApp Chat">
+</a>
 <!-- Footer Area  -->
 <footer class="footer-wrapper footer-layout1" data-bg-src="{{asset('assets/img/bg/footer-bg.png')}}">
 	<div class="shape-mockup footer-shape1 jump" data-left="60px" data-top="70px">
@@ -216,5 +220,52 @@ window.addEventListener("load", function() {
             }
         });
     });
-
+	const phoneNumber = '919511626721'; // Replace with your phone number
+    const defaultMessage = 'Hello, I have a question'; // Replace with your default message
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
+    document.getElementById('whatsapp-chat-link').href = whatsappLink;
 </script>
+<style>
+	/* WhatsApp Chat Button Styles */
+.whatsapp-chat-button {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+	width: 100px;
+}
+
+.whatsapp-chat-button:hover {
+    background-color:rgb(255, 255, 255); 
+}
+
+.whatsapp-chat-button img {
+	width: 80px;
+    height: 63px;
+	display: block;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.whatsapp-chat-button {
+    animation: float 3s ease-in-out infinite;
+}
+@media (max-width: 768px) {
+    .whatsapp-chat-button {
+        bottom: 10px;
+        /* right: 10px; */
+        padding: 8px;
+    }
+
+    .whatsapp-chat-button img {
+		width: 80px;
+		height: 63px;
+    }
+}
+</style>

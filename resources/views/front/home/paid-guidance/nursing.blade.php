@@ -23,11 +23,15 @@ Event Area
                         <h2 class="course-title">Helping Students in making their career.</h2>
                         <h3 class="course-title"> Bodmas Paid Counselling Guidance Fee for Nursing & Pharmacy Admissions for 2025-26</h3>
                         <p>Navigating the admission process for nursing and pharmacy programs can be complicated, with multiple deadlines, eligibility criteria, and document submissions. At Bodmas Education, we provide paid counselling services to make this journey seamless and stress-free. Whether you are aiming for a top nursing college or looking to pursue pharmacy courses, our expert team will guide you at every step, from application to admission.</p>
-                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
+                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#"></a>
                         <strong>Regular News & Updates :</strong>
                         <p>With our customized counselling packages, you’ll never miss an opportunity. Focus on building your future, and let us take care of the admission formalities for you.</p>
+                        <a href="{{ route('enquiry-form') }}" target="_blank">
+                            <img src="{{ asset('assets/img/bg/a1.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
                         <strong>Helping You Build a Successful Career in Nursing & Pharmacy :</strong>
                         <p>Both nursing and pharmacy offer excellent career prospects with growing demand in the healthcare industry. However, securing admission to the right college is crucial to building a successful career. Bodmas Education ensures that you are well-prepared by helping you:</p>
+                        
                         <ol>
                             <li><strong>Select the best colleges</strong> according to your preferences and qualifications.</li>
                             <li> <strong>Understand eligibility</strong> criteria and meet all documentation requirements.</li>
@@ -35,7 +39,40 @@ Event Area
                         </ol>
                         <strong>What Is the Need of Our Paid Counselling Services in Nursing & Pharmacy?</strong>
                         <p>The counselling process for nursing and pharmacy admissions requires accurate, timely information and the right expertise, which can make a significant difference in securing a seat. A small mistake in form submission, choice filling, or counseling selection can lead to missed opportunities. Our paid counselling services ensure you avoid these pitfalls and gain access to the best institutions with ease.</p>
-
+                           <!-- //////////// -->
+                           <div class="widget widget_categories style2">
+                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
+                            </h3>
+                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                                @csrf
+                                <input type="hidden" id="typeEnquiry" name="type" value="2">
+                                <div class="mb-3">
+                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                                </div>
+                                <div class="mb-3">
+                                    <select name="subject" id="subject" class="form-select" required>
+                                        <option value="" disabled selected hidden>Select Course*</option>
+                                        <option value="mbbs">MBBS</option>
+                                        <option value="bds">BDS</option>
+                                        <option value="bums">BUMS</option>
+                                        <option value="bhms">BHMS</option>
+                                        <option value="btech">B.Tech</option>
+                                        <option value="mba">MBA</option>
+                                        <option value="law">LAW</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </form>
+                        </div>
                         <strong>Navigating Multiple States and Counseling Rounds:</strong>
                         <p>Admission counseling for nursing and pharmacy often involves multiple open states, with overlapping dates. Choosing the right states and managing applications across different rounds requires strategic planning—a process that can be overwhelming without expert guidance.</p>
                         <strong>Accurate Choice Filling to Avoid Financial Loss:</strong>
@@ -45,6 +82,9 @@ Event Area
                         <p>Many students with excellent grades miss out on admissions because they lack updated information on eligibility, document requirements, and seat availability. Our services ensure that you never miss out on important deadlines or opportunities due to insufficient information.</p>
                         <strong>Expertise and Timely Assistance:</strong>
                         <p>The admission landscape is complex, and fast decision-making is critical to success. Our experienced counsellors provide up-to-the-minute information and personalized advice to guide you through the entire process efficiently.</p>
+                    </div>
+                    <div class="course-img" id="section1">
+                        <img src="{{asset('assets/img/bg/Nursing.png')}}" alt="Nursing Guidance">
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -65,7 +105,7 @@ Event Area
                             <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
                                 <div class="course-description">
                                     <h6>Bodmas Paid Counselling Guidance Fee For Nursing Package</h6>
-                                    <strong><del style="color:red">15,000 INR + GST </del> &nbsp; 10,000 INR + GST (@18%)</strong>
+                                    <strong><del style="color:red">15,000 INR + GST </del> &nbsp; {{$package->basic_fee}} INR + GST (@18%)</strong>
                                     <b>Services Included are:</b>
 
                                     <div class="row mt-25">
@@ -108,8 +148,8 @@ Event Area
                             </div>
                             <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
                                 <div class="course-curriculam">
-                                    <h6>Bodmas Paid Counselling Guidance Fee For Pharmacy Package</h6>
-                                    <p><del style="color: red;">18,000 INR + GST </del> &nbsp; 10,000 INR + GST (@18%)</p>
+                                    <h6>Bodmas Paid Counselling Guidance Fee For Premium Package</h6>
+                                    <p><del style="color: red;">25,000 INR + GST </del> &nbsp; {{$package->premium_fee}} INR + GST (@18%)</p>
                                     <strong>Services Included are:</strong> <br><br>
                                     <div class="checklist mb-1">
                                         <ul>
@@ -135,7 +175,7 @@ Event Area
                                     <div class="row ">
                                         <div class="col-sm-4 package">
                                             <h5>Pharmacy Guidance Fee</h5>
-                                            <p>{{$package->basic_fee}} INR + GST </p><br>
+                                            <p>{{$package->premium_fee}} INR + GST </p><br>
                                             <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'premium'] )}}" class="btn btn-primary th-btn">Book Now</a>
                                         </div>
                                     </div>
@@ -149,10 +189,10 @@ Event Area
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
-                        <div class="th-video">
+                        <!-- <div class="th-video">
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
+                        </div> -->
                         <span class="h4 course-price">₹10000.00 <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
@@ -164,7 +204,7 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
-  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
+                            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
                         <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
@@ -177,6 +217,7 @@ Event Area
 <section>
     <div class="container">
         <div class="row">
+        <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
             <h5>How to Book Our Paid Counselling Services for Nursing & Pharmacy Admissions</h5>
             <p>At Bodmas Education, we are committed to delivering top-quality services with a 100% success ratio. To maintain this standard, we accept a limited number of bookings on a first-come, first-served basis. We prioritize students whose requirements align with our expertise to ensure that we meet their expectations with complete satisfaction.</p>
             <h5>Ways to Apply for Our Counselling Services</h5>
@@ -286,6 +327,40 @@ Servce Area
 <!--==============================
 Footer Area
 ==============================-->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+      // Enquiry Form 
+
+      $('#enquiryForm').on('submit', function(e) {
+        e.preventDefault();
+        let formData = {
+            name: $('#nameEnquiry').val(),
+            email: $('#emailEnquiry').val(),
+            number: $('#numberEnquiry').val(),
+            subject: $('#subject').val(),
+            message: $('#messageEnquiry').val(),
+            type: $('#typeEnquiry').val(),
+            _token: $('input[name="_token"]').val(), // CSRF token
+        };
+        $.ajax({
+            url: "{{ route('enquiry.contact') }}", // Adjust the route name if needed
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    alert('Enquiry submitted successfully!');
+                    $('#enquiryForm')[0].reset(); // Reset the form
+                } else {
+                    alert('Failed to submit enquiry: ' + response.error);
+                }
+            },
+            error: function(xhr) {
+                alert('An error occurred: ' + xhr.responseText);
+            }
+        });
+    });
+</script>
 @stop
 
 <style>

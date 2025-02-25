@@ -133,7 +133,10 @@
                   <i class="fa fa-database yellow_color"></i> <span>Lead Management</span></a>
                <ul class="collapse list-unstyled" id="leads">
                   <li>
-                     <a href="{{route('partner.list')}}"> <i class="fa fa-random orange_color"></i> <span>Partner List</span></a>
+                     <a href="{{route('partner.list')}}"> <i class="fa fa-random orange_color"></i> <span>All leads</span></a>
+                  </li>
+                  <li>
+                     <a href="{{route('assigned.leads')}}"> <i class="fa fa-random orange_color"></i> <span>Assigned leads</span></a>
                   </li>
                </ul>
             </li>

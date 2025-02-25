@@ -11,7 +11,7 @@ Event Area
                 <div class="course-single">
                     <div class="course-single-top">
                         <div class="course-img">
-                        <img src="{{asset('assets/img/dnb.png')}}" alt="MD/MS/DNB">
+                        <img src="{{asset('assets/img/MD-MS.png')}}" alt="MD/MS">
                             <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                             <span class="tag bg-theme">BEST SELLER</span> -->
                         </div>
@@ -21,9 +21,9 @@ Event Area
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
                         <h2 class="course-title">Helping Students in making their career.</h2>
-                        <h3 class="course-title"> Advance Your Medical Career with MD/MS/DNB Admission Counseling & Guidance Services for 2025-26</h3>
+                        <h3 class="course-title"> Advance Your Medical Career with MD/MS Admission Counseling & Guidance Services for 2025-26</h3>
                         <p>As an aspiring postgraduate medical professional, choosing the right path for your MD, MS, or DNB admission is a critical step in your medical career. The admission process can be complex, competitive, and time-sensitive, and even the smallest mistake can result in lost opportunities. That's why our <b>MD/MS/DNB Admission Counseling & Guidance Services</b> are tailored to ensure that you not only navigate this process efficiently but also secure the best possible seat in the right program.</p>
-                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
+                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#"></a>
                         <strong>Why Our Paid Counseling Services Are Essential for You</strong>
                         <p>The MD/MS/DNB admission process involves multiple stages, and even minor oversights can significantly impact your chances of success. Here’s how our services can make a world of difference:</p>
                         <ul>
@@ -32,6 +32,9 @@ Event Area
                             </li>
                             <li><b>Avoid Missed Opportunities: </b> Even students with stellar academic records sometimes miss out on the best opportunities because they don’t have access to the right guidance. We’re here to ensure that doesn’t happen to you, with tailored strategies that maximize your chances of securing your desired specialization and institution.</li>
                         </ul>
+                        <a href="{{ route('enquiry-form') }}" target="_blank">
+                            <img src="{{ asset('assets/img/bg/a1.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
                         <strong>Stay Informed with Real-Time Updates</strong>
                         <p>We understand that MD/MS/DNB admission is a highly dynamic process, with frequent updates and changing schedules. With our services, you’ll receive:</p>
                         <ul>
@@ -51,6 +54,43 @@ Event Area
                             </li>
                             <li><b>Strategic Planning for Multiple States:</b> Applying to multiple states and colleges? We will work with you to create a strategy that ensures you apply to the right colleges and remain eligible for the best opportunities.</li>
                         </ul>
+                         <!-- //////////// -->
+                     <div class="widget widget_categories style2">
+                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
+                            </h3>
+                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                                @csrf
+                                <input type="hidden" id="typeEnquiry" name="type" value="2">
+                                <div class="mb-3">
+                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                                </div>
+                                <div class="mb-3">
+                                    <select name="subject" id="subject" class="form-select" required>
+                                        <option value="" disabled selected hidden>Select Course*</option>
+                                        <option value="mbbs">MBBS</option>
+                                        <option value="bds">BDS</option>
+                                        <option value="bums">BUMS</option>
+                                        <option value="bhms">BHMS</option>
+                                        <option value="btech">B.Tech</option>
+                                        <option value="mba">MBA</option>
+                                        <option value="law">LAW</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </form>
+                        </div>
+                        <div class="course-img" id="section1">
+                        <img src="{{asset('assets/img/bg/MD1.png')}}" alt="MD1 Guidance">
+                    </div>
                         <strong>How to Book Our Services</strong>
                         <p>We prioritize <b>quality over quantity </b>to maintain our reputation for excellence. Therefore, we limit the number of bookings we accept, ensuring that each student receives our full attention and support. Here’s how you can book your counseling services:</p>
                         1. Apply via the link shared by our counsellor or directly on our website.</br>
@@ -245,10 +285,10 @@ Event Area
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
-                        <div class="th-video">
+                        <!-- <div class="th-video">
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
+                        </div> -->
                         <span class="h4 course-price">₹50000.00 <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
@@ -273,6 +313,7 @@ Event Area
 <section>
     <div class="container">
         <div class="row">
+        <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>

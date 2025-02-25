@@ -10,9 +10,11 @@ Event Area
             <div class="col-xxl-9 col-lg-8">
                 <div class="course-single">
                     <div class="course-single-top">
-                        <div class="course-img">
-                            <img src="{{asset('assets/img/mbbs.png')}}" alt="MBBS">
-                        </div>
+                    <div class="course-img text-center">
+                        <a href="#section1">
+                            <img src="{{ asset('assets/img/mbbs.png') }}" alt="MBBS" class="img-fluid w-100">
+                        </a>
+                    </div>
                         <div class="course-meta style2">
                             <span><i class="fal fa-user"></i>Students 1600+</span>
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
@@ -33,7 +35,14 @@ Event Area
                             </li>
                             </p>
                         </ul>
+
                         <!--<img src="{{ asset('assets/img/3.png') }}" alt="#>-->
+                        <a href="{{ route('enquiry-form') }}" target="_blank">
+                            <img src="{{ asset('assets/img/bg/a1.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
+
+
+
                         <p><strong>Regular Updates to Keep You Ahead :</strong> Our services go beyond just counselling. We provide you with real-time updates on everything related to MBBS admissions, including:</p>
                         <ul>
                             <li>NEET, NTA, MCC & State Counselling updates</li>
@@ -48,6 +57,41 @@ Event Area
                             <li> <strong> Eligibility Clarifications: </strong> If you belong to a particular category or have domicile-specific benefits, we’ll help you leverage these advantages during the admission process.</li>
                             <li> <strong> State-Specific Counselling Management: </strong>We’ll create a tailored strategy for you, ensuring you can apply to multiple states without compromising your chances of securing the best seat.</li>
                         </ul>
+
+                        <!-- //////////// -->
+                        <div class="widget widget_categories style2">
+                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
+                            </h3>
+                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                                @csrf
+                                <input type="hidden" id="typeEnquiry" name="type" value="2">
+                                <div class="mb-3">
+                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                                </div>
+                                <div class="mb-3">
+                                    <select name="subject" id="subject" class="form-select" required>
+                                        <option value="" disabled selected hidden>Select Course*</option>
+                                        <option value="mbbs">MBBS</option>
+                                        <option value="bds">BDS</option>
+                                        <option value="bums">BUMS</option>
+                                        <option value="bhms">BHMS</option>
+                                        <option value="btech">B.Tech</option>
+                                        <option value="mba">MBA</option>
+                                        <option value="law">LAW</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </form>
+                        </div>
                         <strong>How to Book Our Services</strong>
                         <p>We are committed to providing high-quality, personalized services. To maintain our 100% satisfaction delivery rate, we only accept a limited number of bookings. Here's how you can book our expert counselling services:</p>
                         <ol>
@@ -57,7 +101,8 @@ Event Area
                             <li>Fill out our Google form to book our counselling services.</li>
                             <li>Email the required documents, along with the completed service booking form, as provided by our counselor.</li>
                         </ol>
-                        <!--<img src="{{ asset('assets/img/2.png') }}" alt="#>-->
+                        <!-- <img src="{{ asset('assets/img/2.png') }}" alt="#"> -->
+
                         <p>Once you’ve made the payment, we’ll send you a receipt. Our expert team will handle the entire counselling process for you. </p>
                         <strong>Flexible Packages to Suit Your Needs</strong>
                         <p>We’ve designed our counselling services into varied packages to ensure the best value for your needs. Our services are reasonably priced and tailored to offer the highest level of support. We highly encourage you to review the packages and select the one that works best for you.
@@ -66,6 +111,9 @@ Event Area
                         <strong>Let Us Guide You Toward Your Medical Career</strong>
                         <p>With the right guidance, securing an MBBS seat can be a smooth and successful journey. Let us take care of the complexities while you focus on your goal—becoming a doctor.</p>
                         <strong>Book our counselling services today and take the first step towards a brighter future in medicine!</strong>
+                    </div>
+                    <div class="course-img" id="section1">
+                        <img src="{{asset('assets/img/mbbsQr.png')}}" alt="MBBS Guidance">
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -172,7 +220,7 @@ Event Area
                                             <li>Video meeting with our expert counsellor will be provided after every round of counselling.</li>
                                         </ul>
                                     </div>
-                                      <!-- Premium Package  -->
+                                    <!-- Premium Package  -->
                                     <!-- Checkbox for Discount -->
                                     <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.<br>NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p>
                                     <input type="checkbox" id="discountCheckboxPremium">
@@ -231,13 +279,13 @@ Event Area
                                             <li>Help During Physical Counselling to NRI Students</li>
                                         </ul>
                                         <!-- NRI Packages  -->
-                                         <!-- Checkbox for Discount -->
+                                        <!-- Checkbox for Discount -->
                                         <p style="color: red;"> Registration fees & security deposit (if applicable) will be paid by parent only.<br>NOTE: 10% off on all services for Army/ Police/ siblings / single parent.</p>
                                         <input type="checkbox" id="discountCheckboxNri">
                                         <label for="discountCheckboxNri" style="color: red; font-weight: bold;">
                                             Check if you have served in the Army, Police, or have a sibling/single parent in service.
                                         </label>
-                                    <!-- Checkbox for Discount end -->
+                                        <!-- Checkbox for Discount end -->
                                         <div class="row">
                                             <div class="col-sm-4 package">
                                                 <h5>First installment </h5>
@@ -264,10 +312,10 @@ Event Area
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
-                        <div class="th-video">
+                        <!-- <div class="th-video">
                             <img src="{{asset('assets/img/widget/video_1.jpg')}}" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
+                        </div> -->
                         <span class="h4 course-price">{{$package->basic_fee}} <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
@@ -282,6 +330,7 @@ Event Area
                             <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
                         <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
+                       
                     </div>
                 </aside>
             </div>
@@ -293,7 +342,7 @@ Event Area
     <div class="container">
 
         <div class="row">
-
+            <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
@@ -329,7 +378,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
-            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
+            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#"> </a>
         </div>
     </div>
 </section>
@@ -392,49 +441,80 @@ Servce Area
 <!--==============================
 Footer Area
 ==============================-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Basic Package Discount 
-document.getElementById('discountCheckbox').addEventListener('change', function() {
-    let bookNowLink = document.getElementById('bookNow');
-    let url = new URL(bookNowLink.href);
-    // Set discount=1 if checked, else discount=0
-    url.searchParams.set('discount', this.checked ? '1' : '0');
-    bookNowLink.href = url.toString();
-});
-//    Premium Package Discount 
-document.getElementById('discountCheckboxPremium').addEventListener('change', function() {
-    let premiumButtons = [
-        document.getElementById('bookNowpremium-1'),
-        document.getElementById('bookNowpremium-2'),
-        document.getElementById('bookNowpremium-3')
-    ];
-
-    premiumButtons.forEach(bookNowLink => {
-        if (bookNowLink) { // Ensure the button exists
-            let url = new URL(bookNowLink.href, window.location.origin);
-            url.searchParams.set('discount', this.checked ? '1' : '0');
-            bookNowLink.href = url.toString();
-        }
+    document.getElementById('discountCheckbox').addEventListener('change', function() {
+        let bookNowLink = document.getElementById('bookNow');
+        let url = new URL(bookNowLink.href);
+        // Set discount=1 if checked, else discount=0
+        url.searchParams.set('discount', this.checked ? '1' : '0');
+        bookNowLink.href = url.toString();
     });
-});
+    //    Premium Package Discount 
+    document.getElementById('discountCheckboxPremium').addEventListener('change', function() {
+        let premiumButtons = [
+            document.getElementById('bookNowpremium-1'),
+            document.getElementById('bookNowpremium-2'),
+            document.getElementById('bookNowpremium-3')
+        ];
 
-//    NRI Package Discount 
-document.getElementById('discountCheckboxNri').addEventListener('change', function() {
-    let premiumButtons = [
-        document.getElementById('bookNowNri1'),
-        document.getElementById('bookNowNri2'),
-        document.getElementById('bookNowNri3')
-    ];
-
-    premiumButtons.forEach(bookNowLink => {
-        if (bookNowLink) { // Ensure the button exists
-            let url = new URL(bookNowLink.href, window.location.origin);
-            url.searchParams.set('discount', this.checked ? '1' : '0');
-            bookNowLink.href = url.toString();
-        }
+        premiumButtons.forEach(bookNowLink => {
+            if (bookNowLink) { // Ensure the button exists
+                let url = new URL(bookNowLink.href, window.location.origin);
+                url.searchParams.set('discount', this.checked ? '1' : '0');
+                bookNowLink.href = url.toString();
+            }
+        });
     });
-});
 
+    //    NRI Package Discount 
+    document.getElementById('discountCheckboxNri').addEventListener('change', function() {
+        let premiumButtons = [
+            document.getElementById('bookNowNri1'),
+            document.getElementById('bookNowNri2'),
+            document.getElementById('bookNowNri3')
+        ];
+
+        premiumButtons.forEach(bookNowLink => {
+            if (bookNowLink) { // Ensure the button exists
+                let url = new URL(bookNowLink.href, window.location.origin);
+                url.searchParams.set('discount', this.checked ? '1' : '0');
+                bookNowLink.href = url.toString();
+            }
+        });
+    });
+
+    // Enquiry Form 
+
+    $('#enquiryForm').on('submit', function(e) {
+        e.preventDefault();
+        let formData = {
+            name: $('#nameEnquiry').val(),
+            email: $('#emailEnquiry').val(),
+            number: $('#numberEnquiry').val(),
+            subject: $('#subject').val(),
+            message: $('#messageEnquiry').val(),
+            type: $('#typeEnquiry').val(),
+            _token: $('input[name="_token"]').val(), // CSRF token
+        };
+        $.ajax({
+            url: "{{ route('enquiry.contact') }}", // Adjust the route name if needed
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    alert('Enquiry submitted successfully!');
+                    $('#enquiryForm')[0].reset(); // Reset the form
+                } else {
+                    alert('Failed to submit enquiry: ' + response.error);
+                }
+            },
+            error: function(xhr) {
+                alert('An error occurred: ' + xhr.responseText);
+            }
+        });
+    });
 </script>
 @stop
 
