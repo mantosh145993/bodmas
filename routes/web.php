@@ -258,9 +258,13 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     // Gallery End
 
-    // Partner List Start partner.list
-    Route::get('/partner/list', [PartnerController::class, 'index'])->name('partner.list');
-    // Partner End
+    // Lead List Start 
+    Route::get('/lead/list', [PartnerController::class, 'index'])->name('partner.list');
+    Route::get('/lead/add', [PartnerController::class, 'create'])->name('lead.add');
+    Route::post('/lead/store', [PartnerController::class, 'store'])->name('lead.store');
+    Route::put('/leads/assign/{id}', [PartnerController::class, 'assignLead'])->name('lead.assign');
+    Route::get('/assigned/leads', [PartnerController::class, 'assignedLead'])->name('assigned.leads');
+    // Lead End
 
     // College Form
     Route::get('/form/form_list', [FormController::class, 'index'])->name('form.form_list');

@@ -109,6 +109,8 @@
                 <option value="technical">Technical Support</option>
                 <option value="admission">Admission Support</option>
                 <option value="form_filling">Form Filling Support</option>
+                <option value="paid_guidance">Paid Guidance</option>
+                <option value="other">Other</option>
             </select>
         </fieldset>
 

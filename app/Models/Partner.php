@@ -19,7 +19,17 @@ class Partner extends Model
         'phone',
         'course',
         'message',
-        'type'
+        'type',
+        'notes',
+        'status',
+        'assigned_user_id',
+        'assigned_at',
+        'action_taken'
     ];
+    public function assignedUser()
+    {
+        return $this->belongsTo(User::class, 'assigned_user_id');
+    }
+
 }
 

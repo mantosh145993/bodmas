@@ -177,8 +177,8 @@ class PagesController extends Controller
                     'paidPackages' => $paidPackages,
                     'package' => $packages
                 ]);
-            case 'paid-guidance-md-ms-dnb':
-                $packages = PaidPackage::where('url', 'paid-guidance-md-ms-dnb')->firstOrFail();
+            case 'paid-guidance-md-ms':
+                $packages = PaidPackage::where('url', 'paid-guidance-md-ms')->firstOrFail();
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
                 return view('front.home.paid-guidance.md-ms-dnb', [

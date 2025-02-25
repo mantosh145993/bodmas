@@ -24,11 +24,49 @@ Event Area
                         <h3 class="course-title"> AYUSH Admission Counseling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>The counselling process requires fast and accurate information with experience that can make a huge difference. Choosing the number of open states for counselling is an important step, as it is common for counselling dates to overlap. Doing the correct choice filling is crucial, as a wrong selection may result in losing security money, which can amount to up to Rs 2 lakh, or in disqualification from future rounds. Moreover, many students with excellent grades often miss out on admissions due to insufficient information. Therefore, our services are tailored to offer you the best possible opportunities.</p>
-                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#></a>
+                        <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#"></a>
                         <strong>Regular News & Updates :</strong>
                         <p>We will ensure that you stay up-to-date with all the essential information related to NEET, NTA, MCC, state counselling, and MBBS colleges. This package is designed to provide you with all the critical updates concerning MBBS admissions, such as important dates, submission deadlines, and essential instructions. Additionally, our services will function as a calendar and scheduler, ensuring that you complete every necessary action correctly and on time. Our professional team is trained to monitor your progress and provide regular reminders, leaving no room for missed opportunities.</p>
+                        <a href="{{ route('enquiry-form') }}" target="_blank">
+                            <img src="{{ asset('assets/img/bg/a1.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
                         <strong>Documentation and Technical Assistance :</strong>
                         <p>At times, the registration form for counseling may present technical difficulties, such as issues with uploading images, paying security fees, or meeting eligibility criteria. We can assist you in resolving such issues, and we will also explain the eligibility criteria, such as the benefits of belonging to a particular category or domicile. Together with you, we will create a systematic plan to manage counseling for multiple states while ensuring that you remain eligible for the best opportunities to secure admission to your desired college. As each student has unique priorities, individual planning and preparation are necessary.</p>
+
+                          <!-- //////////// -->
+                     <div class="widget widget_categories style2">
+                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
+                            </h3>
+                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                                @csrf
+                                <input type="hidden" id="typeEnquiry" name="type" value="2">
+                                <div class="mb-3">
+                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                                </div>
+                                <div class="mb-3">
+                                    <select name="subject" id="subject" class="form-select" required>
+                                        <option value="" disabled selected hidden>Select Course*</option>
+                                        <option value="mbbs">MBBS</option>
+                                        <option value="bds">BDS</option>
+                                        <option value="bums">BUMS</option>
+                                        <option value="bhms">BHMS</option>
+                                        <option value="btech">B.Tech</option>
+                                        <option value="mba">MBA</option>
+                                        <option value="law">LAW</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </form>
+                        </div>
                         <strong>How to Book Services:</strong>
                         <p>To ensure high-quality services and maintain our 100% delivery ratio, we accept a limited number of bookings on a first-come, first-served basis. We are highly selective and only accept bookings that we are confident we can deliver to a 100% satisfaction level.</p>
                         <strong>You can apply to our services in following manners:</strong>
@@ -42,6 +80,9 @@ Event Area
                             Note: If you are not able to book our services through the above-mentioned methods,
                             You can speak with our team for assistance.
                             We have categorised our services into different packages to offer you the best services at the most reasonable cost. Please review each package and select the one that best suits your needs.</p>
+                    </div>
+                    <div class="course-img" id="section1">
+                        <img src="{{asset('assets/img/bg/BAMS.png')}}" alt="BAMS Guidance">
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -221,7 +262,7 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
- <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
+ <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
                         <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
@@ -234,6 +275,7 @@ Event Area
 <section>
     <div class="container">
         <div class="row">
+        <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
@@ -269,7 +311,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
-            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
+            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#"> </a>
         </div>
     </div>
 </section>
@@ -332,6 +374,39 @@ Servce Area
 <!--==============================
 Footer Area
 ==============================-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+      // Enquiry Form 
+
+      $('#enquiryForm').on('submit', function(e) {
+        e.preventDefault();
+        let formData = {
+            name: $('#nameEnquiry').val(),
+            email: $('#emailEnquiry').val(),
+            number: $('#numberEnquiry').val(),
+            subject: $('#subject').val(),
+            message: $('#messageEnquiry').val(),
+            type: $('#typeEnquiry').val(),
+            _token: $('input[name="_token"]').val(), // CSRF token
+        };
+        $.ajax({
+            url: "{{ route('enquiry.contact') }}", // Adjust the route name if needed
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    alert('Enquiry submitted successfully!');
+                    $('#enquiryForm')[0].reset(); // Reset the form
+                } else {
+                    alert('Failed to submit enquiry: ' + response.error);
+                }
+            },
+            error: function(xhr) {
+                alert('An error occurred: ' + xhr.responseText);
+            }
+        });
+    });
+</script>
 @stop
 
 <style>
