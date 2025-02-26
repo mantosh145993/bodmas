@@ -58,5 +58,15 @@ class User extends Authenticatable
     {
         return 'whatsapp:' . $this->phone; // Ensure phone number is in WhatsApp format
     }
+    public function assignedLeads()
+    {
+        return $this->hasMany(Partner::class, 'assigned_user_id');
+    }
+
+    public function respondedLeads()
+    {
+        return $this->hasMany(Partner::class, 'assigned_user_id')->where('status', 'responded');
+    }
+
 }
 

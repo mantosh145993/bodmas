@@ -264,6 +264,9 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/lead/store', [PartnerController::class, 'store'])->name('lead.store');
     Route::put('/leads/assign/{id}', [PartnerController::class, 'assignLead'])->name('lead.assign');
     Route::get('/assigned/leads', [PartnerController::class, 'assignedLead'])->name('assigned.leads');
+    Route::put('/lead/{id}/notes', [PartnerController::class, 'updateNotes'])->name('lead.notes');
+    Route::put('/lead/{id}/respond', [PartnerController::class, 'respondLead'])->name('lead.respond');
+
     // Lead End
 
     // College Form

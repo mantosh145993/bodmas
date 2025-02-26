@@ -149,12 +149,64 @@ class PagesController extends Controller
                 return view('front.home.error', [
                     'menus' => $menus
                 ]);
+
+            // All Paid Guidance packages 
+            case 'dnb-mph-mha-2-years-deploma':
+                $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
+                $packages = PaidPackage::where('url', 'dnb-mph-mha-2-years-deploma')->firstOrFail();
+                // dd($packages);
+                return view('front.home.paid-guidance.dnb-mph-mha-2-years-deploma', [
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
+                ]);
+            case 'ini-cet':
+                $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
+                $packages = PaidPackage::where('url', 'ini-cet')->firstOrFail();
+                // dd($packages);
+                return view('front.home.paid-guidance.ini-cet', [
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
+                ]);
+            case 'mds-paid-guidance':
+                $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
+                $packages = PaidPackage::where('url', 'mds-paid-guidance')->firstOrFail();
+                // dd($packages);
+                return view('front.home.paid-guidance.mds-paid-guidance', [
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
+                ]);
+            case 'dm-mch':
+                $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
+                $packages = PaidPackage::where('url', 'dm-mch')->firstOrFail();
+                // dd($packages);
+                return view('front.home.paid-guidance.dm-mch', [
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
+                ]);
             case 'paid-guidance-mbbs':
                 $menus = $this->menuHelper->getMenu();
                 $paidPackages = PaidPackage::all();
                 $packages = PaidPackage::where('url', 'paid-guidance-mbbs')->firstOrFail();
                 // dd($packages);
                 return view('front.home.paid-guidance.paid-guidance', [
+                    'menus' => $menus,
+                    'paidPackages' => $paidPackages,
+                    'package' => $packages
+                ]);
+            case 'law-management':
+                $menus = $this->menuHelper->getMenu();
+                $paidPackages = PaidPackage::all();
+                $packages = PaidPackage::where('url', 'law-management')->firstOrFail();
+                // dd($packages);
+                return view('front.home.paid-guidance.law-management', [
                     'menus' => $menus,
                     'paidPackages' => $paidPackages,
                     'package' => $packages
@@ -220,6 +272,9 @@ class PagesController extends Controller
                     'menus' => $menus,
                     'paidPackages' => $paidPackages
                 ]);
+
+            // All Paid Guidance End
+
             case 'blog-all-posts':
                 $menus = $this->menuHelper->getMenu();
                 $categories = Category::where('type', '4')->get();
@@ -356,7 +411,6 @@ class PagesController extends Controller
             ]);
         }
     }
-
     public function becomPartner(Request $request)
     {
         $validated = $request->validate([
@@ -394,7 +448,6 @@ class PagesController extends Controller
             return response()->json(['success' => false, 'error' => $e->getMessage()]);
         }
     }
-
     public function getPosts(Request $request)
     {
         $category_id = $request->get('category_id');
@@ -404,7 +457,6 @@ class PagesController extends Controller
             'blogs' => $posts,
         ]);
     }
-
     public function getNotice(Request $request)
     {
         $state_id = $request->get('state_id');
@@ -413,7 +465,6 @@ class PagesController extends Controller
             'notice' => $notice,
         ]);
     }
-
     public function showCollege($state, $course, $slug)
     {
         $page = Page::where('slug', $slug)->first();
@@ -440,8 +491,6 @@ class PagesController extends Controller
         }
         abort(404, 'Page not found');
     }
-
-
     public function getLink(Request $request)
     {
         $states = State::all();
@@ -460,7 +509,6 @@ class PagesController extends Controller
 
         return view('front.home.link-list', compact('links', 'states'));
     }
-
     public function store(Request $request)
     {
         // Create a Razorpay API instance
@@ -479,12 +527,10 @@ class PagesController extends Controller
             return redirect()->route('failure.page');  // Redirect to failure page
         }
     }
-
     public function sendMailPage(){
         $menus = $this->menuHelper->getMenu();
        return view('front.email',compact('menus'));
     } 
-
     public function metting() {
         return redirect('https://meetpro.club/bodmas?isCpBranding=false');
     }
@@ -502,9 +548,7 @@ class PagesController extends Controller
 
         return response()->json($states);
     }
-
     public function LeadForm(){
-        // echo "Hello";
         return view('front.home.lead');
     }
 }

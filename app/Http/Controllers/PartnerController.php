@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Partner;
 use App\Models\User;
+use App\Models\User\assignedLeads;
 use Illuminate\Support\Facades\Auth;
 // Use App\Notifications\LeadAssignedSmsNotification;
 use App\Notifications\LeadAssignedNotification;
@@ -193,11 +194,71 @@ class PartnerController extends Controller
         return redirect()->back()->with('success', 'Lead assigned and notifications sent.');
     }
 
-    public function assignedLead(){
-    // $userId = Auth::user()->id;
-    $userId = Auth::id(); 
-    $partners = Partner::where('assigned_user_id', $userId)->get();
-    $users = User::all(); // Fetch all users for assigning/reassigning leads
-        return view('admin.leads.assignedLeads',compact('partners','users'));
+    // public function assignedLead(){
+    // $userId = Auth::id(); 
+    // $partners = Partner::where('assigned_user_id', $userId)->orderBy('id', 'desc')->get();
+    // $users = User::all();
+    //     return view('admin.leads.assignedLeads',compact('partners','users'));
+    // }
+    public function assignedLead() {
+        $user = auth()->user();
+        $assignedLeads = $user->assignedLeads()->count();
+        $respondedLeads = $user->respondedLeads()->count();
+        $userId = Auth::id(); 
+        
+        // Fetch leads assigned to the logged-in user
+        $partners = Partner::where('assigned_user_id', $userId)->orderBy('id', 'desc')->get();
+        $users = User::all(); // Fetch all users for assigning/reassigning leads
+    
+        // Count the status from notes where status is 'Responded'
+        $interestedLeads = Partner::where('assigned_user_id', $userId)
+            ->where('status', 'Responded')
+            ->where('notes', 'LIKE', '%Interested%')
+            ->count();
+    
+        $notInterestedLeads = Partner::where('assigned_user_id', $userId)
+            ->where('status', 'Responded')
+            ->where('notes', 'LIKE', '%Not Interested%')
+            ->count();
+    
+        $followUpLeads = Partner::where('assigned_user_id', $userId)
+            ->where('status', 'Responded')
+            ->where('notes', 'LIKE', '%Follow-up Required%')
+            ->count();
+
+        $convertedLeads = Partner::where('assigned_user_id', $userId)
+        ->where('status', 'Responded')
+        ->where('notes', 'LIKE', '%Converted%')
+        ->count();
+    
+        return view('admin.leads.assignedLeads', compact(
+            'partners', 'users', 'assignedLeads', 'respondedLeads', 
+            'interestedLeads', 'notInterestedLeads', 'followUpLeads','convertedLeads'
+        ));
     }
+    
+    
+    public function updateNotes(Request $request, $id)
+    {
+        $request->validate([
+            'notes' => 'nullable|in:Interested,Not Interested,Follow-up Required,Converted,Invalid Lead',
+        ]);
+    
+        $lead = Partner::findOrFail($id);
+        $lead->notes = $request->notes;
+        $lead->save();
+    
+        return redirect()->back()->with('success', 'Note updated successfully.');
+    }
+    
+
+    public function respondLead($id)
+    {
+        $lead = Partner::findOrFail($id);
+        $lead->status = 'responded';
+        $lead->save();
+
+        return redirect()->back()->with('success', 'Lead marked as responded.');
+    }
+
 }
