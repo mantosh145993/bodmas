@@ -11,112 +11,75 @@ Event Area
                 <div class="course-single">
                     <div class="course-single-top">
                         <div class="course-img">
-                        <img src="{{asset('assets/img/MD-MS.png')}}" alt="MD/MS">
+                            <img src="{{asset('assets/img/mds.png')}}" alt="law">
                             <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                             <span class="tag bg-theme">BEST SELLER</span> -->
                         </div>
                         <div class="course-meta style2">
                             <!-- <span><i class="fal fa-file"></i>Lesson 8</span> -->
-                            <span><i class="fal fa-user"></i>Students 1600+</span>
+                            <span><i class="fal fa-user"></i>Students 600+</span>
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
-                        <h2 class="course-title">Helping Students in making their career.</h2>
-                        <h3 class="course-title"> Advance Your Medical Career with MD/MS Admission Counseling & Guidance Services for 2025-26</h3>
-                        <p>As an aspiring postgraduate medical professional, choosing the right path for your MD, MS, or admission is a critical step in your medical career. The admission process can be complex, competitive, and time-sensitive, and even the smallest mistake can result in lost opportunities. That's why our <b>MD/MS Admission Counseling & Guidance Services</b> are tailored to ensure that you not only navigate this process efficiently but also secure the best possible seat in the right program.</p>
+                        <h2 class="course-title">Advance Your Medical Career with MDS Counseling & Guidance Services (2025-26)</h2>
+                        <h3 class="course-title"> What We Offer:</h3>
+                        <p>Choosing the right path for your MDS (Master of Dental Surgery) admission is a pivotal step in your dental career. The admission process can be complex and competitive, and even the smallest mistake can cost you valuable opportunities. Our MDS Admission Counseling & Guidance Services are designed to help you navigate this process seamlessly, ensuring you secure the best possible seat in your desired program.</p>
                         <a href="{{route('video-meeting-counselling')}}"> <img class="mb-3" src="{{ asset('assets/img/2.png') }}" alt="#"></a>
-                        <strong>Why Our Paid Counseling Services Are Essential for You</strong>
-                        <p>The MD/MS admission process involves multiple stages, and even minor oversights can significantly impact your chances of success. Here’s how our services can make a world of difference:</p>
+                        <strong>How to Apply:</strong>
                         <ul>
-                            <li>
-                                <p> <b>Expert Advice & Quick Information:</b> Time is crucial during counseling, and making the wrong decision—like incorrect choice filling or missing deadlines—can result in financial penalties or disqualification from future rounds. Our experienced team ensures that you get the most accurate, up-to-date information, helping you make the best decisions.</p>
-                            </li>
-                            <li><b>Avoid Missed Opportunities: </b> Even students with stellar academic records sometimes miss out on the best opportunities because they don’t have access to the right guidance. We’re here to ensure that doesn’t happen to you, with tailored strategies that maximize your chances of securing your desired specialization and institution.</li>
+                            <li><strong>Online Application: </strong> Apply via the link provided by our counselor or directly on our website.</li>
+                            <li><strong>Mobile App:</strong> Use the "Bodmas Education" app to submit your application.</li>
+                            <li><strong>Walk-In:</strong> Visit our Noida office to complete the application form in person.</li>
+                            <li><strong>Google Form:</strong> Fill out the Google form to apply for our DM/MCh counseling services.</li>
+                            <li><strong>Email Submission:</strong> Email your required documents and the signed service booking form to our team.</li>
                         </ul>
+                        <strong>After You Apply:</strong>
+                        <p>Once your payment is processed, we’ll send you a receipt. You can then relax while we handle all the counseling procedures for you.</p>
+                        <strong>Tailored Packages for Your Needs:</strong>
+                        <p>We offer a variety of packages designed to meet your specific needs and budget. Choose the one that best suits your goals. Our team is available to assist you if you encounter any issues during the application process.</p>
+                        <strong>Let Us Help You Achieve Your Career Goals:</strong>
+                        <p>With our guidance, you can confidently pursue your DM/MCh admission while we manage the complexities. Focus on your future as a medical specialist, and leave the rest to us.
+                        Book your DM/MCh counselling services today and take the first step toward a successful career in advanced medical specialization!
+                        </p>
                         <a href="{{ route('enquiry-form') }}" target="_blank">
                             <img src="{{ asset('assets/img/bg/a1.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
                         </a>
-                        <strong>Stay Informed with Real-Time Updates</strong>
-                        <p>We understand that MD/MS admission is a highly dynamic process, with frequent updates and changing schedules. With our services, you’ll receive:</p>
-                        <ul>
-                            <li>NEET-PG, NBE, NMC, MCC & State Counseling Updates</li>
-                            <li>Important Dates and Deadlines</li>
-                            <li>Key Instructions and Alerts</li>
-                        </ul>
-                        <p>Think of us as your personalized <b> admissions calendar and planner—we </b>will keep you updated with essential reminders and track your progress to ensure you meet every requirement and deadline without fail.</p>
-                        <strong>Overcome Documentation & Technical Challenges</strong>
-                        <p>Sometimes, technical issues like form submission errors, payment failures, or eligibility confusion can delay your process. We’re here to take care of those hurdles:</p>
-                        <ul>
-                            <li>
-                                <p><b>Technical Troubleshooting:</b> If you face any issues during the registration process—whether it’s uploading documents or paying security fees—we’ll guide you through every step to resolve them.</p>
-                            </li>
-                            <li>
-                                <p><b>Eligibility Clarification:</b> Whether you’re from a reserved category or have state-specific advantages, we will help you understand your eligibility and leverage those benefits to your advantage.</p>
-                            </li>
-                            <li><b>Strategic Planning for Multiple States:</b> Applying to multiple states and colleges? We will work with you to create a strategy that ensures you apply to the right colleges and remain eligible for the best opportunities.</li>
-                        </ul>
-                         <!-- //////////// -->
-                     <div class="widget widget_categories style2">
-                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
-                            </h3>
-                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
-                                @csrf
-                                <input type="hidden" id="typeEnquiry" name="type" value="2">
-                                <div class="mb-3">
-                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
-                                </div>
-                                <div class="mb-3">
-                                    <select name="subject" id="subject" class="form-select" required>
-                                        <option value="" disabled selected hidden>Select Course*</option>
-                                        <option value="mbbs">MBBS</option>
-                                        <option value="bds">BDS</option>
-                                        <option value="bums">BUMS</option>
-                                        <option value="bhms">BHMS</option>
-                                        <option value="btech">B.Tech</option>
-                                        <option value="mba">MBA</option>
-                                        <option value="law">LAW</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Submit</button>
-                            </form>
-                        </div>
-                        <div class="course-img" id="section1">
-                        <img src="{{asset('assets/img/bg/MD1.png')}}" alt="MD1 Guidance">
                     </div>
-                        <strong>How to Book Our Services</strong>
-                        <p>We prioritize <b>quality over quantity </b>to maintain our reputation for excellence. Therefore, we limit the number of bookings we accept, ensuring that each student receives our full attention and support. Here’s how you can book your counseling services:</p>
-                        1. Apply via the link shared by our counsellor or directly on our website.</br>
-                        2. Use our Mobile App "Bodmas Education" to apply.</br>
-                        3. Visit our Noida office and fill out the application form in person.</br>
-                        4. Fill out the Google form to apply for our services.</br>
-                        5. Email the required documents along with the signed service booking form as provided by our counsellor.</br>
-                        <p>Once your payment is processed, we will send you a receipt, and from there on, you can relax while we handle the counselling process for you!</p>
-                        <strong>Tailored Packages to Suit Every Need</strong>
-                        <p>Our services are available in <b> multiple packages </b> to fit your specific requirements and budget. Each package is designed to provide maximum value and the highest level of support for your MD, MS, or admission journey. Review our options and choose the one that best suits your needs.
-                            <i>Note: If you face any difficulty in booking our services, feel free to contact our team for assistance.</i>
-                        </p>
-                        <strong>Let Us Help You Achieve Your Medical Career Goals</strong>
-                        <p>With our guidance, you can take the next step toward your specialization with confidence. Let us handle the complexities while you focus on your future as a medical professional.</p>
-                        <b>Book your MD/MS counseling services today and take the first step toward a successful career in medicine!</b>
-                        <strong>You can apply to our services in following manners:</strong>
-                        <p>1: Apply for our services via the link provided by our counselor or directly on our website.</br>
-                            2: You can apply on our Mobile app “ Bodmas Education “</br>
-                            3: You can directly walk in to our Noida office and fill application form</br>
-                            4: Fill out the Google form to apply for our paid counselling services.</br>
-                            5: Email all required documents as per the details provided by our counselor, along with the duly filled and signed service booking form.</br>
-                            A payment receipt will be shared with you after payment.
-                            Once you have received your payment receipt, sit back and relax. We will take care of all the counselling procedures on your behalf.
-                            Note: If you are not able to book our services through the above-mentioned methods,
-                            You can speak with our team for assistance.
-                            We have categorised our services into different packages to offer you the best services at the most reasonable cost. Please review each package and select the one that best suits your needs.</p>
+                    <!-- //////////// -->
+                    <div class="widget widget_categories style2">
+                        <h3 class="widget_title text-center">Talk to Our Expert Counsellor
+                        </h3>
+                        <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
+                            @csrf
+                            <input type="hidden" id="typeEnquiry" name="type" value="2">
+                            <div class="mb-3">
+                                <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
+                            </div>
+                            <div class="mb-3">
+                                <select name="subject" id="subject" class="form-select" required>
+                                    <option value="" disabled selected hidden>Select Course*</option>
+                                    <option value="mbbs">MBBS</option>
+                                    <option value="bds">BDS</option>
+                                    <option value="bums">BUMS</option>
+                                    <option value="bhms">BHMS</option>
+                                    <option value="btech">B.Tech</option>
+                                    <option value="mba">MBA</option>
+                                    <option value="law">LAW</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        </form>
+                    </div>
+                    <div class="course-img" id="section1">
+                        <img src="{{asset('assets/img/bg/MDS.png')}}" alt="MDS Guidance">
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -217,14 +180,14 @@ Event Area
                                         <p style="color: red;">10% off on all services for Army/ Police/ siblings / single parent.</p>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-sm-4 package">
+                                        <!-- <div class="col-sm-4 package">
                                             <h5>First installment </h5>
                                             <p>{{$package->first_installment}} INR + GST </p><br><a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'premium-1']) }}" class="btn btn-primary">Book Now</a>
                                         </div>
                                         <div class="col-sm-4 package">
                                             <h5>Second Installment</h5>
                                             <p>{{$package->second_installment}} INR + GST </p><br><a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']), 'installment' => 'premium-2']) }}" class="btn btn-primary">Book Now</a>
-                                        </div>
+                                        </div> -->
                                         <div class="col-sm-4 package">
                                             <h5>Final Booking</h5>
                                             <p>{{$package->premium_fee}} INR + GST </p><br>
@@ -236,7 +199,7 @@ Event Area
                             </div>
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
                                 <div class="course-curriculam">
-                                    <h6>Bodmas NRI / MGT Quota MD/MS guidance Fee</h6>
+                                    <h6>Bodmas NRI / MGT Quota MDS guidance Fee</h6>
                                     <p>Our Services offer top notch planning, documentation support, and technical assistance for NRI/ sponsored candidates. We help getting Top Colleges Others/ IQ seats of Karnataka and Maharashtra</p>
                                     <p> <del style="color: red;"> 2,00000 INR + GST </del> &nbsp; 1,50,000 INR + GST (@18%)</p>
                                     <strong>Services Included are:</strong> <br><br>
@@ -289,7 +252,7 @@ Event Area
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div> -->
-                        <span class="h4 course-price">₹50000.00 <span class="tag"></span></span>
+                        <span class="h4 course-price">{{$package->basic_fee}} <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
                         <div class="info-list">
@@ -300,9 +263,9 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
-  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
+                            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
-                        <a href="#" class="th-btn style6 mt-35 mb-0"><i></i></a>
+                        <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
                 </aside>
             </div>
@@ -313,10 +276,10 @@ Event Area
 <section>
     <div class="container">
         <div class="row">
-        <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
+            <p style="color: red;"><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
-            <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
+            <p>We offer personalized counseling for medical admissions, including Engineering, MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
             <h5>Our Branches and Reach</h5>
             <p>We are proud to extend our services nationwide with key operations in Gorakhpur, Hisar, and Noida. Through our online presence, students from across India can access our expertise.</p>
             <h5>Why Choose Us?</h5>
@@ -349,7 +312,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
-             <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
+            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
         </div>
     </div>
 </section>
@@ -357,61 +320,94 @@ Event Area
 Servce Area  
 ==============================-->
 <br><br>
-<section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
-    <div class="container">
-        <div class="mb-35 text-center text-md-start">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-8">
-                    <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
-                        <h2 class="sec-title">Our Popular Paid Guidance</h2>
-                    </div>
-                </div>
-                <div class="col-md-auto">
-                    <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="row slider-shadow th-carousel course-slider-1"
-            data-slide-show="4"
-            data-ml-slide-show="3"
-            data-lg-slide-show="3"
-            data-md-slide-show="2"
-            data-sm-slide-show="1"
-            data-arrows="true">
-            <!-- Dynamic Content -->
-            @foreach($paidPackages as $package)
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <a href="{{ url($package['url']) }}">
-                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">
-                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
-                        </h3>
-                        <p>{{ $package['description'] }}</p>
-                        <div class="course-price">
-                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
-                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
-                            <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
-                        </div>
-                        <!-- Book Now Button -->
-                        <div class="text-left">
-                            <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+<section class=" space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
+                <div class="container">
+                    <div class="mb-35 text-center text-md-start">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-md-8">
+                                <div class="title-area mb-md-0">
+                                    <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
+                                    <h2 class="sec-title">Our Popular Paid Guidance</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-auto">
+                                <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
+                    <div class="row slider-shadow th-carousel course-slider-1"
+                        data-slide-show="4"
+                        data-ml-slide-show="3"
+                        data-lg-slide-show="3"
+                        data-md-slide-show="2"
+                        data-sm-slide-show="1"
+                        data-arrows="true">
+                        <!-- Dynamic Content -->
+                        @foreach($paidPackages as $package)
+                        <div class="col-md-6 col-lg-4">
+                            <div class="course-box">
+                                <div class="course-img">
+                                    <a href="{{ url($package['url']) }}">
+                                        <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
+                                    </a>
+                                </div>
+                                <div class="course-content">
+                                    <h3 class="course-title">
+                                        <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                                    </h3>
+                                    <p>{{ $package['description'] }}</p>
+                                    <div class="course-price">
+                                        <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
+                                        <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                                        <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
+                                    </div>
+                                    <!-- Book Now Button -->
+                                    <div class="text-left">
+                                        <a href="{{ url($package['url']) }}" class="btn btn-primary">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
 </section>
 <!--==============================
 Footer Area
 ==============================-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Enquiry Form 
+
+    $('#enquiryForm').on('submit', function(e) {
+        e.preventDefault();
+        let formData = {
+            name: $('#nameEnquiry').val(),
+            email: $('#emailEnquiry').val(),
+            number: $('#numberEnquiry').val(),
+            subject: $('#subject').val(),
+            message: $('#messageEnquiry').val(),
+            type: $('#typeEnquiry').val(),
+            _token: $('input[name="_token"]').val(), // CSRF token
+        };
+        $.ajax({
+            url: "{{ route('enquiry.contact') }}", // Adjust the route name if needed
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                if (response.success) {
+                    alert('Enquiry submitted successfully!');
+                    $('#enquiryForm')[0].reset(); // Reset the form
+                } else {
+                    alert('Failed to submit enquiry: ' + response.error);
+                }
+            },
+            error: function(xhr) {
+                alert('An error occurred: ' + xhr.responseText);
+            }
+        });
+    });
+</script>
 @stop
 
 <style>

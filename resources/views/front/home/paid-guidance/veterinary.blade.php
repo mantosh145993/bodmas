@@ -86,10 +86,10 @@ Event Area
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
-                        <div class="th-video">
+                        <!-- <div class="th-video">
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
+                        </div> -->
                         <span class="h4 course-price">₹40000.00 <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
@@ -101,7 +101,7 @@ Event Area
                                     <span>Ashok Singh</span>
                                 </li>
                             </ul>
-  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#> </a>
+  <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/10.jpg') }}" alt="#"> </a>
                         </div>
                         <a href="#" class="th-btn style6 mt-35 mb-0"><i class=""></i></a>
                     </div>
