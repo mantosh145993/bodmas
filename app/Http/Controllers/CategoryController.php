@@ -135,7 +135,7 @@ class CategoryController extends Controller
     {
         $categories = [];
         $categories = Category::where('type', '1')
-        ->where('state_id',$request->state)
+        // ->where('state_id',$request->state)
         ->whereNull('parent_id')
         ->get();
         // dd($request->all());

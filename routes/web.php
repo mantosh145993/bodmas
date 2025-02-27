@@ -30,10 +30,18 @@ use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\YouTubeController;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\App;
+
+
+// Language 
+
 
 // Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
 // Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
 // Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
+
 Route::get('/sitemap.xml', function () {
     return response()->file(storage_path('app/public/sitemap.xml'), ['Content-Type' => 'application/xml']);
 });

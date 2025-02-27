@@ -12,10 +12,16 @@ class UploadCutofController extends Controller
 {
     public function index()
     {
-        $medicals = Medical::orderBy('college_id', 'desc')->paginate(100);
+        $medicals = []; // Initialize empty array
+
+        Medical::orderBy('college_id', 'desc')->chunk(1000, function ($chunkedMedicals) use (&$medicals) {
+            foreach ($chunkedMedicals as $medical) {
+                $medicals[] = $medical; // Collect data
+            }
+        });
+
         return view('admin.cutoff', compact('medicals'));
     }
-
 
     // public function upload(Request $request){
     //     Excel::import(new CutoffImport, $request->file('file'));

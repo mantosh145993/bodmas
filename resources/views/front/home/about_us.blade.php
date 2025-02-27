@@ -308,8 +308,8 @@ Cta Area
                         <img src="assets/img/normal/cta-icon1.png" alt="icon">
                     </div>
                     <div class="cta-content">
-                        <h2 class="cta-title sec-title">Get Online Consultant</h2>
-                        <p class="cta-text">Met our best Consultant</p>
+                        <h2 class="cta-title sec-title">Get Online Consultation</h2>
+                        <p class="cta-text">Meet our best Consultant</p>
                     </div>
                     <a href="{{route('about')}}" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-1"></i></a>
                 </div>

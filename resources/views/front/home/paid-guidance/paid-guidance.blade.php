@@ -20,6 +20,9 @@ Event Area
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
                         <h2 class="course-title">Helping Students in making their career.</h2>
+                        <div class="container mt-5">
+                        <a href="{{url('video-meeting-counselling')}}"> <img src="{{asset('assets/img/MBBS AIQ.gif')}}" alt="MBBS AIQ"> </a>
+                        </div>
                         <h3 class="course-title"> Unlock Your Future with Expert MBBS Admission Counselling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>Choosing the right career path is one of the most important decisions you’ll ever make. If you're aiming for an MBBS degree, the admission process can be complex and overwhelming. That’s where we come in. Our <strong> MBBS Admission Counselling & Guidance Services </strong> are designed to streamline your journey, ensuring you make informed decisions and secure a place at your dream college. Let us help you unlock the doors to a successful medical career!</p>
@@ -57,7 +60,9 @@ Event Area
                             <li> <strong> Eligibility Clarifications: </strong> If you belong to a particular category or have domicile-specific benefits, we’ll help you leverage these advantages during the admission process.</li>
                             <li> <strong> State-Specific Counselling Management: </strong>We’ll create a tailored strategy for you, ensuring you can apply to multiple states without compromising your chances of securing the best seat.</li>
                         </ul>
-
+                        <a href="{{ route('enquiry-form') }}" target="_blank">
+                            <img src="{{ asset('assets/img/admission-call.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
                         <!-- //////////// -->
                         <div class="widget widget_categories style2">
                             <h3 class="widget_title text-center">Talk to Our Expert Counsellor
@@ -104,6 +109,10 @@ Event Area
                         <!-- <img src="{{ asset('assets/img/2.png') }}" alt="#"> -->
 
                         <p>Once you’ve made the payment, we’ll send you a receipt. Our expert team will handle the entire counselling process for you. </p>
+
+                        <a href="https://www.youtube.com/@BodmasMedical" target="_blank">
+                            <img src="{{ asset('assets/img/every-saturday.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+                        </a>
                         <strong>Flexible Packages to Suit Your Needs</strong>
                         <p>We’ve designed our counselling services into varied packages to ensure the best value for your needs. Our services are reasonably priced and tailored to offer the highest level of support. We highly encourage you to review the packages and select the one that works best for you.
                             <i> Note: If you’re unable to book through the methods above, feel free to reach out to our team for assistance. We’re here to help!</i>
@@ -112,6 +121,9 @@ Event Area
                         <p>With the right guidance, securing an MBBS seat can be a smooth and successful journey. Let us take care of the complexities while you focus on your goal—becoming a doctor.</p>
                         <strong>Book our counselling services today and take the first step towards a brighter future in medicine!</strong>
                     </div>
+                    <div class="container mt-5">
+                        <a href="{{url('predictor')}}"> <img src="{{asset('assets/img/cutoff.gif')}}" alt="cutoff"> </a>
+                        </div>
                     <div class="course-img" id="section1">
                         <img src="{{asset('assets/img/mbbsQr.png')}}" alt="MBBS Guidance">
                     </div>
@@ -343,7 +355,13 @@ Event Area
 
         <div class="row">
             <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
+            <div class="container mb-3">
+                        <a href="{{url('predictor')}}"> <img src="{{asset('assets/img/cutoff.gif')}}" alt="cutoff"> </a>
+                        </div>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
+            <a href="{{route('enquiry-form')}}" target="_blank">
+                <img src="{{ asset('assets/img/book-seat.gif') }}" alt="GIF Preview" width="100%" class=" mb-1">
+            </a>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
             <h5>Our Branches and Reach</h5>
@@ -378,7 +396,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
-            <a href="{{route('contact')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#"> </a>
+            <a href="{{route('enquiry-form')}}"> <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#"> </a>
         </div>
     </div>
 </section>

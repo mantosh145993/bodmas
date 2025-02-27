@@ -218,6 +218,9 @@ Event Area
     <div class="container">
         <div class="row">
         <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
+        <div class="container mb-3">
+                        <a href="{{url('predictor')}}"> <img src="{{asset('assets/img/cutoff.gif')}}" alt="cutoff"> </a>
+                        </div>
             <h5>How to Book Our Paid Counselling Services for Nursing & Pharmacy Admissions</h5>
             <p>At Bodmas Education, we are committed to delivering top-quality services with a 100% success ratio. To maintain this standard, we accept a limited number of bookings on a first-come, first-served basis. We prioritize students whose requirements align with our expertise to ensure that we meet their expectations with complete satisfaction.</p>
             <h5>Ways to Apply for Our Counselling Services</h5>
@@ -264,7 +267,7 @@ Event Area
                 </ul>
                 <img src="{{asset('assets/img/icici.jpg')}}" alt="ICICI Guidance" style="width: 400px; height:200px;">
             </div>
-            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#> </a>
+            <a href="{{route('contact')}}" > <img class="mt-5 mb-5" src="{{ asset('assets/img/3.png') }}" alt="#"> </a>
         </div>
     </div>
 </section>

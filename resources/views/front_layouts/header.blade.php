@@ -259,4 +259,10 @@
     box-shadow: 0 0 15px rgba(255, 111, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
 }
+.goog-te-banner-frame {
+        display: none !important;
+    }
+    body {
+        top: 0px !important;
+    }
 </style>

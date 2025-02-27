@@ -21,6 +21,9 @@ Event Area
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
                         <h2 class="course-title">Helping Students in making their career.</h2>
+                        <div class="container mt-5">
+                        <a href="{{url('video-meeting-counselling')}}"> <img src="{{asset('assets/img/BAMS.gif')}}" alt="BMS"> </a>
+                        </div>
                         <h3 class="course-title"> AYUSH Admission Counseling & Guidance Services for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>The counselling process requires fast and accurate information with experience that can make a huge difference. Choosing the number of open states for counselling is an important step, as it is common for counselling dates to overlap. Doing the correct choice filling is crucial, as a wrong selection may result in losing security money, which can amount to up to Rs 2 lakh, or in disqualification from future rounds. Moreover, many students with excellent grades often miss out on admissions due to insufficient information. Therefore, our services are tailored to offer you the best possible opportunities.</p>
@@ -32,40 +35,12 @@ Event Area
                         </a>
                         <strong>Documentation and Technical Assistance :</strong>
                         <p>At times, the registration form for counseling may present technical difficulties, such as issues with uploading images, paying security fees, or meeting eligibility criteria. We can assist you in resolving such issues, and we will also explain the eligibility criteria, such as the benefits of belonging to a particular category or domicile. Together with you, we will create a systematic plan to manage counseling for multiple states while ensuring that you remain eligible for the best opportunities to secure admission to your desired college. As each student has unique priorities, individual planning and preparation are necessary.</p>
-
+                        <div class="container mt-5">
+                        <a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/BHMS.gif')}}" alt="BHMS"> </a>
+                        </div>
                           <!-- //////////// -->
                      <div class="widget widget_categories style2">
-                            <h3 class="widget_title text-center">Talk to Our Expert Counsellor
-                            </h3>
-                            <form id="enquiryForm" method="POST" class="p-3 shadow rounded bg-white">
-                                @csrf
-                                <input type="hidden" id="typeEnquiry" name="type" value="2">
-                                <div class="mb-3">
-                                    <input type="text" id="nameEnquiry" name="name" class="form-control" placeholder="Name" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" id="emailEnquiry" name="email" class="form-control" placeholder="Email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="tel" id="numberEnquiry" name="number" class="form-control" placeholder="Number" required pattern="[0-9]{10}">
-                                </div>
-                                <div class="mb-3">
-                                    <select name="subject" id="subject" class="form-select" required>
-                                        <option value="" disabled selected hidden>Select Course*</option>
-                                        <option value="mbbs">MBBS</option>
-                                        <option value="bds">BDS</option>
-                                        <option value="bums">BUMS</option>
-                                        <option value="bhms">BHMS</option>
-                                        <option value="btech">B.Tech</option>
-                                        <option value="mba">MBA</option>
-                                        <option value="law">LAW</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea id="messageEnquiry" name="message" class="form-control" placeholder="Message" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Submit</button>
-                            </form>
+                           
                         </div>
                         <strong>How to Book Services:</strong>
                         <p>To ensure high-quality services and maintain our 100% delivery ratio, we accept a limited number of bookings on a first-come, first-served basis. We are highly selective and only accept bookings that we are confident we can deliver to a 100% satisfaction level.</p>
@@ -81,6 +56,9 @@ Event Area
                             You can speak with our team for assistance.
                             We have categorised our services into different packages to offer you the best services at the most reasonable cost. Please review each package and select the one that best suits your needs.</p>
                     </div>
+                    <div class="container mt-5">
+                        <a href="{{url('predictor')}}"> <img src="{{asset('assets/img/BUMS.gif')}}" alt="BUMS"> </a>
+                        </div>
                     <div class="course-img" id="section1">
                         <img src="{{asset('assets/img/bg/BAMS.png')}}" alt="BAMS Guidance">
                     </div>
@@ -247,10 +225,10 @@ Event Area
             <div class="col-xxl-3 col-lg-4">
                 <aside class="sidebar-area">
                     <div class="widget widget_info">
-                        <div class="th-video">
+                        <!-- <div class="th-video">
                             <img src="assets/img/widget/video_1.jpg" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
+                        </div> -->
                         <span class="h4 course-price">{{$package->base_price}} <span class="tag"></span></span>
                         <a href="{{ route('bodmas.payment', ['id' => \Illuminate\Support\Facades\Crypt::encryptString($package['id']),'installment'=>'basic'] )}}" class="btn btn-primary th-btn">Buy Now</a>
                         <h3 class="widget_title">Package Information</h3>
@@ -276,6 +254,9 @@ Event Area
     <div class="container">
         <div class="row">
         <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
+        <div class="container mb-3">
+                        <a href="{{url('predictor')}}"> <img src="{{asset('assets/img/cutoff.gif')}}" alt="cutoff"> </a>
+                        </div>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>

@@ -1,6 +1,6 @@
 @extends('front_layouts.master')
 @section('content')
-<!-- @include('admin.popup.home') -->
+@include('admin.popup.home')
 <!-- @include('admin.popup.banner') -->
 <!--==============================
 Hero Area
@@ -264,7 +264,9 @@ Hero Area
 <!--==============================
 Notice Area  
 ==============================-->
-
+<div class="container mt-5">
+<a href="{{url('predictor')}}"> <img src="{{asset('assets/img/MBBS AIQ.gif')}}" alt="MBBS AIQ"> </a>
+</div>
 <div class="d-none d-md-block">
     <div class="container">
         <div class="row mt-5">
@@ -304,8 +306,9 @@ Notice Area
         </div>
     </div>
 </div>
-
-
+<div class="container">
+<a href="{{url('predictor')}}"> <img src="{{asset('assets/img/BDS.gif')}}" alt="MBBS AIQ"> </a>
+</div>
 <!-- You Tube Section  -->
 <div class="container mt-5">
     <div class="title-area mb-md-0">
@@ -321,7 +324,7 @@ Notice Area
                     src="https://www.youtube.com/embed/{{ $video->video_id }}"
                     frameborder="0" allowfullscreen>
                 </iframe>
-                <p class="sub-title">{{ $video->description }}</p>
+                <p class="sub-title mt-3">{{ $video->description }}</p>
             </div>
         </div>
         @endforeach
@@ -329,13 +332,11 @@ Notice Area
 </div>
 
 <!-- Mock test  -->
-<section class="container mt-5">
-    <div>
-        <div class="row">
-          <a href="https://mock.bodmas.co.in/"> <img src="{{asset('assets/img/mock2.png')}}" alt="Mock Test Bodmas"></a> 
-        </div>
+<div class="container mt-5">
+    <a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/MBBS.gif')}}" alt="MBBS AIQ"> </a>
     </div>
-</section>
+
+
 
 <!-- End You Tube Section  -->
 <!--==============================
@@ -390,9 +391,42 @@ About Area
         </div>
     </div>
 </div>
+
+
+
+<div class="container mb-5">
+    <a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/admission-call.gif')}}" alt="Call Now"> </a>
+</div>
+
+<!--==============================
+Cta Area  
+==============================-->
+<div class="cta-area-1 container" data-bg-src="assets/img/bg/cta-bg1.png">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-8">
+                <div class="cta-wrap title-area mb-0">
+                    <div class="cta-icon">
+                        <img src="assets/img/normal/cta-icon1.png" alt="icon">
+                    </div>
+                    <div class="cta-content">
+                        <h2 class="cta-title sec-title">Get Online Offline Meeting</h2>
+                        <p class="cta-text">Meet Our Best Mentor </p>
+                    </div>
+                    <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn style8">Book Online Session With Us<i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cta-img-1" data-overlay="title" data-opacity="8">
+        <img src="{{('assets/img/normal/guidance.jpg')}}" alt="Image">
+        <!-- <a href="https://youtu.be/3RpsRA-Lteo" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a> -->
+    </div>
+</div>
 <!--==============================
 Paid Guidance Area  
 ==============================-->
+
 <section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
     <div class="container">
         <div class="mb-35 text-center text-md-start">
@@ -445,31 +479,40 @@ Paid Guidance Area
     </div>
 </section>
 
-<!--==============================
-Cta Area  
-==============================-->
-<div class="cta-area-1" data-bg-src="assets/img/bg/cta-bg1.png">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-lg-8">
-                <div class="cta-wrap title-area mb-0">
-                    <div class="cta-icon">
-                        <img src="assets/img/normal/cta-icon1.png" alt="icon">
-                    </div>
-                    <div class="cta-content">
-                        <h2 class="cta-title sec-title">Get Online Offline Guidence</h2>
-                        <p class="cta-text">Met Our Best Mentor </p>
-                    </div>
-                    <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn style8">Book Online Session With Us<i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
+<!-- Cta Area -->
+<section class="cta-area-2 position-relative space-bottom">
+    <div class="cta-bg-img" data-bg-src="{{('assets/img/bg/student.jpg')}}">
+    </div>
+    <div class="cta-bg-img2" data-bg-src="assets/img/bg/cta-bg2-shape.png">
+    </div>
+
+    <div class="shape-mockup cta-shape1 jump d-md-block d-none" data-left="-2%" data-bottom="-7%">
+        <img src="assets/img/normal/cta_2_shape1.png" alt="img">
+    </div>
+
+    <div class="shape-mockup cta-shape2 jump-reverse d-md-block d-none" data-right="-1%" data-top="-3%">
+        <img src="assets/img/normal/cta_2_shape2.png" alt="img">
+    </div>
+
+    <div class="shape-mockup cta-shape3 spin d-md-block d-none" data-right="20%" data-top="30%">
+        <img src="assets/img/normal/cta_2_shape3.png" alt="img">
+    </div>
+
+    <div class="container text-center">
+        <div class="cta-wrap2">
+            <div class="title-area text-center mb-35">
+                <span class="sub-title"><i class="fal fa-book me-2"></i>Are You Ready For This Offer</span>
+                <h2 class="sec-title text-white">Get 10% discount <span class="text-theme2"> on all Paid Guidance Services</span> </br> at Bodmas Education <span class="fw-normal">until 31st March 2025</span></h2>
+                <p class="cta-text">Get access of our Popular paid guidance services </p>
+            </div>
+            <div class="btn-group justify-content-center">
+                <a href="{{route('enquiry-form')}}" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="{{route('all-paid-guidance')}}" class="th-btn style2">Explore Our Guidance<i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>
-    <div class="cta-img-1" data-overlay="title" data-opacity="8">
-        <img src="{{('assets/img/normal/guidance.jpg')}}" alt="Image">
-        <a href="https://www.youtube.com/@BodmasMedical" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
-    </div>
-</div>
+</section>
+
 <!--==============================
 Why choose us Area  
 ==============================-->
@@ -558,6 +601,7 @@ Why choose us Area
         </div>
     </div>
 </div>
+
 <!-- Counter Area  -->
 <div class="container">
     <div class="counter-area-1 bg-theme" data-bg-src="assets/img/bg/counter-bg_1.png">
@@ -590,39 +634,6 @@ Why choose us Area
     </div>
 </div>
 
-<!-- Cta Area -->
-<section class="cta-area-2 position-relative space-bottom">
-    <div class="cta-bg-img" data-bg-src="{{('assets/img/bg/student.jpg')}}">
-    </div>
-    <div class="cta-bg-img2" data-bg-src="assets/img/bg/cta-bg2-shape.png">
-    </div>
-
-    <div class="shape-mockup cta-shape1 jump d-md-block d-none" data-left="-2%" data-bottom="-7%">
-        <img src="assets/img/normal/cta_2_shape1.png" alt="img">
-    </div>
-
-    <div class="shape-mockup cta-shape2 jump-reverse d-md-block d-none" data-right="-1%" data-top="-3%">
-        <img src="assets/img/normal/cta_2_shape2.png" alt="img">
-    </div>
-
-    <div class="shape-mockup cta-shape3 spin d-md-block d-none" data-right="20%" data-top="30%">
-        <img src="assets/img/normal/cta_2_shape3.png" alt="img">
-    </div>
-
-    <div class="container text-center">
-        <div class="cta-wrap2">
-            <div class="title-area text-center mb-35">
-                <span class="sub-title"><i class="fal fa-book me-2"></i>Are You Ready For This Offer</span>
-                <h2 class="sec-title text-white">Get 10% discount <span class="text-theme2"> on all Paid Guidance Services</span> at Bodmas Education, <br> <span class="fw-normal">until 31st March 2025</span></h2>
-                <p class="cta-text">Get access of our Popular paid guidance services </p>
-            </div>
-            <div class="btn-group justify-content-center">
-                <a href="{{route('contact')}}" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                <a href="{{route('all-paid-guidance')}}" class="th-btn style2">Explore Our Guidance<i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- blog section  -->
 <section class="overflow-hidden space" id="blog-sec" style="height: 680px;">
@@ -734,7 +745,7 @@ Team Area
                         </div>
                     </div>
                 </div>
-                <div class="team-card team-card-1-1">
+                <!-- <div class="team-card team-card-1-1">
                     <div class="team-img-wrap">
                         <div class="team-img">
                             <img src="{{asset('assets/img/team/nitu.jpg')}}" alt="Team">
@@ -757,7 +768,7 @@ Team Area
                             <span class="team-desig">Director</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="team-card team-card-1-2 mt-md-0">
@@ -889,7 +900,9 @@ Team Area
         </div>
     </div>
 </section> -->
-
+<div class="container">
+<a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/book-seat.gif')}}" alt="MBBS AIQ"> </a>
+</div>
 <!--==============================
 Event Area  
 ==============================-->
@@ -1120,5 +1133,19 @@ Event Area
         font-size: 14px;
         color: #666;
     }
+    @media (max-width: 768px) { 
+    .row.mock-img img {
+        width: 80%;  /* Reduce image width on tablets and smaller screens */
+        max-width: 300px; /* Set a max width */
+    }
+}
+
+@media (max-width: 480px) { 
+    .row.mock-img img {
+        width: 100%;
+        height: 260%; 
+    }
+}
+
 </style>
 @stop

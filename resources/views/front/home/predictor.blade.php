@@ -36,6 +36,7 @@ Contact Area
                     <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                         <span class="sub-title">NEET Predictor !</span>
                         <h2 class="border-title">NEET College Predictor </h2>
+                        <p>Want to know list of colleges according to your expected NEET score in 2025 ?</p>
                         <p class="mt-n1 mb-30 sec-text">Built using the latest data from official government websites, this predictor is free, reliable and easy to use.</p>
                         @if ($errors->any())
                         <div class="alert alert-danger">

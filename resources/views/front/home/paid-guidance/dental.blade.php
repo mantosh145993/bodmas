@@ -21,6 +21,9 @@ Event Area
                             <span><i class="fal fa-chart-simple"></i>Premium</span>
                         </div>
                         <h2 class="course-title">Helping Students in making their career.</h2>
+                        <div class="container mb-3">
+                        <a href="{{url('video-meeting-counselling')}}"> <img src="{{asset('assets/img/BDS.gif')}}" alt="BDS"> </a>
+                        </div>
                         <h3 class="course-title"> Dental Admission Counseling & Guidance for 2025-26</h3>
                         <strong>What Is the Need of Our Paid Counselling Services?</strong>
                         <p>The counselling process requires fast and accurate information with experience that can make a huge difference. Choosing the number of open states for counselling is an important step, as it is common for counselling dates to overlap. Doing the correct choice filling is crucial, as a wrong selection may result in losing security money, which can amount to up to Rs 2 lakh, or in disqualification from future rounds. Moreover, many students with excellent grades often miss out on admissions due to insufficient information. Therefore, our services are tailored to offer you the best possible opportunities.</p>
@@ -294,6 +297,9 @@ Event Area
     <div class="container">
         <div class="row">
         <p style="color: red;" ><strong>If you face any issues with the payment or other issue, please fill out the form. <a href="{{route('enquiry-form')}}">Click Now</strong></a></p>
+        <div class="container mb-3">
+                        <a href="{{url('predictor')}}"> <img src="{{asset('assets/img/cutoff.gif')}}" alt="cutoff"> </a>
+                        </div>
             <p>At Bodmas Education Services, your dreams are our mission. Founded with the goal of empowering students and professionals to achieve academic and career success, we specialize in providing expert educational consultancy services. With over 20 employees and multiple branches across India, including Gorakhpur and Hisar, we are committed to guiding students through every step of their educational journey.</p>
             <h5>What We Do</h5>
             <p>We offer personalized counseling for medical admissions, including MBBS, NBE Diploma, and other healthcare programs, ensuring that students make informed decisions. Additionally, our platform provides accurate, up-to-date information on cutoffs, rankings, and college admissions through detailed content on YouTube and regular updates on Telegram, Instagram, and WhatsApp.</p>
