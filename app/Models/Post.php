@@ -9,7 +9,8 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
-
+    const STATUS_DRAFT = 'draft';
+    const STATUS_PUBLISHED = 'published';
     // Define the fillable fields
     protected $fillable = [
         'title',
@@ -28,7 +29,9 @@ class Post extends Model
         'feature_image',
         'feature_description',
         'author',
-        'author_description'
+        'author_description',
+        'status',
+        'views'
     ];
 
     // Define relationships
@@ -37,8 +40,20 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function category()
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
+    // Scope for draft posts
+    public function scopeDraft($query)
+    {
+        return $query->where('status', self::STATUS_DRAFT);
+    }
+
+    // Scope for published posts
+    public function scopePublished($query)
+    {
+        return $query->where('status', self::STATUS_PUBLISHED);
+    }
+    
+    public function incrementViews()
+    {
+        $this->increment('views');
+    }
 }

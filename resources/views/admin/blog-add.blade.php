@@ -9,7 +9,7 @@
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
                 <!-- end topbar -->
                 <!-- dashboard inner -->
                 <div class="midde_cont">
@@ -46,10 +46,12 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="feature_image">Feature Image</label>
                                                         <input type="file" name="feature_image" id="feature_image" class="form-control" accept="image/*">
-                                                    </div>  
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="feature_description" class="form-label fw-bold">Feature Description</label>
                                                         <textarea
@@ -65,22 +67,43 @@
                                                         <label for="title">Title</label>
                                                         <input type="text" name="title" id="title" class="form-control" required>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="title">Meta Title</label>
                                                         <input type="text" name="meta_title" id="" class="form-control" required>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="title">Meta Description</label>
                                                         <input type="text" name="meta_description" id="" class="form-control" required>
                                                     </div>
+
                                                     <div class="form-group mb-3">
                                                         <label for="title">Meta Keywords</label>
                                                         <input type="text" name="meta_keywords" id="" class="form-control" required>
                                                     </div>
 
-                                                    <div class="form-group mb-3">
-                                                        <label for="title">Tags</label>
-                                                        <input type="text" name="tags" id="title" class="form-control" required>
+                                                    <div class="form-group">
+                                                        <label for="tags">Tags</label>
+                                                        <div class="row">
+                                                            <!-- Input Field for Tags -->
+                                                            <div class="col-md-8">
+                                                                <input type="text" name="tags" id="tags" class="form-control">
+                                                            </div>
+
+                                                            <!-- Add Button -->
+                                                            <div class="col-md-4">
+                                                                <button type="button" id="add-tag-btn" class="btn btn-primary btn-lg">Add Tags</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Display Added Tags -->
+                                                        <div id="tags-list" class="mt-3">
+                                                            <!-- Tags will be displayed here -->
+                                                        </div>
+
+                                                        <!-- Hidden input to store tags for form submission -->
+                                                        <input type="hidden" name="tagsField" id="tagsField">
                                                     </div>
 
                                                     <!-- Author Column -->
@@ -89,10 +112,7 @@
                                                         <label for="title" class="form-label fw-bold">Author</label>
                                                         <input type="text" name="author" id="title" class="form-control" value="{{ Auth::user()->name }}" readonly>
                                                     </div>
-
-
                                                     <!-- About Author Column -->
-
                                                     <div class="form-group">
                                                         <label for="author_description" class="form-label fw-bold">About Author</label>
                                                         <textarea
@@ -103,12 +123,10 @@
                                                             readonly
                                                             style="height: 50px;">{{ Auth::user()->description }}</textarea>
                                                     </div>
-
-
-
                                                     <textarea name="content" id="editor"></textarea>
+                                                    <!-- <div id="word-count">Word count: 0</div> -->
                                                     <button type="submit" class="btn btn-success mt-2"> Publish Blog</button>
-                                                    <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 mt-2 btn-sm">Cancel</a>
+                                                    <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 mt-2 btn-sm" id="cancelButton">Cancel</a>
                                                 </form>
                                             </table>
                                         </div>
@@ -158,31 +176,144 @@
     }
 </style>
 <script>
-    $(document).ready(function() {
-        $('#blog-form').on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                url: "{{ route('admin.store-blog') }}",
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    alert('Post created successfully.');
-                    window.location.href = "{{route('admin.blog')}}";
-                },
-                error: function(xhr) {
+$(document).ready(function() {
+    $('#blog-form').on('submit', function(e) {
+        e.preventDefault();
+        var isSubmitting = true; // Set the flag to true to prevent autosave
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: "{{ route('admin.store-blog') }}",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                // SweetAlert success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Post created successfully!',
+                    text: 'Your new blog post has been created.',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    // if (result.isConfirmed) {
+                    //     window.location.href = "{{route('admin.blog')}}"; // Redirect after success
+                    // }
+                });
+                isSubmitting = false; // Reset the flag after successful submission
+            },
+            error: function(xhr) {
+                // Reset the flag on error
+                isSubmitting = false;
+
+                // Check for validation errors and display them
+                if (xhr.status === 422) {
                     var errors = xhr.responseJSON.errors;
                     var errorMessages = '';
                     $.each(errors, function(key, value) {
                         errorMessages += value[0] + '\n';
                     });
-                    alert('Error:\n' + errorMessages);
+
+                    // SweetAlert error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error creating post',
+                        text: errorMessages,
+                        confirmButtonText: 'OK'
+                    });
+                } else if (xhr.status === 403) {
+                    // Handle Forbidden error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Forbidden',
+                        text: 'You do not have permission to perform this action.',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    // Handle other errors
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'An unexpected error occurred',
+                        text: 'Please try again later.',
+                        confirmButtonText: 'OK'
+                    });
                 }
-            });
+            }
         });
     });
+});
+
+
+
+    // Add tag list 
+    let tags = []; // Array to store tags entered by the user
+    $('#add-tag-btn').on('click', function() {
+        const inputField = $('#tags');
+        const inputValue = inputField.val().trim(); // Get and trim the input value
+
+        // Ensure the input value is not empty and is not already added
+        if (inputValue !== '' && !tags.includes(inputValue)) {
+            // Add the tag to the tags array
+            tags.push(inputValue);
+
+            // Clear the input field
+            inputField.val('');
+
+            // Update the tag list UI
+            updateTagList();
+        }
+    });
+
+    // Update the tags list in the UI
+    function updateTagList() {
+        $('#tags-list').empty(); // Clear the existing list
+
+        // Create and append each tag to the list
+        tags.forEach((tag, index) => {
+            const tagElement = $('<span class="tag"></span>').text(tag);
+            const removeButton = $('<button class="remove-tag btn btn-danger btn-sm ml-2">x</button>')
+                .on('click', function() {
+                    removeTag(index); // Remove tag when the button is clicked
+                });
+
+            tagElement.append(removeButton);
+            $('#tags-list').append(tagElement);
+        });
+
+        // Update the hidden input with the comma-separated tags for form submission
+        $('#tagsField').val(tags.join(','));
+    }
+
+    // Remove a tag from the tags array
+    function removeTag(index) {
+        tags.splice(index, 1); // Remove the tag at the given index
+        updateTagList(); // Update the displayed list of tags
+    }
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     // Initialize CKEditor
+    //     CKEDITOR.replace('editor');
+
+    //     // Add word count display logic
+    //     const wordCountElement = document.getElementById('word-count');
+
+    //     // Function to calculate word count
+    //     function calculateWordCount(text) {
+    //         return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    //     }
+
+    //     // Listen for changes in CKEditor content
+    //     CKEDITOR.instances.editor.on('change', function() {
+    //         // Get content from CKEditor
+    //         const content = CKEDITOR.instances.editor.getData();
+
+    //         // Calculate word count
+    //         const wordCount = calculateWordCount(content);
+
+    //         // Update word count display
+    //         wordCountElement.textContent = `Word count: ${wordCount}`;
+    //     });
+    // });
 </script>
 
 <style>
@@ -223,5 +354,32 @@
     .option {
         color: #555;
         /* Slightly lighter color for options */
+    }
+
+    #tags-list {
+        margin-top: 10px;
+    }
+
+    .tag {
+        display: inline-block;
+        background-color: #e0e0e0;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    .remove-tag {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 0 5px;
+        cursor: pointer;
+        font-size: 12px;
+        border-radius: 50%;
+    }
+
+    .remove-tag:hover {
+        background-color: darkred;
     }
 </style>

@@ -1,280 +1,344 @@
 @extends('front_layouts.master')
 @section('content')
 @include('admin.popup.home')
+<!-- @include('admin.popup.banner') -->
 <!--==============================
 Hero Area
 ==============================-->
-<div class="th-hero-wrapper hero-1" id="hero">
-    <div class="hero-slider-1 th-carousel" data-fade="true" data-slide-show="1" data-md-slide-show="1" data-dots="true">
 
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
 
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/one.png"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6">
-                        <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>NEET PG</span> COUNCELLING</span>
-                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">2024
-                                Start <span>Contact Us</span></h2>
-                            <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.6s">+91 9511626721, educationbodmas@gmail.com</p>
-                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="{{route('contact')}}" class="th-btn style3">Get Started<i class="fas fa-arrow-right ms-2"></i></a>
+        <div class="carousel-item active">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/7.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
+                            <div class="hero-style2 ">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Counselling Intelligence And Admission Science</h3>
+                                <h5> Engineering Counselling and Admission process Information </h5>
+                                <ul class="checklist">
+                                    <li>Join Youtube live session</li>
+                                    <li>Every Wednesday</li>
+                                    <li>Time - 5 PM</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="https://www.youtube.com/@BodmasEngineering" class="th-btn style5">Join Live Session</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 text-lg-end text-center">
-                        <div class="hero-img1">
-                            <img src="assets/img/hero/one1.png" alt="hero">
-                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="hero-shape shape1">
-                <img src="assets/img/hero/shape_1_1.png" alt="shape">
-            </div>
-            <div class="hero-shape shape2">
-                <img src="assets/img/hero/shape_1_2.png" alt="shape">
-            </div>
-            <div class="hero-shape shape3"></div>
-
-            <div class="hero-shape shape4 shape-mockup jump-reverse" data-right="3%" data-bottom="7%">
-                <img src="assets/img/hero/shape_1_3.png" alt="shape">
-            </div>
-            <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
-                <img src="assets/img/hero/shape_1_4.png" alt="shape">
             </div>
         </div>
 
-
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/second.png"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6">
-                        <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>BODMAS</span> Education</span>
-                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">Counselling Available Anytime & Anywhere <span class="text-theme">Your Dream Our Mission</span></h2>
-                            <p class="hero-text text-white" data-ani="slideinleft" data-ani-delay="0.6s">"Empowering your educational journey with expert guidance : Bodmas Medical Education Councelling"</p>
-                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                                <a href="{{route('contact')}}" class="th-btn style3">Book Now<i class="fas fa-arrow-right ms-2"></i></a>
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/8.jpeg')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
+                            <div class="hero-style2 ">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Every Saturday Evening with Ashok Sir!</h3>
+                                <h5> NEET UG updates and Information</h5>
+                                <ul class="checklist">
+                                    <li>Join Youtube live session </li>
+                                    <li>Every saturday</li>
+                                    <li>Time - 7:00 PM</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="https://www.youtube.com/@bodmasMedical" class="th-btn style5">Join Live Session</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 text-lg-end text-center">
-                        <div class="hero-img1">
-                            <img src="assets/img/hero/second2.png" alt="hero">
-                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="hero-shape shape1">
-                <img src="assets/img/hero/shape_1_1.png" alt="shape">
-            </div>
-            <div class="hero-shape shape2">
-                <img src="assets/img/hero/shape_1_2.png" alt="shape">
-            </div>
-            <div class="hero-shape shape3"></div>
-
-            <div class="hero-shape shape4 shape-mockup jump-reverse" data-right="3%" data-bottom="7%">
-                <img src="assets/img/hero/shape_1_3.png" alt="shape">
-            </div>
-            <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
-                <img src="assets/img/hero/shape_1_4.png" alt="shape">
             </div>
         </div>
 
-
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="assets/img/hero/third.png"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-6">
-                        <div class="hero-style1">
-                            <span class="hero-subtitle" data-ani="slideinleft" data-ani-delay="0.1s"><span>Education</span> Loan</span>
-                            <h2 class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">न्यूनतम ब्याज के साथ ले अधिकतम ऋण</h2>
-                            <hp class="hero-title text-white" data-ani="slideinleft" data-ani-delay="0.4s">अपने सपने को दे उड़ान <span>बोडमास एजुकेशन के साथ</span> <br> Supported By एक्सिस बैंक </p> <br><br>
-                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s"> 
-                                <a href="{{route('contact')}}" class="th-btn style3">Apply Now<i class="fas fa-arrow-right ms-2"></i></a>
+        <!-- Slide 1 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/1.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start ml-3">
+                            <div class="hero-style2 ">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Don’t Wait Apply Now!</h3>
+                                <h5> NEET UG Registration</h5>
+                                <ul class="checklist">
+                                    <li>Now Open</li>
+                                    <li>Take the First Step</li>
+                                    <li>Towards Your Dream Career!</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
+                                </div>
                             </div>
                         </div>
+
                     </div>
-                    <div class="col-md-6 text-lg-end text-center">
-                        <div class="hero-img1">
-                            <img src="assets/img/hero/third3.png" alt="hero">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/2.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Book One-to-One Session</h3>
+                                <h5>Meeting with Ashok Sir</h5>
+                                <ul class="checklist">
+                                    <li>Personalized Guidance</li>
+                                    <li>Expert Insights</li>
+                                    <li>Clear Doubts</li>
+                                </ul>
+                                <a href="{{route('video-meeting-counselling')}}" class="th-btn">Book Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="hero-shape shape1">
-                <img src="assets/img/hero/shape_1_1.png" alt="shape">
-            </div>
-            <div class="hero-shape shape2">
-                <img src="assets/img/hero/shape_1_2.png" alt="shape">
-            </div>
-            <div class="hero-shape shape3"></div>
+        </div>
 
-            <div class="hero-shape shape4 shape-mockup jump-reverse" data-right="3%" data-bottom="7%">
-                <img src="assets/img/hero/shape_1_3.png" alt="shape">
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/3.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Low Rank? No Problem! </h3>
+                                <h5>Get Into Top Colleges with Our Paid Guidance! Meeting with Ashok Sir</h5>
+                                <ul class="checklist">
+                                    <li>Low Fees</li>
+                                    <li>High Opportunities</li>
+                                    <li>Let Us Help You Get there!</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
-                <img src="assets/img/hero/shape_1_4.png" alt="shape">
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/4.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Limited Seats
+                                    Act Fast Now</h3>
+                                <h5>For secure your spot in the Best Medical College</h5>
+                                <ul class="checklist">
+                                    <li>Govt Colleges</li>
+                                    <li>Pvt Colleges</li>
+                                    <li>Get Expert Guidance to Help You Succeed!</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/5.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Avail Our Mentorship Program</h3>
+                                <h5>Get Our Metorship program
+                                    Prepare Smarter, Score Higher – Join Now!</h5>
+                                <ul class="checklist">
+                                    <li>Latest Updates</li>
+                                    <li>Mock Tests Series</li>
+                                    <li>Exam Prepration Tips!</li>
+                                </ul>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="carousel-item">
+            <div class="th-hero-wrapper hero-2">
+                <div class="th-hero-bg"></div>
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center">
+                            <img src="{{asset('assets/img/hero/6.png')}}" alt="hero" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-md-12 text-center text-lg-start">
+                            <div class="hero-style2">
+                                <span class="hero-subtitle">Bodmas Education Services Pvt Ltd</span>
+                                <h3>Preparation</h3>
+                                <h5>Starts Here document Checklist for NEET UG</h5>
+                                <div class="btn-group">
+                                    <a href="{{route('contact')}}" class="th-btn">Contact Us</a>
+                                    <a href="{{route('all-paid-guidance')}}" class="th-btn style5">Paid Guidance</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Properly Positioned Previous and Next Buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 <!--======== / Hero Section ========-->
 <!--==============================
-Contact Area  
+Notice Area  
 ==============================-->
-<div class="space-top">
+<div class="container mt-5">
+<a href="{{url('predictor')}}"> <img src="{{asset('assets/img/MBBS AIQ.gif')}}" alt="MBBS AIQ"> </a>
+</div>
+<div class="d-none d-md-block">
     <div class="container">
-        <div class="category-sec-wrap">
-            <div class="shape-mockup category-shape-arrow d-xl-block d-none">
-                <img src="assets/img/normal/category-arrow.svg" alt="img">
+        <div class="row mt-5">
+            <div class="col-6">
+                <h2 class="sec-title" style="animation: blink 1s infinite;">Latest Notifications & Update</h2>
             </div>
- 
-            <!-- Notice Area  -->
-            <div class="row mb-5">
-                <div class="col-xl-4">
-                    <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
-                        <h2 class="sec-title" style="animation: blink 1s infinite; margin-top:35px;" >Latest Notice</h2>
-                    </div>
-                </div>
-                <div class="col-xl-8">
-                    <div class="row slider-shadow th-carousel category-slider" data-slide-show="4" data-ml-slide-show="3" data-md-slide-show="3" data-sm-slide-show="2" data-arrows="true" data-xl-arrows="true">
-                        @foreach($notices as $notice)
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="">
-                                    <h3 class="category-card_title"><a href="{{ asset('notice/' . $notice->file) }}" target="_blank">{{$notice->title}}</a></h3>
-                                    {{$notice->description}}
-                                </div>
-                                <div class="category-card_content">
-                                    <a href="{{ asset('notice/' . $notice->file) }}" class="th-btn" target="_blank" >{{$notice->type}} <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
+            <div class="col-6 text-end">
+                <a href="{{ route('all-notification') }}" class="th-btn"> All Notifications <i class="fa-solid fa-arrow-right ms-2"></i></a>
             </div>
-            <hr>
-        <!-- Notice Area End  -->
-
-            <!-- <div class="row">
-                <div class="col-xl-4">
-                    <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Admissions</span>
-                        <h2 class="sec-title">Explore Top Admissions</h2>
-                        <a href="#" class="th-btn">View All Admission<i class="fa-regular fa-arrow-right ms-2"></i></a>
+        </div>
+        <div class="notice-section">
+            <div class="row">
+                @foreach($notices as $notice)
+                <div class="col-12 col-md-4">
+                    <div class="notice-card">
+                        <div class="notice-header">
+                            <h3 class="notice-title">
+                                <a href="{{ asset('notice/' . $notice->file) }}" target="_blank">
+                                    {{ $notice->title }}
+                                </a>
+                                @if($notice->created_at && $notice->created_at->isToday())
+                                <span class="new-label">New</span>
+                                @endif
+                            </h3>
+                        </div>
+                        <p class="notice-description">
+                            {{ $notice->description }}
+                        </p>
+                        <div class="notice-actions">
+                            <a href="{{ asset('notice/' . $notice->file) }}" class="btn-pdf" download>Download PDF</a>
+                            <a href="{{ asset('notice/' . $notice->file) }}" class="btn-view" target="_blank">View Notification</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-8">
-                    <div class="row slider-shadow th-carousel category-slider" data-slide-show="4" data-ml-slide-show="3" data-md-slide-show="3" data-sm-slide-show="2" data-arrows="true" data-xl-arrows="true">
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_1.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">MBBS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_2.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BDS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_3.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BAMS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_4.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BHMS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_1.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BUMS</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_2.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">BVSC</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_3.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">NURSING</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="assets/img/icon/cat-1_4.svg" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="#">PHARMACY</a></h3>
-                                    <a href="#" class="th-btn">Learn More <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div> -->
-
+                @endforeach
+            </div>
         </div>
     </div>
 </div>
+<div class="container">
+<a href="{{url('predictor')}}"> <img src="{{asset('assets/img/BDS.gif')}}" alt="MBBS AIQ"> </a>
+</div>
+<!-- You Tube Section  -->
+<div class="container mt-5">
+    <div class="title-area mb-md-0">
+        <span class="sub-title"><i class="fal fa-book me-2"></i> Latest Video</span>
+        <h2 class="sec-title">Latest Videos</h2>
+    </div>
+    <div class="row">
+        @foreach($videos as $video)
+        <div class="col-md-3 mb-0">
+            <div class="video-item">
+                <h5 class="video-title">{{ $video->title }}</h5>
+                <iframe width="100%" height="200"
+                    src="https://www.youtube.com/embed/{{ $video->video_id }}"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+                <p class="sub-title mt-3">{{ $video->description }}</p>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+<!-- Mock test  -->
+<div class="container mt-5">
+    <a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/MBBS.gif')}}" alt="MBBS AIQ"> </a>
+    </div>
+
+
+
+<!-- End You Tube Section  -->
 <!--==============================
 About Area  
 ==============================-->
@@ -287,8 +351,8 @@ About Area
                         <img class="tilt-active" src="{{asset('assets/a/3.jpg')}}" alt="About">
                     </div>
                     <div class="about-grid" data-bg-src="{{asset('assets/a/5.jpg')}}">
-                        <h3 class="about-grid_year"><span class="counter-number">5</span>k<span class="text-theme">+</span></h3>
-                        <p class="about-grid_text">Students Active Our Guidence</p>
+                        <h3 class="about-grid_year"><span class="counter-number">10</span>k<span class="text-theme">+</span></h3>
+                        <p class="about-grid_text">Students Active Under Our Mentorship</p>
                     </div>
                     <div class="img2">
                         <img class="tilt-active" src="{{asset('assets/a/8.jpg')}}" alt="About">
@@ -301,7 +365,7 @@ About Area
             <div class="col-xl-6">
                 <div class="title-area mb-30">
                     <span class="sub-title"><i class="fal fa-book me-2"></i> About Our BODMAS</span>
-                    <h2 class="sec-title">Welcome to BODMAS Education Services.</h2>
+                    <h2 class="sec-title">Welcome to Bodmas Education Services Pvt Ltd.</h2>
                 </div>
                 <p class="mt-n2 mb-25">BODMAS Education Services Pvt. Ltd. (BODMAS EDUCATION) is a leading educational consultancy firm dedicated to providing expert guidance and counselling for undergraduate (UG) and postgraduate (PG) students. Founded in July 2018, BODMAS EDUCATION has successfully counselled and guided over 10,000 students, helping them select the right career paths and realize their academic and professional dreams. </p>
                 <p class="mb-30">Operating from its corporate office in Noida, BODMAS EDUCATION has built a strong nationwide presence with more than 20 educational associates spread across India. The company specializes in assisting students with admissions to a wide range of courses, including:</p>
@@ -314,9 +378,8 @@ About Area
                     <div class="col-md-7">
                         <div class="checklist">
                             <ul>
-                                <li>Get access to 4,000+ of our top Guidence</li>
-                                <li>Popular topics to learn now</li>
-                                <li>Find the right instructor for you</li>
+                                <li>Get access to 6+ of our Popular Guidence Packages</li>
+                                <li>Find the right mentor for you</li>
                             </ul>
                         </div>
                     </div>
@@ -328,264 +391,17 @@ About Area
         </div>
     </div>
 </div>
-<!--==============================
-Servce Area  
-==============================-->
-<section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
-    <div class="container">
-        <div class="mb-35 text-center text-md-start">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-8">
-                    <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Popular Guidence</span>
-                        <h2 class="sec-title">Our Popular Guidence</h2>
-                    </div>
-                </div>
-                <div class="col-md-auto">
-                    <a href="#" class="th-btn">View All Paid Guidence<i class="fa-solid fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_1.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Education Software and PHP
-                                and JS System Script</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                            <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_2.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX Design
-                                Essential Training</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                            <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_3.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 & Kotlin
-                                Development Course</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_4.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data Science and
-                                Business Analysis</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                            <span><i class="fal fa-user"></i>Students 20+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_1.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Education Software and PHP
-                                and JS System Script</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                            <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_2.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX Design
-                                Essential Training</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                            <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_3.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 & Kotlin
-                                Development Course</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="assets/img/course/course_1_4.png" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data Science and
-                                Business Analysis</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                            <span><i class="fal fa-user"></i>Students 20+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="assets/img/course/author.png" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+
+
+<div class="container mb-5">
+    <a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/admission-call.gif')}}" alt="Call Now"> </a>
+</div>
+
 <!--==============================
 Cta Area  
 ==============================-->
-<div class="cta-area-1" data-bg-src="assets/img/bg/cta-bg1.png">
+<div class="cta-area-1 container" data-bg-src="assets/img/bg/cta-bg1.png">
     <div class="container">
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-8">
@@ -594,144 +410,76 @@ Cta Area
                         <img src="assets/img/normal/cta-icon1.png" alt="icon">
                     </div>
                     <div class="cta-content">
-                        <h2 class="cta-title sec-title">Get Online Guidence</h2>
-                        <p class="cta-text">Met Our Best Guider</p>
+                        <h2 class="cta-title sec-title">Get Online Offline Meeting</h2>
+                        <p class="cta-text">Meet Our Best Mentor </p>
                     </div>
-                    <a href="#" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="https://meetpro.club/bodmas?isCpBranding=false" class="th-btn style8">Book Online Session With Us<i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="cta-img-1" data-overlay="title" data-opacity="8">
         <img src="{{('assets/img/normal/guidance.jpg')}}" alt="Image">
-        <a href="https://www.youtube.com/@BodmasMedical" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
+        <!-- <a href="https://youtu.be/3RpsRA-Lteo" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a> -->
     </div>
 </div>
 <!--==============================
-Why choose us Area  
+Paid Guidance Area  
 ==============================-->
-<div class="why-area-1 space overflow-hidden">
 
-    <div class="shape-mockup why-shape-1 jump" data-top="10%" data-left="7%">
-        <img src="assets/img/normal/about_1_shape1.png" alt="img">
-    </div>
-
-    <div class="shape-mockup why-shape-2" data-bg-src="assets/img/normal/wcu_1_shape1.png"></div>
-
-    <div class="shape-mockup why-shape-3 jump-reverse" data-bottom="25%" data-right="-3%">
-        <img src="assets/img/normal/wcu_1_shape2.png" alt="img">
-    </div>
-
+<section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="course-sec">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6">
-                <div class="wcu-img-1">
-                    <div class="img1">
-                        <img src="{{asset('assets/img/normal/chooseUs.jpg')}}" alt="img">
-                    </div>
-                    <div class="student-count jump-reverse">
-                        <h5 class="title"><span class="text-theme"><span class="counter-number">10</span>k+</span> Active Students</h5>
-                        <img src="assets/img/normal/student-group_1_1.png" alt="img">
-                    </div>
-                    <div class="text-end">
-                        <a class="th-btn mt-30" href="#">Get Started <i class="far fa-arrow-right ms-1"></i></a>
+        <div class="mb-35 text-center text-md-start">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-8">
+                    <div class="title-area mb-md-0">
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Guidance</span>
+                        <h2 class="sec-title">Our Popular Paid Guidance</h2>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="wcu-wrap1">
-                    <div class="title-area mb-25">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> WHY CHOOSE US</span>
-                        <h2 class="sec-title">Thousands Of Experts Around The BODMAS Ready To Help.</h2>
-                        <p class="sec-text mt-20">At BODMAS EDUCATION, our mission is to provide personalized and professional educational counselling that helps students identify their strengths, explore their options, and make informed decisions about their future. We are committed to guiding students through the complex process of academic and career planning to ensure they achieve success in their chosen fields.</p>
-                    </div>
-                    <div class="row gy-4">
-                        <div class="col-md-6">
-                            <div class="wcu-box">
-                                <div class="wcu-box_icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="wcu-box_details">
-                                    <h3 class="box-title">World Class Trainers</h3>
-                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="wcu-box">
-                                <div class="wcu-box_icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="wcu-box_details">
-                                    <h3 class="box-title">Easy Learning</h3>
-                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="wcu-box">
-                                <div class="wcu-box_icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="wcu-box_details">
-                                    <h3 class="box-title">Flexible</h3>
-                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="wcu-box">
-                                <div class="wcu-box_icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="wcu-box_details">
-                                    <h3 class="box-title">Affordable Price</h3>
-                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-auto">
+                    <a href="{{ route('all-paid-guidance') }}" class="th-btn">View All Paid Guidance <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!--==============================
-Counter Area  
-==============================-->
-<div class="container">
-    <div class="counter-area-1 bg-theme" data-bg-src="assets/img/bg/counter-bg_1.png">
-        <div class="row justify-content-between">
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">3.9</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Successfully</strong> Trained</p>
+        <div class="row slider-shadow th-carousel course-slider-1"
+            data-slide-show="4"
+            data-ml-slide-show="3"
+            data-lg-slide-show="3"
+            data-md-slide-show="2"
+            data-sm-slide-show="1"
+            data-arrows="true">
+            @foreach($paidPackages as $package)
+            <div class="col-md-6 col-lg-4">
+                <div class="course-box">
+                    <div class="course-img">
+                        <a href="{{ url($package['url']) }}">
+                            <img src="{{ asset('images/paid_package/' . $package['image']) }}" alt="{{ $package['package_name'] }}">
+                        </a>
+                    </div>
+                    <div class="course-content text-center">
+                        <h3 class="course-title ">
+                            <a href="{{ url($package['url']) }}">{{ $package['package_name'] }}</a>
+                        </h3>
+                        {{ $package['description'] }}
+                        <div class="course-price">
+                            <span class="base-price">₹{{ number_format($package['base_price'], 2) }}</span> +
+                            <span class="gst">(GST ₹{{ number_format($package['gst_amount'], 2) }})</span>
+                            <strong class="total-price">Total: ₹{{ number_format($package['total_price'], 2) }}</strong>
+                        </div>
+                        <div class="text-center mb-2 mt-2">
+                            <a href="{{ url($package['url'])}}" class="btn btn-primary">Book Now</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">15.8</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Classes</strong> Completed</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">97.5</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Satisfaction</strong> Rate</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 counter-card-wrap">
-                <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">100.2</span>k<span class="fw-normal">+</span></h2>
-                    <p class="counter-card_text"><strong>Students</strong> Community</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
-<!--==============================
-Cta Area  
-==============================-->
+</section>
+
+<!-- Cta Area -->
 <section class="cta-area-2 position-relative space-bottom">
     <div class="cta-bg-img" data-bg-src="{{('assets/img/bg/student.jpg')}}">
     </div>
@@ -754,14 +502,184 @@ Cta Area
         <div class="cta-wrap2">
             <div class="title-area text-center mb-35">
                 <span class="sub-title"><i class="fal fa-book me-2"></i>Are You Ready For This Offer</span>
-                <h2 class="sec-title text-white">40% Offer First <span class="text-theme2">100 Student’s</span> For Featured <br> <span class="fw-normal">Topics by Education Category</span></h2>
-                <p class="cta-text">Get unlimited access to 6,000+ of Bodmas’s top courses for your team. Learn and improve skills across
-                    business, tec, design, and more.</p>
+                <h2 class="sec-title text-white">Get 10% discount <span class="text-theme2"> on all Paid Guidance Services</span> </br> at Bodmas Education <span class="fw-normal">until 31st March 2025</span></h2>
+                <p class="cta-text">Get access of our Popular paid guidance services </p>
             </div>
             <div class="btn-group justify-content-center">
-                <a href="#" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                <a href="#" class="th-btn style2">Become A Teacher<i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="{{route('enquiry-form')}}" class="th-btn style3">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
+                <a href="{{route('all-paid-guidance')}}" class="th-btn style2">Explore Our Guidance<i class="fas fa-arrow-right ms-2"></i></a>
             </div>
+        </div>
+    </div>
+</section>
+
+<!--==============================
+Why choose us Area  
+==============================-->
+<div class="why-area-1 space overflow-hidden">
+
+    <div class="shape-mockup why-shape-1 jump" data-top="10%" data-left="7%">
+        <img src="assets/img/normal/about_1_shape1.png" alt="img">
+    </div>
+
+    <div class="shape-mockup why-shape-2" data-bg-src="assets/img/normal/wcu_1_shape1.png"></div>
+
+    <div class="shape-mockup why-shape-3 jump-reverse" data-bottom="25%" data-right="-3%">
+        <img src="assets/img/normal/wcu_1_shape2.png" alt="img">
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-6">
+                <div class="wcu-img-1">
+                    <div class="img1">
+                        <img src="{{asset('assets/img/normal/chooseUs.jpg')}}" alt="img">
+                    </div>
+                    <!-- <div class="student-count jump-reverse">
+                        <h5 class="title"><span class="text-theme"><span class="counter-number">10</span>k+</span> Active Students</h5>
+                    </div> -->
+                    <div class="text-end">
+                        <a class="th-btn mt-30" href="{{route('contact')}}">Get Started <i class="far fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="wcu-wrap1">
+                    <div class="title-area mb-25">
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> WHY CHOOSE US</span>
+                        <h2 class="sec-title">BODMAS Ready To Help.</h2>
+                        <p class="sec-text mt-20">At BODMAS Education, we are dedicated to providing expert guidance to students at every step of their academic journey. Whether you’re preparing for competitive exams like NEET, JEE, MBA, or planning to study abroad, we are here to help you make informed decisions and achieve your dreams. Led by Mr. Ashok Kumar, a veteran in the education sector, BODMAS Education is your trusted partner in shaping your future. We understand that every student has unique goals, and we’re committed to offering tailored solutions that best fit your needs. Whether it’s about choosing the right course, preparing for competitive exams, or understanding global education opportunities, BODMAS Education is here to guide you.</p>
+                    </div>
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            <div class="wcu-box">
+                                <div class="wcu-box_icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="box-title">Expert Guidance</h3>
+                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="wcu-box">
+                                <div class="wcu-box_icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="box-title">Over 10,000 Success Stories</h3>
+                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="wcu-box">
+                                <div class="wcu-box_icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="box-title">Nationwide Network</h3>
+                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="wcu-box">
+                                <div class="wcu-box_icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="box-title">20+ Years of Expertise</h3>
+                                    <!-- <p class="wcu-box_text">Seamlessly envisioneer tactical data through services.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Counter Area  -->
+<div class="container">
+    <div class="counter-area-1 bg-theme" data-bg-src="assets/img/bg/counter-bg_1.png">
+        <div class="row justify-content-between">
+            <div class="col-sm-6 col-xl-3 counter-card-wrap">
+                <div class="counter-card">
+                    <h2 class="counter-card_number"><span class="counter-number">10</span>k<span class="fw-normal">+</span></h2>
+                    <p class="counter-card_text"><strong>Counselling</strong> Done</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 counter-card-wrap">
+                <div class="counter-card">
+                    <h2 class="counter-card_number"><span class="counter-number">5</span>k<span class="fw-normal">+</span></h2>
+                    <p class="counter-card_text"><strong>Successful</strong> Admission</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 counter-card-wrap">
+                <div class="counter-card">
+                    <h2 class="counter-card_number"><span class="counter-number">20</span><span class="fw-normal">+</span></h2>
+                    <p class="counter-card_text"><strong>Association</strong></p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 counter-card-wrap">
+                <div class="counter-card">
+                    <h2 class="counter-card_number"><span class="counter-number">12</span>k<span class="fw-normal">+</span></h2>
+                    <p class="counter-card_text"><strong>Students</strong> Community</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- blog section  -->
+<section class="overflow-hidden space" id="blog-sec" style="height: 680px;">
+    <div class="container">
+        <div class="mb-35 text-center text-md-start">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-8">
+                    <div class="title-area mb-md-0">
+                        <span class="sub-title"><i class="fal fa-book me-2"></i> Bodmas News & Blogs</span>
+                        <h2 class="sec-title">Latests News & Blogs</h2>
+                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <a href="{{route('blog-all-posts')}}" class="th-btn">View All Posts<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+            @foreach($blogs as $blog)
+            <div class="col-md-6 col-xl-4">
+                <div class="th-blog blog-single style2">
+                    <div class="blog-img">
+                        <a href="{{ route('blog_details', $blog->slug) }}">
+                            <img src="{{ asset('images/feature/' . $blog->feature_image) }}"
+                                alt="Blog Image"
+                                style="width: 100%; height: auto; max-height: 200px; object-fit: cover; border-radius: 8px;">
+                        </a>
+                    </div>
+
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
+                            <a href="#"><i class="fa-light fa-clock"></i>{{ $blog->published_at }}</a>
+                        </div>
+                        <h4 class="box-title">
+                            <a href="{{route('blog_details', $blog->slug)}}">
+                                {{ \Illuminate\Support\Str::words($blog->title, 2) }}
+                            </a>
+                        </h4>
+
+                        </h4>
+                        <a href="{{route('blog_details', $blog->slug)}}" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -794,12 +712,11 @@ Team Area
             <div class="col-xl-6 mb-40 mb-xl-0">
                 <div class="title-area mb-30">
                     <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
-                    <h2 class="sec-title">Meet Our BODMAS Expert Instructor</h2>
-                    <p class="sec-text mt-20">Graduates of XYZ University have achieved remarkable success in their chosen fields, with many going on to pursue advanced degrees, secure fulfilling careers, and make valuable contributions to their communities.</p>
-                    <p class="sec-text">The university takes pride in its alumni network, which serves as a testament to the quality of education and the opportunities provided by the institution.</p>
+                    <h2 class="sec-title">Meet Our Bodmas Team</h2>
+                    <p class="sec-text mt-20">At <b>BODMAS Education,</b> we take pride in our dedicated team of education experts, counsellors, and advisors who are committed to helping students achieve their academic and career goals. Our team combines decades of experience, specialized knowledge, and personalized support to ensure every student receives the best guidance possible.</p>
                 </div>
                 <div class="btn-group mt-30">
-                    <a href="#" class="th-btn">Explore Courses<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('all-paid-guidance')}}" class="th-btn">Explore Paid Guidance<i class="fas fa-arrow-right ms-2"></i></a>
                     <a href="{{route('contact')}}" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
@@ -807,7 +724,7 @@ Team Area
                 <div class="team-card team-card-1-1 team-card-1-1-active mt-0">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_1.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/ashok.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -823,49 +740,41 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Hirmar Ubunti</a></h3>
-                            <span class="team-desig">Instructor</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>2 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 60+</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card team-card-1-1">
-                    <div class="team-img-wrap">
-                        <div class="team-img">
-                            <img src="assets/img/team/team_1_2.jpg" alt="Team">
-                        </div>
-                    </div>
-                    <div class="team-hover-wrap">
-                        <div class="team-social">
-                            <a href="#" class="icon-btn">
-                                <i class="far fa-plus"></i>
-                            </a>
-                            <div class="th-social">
-                                <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
-                                <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Marvin McKinney</a></h3>
+                            <h3 class="team-title"><a href="team-details.html">Ashok Singh</a></h3>
                             <span class="team-desig">Founder & CEO</span>
                         </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>3 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 50+</span>
-                        </div>
                     </div>
                 </div>
+                <!-- <div class="team-card team-card-1-1">
+                    <div class="team-img-wrap">
+                        <div class="team-img">
+                            <img src="{{asset('assets/img/team/nitu.jpg')}}" alt="Team">
+                        </div>
+                    </div>
+                    <div class="team-hover-wrap">
+                        <div class="team-social">
+                            <a href="#" class="icon-btn">
+                                <i class="far fa-plus"></i>
+                            </a>
+                            <div class="th-social">
+                                <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
+                                <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                                <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="team-title"><a href="team-details.html">Mrs. Divya Singh</a></h3>
+                            <span class="team-desig">Director</span>
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="team-card team-card-1-2 mt-md-0">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_3.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/akash.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -881,19 +790,15 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Courtney Henry</a></h3>
-                            <span class="team-desig">Junior Instructor</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 30+</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Akash</a></h3>
+                            <span class="team-desig">Manager</span>
                         </div>
                     </div>
                 </div>
                 <div class="team-card team-card-1-2 team-card-1-2-active">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="assets/img/team/team_1_4.jpg" alt="Team">
+                            <img src="{{asset('assets/img/team/abhishek.jpg')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -909,556 +814,125 @@ Team Area
                             </div>
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Brooklyn Simmons</a></h3>
-                            <span class="team-desig">Senior Instructor</span>
-                        </div>
-                        <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 70+</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Abhishek</a></h3>
+                            <span class="team-desig">Senior Executive</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<!-- Testimonial Area -->
+<!-- <section class="space" data-bg-src="assets/img/update1/bg/testi_bg_5.jpg" data-overlay="title" data-opacity="9">
+    <div class="container z-index-3">
+        <div class="row justify-content-between align-items-end">
+            <div class="col-md-auto">
+                <div class="title-area text-center text-md-start">
+                    <span class="sub-title text-white">What Student Says</span>
+                    <h2 class="sec-title fw-medium text-white">Student’s Testimonials</h2>
+                </div>
+            </div>
+            <div class="col-auto d-none d-md-block">
+                <div class="sec-btn">
+                    <div class="icon-box">
+                        <button data-slick-prev="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-left"></i></button>
+                        <button data-slick-next="#testiSlide5" class="slick-arrow default"><i class="far fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row th-carousel" id="testiSlide5" data-slide-show="2" data-md-slide-show="1">
+            <div class="col-lg-6">
+                <div class="testi-list">
+                    <div class="testi-list_img">
+                        <img src="assets/img/update1/testimonial/testi_2_1.jpg" alt="Avater">
+                        <div class="testi-list_quote">
+                            <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
+                        </div>
+                    </div>
+                    <div class="testi-list_content">
+                        <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                        <h3 class="testi-list_name box-title">Vlademir Hilton</h3>
+                        <span class="testi-list_desig">IT Student</span>
+                        <div class="testi-list_review">
+                            <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testi-list">
+                    <div class="testi-list_img">
+                        <img src="assets/img/update1/testimonial/testi_2_2.jpg" alt="Avater">
+                        <div class="testi-list_quote">
+                            <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
+                        </div>
+                    </div>
+                    <div class="testi-list_content">
+                        <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                        <h3 class="testi-list_name box-title">Rosana Zarsin</h3>
+                        <span class="testi-list_desig">CSE Student</span>
+                        <div class="testi-list_review">
+                            <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="testi-list">
+                    <div class="testi-list_img">
+                        <img src="assets/img/update1/testimonial/testi_2_3.jpg" alt="Avater">
+                        <div class="testi-list_quote">
+                            <img src="assets/img/update1/icon/quote_left.svg" alt="icon">
+                        </div>
+                    </div>
+                    <div class="testi-list_content">
+                        <p class="testi-list_text">Interactively predominate prospective bandwidth without cross functional meta-services. Progressively facilitate reliable e-commerce after alternative ROI. Dynamically initiate visionary web services processes. Quickly incentivize 24/365.</p>
+                        <h3 class="testi-list_name box-title">Abraham Khalil</h3>
+                        <span class="testi-list_desig">GS Student</span>
+                        <div class="testi-list_review">
+                            <i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i><i class="fa-solid fa-star-sharp"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<div class="container">
+<a href="{{url('enquiry-form')}}"> <img src="{{asset('assets/img/book-seat.gif')}}" alt="MBBS AIQ"> </a>
 </div>
 <!--==============================
 Event Area  
 ==============================-->
-<section class="space" data-bg-src="assets/img/bg/event-bg_1.png">
-    <div class="shape-mockup event-shape1 jump" data-top="0" data-left="-60px">
-        <img src="assets/img/team/team-shape_1_1.png" alt="img">
-    </div>
-    <div class="container">
-        <div class="title-area text-center">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
-            <h2 class="sec-title">Bodmas Upcoming Events</h2>
-        </div>
-        <div class="row slider-shadow event-slider-1 th-carousel gx-70" data-slide-show="3" data-lg-slide-show="3" data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true">
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-1.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author1.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">David Smith</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>259, NewYork,</p>
-                            <p><i class="fal fa-clock"></i>08:00 am - 10:00 am</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">What Soul Can Tech Us About Web Design</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-2.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author2.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">Adam Jhon</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Hilton, NewYork,</p>
-                            <p><i class="fal fa-clock"></i>10:00 am - 11:00 am</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Embrace the world of online education</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-3.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author3.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">Michael Rich</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>147, Green Road</p>
-                            <p><i class="fal fa-clock"></i>11:00 am - 12:00 pm</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Gain insights into how parents can support</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-4.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author4.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">Anadi Juila</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Kipling, London,</p>
-                            <p><i class="fal fa-clock"></i>08:00 am - 10:00 am</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Exploring New Frontiers in Education</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-5.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author1.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">David Smith</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Paris, France,</p>
-                            <p><i class="fal fa-clock"></i>10:00 am - 11:00 am</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">A Journey of Educational Excellence</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-6.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author2.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">Adam Jhon</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Broly, NewYork,</p>
-                            <p><i class="fal fa-clock"></i>11:00 am - 12:00 pm</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Unleashing the Potential of Education</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-7.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author3.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">Michael Rich</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Easton, USA,</p>
-                            <p><i class="fal fa-clock"></i>08:00 am - 10:00 am</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Preparing Students for Tomorrow,s Challenges</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-8.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author4.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">Anadi Juila</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Sharjah, UAE,</p>
-                            <p><i class="fal fa-clock"></i>10:00 am - 11:00 am</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Embracing Technology in Education</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img" data-mask-src="assets/img/event/event_img-shape.png">
-                        <img src="assets/img/event/event_img-9.png" alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="assets/img/event/event-author1.png" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">David Smith</span>
-                                <p class="author-desig">Chief - Executive</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Al Road, Dubai,</p>
-                            <p><i class="fal fa-clock"></i>11:00 am - 12:00 pm</p>
-                        </div>
-                        <h3 class="event-card_title"><a href="event-details.html">Redefining Learning for the 21st Century</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="event-details.html" class="th-btn">View Event <i class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="assets/img/event/event-box-shape1.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--==============================
-Contact Area  
-==============================-->
-<div class="space-top">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="title-area mb-lg-0 text-lg-start text-center">
-                    <span class="sub-title"><i class="fal fa-book me-2"></i> Our Trusted Partners</span>
-                    <h2 class="sec-title mb-0">We Have More Than <span class="text-theme"><span class="counter-number">4263</span>+</span> Global Partners</h2>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="client-wrap text-lg-end text-center">
-                    <div class="row gy-40">
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_1.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_2.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_3.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_4.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_5.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_6.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_7.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a href="blog.html" class="client-thumb">
-                                <img src="assets/img/client/cilent_1_8.png" alt="img">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<section class="cta-area-3 space-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-30 mb-lg-0">
-                <div class="cta-card" data-bg-src="assets/img/bg/cta-bg_3_1.png">
-                    <div class="title-area mb-40">
-                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Courses</span>
-                        <h4 class="sec-title text-white">Get The Best Courses & <br> Upgrade Your Skills </h4>
-                    </div>
-                    <a href="contact.html" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="cta-card" data-bg-src="assets/img/bg/cta-bg_3_2.png">
-                    <div class="title-area mb-40">
-                        <span class="sub-title text-white"><i class="fal fa-book me-2"></i>Popular Courses</span>
-                        <h4 class="sec-title text-white">Engaging Courses for <br> Intellectual Exploration</h4>
-                    </div>
-                    <a href="contact.html" class="th-btn style8">Join With Us<i class="fas fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--==============================
-Testimonial Area  
-==============================-->
-<section class="testi-area-1 overflow-hidden space-bottom" data-bg-src="assets/img/bg/testi_bg_1.png">
-    <div class="shape-mockup testi-bg-shape1 jump" data-right="0" data-top="50%">
-        <img src="assets/img/testimonial/testi-bg-shape_1_1.png" alt="img">
-    </div>
-    <div class="shape-mockup testi-bg-shape2 spin" data-left="0" data-top="15%">
-        <img src="assets/img/testimonial/testi-bg-shape_1_2.png" alt="img">
-    </div>
-    <div class="container">
-        <div class="title-area text-center mb-50">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Our Students Testimonials</span>
-            <h2 class="sec-title">Students Say’s About Our University</h2>
-        </div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="th-carousel testi-slider1 dot-style2 row" id="testimonial-slider1" data-slide-show="2" data-ml-slide-show="2" data-lg-slide-show="1" data-md-slide-show="1" data-dots="true" data-arrows="false">
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
-                            </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_1.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">David H. Smith</h3>
-                                    <span class="testi-box_desig">IT Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
-                            </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_2.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">Zara Head Milan</h3>
-                                    <span class="testi-box_desig">Regular Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
-                            </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_1.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">David H. Smith</h3>
-                                    <span class="testi-box_desig">IT Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testi-box">
-                            <div class="testi-box-bg-shape">
-                                <svg width="150" height="137" viewBox="0 0 150 137" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 9.99951C0 4.47666 4.47715 -0.000488281 10 -0.000488281H140C145.523 -0.000488281 150 4.47666 150 9.99951V10.5803C150 13.3951 148.814 16.0796 146.732 17.9747L18.8619 134.394C17.0205 136.07 14.6199 137 12.1297 137H10C4.47715 137 0 132.522 0 127V9.99951Z" fill="#0D5EF4" />
-                                </svg>
-                            </div>
-                            <div class="testi-box_content">
-                                <div class="testi-box_img">
-                                    <img src="assets/img/testimonial/testi_1_2.jpg" alt="Avater">
-                                </div>
-                                <p class="testi-box_text">“Quickly maximize visionary solutions after mission critical action items productivate premium portals for impactful -services stinctively negotiate enabled niche markets via growth strategies”</p>
-                            </div>
-                            <div class="testi-box_bottom">
-                                <div>
-                                    <h3 class="testi-box_name">Zara Head Milan</h3>
-                                    <span class="testi-box_desig">Regular Student</span>
-                                </div>
-                                <div class="testi-box_review">
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    <i class="fa-solid fa-star-sharp"></i>
-                                    (4.7)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--==============================
-Blog Area  
-==============================-->
-<section class="overflow-hidden space" id="blog-sec">
+<section class="space" data-bg-src="assets/img/bg/event-bg_1.png" id="event-sec">
     <div class="container">
         <div class="mb-35 text-center text-md-start">
             <div class="row align-items-center justify-content-between">
                 <div class="col-md-8">
                     <div class="title-area mb-md-0">
-                        <span class="sub-title"><i class="fal fa-book me-2"></i> Bodmas News & Blogs</span>
-                        <h2 class="sec-title">Latests News & Blogs</h2>
+                        <span class="sub-title"><i class="fal fa-calendar-alt me-2"></i> Featured Events</span>
+                        <h2 class="sec-title">Bodmas Events</h2>
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="blog.html" class="th-btn">View All Posts<i class="fa-solid fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('bodmas-gallery')}}" class="th-btn">View All Events <i class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
-        <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
-            @foreach($blogs as $blog)
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                    <a href="{{route('blog_details', $blog->slug)}}">
-                                <img src="{{ asset('images/feature/' . $blog->feature_image) }}" alt="Blog Image">
-                            </a>
-
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="#"><i class="fa-light fa-user"></i>{{ $blog->author }}</a>
-                            <a href="#"><i class="fa-light fa-clock"></i>{{ $blog->published_at }}</a>
-                        </div>
-                        <h4 class="box-title"><a href="{{route('blog_details', $blog->slug)}}">{{ $blog->title }}</a>
-                        </h4>
-                        <a href="{{route('blog_details', $blog->slug)}}" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+        <div class="row slider-shadow th-carousel event-slider-1"
+            data-slide-show="3"
+            data-ml-slide-show="3"
+            data-lg-slide-show="3"
+            data-md-slide-show="2"
+            data-sm-slide-show="1"
+            data-arrows="true">
+            @foreach ($events as $event)
+            <div class="col-md-6 col-lg-4">
+                <div class="event-box">
+                    <div class="event-img">
+                        <img src="{{asset('images/events/' . $event['image_url'])}}" alt="{{$event['title']}}">
                     </div>
                 </div>
             </div>
@@ -1466,4 +940,212 @@ Blog Area
         </div>
     </div>
 </section>
+
+<!-- Map Area  -->
+<section>
+    <div class="container">
+        <div class="map-sec">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5446.126510817361!2d77.34101701248609!3d28.598692375581777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5b5752aa1a5%3A0xef25f3cdf6f08c3!2sBodmas%20Education%20Services%20Pvt.%20Ltd.!5e1!3m2!1sen!2sin!4v1731306026310!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .notice-section {
+        max-height: 300px;
+        /* Set the height of the scrollable section */
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 5px;
+        border-radius: 10px;
+        background: #f9f9f9;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .notice-card {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        background: #fff;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .notice-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .notice-title {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #333;
+        margin: 0 0 5px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .new-label {
+        display: inline-block;
+        margin-left: 10px;
+        background-color: red;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 5px;
+    }
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            background-color: red;
+        }
+
+        50% {
+            background-color: red;
+        }
+    }
+
+    .notice-description {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 5px 0 10px;
+    }
+
+    .notice-actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .notice-actions a {
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        text-decoration: none;
+    }
+
+    .btn-pdf {
+        background-color: #007bff;
+    }
+
+    .btn-pdf:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-view {
+        background-color: #0056b3;
+    }
+
+    .btn-view:hover {
+        background-color: #0056b3;
+    }
+
+    /* General button styling */
+    .custom-prev,
+    .custom-next {
+        position: absolute;
+        top: 50%;
+        /* transform: translateY(-50%); */
+        background-color: #fff;
+        color: #0D5EF4;
+        border: none;
+        /* padding: 10px 20px; */
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 5;
+        /* Ensure buttons are above the carousel */
+        /* transition: background-color 0.3s ease; */
+    }
+
+    /* Specific positioning */
+    .custom-prev {
+        left: 10px;
+        /* Position to the left of the carousel */
+    }
+
+    .custom-next {
+        right: 10px;
+        /* Position to the right of the carousel */
+    }
+
+    /* Hover effects */
+    .custom-prev:hover,
+    .custom-next:hover {
+        background-color: #fff
+    }
+
+    /* Optional: Style the arrow text */
+    /* .custom-prev span, .custom-next span {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+} */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent background */
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .carousel-control-prev {
+        left: 15px;
+    }
+
+    .carousel-control-next {
+        right: 15px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+        filter: invert(1);
+        /* Makes arrows white */
+    }
+
+    .video-item {
+        text-align: center;
+    }
+
+    .video-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .video-description {
+        font-size: 14px;
+        color: #666;
+    }
+    @media (max-width: 768px) { 
+    .row.mock-img img {
+        width: 80%;  /* Reduce image width on tablets and smaller screens */
+        max-width: 300px; /* Set a max width */
+    }
+}
+
+@media (max-width: 480px) { 
+    .row.mock-img img {
+        width: 100%;
+        height: 260%; 
+    }
+}
+
+</style>
 @stop

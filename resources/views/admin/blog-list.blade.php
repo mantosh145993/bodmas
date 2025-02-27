@@ -9,7 +9,7 @@
          <!-- right content -->
          <div id="content">
             <!-- topbar -->
-            @include('admin.layouts.topbar');
+            @include('admin.layouts.topbar')
             <!-- end topbar -->
             <!-- dashboard inner -->
             <div class="midde_cont">
@@ -34,20 +34,17 @@
                            </div>
                            <div class="table_section padding_infor_info">
                               <div class="table-responsive-sm">
-                                 <table class="table table-striped">
+                                 <table id="pagesTable" class="table table-striped">
                                     <a href="{{ route('admin.add-blog') }}" class="btn green_bg" style="color:#fff">Add New Post</a> <br><br>
                                     <thead>
                                        <tr>
                                           <th>ID</th>
                                           <th>Title</th>
                                           <th>Slug</th>
-                                          <!-- <th>Excerpt</th>
-                                          <th> Title</th>
-                                          <th> Keywords</th>
-                                          <th> Dscripption</th> -->
                                           <th>Feature Image</th>
                                           <th>Author</th>
-                                          <th> Status</th>
+                                          <th>Status</th>
+                                          <th>Views</th>
                                           <th>Active</th>
                                           <th>Action</th>
                                           <!-- <th>Active</th> -->
@@ -70,9 +67,20 @@
                                           <td>{{ $post->author }}</td>
                                           <td>
                                              <button class="toggle-status" data-id="{{ $post->id }}" data-active="{{ $post->is_active }}">
-                                                {{ $post->is_active ? 'Published' : 'Not Published' }}
-                                             </button>
+                                                </button>
+                                                {{ $post->is_active ? 'Published' : 'Draft' }}
                                           </td>
+                                          <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+                                                <span style="display: inline-block; background: #0D5EF4; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold;">
+                                                   👁️ {{ $post->views }}
+                                                </span>
+                                                <br>
+                                                <span style="font-size: 14px; color: #555;">
+                                                   🕒 {{ \Carbon\Carbon::parse($post->updated_at)->format('d M, Y | h:i A') }}
+                                                </span>
+                                             </td>
+
+
                                           <td>
                                              <input type="checkbox" class="toggle-active" data-id="{{ $post->id }}" {{ $post->is_active ? 'checked' : '' }}>
                                           </td>
@@ -131,6 +139,13 @@
 
 </html>
 
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<!-- jQuery (required for DataTables) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
 <script>
    $(document).ready(function() {
       $('.delete-btn').on('click', function() {
@@ -160,7 +175,6 @@
                            'Post deleted successfully.',
                            'success'
                         );
-                        location.reload(); // Reload the page on success
                      } else {
                         Swal.fire(
                            'Error!',
@@ -181,8 +195,6 @@
          });
       });
 
-
-
       $('.toggle-active').change(function() {
          var postId = $(this).data('id');
          var isActive = $(this).is(':checked') ? 1 : 0;
@@ -196,8 +208,9 @@
             },
             success: function(response) {
                var statusText = isActive ? 'Published' : 'Not Published';
-               $('.toggle-status[data-id="' + postId + '"]').text(statusText).data('active', isActive);
+               // $('.toggle-status[data-id="' + postId + '"]').text(statusText).data('active', isActive);
                alert('Status updated successfully!');
+               location.reload();
             },
             error: function(xhr) {
                // Handle error (optional)
@@ -205,7 +218,15 @@
             }
          });
       });
-
+      
+      $('#pagesTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthChange": true,
+                "pageLength": 10
+            });
    });
 </script>
 <style>

@@ -12,8 +12,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $data = Category::paginate(10); // Get 10 records per page
-        return view('admin.category.list_category', compact('data'));
+        $states = State::all();
+        $data = Category::orderBy('id','desc')->paginate(10); // Get 10 records per page
+        return view('admin.category.list_category', compact('data','states'));
     }
 
     public function createCategories()
@@ -25,8 +26,7 @@ class CategoryController extends Controller
 
     public function storeCategories(Request $request)
     {
-        // dd($request->all());
-
+        // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -34,7 +34,17 @@ class CategoryController extends Controller
             'parent_id' => 'nullable|exists:categories,id',
             'type' => 'required'
         ]);
-
+    
+        // Check for duplicate category name
+        $duplicate = Category::where('name', $request->input('name'))->first();
+        if ($duplicate) {
+            return response()->json([
+                'errors' => [
+                    'name' => ['Category name already exists!']
+                ]
+            ], 400);
+        }
+    
         // Create a new category instance
         $category = new Category();
         $category->name = $request->input('name');
@@ -42,7 +52,7 @@ class CategoryController extends Controller
         $category->parent_id = $request->input('parent_id');
         $category->type = $request->input('type');
         $category->state_id = $request->input('state_id');
-
+    
         // Handle the image upload
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
@@ -50,13 +60,18 @@ class CategoryController extends Controller
             $request->file('image')->move(public_path('images/category'), $uniqueName);
             $category->image = $uniqueName;
         }
+    
+        // Save the category
         $category->save();
+    
+        // Return success response
         return response()->json([
             'success' => true,
             'message' => 'Category created successfully!',
             'category' => $category
         ]);
     }
+    
 
     public function editcategory($id)
     {
@@ -96,6 +111,7 @@ class CategoryController extends Controller
             'category' => $category
         ]);
     }
+
     public function destroyCategory($id) {
         $category = Category::findOrFail($id);
         // Storage::disk('public')->delete($banner->image); // Delete the image file
@@ -117,18 +133,23 @@ class CategoryController extends Controller
     // / Fetch categories based on quota
     public function getCategories(Request $request)
     {
-        // dd($request->all());
         $categories = [];
-            $categories = Category::where('state_id', $request->state)->get();
+        $categories = Category::where('type', '1')
+        // ->where('state_id',$request->state)
+        ->whereNull('parent_id')
+        ->get();
+        // dd($request->all());
         return response()->json(['categories' => $categories]);
     }
 
     public function getSubcategories(Request $request)
     {
+        // dd($request->all());
         $categoryId = $request->get('category_id');
+        $state = $request->get('state');
         $subcategories = [];
         if ($categoryId) {
-            $subcategories = Category::where('parent_id', $categoryId)->get();
+            $subcategories = Category::where('parent_id', $categoryId)->where('state_id',$state)->get();
         }
         return response()->json(['subcategories' => $subcategories]);
     }

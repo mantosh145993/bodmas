@@ -9,7 +9,7 @@
          <!-- right content -->
          <div id="content">
             <!-- topbar -->
-            @include('admin.layouts.topbar');
+            @include('admin.layouts.topbar')
             <!-- end topbar -->
             <!-- dashboard inner -->
             <div class="midde_cont">
@@ -71,6 +71,7 @@
                                                             <select class="role-dropdown form-control custom-select" data-id="{{ $user->id }}" style="width: 150px; padding: 5px; border-radius: 5px; border: 1px solid #ccc; background-color: #f9f9f9;">
                                                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                                                                <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                                                               <option value="marketing" {{ $user->role == 'marketing' ? 'selected' : '' }}>Marketing</option>
                                                             </select>
                                                          </td>
 

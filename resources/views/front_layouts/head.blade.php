@@ -17,6 +17,18 @@
     <!--==============================
 	  Google Fonts
 	============================== -->
+ 
+  <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L3LYN23LCB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L3LYN23LCB');
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
@@ -25,7 +37,9 @@
 	    All CSS File
 	============================== -->
     
-    <!-- Bootstrap -->
+  <!-- Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- Google font  -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <!-- Fontawesome Icon -->
     <link rel="stylesheet" href="{{asset('assets/css/fontawesome.min.css')}}">
@@ -37,6 +51,16 @@
     <link rel="stylesheet" href="{{asset('assets/css/nice-select.min.css')}}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+     <!-- data table  -->
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"> -->
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 
 

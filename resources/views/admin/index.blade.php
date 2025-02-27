@@ -1,5 +1,5 @@
-
 @include('admin.layouts.head');
+
 <body class="dashboard dashboard_1">
    <div class="full_container">
       <div class="inner_container">
@@ -9,30 +9,37 @@
          <!-- right content -->
          <div id="content">
             <!-- topbar -->
-            @include('admin.layouts.topbar');
+            @include('admin.layouts.topbar')
             <!-- end topbar -->
             <!-- dashboard inner -->
             <div class="midde_cont">
                <div class="container-fluid">
                   <div class="row column_title">
                      <div class="col-md-12">
+                     @if(Auth::user()->role=='admin'||Auth::user()->role=='user')
                         <div class="page_title">
                            <h2>Dashboard</h2>
                         </div>
+                     @elseif(Auth::user()->role=='marketing')
+                        <div class="page_title text-center">
+                           <h3><strong> LMS (Dashboard)</strong></h3>
+                        </div>
+                     @endif
                      </div>
                   </div>
+                  @if(Auth::user()->role=='admin'||Auth::user()->role=='user')
                   <div class="row column1">
                      <div class="col-md-6 col-lg-3">
                         <div class="full counter_section margin_bottom_30">
                            <div class="couter_icon">
-                              <div>
-                                 <i class="fa fa-user yellow_color"></i>
+                           <div>
+                                 <i class="fa fa-institution orange_color"></i>
                               </div>
                            </div>
                            <div class="counter_no">
                               <div>
-                                 <p class="total_no">2500</p>
-                                 <p class="head_couter">Welcome</p>
+                                 <p class="total_no">{{ $collegeCount }}</p>
+                                 <p class="head_couter"> <strong> Total Colleges</strong></p>
                               </div>
                            </div>
                         </div>
@@ -41,13 +48,14 @@
                         <div class="full counter_section margin_bottom_30">
                            <div class="couter_icon">
                               <div>
-                                 <i class="fa fa-clock-o blue1_color"></i>
+                                 <i class="fa fa-map-o blue1_color"></i>
                               </div>
                            </div>
                            <div class="counter_no">
                               <div>
-                                 <p class="total_no">123.50</p>
-                                 <p class="head_couter">Average Time</p>
+                                 <p class="total_no">{{$pageCount}}</p>
+                                 <!-- <p class="total_no">102</p> -->
+                                 <p class="head_couter"><strong> Total Pages</strong> </p>
                               </div>
                            </div>
                         </div>
@@ -56,13 +64,13 @@
                         <div class="full counter_section margin_bottom_30">
                            <div class="couter_icon">
                               <div>
-                                 <i class="fa fa-cloud-download green_color"></i>
+                                 <i class="fa fa-navicon green_color"></i>
                               </div>
                            </div>
                            <div class="counter_no">
                               <div>
-                                 <p class="total_no">1,805</p>
-                                 <p class="head_couter">Collections</p>
+                                 <p class="total_no">{{$menuCount}}</p>
+                                 <p class="head_couter"><strong> Total Menu</strong> </p>
                               </div>
                            </div>
                         </div>
@@ -76,13 +84,206 @@
                            </div>
                            <div class="counter_no">
                               <div>
-                                 <p class="total_no">54</p>
-                                 <p class="head_couter">Comments</p>
+                                 <p class="total_no">{{$noticeCount}}</p>
+                                 <p class="head_couter"><strong> Total Notification</strong> </p>
                               </div>
                            </div>
                         </div>
                      </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-mortar-board orange_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$paidPackageCount}}</p>
+                                 <p class="head_couter"><strong> Total Paid Guidance</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-plug green_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$predictorCount}}</p>
+                                 <p class="head_couter"><strong> Total Predictor Lead</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-newspaper-o red_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$blogCount}}</p>
+                                 <p class="head_couter"><strong> Total Blogs</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-support red_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$cutOffCount}}</p>
+                                 <p class="head_couter"><strong> Total Uploaded CutOff</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                      <!-- ---------------------------------------------------------------------  -->
                   </div>
+                  @endif
+                  @if(Auth::user()->role=='marketing')
+                  <div class="row column1">
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                           <div>
+                                 <i class="fa fa-institution orange_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{ $collegeCount }}</p>
+                                 <h4> <strong> Converted Leads</strong></h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-map-o blue1_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$pageCount}}</p>
+                                 <!-- <p class="total_no">102</p> -->
+                                 <h4><strong> Pending Leads</strong> </h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-navicon green_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$menuCount}}</p>
+                                 <h4><strong> Not Closed Leads</strong> </h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-comments-o red_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$noticeCount}}</p>
+                                 <h4><strong> Progress Leads</strong> </h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-mortar-board orange_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$paidPackageCount}}</p>
+                                 <h4><strong> All Total Leads</strong> </h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-plug green_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$predictorCount}}</p>
+                                 <p class="head_couter"><strong> Total Predictor Lead</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-newspaper-o red_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$blogCount}}</p>
+                                 <p class="head_couter"><strong> Total Blogs</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-md-6 col-lg-3">
+                        <div class="full counter_section margin_bottom_30">
+                           <div class="couter_icon">
+                              <div>
+                                 <i class="fa fa-support red_color"></i>
+                              </div>
+                           </div>
+                           <div class="counter_no">
+                              <div>
+                                 <p class="total_no">{{$cutOffCount}}</p>
+                                 <p class="head_couter"><strong> Total Uploaded CutOff</strong> </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div> -->
+                  </div>
+                  @endif
                   <div class="row column1 social_media_section">
                      <div class="col-md-6 col-lg-3">
                         <div class="full socile_icons fb margin_bottom_30">
@@ -185,8 +386,7 @@
                      </div>
                   </div>
                   <!-- end graph -->
-                  <div class="row column3">
-                     <!-- testimonial -->
+                  <!-- <div class="row column3">
                      <div class="col-md-6">
                         <div class="dark_bg full margin_bottom_30">
                            <div class="full graph_head">
@@ -199,7 +399,6 @@
                                  <div class="col-md-12">
                                     <div class="content testimonial">
                                        <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
-                                          <!-- Wrapper for carousel items -->
                                           <div class="carousel-inner">
                                              <div class="item carousel-item active">
                                                 <div class="img-box"><img src="images/layout_img/user_img.jpg" alt=""></div>
@@ -217,7 +416,6 @@
                                                 <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                              </div>
                                           </div>
-                                          <!-- Carousel controls -->
                                           <a class="carousel-control left carousel-control-prev" href="#testimonial_slider" data-slide="prev">
                                              <i class="fa fa-angle-left"></i>
                                           </a>
@@ -231,8 +429,6 @@
                            </div>
                         </div>
                      </div>
-                     <!-- end testimonial -->
-                     <!-- progress bar -->
                      <div class="col-md-6">
                         <div class="white_shd full margin_bottom_30">
                            <div class="full graph_head">
@@ -244,7 +440,6 @@
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="progress_bar">
-                                       <!-- Skill Bars -->
                                        <span class="skill" style="width:73%;">Facebook <span class="info_valume">73%</span></span>
                                        <div class="progress skill-bar ">
                                           <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%;">
@@ -276,9 +471,8 @@
                            </div>
                         </div>
                      </div>
-                     <!-- end progress bar -->
-                  </div>
-                  <div class="row column4 graph">
+                  </div> -->
+                  <!-- <div class="row column4 graph">
                      <div class="col-md-6 margin_bottom_30">
                         <div class="dash_blog">
                            <div class="dash_blog_inner">
@@ -354,10 +548,10 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                </div>
                <!-- footer -->
-              @include('admin.layouts.footer');
+               @include('admin.layouts.footer');
             </div>
             <!-- end dashboard inner -->
          </div>

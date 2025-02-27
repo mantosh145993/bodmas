@@ -8,7 +8,7 @@
             <!-- end sidebar -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
 
                 <div class="midde_cont">
                     <div class="container">
@@ -42,6 +42,7 @@
                                             <th>#</th>
                                             <th>Category</th>
                                             <th>Description</th>
+                                            <th>State</th>
                                             <th>Status</th>
                                             <th></th>
                                         </tr>
@@ -52,9 +53,17 @@
                                         @endphp
                                         @foreach($data as $category)
                                         <tr>
-                                            <td>{{ ++$index }}</td>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->description }}</td>
+                                        <td>{{ ++$index }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->description }}</td>
+                                        <td>
+                                            @foreach($states as $state)
+                                                @if($category->state_id == $state->id)
+                                                    {{ $state->name }}
+                                                @endif
+                                            @endforeach
+                                        </td>
+
                                             <td>
                                                 <button class="toggle-status" data-id="{{ $category->id }}" data-active="{{ $category->is_active }}">
                                                    {{ $category->is_active ? 'Published' : 'Not Published' }}

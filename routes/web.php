@@ -1,8 +1,9 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\SliderBannerController;
 use App\Http\Controllers\CategoryController;
@@ -14,27 +15,104 @@ use App\Http\Controllers\Page\PagesController;
 use App\Http\Controllers\PageBannerController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\CookieConsentController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PaidPackageController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PredictController;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\UploadCutofController;
+use App\Http\Controllers\RazorpayPaymentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PayController;
+use App\Http\Controllers\YouTubeController;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\App;
 
 
-//Home
-Route::get('/', [PagesController::class, 'home'])->name('/');
+// Language 
+
+
+// Route::get('/payment/initiate/{id}', [PayController::class, 'initiatePayment'])->name('bodmas.payment');
+// Route::post('/payment/process/', [PayController::class, 'index'])->name('payment.process');
+// Route::post('/payment/response', [PayController::class, 'handleResponse'])->name('payment.response');
+
+Route::get('/sitemap.xml', function () {
+    return response()->file(storage_path('app/public/sitemap.xml'), ['Content-Type' => 'application/xml']);
+});
+Route::get('enquiry-form', [App\Http\Controllers\Page\PagesController::class, 'LeadForm'])->name('enquiry-form');
+// cookies 
+Route::get('getStatesByCourse', [App\Http\Controllers\Page\PagesController::class, 'getStatesByCourse'])->name('getStatesByCourse');
+Route::post('cookie/cookie-consent', [CookieConsentController ::class, 'store'])->name('cookie');
+Route::get('video-meeting-counselling',[App\Http\Controllers\Page\PagesController::class, 'metting'])->name('video-meeting-counselling');
+// cookies end
+// payments Razorpay Paid Guidance
+Route::get('/payment/initiate/{id}', [RazorpayPaymentController::class, 'initiatePayment'])->name('bodmas.payment');
+Route::post('/payment/verify', [RazorpayPaymentController::class, 'verifyPayment'])->name('payment.verify');
+Route::post('/payment/process', [RazorpayPaymentController::class, 'processPayment'])->name('payment.process');
+Route::get('/payment/success/{id}', [RazorpayPaymentController::class, 'success'])->name('payment.success');
+Route::get('/payment/failed', [RazorpayPaymentController::class, 'failed'])->name('payment.failed');
+Route::get('/payment/paymentList/', [PayController::class, 'paymentList'])->name('payment.paymentList');
+// payments Razorpay Paid Guidance End
+Route::get('bodmas/enquiry',[App\Http\Controllers\Page\PagesController::class, 'sendMailPage'])->name('bodmas.enquiry');
+// Paid Cutoff Payment
+Route::post('/payment/paidcutoff', [RazorpayPaymentController::class, 'paidcutoff'])->name('payment.paidcutoff');
+// Paid Cutoff Payment End
+
+// Display College by slug
+Route::get('/show/college/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
+// Route::get('/{state}/{course}/{slug}', [App\Http\Controllers\Page\PagesController::class, 'showCollege'])->name('show.college');
+
+// Footer route 	
+Route::post('/enquiry', [App\Http\Controllers\Page\PagesController::class, 'enquiryContact'])->name('enquiry.contact');
+Route::post('/partner', [App\Http\Controllers\Page\PagesController::class, 'becomPartner'])->name('enquiry.partner');
+Route::post('/faq', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('faq');
+Route::post('/mcc-counselling', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('mcc-counselling');
+Route::post('/payment-term', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('payment-term');
+Route::post('/educational-loan', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('educational-loan');
+Route::post('/bodmas-gallery', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('bodmas-gallery');
+Route::post('/franchise', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('franchise');
+Route::post('/all-notification', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-notification');
+Route::post('/become-a-partner', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('become-a-partner');
+Route::post('/education-loan-for-mbbs-students', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('education-loan-for-mbbs-students');
+Route::post('/neet-ug-counselling-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('neet-ug-counselling-2025');
+Route::post('/all-states', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-states');
+// End footer route
+Route::post('/blog-all-posts', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('blog-all-posts');
+Route::get('/get_blogs_by_category', [App\Http\Controllers\Page\PagesController::class, 'getPosts'])->name('get_blogs_by_category');
+Route::get('/get_notice_by_state', [App\Http\Controllers\Page\PagesController::class, 'getNotice'])->name('get_notice_by_state');
+// Paid Guidance package
+Route::post('/all-paid-guidance', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('all-paid-guidance');
+Route::post('/predictor/jee-main-college-predictor-2025', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('predictor/jee-main-college-predictor-2025');
+// End Paid Guidance Package 
+// Predictor
+Route::get('/get-categories', [CategoryController::class, 'getCategories']);
+Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
 Route::post('predict/college', [PredictController::class, 'college'])->name('predict.college');
+Route::get('/predictor/list', [PredictController::class, 'predictor'])->name('predictor.list');
+Route::get('/get-colleges-by-state', [PredictController::class, 'getCollegesByState']);
+// Predictor End
+
 // Chatbot
 Route::get('/chat/message', [ChatController::class, 'chatWidgets'])->name('chat.message');
 Route::post('/chat/createChat', [ChatController::class, 'createChat'])->name('chat.createChat');
 // Chatbot end
+
 // Public routes 
+Route::get('/', [PagesController::class, 'home'])->name('/');
 Route::get('/admin', [AuthenticatedSessionController::class, 'login'])->name('admin');
-Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
+// Route::get('/login', [AuthenticatedSessionController::class, 'login'])->name('login');
 Route::post('/admin/dashboard', [AuthenticatedSessionController::class, 'store'])->name('admin.dashboard');
 Route::get('test_category', [TestController::class, 'testCategory'])->name('test_category');
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('admin.register');
+Route::get('/forgot-password', [PasswordController::class, 'crforgot-passwordeate'])->name('admin.forgot-password');
+Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+->name('password.reset');
 // Public routes end
 
 // Profile routes (protected by 'auth' start)
@@ -49,9 +127,7 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard');
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('dashboard');
 
     // permission start
     Route::get('/permission', [AdminController::class, 'Permission'])->name('admin.permission');
@@ -70,6 +146,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/destroy-blog/{id}', [AdminController::class, 'destroyBlog'])->name('admin.destroy-blog');
     Route::post('/posts/{id}/update-status', [AdminController::class, 'updatePermissionBlog']);
     Route::get('view-blog/{id}', [AdminController::class, 'viewBlog'])->name('admin.view-blog');
+    Route::post('/autosave', [AdminController::class, 'autoSave'])->name('admin.autosave');
     // blog end
 
     // Slider Banner Start
@@ -97,7 +174,7 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/pages/store', [PageController::class, 'store'])->name('pages.store');
     Route::get('/pages/edit/{id}', [PageController::class, 'edit'])->name('pages.edit');
     Route::put('/pages/update/{id}', [PageController::class, 'update'])->name('pages.update');
-    Route::get('pages/{slug}', [PageController::class, 'view'])->name('pages.view');
+    Route::get('pages/show/{id}', [PageController::class, 'view'])->name('pages.view');
     Route::delete('/pages/destroy/{id}', [PageController::class, 'destroy'])->name('pages.destroy');
     // Pages End
 
@@ -142,14 +219,14 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/shorten', [ShortLinkController::class, 'store'])->name('short.store');
     // end shorten url
 
-    // Package Start
+    // Paid Cutoff Start
     Route::get('/package/package_list', [PackageController::class, 'index'])->name('package.package_list');
     Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');
     Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');
     Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('package.edit');
     Route::post('/package/update/{id}', [PackageController::class, 'update'])->name('package.update');
     Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('package.destroy');
-    // Package End
+    // Paid Cutoff End
 
     // Notice Start
     Route::get('/notice/notice_list', [NoticeController::class, 'index'])->name('notice.notice_list');
@@ -169,19 +246,71 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::delete('/college/destroy/{id}', [CollegeController::class, 'destroy'])->name('college.destroy');
     // College End
  
-    // Predictor
-    Route::get('/predictor/list', [CollegeController::class, 'predictor'])->name('predictor.list');
+   // Guidance 
+   Route::get('/guidance/list', [ PaidPackageController::class, 'index'])->name('guidance.list');
+   Route::get('/guidance/create', [PaidPackageController::class, 'create'])->name('guidance.create');
+   Route::post('/guidance/store', [PaidPackageController::class, 'store'])->name('guidance.store');
+   Route::get('/guidance/edit/{id}', [PaidPackageController::class, 'edit'])->name('guidance.edit');
+   Route::post('/guidance/update/{id}', [PaidPackageController::class, 'update'])->name('guidance.update');
+   Route::get('guidance/{id}', [PaidPackageController::class, 'show'])->name('guidance.view');
+   Route::delete('/guidance/destroy/{id}', [PaidPackageController::class, 'destroy'])->name('guidance.destroy');
+  // Guidance End
 
+    // Gallery Start
+    Route::get('/gallery/gallery_list', [GalleryController::class, 'index'])->name('gallery.gallery_list');
+    Route::get('/gallery/show/{id}', [GalleryController::class, 'show'])->name('gallery.show');
+    Route::get('/gallery/add', [GalleryController::class, 'add'])->name('gallery.add');
+    Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::get('/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+    Route::post('/gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::delete('/gallery/destroy/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    // Gallery End
+
+    // Lead List Start 
+    Route::get('/lead/list', [PartnerController::class, 'index'])->name('partner.list');
+    Route::get('/lead/add', [PartnerController::class, 'create'])->name('lead.add');
+    Route::post('/lead/store', [PartnerController::class, 'store'])->name('lead.store');
+    Route::put('/leads/assign/{id}', [PartnerController::class, 'assignLead'])->name('lead.assign');
+    Route::get('/assigned/leads', [PartnerController::class, 'assignedLead'])->name('assigned.leads');
+    Route::put('/lead/{id}/notes', [PartnerController::class, 'updateNotes'])->name('lead.notes');
+    Route::put('/lead/{id}/respond', [PartnerController::class, 'respondLead'])->name('lead.respond');
+
+    // Lead End
+
+    // College Form
+    Route::get('/form/form_list', [FormController::class, 'index'])->name('form.form_list');
+    Route::get('/form/add', [FormController::class, 'create'])->name('form.add');
+    Route::post('/form/store', [FormController::class, 'store'])->name('form.store');
+    Route::get('/form/edit/{id}', [FormController::class, 'edit'])->name('form.edit');
+    Route::post('/form/update/{id}', [FormController::class, 'update'])->name('form.update');
+    Route::delete('/form/destroy/{id}', [FormController::class, 'destroy'])->name('form.destroy');
+    // College Form End
+    
+    // Offer Start
+    Route::get('/offer/offer_list', [OfferController::class, 'index'])->name('offer.offer_list');
+    Route::get('/offer/add', [OfferController::class, 'create'])->name('offer.add');
+    Route::post('/offer/store', [OfferController::class, 'store'])->name('offer.store');
+    Route::get('/offer/edit/{id}', [OfferController::class, 'edit'])->name('offer.edit');
+    Route::post('/offer/update/{id}', [OfferController::class, 'update'])->name('offer.update');
+    Route::delete('/offer/destroy/{id}', [OfferController::class, 'destroy'])->name('offer.destroy');
+    // Offer End
+
+      // You Tube Start
+      Route::get('/youtube/vedio_list', [YouTubeController::class, 'index'])->name('youtube.vedio_list');
+      Route::get('/youtube/add', [YouTubeController::class, 'create'])->name('youtube.add');
+      Route::post('/youtube/store', [YouTubeController::class, 'store'])->name('youtube.store');
+      Route::get('/youtube/edit/{id}', [OfferController::class, 'edit'])->name('youtube.edit');
+      Route::delete('/youtube/destroy/{id}', [YouTubeController::class, 'destroy'])->name('youtube.destroy');
+      // youtube End
 });
-Route::get('/get-colleges-by-state', [CollegeController::class, 'getCollegesByState']);
-Route::get('/get-categories', [CategoryController::class, 'getCategories']);
-Route::get('/get-subcategories', [CategoryController::class, 'getSubcategories']);
+Route::get('/links/getlinks', [App\Http\Controllers\Page\PagesController::class, 'getLink'])->name('links.getlinks');
 Route::get('/get-states', [CategoryController::class, 'getStates']);
 Route::get('homePopup', [TestController::class, 'homePopup'])->name('homePopup');
 Route::get('blog_details/{slug}', [App\Http\Controllers\Page\PagesController::class, 'blogDetails'])->name('blog_details');
 Route::get('/packages/by-category/{id}', [PackageController::class, 'getPackagesByCategory'])->name('package.byCategory');
 Route::get('/{slug?}', [PagesController::class, 'index'])->where('slug', '.*');
-Route::get('contact', [PageController::class, 'index'])->name('contact');
+Route::get('contact', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('contact');
 Route::get('about', [PageController::class, 'index'])->name('about');
 Route::get('privacy-policy', [App\Http\Controllers\Page\PagesController::class, 'index'])->name('privacy-policy');
+
 require __DIR__ . '/auth.php';

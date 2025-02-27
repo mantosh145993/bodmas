@@ -9,7 +9,7 @@
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
                 <!-- end topbar -->
                 <!-- dashboard inner -->
                 <div class="midde_cont">
@@ -28,7 +28,15 @@
                                     </div>
                                     <div class="table_section padding_infor_info">
                                         <div class="table-responsive-sm">
+                                        <li class="list-group-item"><strong>Blog Views : </strong>{{ $post->views }}</li>
                                             <ul class="list-group">
+                                              <li class="list-group-item"><strong>Post Category:</strong> 
+                                             @foreach($categories as $cat)
+                                             @if($cat->id == $post->category_id)
+                                             {{$cat->name}}
+                                             @endif
+                                             @endforeach
+                                            </li>
                                                 <li class="list-group-item"><strong>Title:</strong> {{ $post->title }}</li>
                                                 <li class="list-group-item"><strong>Slug:</strong> {{ $post->slug }}</li>
                                                 <li class="list-group-item"><strong>Tags:</strong> {{ $post->tags }}</li>
@@ -52,7 +60,7 @@
                         </div>
                     </div>
                     <!-- footer -->
-                    @include('admin.layouts.footer');
+                    @include('admin.layouts.footer')
                 </div>
                 <!-- end dashboard inner -->
             </div>

@@ -13,11 +13,13 @@
                 <!-- Add Package Button -->
                 <div class="midde_cont">
                     <div class="container mt-4">
-                        <button class="btn green_bg mb-2" id="addPackageBtn" data-toggle="modal" data-target="#noticeModal"><h6 style="color:#fff">Add Notice</h6></button>
+                        <button class="btn green_bg mb-2" id="addPackageBtn" data-toggle="modal" data-target="#noticeModal">
+                            <h6 style="color:#fff">Add Notice</h6>
+                        </button>
                         <div class="card">
-                               
+
                             <h1 class="mt-5 ml-5 mb-5">All Notices</h1>
-                         
+
                             <!-- Package List -->
                             <div class="package-list row container ml-1">
                                 @foreach ($notices as $notice)
@@ -68,14 +70,24 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="category">State</label>
+                                        <select class="form-control" id="noticeState" name="state_id" required>
+                                            <option value="">Select State</option>
+                                            @foreach($states as $state)
+                                            <option value="{{$state->id}}">{{$state->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="noticeName">Title Name</label>
                                         <input type="text" class="form-control" id="noticeName" name="title" required>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <label for="noticeDescription">Description</label>
-                                        <input type="text" class="form-control" id="noticeDescription" name="description" >
+                                        <input type="text" class="form-control" id="noticeDescription" name="description">
                                     </div>
 
                                     <div class="form-group">
@@ -105,26 +117,38 @@
                                 <!-- Form for updating package -->
                                 <form id="updateNoticeForm" enctype="multipart/form-data">
                                     @csrf
-                                    
+
                                     <input type="hidden" id="updatenoticeId" data-id="{{ $notice->id }}" name="noticeId">
                                     <div class="form-group">
-                                    <label for="category">Type</label>
-                                    <select class="form-control" id="noticeUpdateType" name="type" required>
-                                        <option value="">Select Type</option>
-                                        <option value="UG">UG</option>
-                                        <option value="PG">PG</option>
-                                    </select>
-                                </div>
+                                        <label for="category">Type</label>
+                                        <select class="form-control" id="noticeUpdateType" name="type" required>
+                                            <option value="">Select Type</option>
+                                            <option value="UG">UG</option>
+                                            <option value="PG">PG</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="category">State</label>
+                                        <select class="form-control" id="noticeUpdateState" name="state_id" required>
+                                            <option value="">Select State</option>
+                                            @foreach($states as $state)
+                                            <option value="{{ $state->id }}"{{ $state->id == $notice->state_id ? 'selected' : '' }}>
+                                                {{ $state->name }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     <div class="form-group">
                                         <label for="noticeName">Title Name</label>
                                         <input type="text" class="form-control" id="noticeUpdateName" name="title" required>
                                     </div>
 
-                                    
+
                                     <div class="form-group">
                                         <label for="packagePrice">Description</label>
-                                        <input type="text" class="form-control" id="noticeUpdateDescription" name="description" >
+                                        <input type="text" class="form-control" id="noticeUpdateDescription" name="description">
                                     </div>
 
                                     <div class="form-group">
@@ -180,13 +204,20 @@
                     $('#noticeType').val(response.notice.type ? response.notice.type : '');
                     $('#documentShow').val(response.notice.file);
                     $('#noticeFile').hide();
+                    // Populate the state dropdown
+                    let stateOptions = '<option value="">Select State</option>';
+                    response.states.forEach(function(state) {
+                        const selected = state.id === response.notice.state_id ? 'selected' : '';
+                        stateOptions += `<option value="${state.id}" ${selected}>${state.name}</option>`;
+                    });
+                    $('#noticeState').html(stateOptions);
                     const fileUrl = response.notice.file ? `{{ asset('notice') }}/${response.notice.file}` : '';
                     if (fileUrl) {
-                        $('#documentShow').attr('href', fileUrl); 
-                        $('#documentShow').text('View Document'); 
+                        $('#documentShow').attr('href', fileUrl);
+                        $('#documentShow').text('View Document');
                     } else {
-                        $('#documentShow').attr('href', ''); 
-                        $('#documentShow').text('');         
+                        $('#documentShow').attr('href', '');
+                        $('#documentShow').text('');
                     }
                 },
                 error: function() {
@@ -212,12 +243,14 @@
                     $('#noticeUpdateType').val(response.notice.type ? response.notice.type : '');
                     $('#documentShow').val(response.notice.file);
                     const fileUrl = response.notice.file ? `{{ asset('notice') }}/${response.notice.file}` : '';
+                    
+                    $('#noticeUpdateState').val(response.notice.state_id);
                     if (fileUrl) {
-                        $('#documentShow').attr('href', fileUrl); 
-                        $('#documentShow').text('View Document'); 
+                        $('#documentShow').attr('href', fileUrl);
+                        $('#documentShow').text('View Document');
                     } else {
-                        $('#documentShow').attr('href', ''); 
-                        $('#documentShow').text('');         
+                        $('#documentShow').attr('href', '');
+                        $('#documentShow').text('');
                     }
                 },
                 error: function() {
@@ -282,10 +315,10 @@
                     type: 'DELETE',
                     data: {
                         _token: '{{ csrf_token() }}', // CSRF token for security
-                     },
+                    },
                     success: function(response) {
-                        alert(response.message); 
-                        location.reload(); 
+                        alert(response.message);
+                        location.reload();
                     },
                     error: function(xhr) {
                         alert(xhr.responseJSON?.message || 'Error deleting package.'); // Show error message
@@ -298,7 +331,6 @@
 </script>
 
 <style>
-    
     .package-card {
         border-radius: 10px;
         overflow: hidden;
@@ -370,7 +402,7 @@
         text-decoration: none;
         border-radius: 5px;
     }
-    
+
     .pagination a:hover {
         background-color: #0056b3;
     }

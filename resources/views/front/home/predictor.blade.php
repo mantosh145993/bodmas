@@ -1,16 +1,18 @@
     @extends('front_layouts.master')
     @section('content')
+
+
     <!--==============================
     Breadcumb
 ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg" data-overlay="title" data-opacity="8">
-        <div class="breadcumb-shape" data-bg-src="assets/img/bg/breadcumb_shape_1_1.png">
+    <div class="breadcumb-wrapper " data-bg-src="{{asset('assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title" data-opacity="8">
+        <div class="breadcumb-shape" data-bg-src="{{asset('assets/img/bg/breadcumb_shape_1_1.png')}}">
         </div>
         <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
-            <img src="assets/img/bg/breadcumb_shape_1_2.png" alt="shape">
+            <img src="{{asset('assets/img/bg/breadcumb_shape_1_2.png')}}" alt="shape">
         </div>
         <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" data-left="50px" data-bottom="80px">
-            <img src="assets/img/bg/breadcumb_shape_1_3.png" alt="shape">
+            <img src="{{asset('assets/img/bg/breadcumb_shape_1_3.png')}}" alt="shape">
         </div>
         <div class="container">
             <div class="breadcumb-content text-center">
@@ -25,6 +27,8 @@
     <!--==============================
 Contact Area  
 ==============================-->
+
+
     <div class="space" id="contact-sec">
         <div class="container">
             <div class="row">
@@ -32,6 +36,7 @@ Contact Area
                     <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                         <span class="sub-title">NEET Predictor !</span>
                         <h2 class="border-title">NEET College Predictor </h2>
+                        <p>Want to know list of colleges according to your expected NEET score in 2025 ?</p>
                         <p class="mt-n1 mb-30 sec-text">Built using the latest data from official government websites, this predictor is free, reliable and easy to use.</p>
                         @if ($errors->any())
                         <div class="alert alert-danger">
@@ -63,7 +68,7 @@ Contact Area
                             </div>
 
                             <div class="form-group" id="state-container">
-                                <select name="state" class="nice-select form-select style-white" id="state" required>
+                                <select name="state" class="nice-select form-select style-white" id="state">
                                     <option value="" disabled selected hidden>Select Domicile*</option>
                                     @foreach($states as $state)
                                     <option value="{{$state->id}}">{{$state->name}}</option>
@@ -86,11 +91,17 @@ Contact Area
 
                             <!-- Form contents as provided -->
                             <div class="form-group">
-                                <select name="course" id="subject" class="nice-select form-select style-white" >
+                                <select name="course" id="subject" class="nice-select form-select style-white">
                                     <option value="" disabled selected hidden>Select a Course*</option>
-                                    @foreach($courses as $course)
-                                    <option value="{{ $course->title }}">{{ $course->title }}</option>
-                                    @endforeach
+                                    {{-- Define jeeCourse array --}}
+                                @php
+                                    $jeeCourse = ['MBBS', 'BDS', 'BAMS'];
+                                @endphp
+
+                                {{-- Loop through jeeCourse array --}}
+                                @foreach($jeeCourse as $course)
+                                    <option value="{{ $course }}">{{ $course }}</option>
+                                @endforeach
                                 </select>
                             </div>
 
@@ -117,34 +128,109 @@ Contact Area
                 </div>
             </div>
             <div class="container mt-5">
-                <h4> Predicted Colleges..</h4>
+                <h4>Predicted Colleges</h4>
 
-                <div id="error-message"></div>
-                <!-- Table to display predictions -->
-                <table id="predictions-table">
-                    <thead>
-                        <tr>
-                            <th>College Name</th>
-                            <th>Fee</th>
-                            <th>Quota</th>
-                            <th>Course</th>
-                            <th>Category</th>
-                            <th>Cutoff</th>
-                            <th>Round</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Predictions will be inserted here -->
-                    </tbody>
-                </table>
+                <div class="table-responsive"> <!-- Added this wrapper for responsiveness -->
+                    <table id="predictions-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Fee</th>
+                                <th>Quota</th>
+                                <th>Course</th>
+                                <th>Category</th>
+                                <th>Rank</th>
+                                <th>Round</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div id="error-message"></div>
+                            <!-- Predictions will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
         <!-- Error message container -->
     </div>
-    @stop
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Paid Cutoff  -->
+    <section class="space" data-bg-src="assets/img/bg/course_bg_1.png" id="paid-cutoff-sec">
+        <div class="container">
+            <div class="mb-35 text-center text-md-start">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-8">
+                        <div class="title-area mb-md-0">
+                            <span class="sub-title"><i class="fal fa-book me-2"></i> Paid Cutoffs</span>
+                            <h2 class="sec-title">Our Popular Paid Cutoffs</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-auto">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row slider-shadow th-carousel course-slider-1"
+                data-slide-show="4"
+                data-ml-slide-show="3"
+                data-lg-slide-show="3"
+                data-md-slide-show="2"
+                data-sm-slide-show="1"
+                data-arrows="true">
+                @foreach($paidCutoffs as $cutoff)
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-box">
+                        <div class="course-img">
+                            <img src="{{ asset('images/package/' . $cutoff['images']) }}" alt="{{ $cutoff['product_name'] }}">
+                        </div>
+                        <div class="course-content text-center">
+                            <h3 class="course-title">
+                            </h3>
+                            {{$cutoff['product_name']}}
+                            <div class="course-price">
+                                <del style="color:red"> <span class="base-price">₹{{ number_format($cutoff['ragular_price'], 2) }}</span></del>
+                                <strong class="total-price">Total: ₹{{ number_format($cutoff['sale_price'], 2) }}</strong>
+                            </div>
+                            <div class="text-center mb-2 mt-2">
+                                <form action="{{ route('payment.paidcutoff') }}" method="POST">
+                                    <input type="hidden" name="cutoff_id" value="{{$cutoff['id'] }}">
+                                    @csrf
+                                    <script
+                                        src="https://checkout.razorpay.com/v1/checkout.js"
+                                        data-id="{{ $cutoff['id'] }}"
+                                        data-key="{{ env('RAZORPAY_KEY') }}"
+                                        data-amount="{{ $cutoff['sale_price'] * 100 }}"
+                                        data-buttontext="Pay Now"
+                                        data-name="{{ $cutoff['package_name'] }}"
+                                        data-description="{{ $cutoff['product_name'] }}"
+                                        data-prefill.name="{{ $cutoff['id'] }}"
+                                        data-prefill.email="email"
+                                        data-image="{{ asset('assets/img/logo1.png') }}"
+                                        data-theme.color="#0D5EF4">
+                                    </script>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- Paid Cutoff end  -->
+    <style>
+        .razorpay-payment-button {
+            background-color: #0D5EF4 !important;
+            color: white !important;
+            border: none !important;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    @stop
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const errorMessage = document.getElementById('error-message'); // Ensure this exists in your HTML
@@ -152,7 +238,7 @@ Contact Area
                 event.preventDefault();
                 // Call the validateForm function to check all fields
                 if (!validateForm()) {
-                    return; // Stop execution if validation fails
+                    return; // Stop execution if validation fails all file included here
                 }
                 let formData = new FormData(document.getElementById('predictForm'));
                 fetch("{{ route('predict.college') }}", {
@@ -183,29 +269,69 @@ Contact Area
             });
 
             function displayPredictions(predictions) {
-                const tableBody = document.querySelector('#predictions-table tbody');
+                const table = $('#predictions-table'); // Use jQuery to target the table
                 const errorMessage = document.getElementById('error-message');
-                tableBody.innerHTML = ''; // Clear any existing rows
+
+                // Clear any existing error message
+                errorMessage.innerHTML = '';
 
                 if (predictions && predictions.length > 0) {
-                    errorMessage.innerHTML = ''; // Clear any error message
+                    // Destroy existing DataTable instance if it exists
+                    if ($.fn.DataTable.isDataTable(table)) {
+                        table.DataTable().destroy();
+                    }
+
+                    // Clear table body
+                    table.find('tbody').empty();
+
+                    // Populate the table body with predictions
                     predictions.forEach(prediction => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                <td>${prediction.college_name}</td>
-                <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
-                <td>${prediction.quota == 2 ? 'Pvt':'Govt'}</td>
-                <td>${prediction.course}</td>
-                <td>${prediction.category || 'N/A'}</td>
-                <td>${prediction.rank}</td>
-                <td>${prediction.round || 'N/A'}</td>
+                        const row = `
+                <tr>
+                    <td>${prediction.college_name}</td>
+                    <td>${prediction.fee ? prediction.fee : 'N/A'}</td>
+                    <td>${prediction.quota == 2 ? 'Pvt' : 'Govt'}</td>
+                    <td>${prediction.course}</td>
+                    <td>${prediction.category || 'N/A'}</td>
+                    <td>${prediction.rank}</td>
+                    <td>${prediction.round || 'N/A'}</td>
+                </tr>
             `;
-                        tableBody.appendChild(row);
+                        table.find('tbody').append(row);
                     });
+
+                    // Initialize DataTable
+                    table.DataTable({
+                        paging: true, // Enable pagination
+                        searching: true, // Enable search box
+                        info: true, // Show table information
+                        lengthChange: true, // Allow changing page length
+                        pageLength: 10, // Set default page length
+                        columnDefs: [{
+                                orderable: false,
+                                targets: []
+                            }, // Specify any columns to exclude from sorting
+                        ],
+                        language: {
+                            paginate: {
+                                previous: "Back", // Custom text for "Previous"
+                                next: "More Colleges", // Custom text for "Next"
+                            },
+                            info: "We are present college list according provided rank! ",
+                            infoEmpty: "No data available",
+                            infoFiltered: "(filtered rank from total _MAX_ colleges)",
+                        },
+                    });
+
                 } else {
+                    // Show an error message if no predictions are available
                     errorMessage.innerHTML = `<div class="alert alert-danger">No predictions available.</div>`;
                 }
             }
+
+
+
+
             function validateForm() {
                 let isValid = true; // Track if all validations pass
                 const form = document.getElementById('predictForm');
@@ -266,17 +392,18 @@ Contact Area
             });
             // On selecting a category
             $('#category').change(function() {
+                var state = $('#state').val();
                 var categoryId = $(this).val(); // Get the selected category value
                 $('#subcategory-container').show(); // Show the subcategory container
                 $('#subcategory').html('<option value="" disabled selected hidden>Select Subcategory*</option>'); // Reset subcategories dropdown
 
                 if (categoryId) {
-                    // Make an AJAX request to fetch subcategories based on the selected category
                     $.ajax({
                         url: '/get-subcategories',
                         method: 'GET',
                         data: {
-                            category_id: categoryId
+                            category_id: categoryId,
+                            state: state
                         },
                         success: function(response) {
                             if (response.subcategories && response.subcategories.length > 0) {
@@ -286,7 +413,7 @@ Contact Area
                                 });
                                 $('#subcategory').html(subcategoryOptions); // Populate subcategories dropdown
                             } else {
-                                $('#subcategory').html('<option value="" disabled>No Subcategories Available</option>');
+                                $('#subcategory').html('<option value="">No Subcategories Available</option>');
                             }
                         },
                         error: function(xhr, status, error) {

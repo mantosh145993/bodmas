@@ -8,7 +8,7 @@
             <!-- end sidebar -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
 
                 <div class="midde_cont">
                     <div class="container">
@@ -24,6 +24,32 @@
                         <form id="page-form" action="{{ route('pages.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
+                                <label for="course_id">Select State (Only Applicable for state college)</label>
+                                <select class="form-control" id="course_id" name="course_id" >
+                                    <option value="">Select Courses</option>
+                                    @foreach($courses as $course)
+                                    <option value="{{$course->id}}">{{$course->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="state_id">Select State  (Only Applicable for state college)</label>
+                                <select class="form-control" id="state_id" name="state_id" >
+                                    <option value="">Select State</option>
+                                    @foreach($states as $state)
+                                    <option value="{{$state->id}}">{{$state->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hierarchy">Select Hierarchy (Only Applicable for state college)</label>
+                                <select class="form-control" id="hierarchy" name="hierarchy" >
+                                    <option value="">Select Hierarchy</option>
+                                    <option value="1">Parent Page</option>
+                                    <option value="2">Child Page</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="title">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
                             </div>
@@ -36,6 +62,7 @@
                                     <input type="checkbox" name="published" value="1"> Published
                                 </label>
                             </div>
+                             <div id="word-count">Word count: 0</div>
                             <button type="submit" class="btn btn-primary">Create Page</button>
                             <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a>
                         </form>
@@ -81,6 +108,32 @@
                     alert('Error:\n' + errorMessages);
                 }
             });
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize CKEditor
+        CKEDITOR.replace('editor');
+
+        // Add word count display logic
+        const wordCountElement = document.getElementById('word-count');
+
+        // Function to calculate word count
+        function calculateWordCount(text) {
+            return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+        }
+
+        // Listen for changes in CKEditor content
+        CKEDITOR.instances.editor.on('change', function() {
+            // Get content from CKEditor
+            const content = CKEDITOR.instances.editor.getData();
+
+            // Calculate word count
+            const wordCount = calculateWordCount(content);
+
+            // Update word count display
+            wordCountElement.textContent = `Word count: ${wordCount}`;
         });
     });
 </script>

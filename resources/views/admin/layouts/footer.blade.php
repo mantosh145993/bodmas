@@ -7,19 +7,52 @@
 </div>
 
 <script>
-  ClassicEditor
-    .create(document.querySelector('#editor'), {
-        ckfinder: {
-            uploadUrl: "{{route('admin.upload-blog',['_token'=>csrf_token()])}}"
-        }
-    })
-    .catch(error => {
-        console.error(error);
+    new FroalaEditor('#editor', {
+        imageUploadURL: "{{ route('admin.upload-blog', ['_token' => csrf_token()]) }}", // Laravel route for image upload
+        toolbarButtons: [
+            'bold', 'italic', 'underline', 'strikeThrough', 
+            'formatOL', 'formatUL', // Ordered and unordered lists
+            'paragraphFormat', // Add heading tags
+            'insertLink', // Add hyperlink with text
+            'textColor', 'backgroundColor', // Text and background color
+            'insertTable', 'insertImage', // Tables and images
+            'html', // ✅ Added HTML button
+            'undo', 'redo' // Undo and redo actions
+        ],
+        htmlExecuteScripts: true, // ✅ Allow execution of embedded scripts
+        codeMirror: true, // ✅ Enables syntax highlighting in the HTML view
+        codeMirrorOptions: { // ✅ Custom options for better code editing experience
+            mode: "text/html",
+            tabMode: "indent",
+            lineNumbers: true
+        },
+        imageAllowedTypes: ['jpeg', 'jpg', 'png', 'gif'], // Allowed image types
+        imageMaxSize: 5 * 1024 * 1024, // 5MB Max file size
+        paragraphFormat: { // Define paragraph formats (headings and normal text)
+            N: 'Normal',
+            H1: 'Heading 1',
+            H2: 'Heading 2',
+            H3: 'Heading 3',
+            H4: 'Heading 4',
+            H5: 'Heading 5',
+            H6: 'Heading 6'
+        },
+        linkInsertButtons: ['linkBack'], // Enables the option to add text on hyperlinks
+        colorsBackground: [ // Customize background colors
+            '#FFFFFF', '#FF0000', '#00FF00', '#0000FF', '#FFFF00'
+        ],
+        colorsText: [ // Customize text colors
+            '#000000', '#FF0000', '#00FF00', '#0000FF', '#FFFFFF'
+        ]
     });
- 
-
 </script>
 
+<style>
+    .fr-box.fr-code-view textarea.fr-code {
+    display: block;
+    padding: 90px!important;
+}
+</style>
    <!-- jQuery -->
    <script src="{{asset('admin/js/jquery.min.js')}}"></script>
    <script src="{{asset('admin/js/popper.min.js')}}"></script>

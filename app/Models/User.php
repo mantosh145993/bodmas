@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
+    use Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'description',
         'email',
+        'phone',
         'password',
         'role'
     ];
@@ -52,4 +53,20 @@ class User extends Authenticatable
     {
         return $this->is_admin === '1';  // assuming 'is_admin' column exists and '1' is a role
     }
+
+    public function routeNotificationForTwilioWhatsApp()
+    {
+        return 'whatsapp:' . $this->phone; // Ensure phone number is in WhatsApp format
+    }
+    public function assignedLeads()
+    {
+        return $this->hasMany(Partner::class, 'assigned_user_id');
+    }
+
+    public function respondedLeads()
+    {
+        return $this->hasMany(Partner::class, 'assigned_user_id')->where('status', 'responded');
+    }
+
 }
+

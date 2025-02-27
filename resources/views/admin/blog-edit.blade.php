@@ -9,7 +9,7 @@
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
-                @include('admin.layouts.topbar');
+                @include('admin.layouts.topbar')
                 <!-- end topbar -->
                 <!-- dashboard inner -->
                 <div class="midde_cont">
@@ -38,10 +38,39 @@
                                                     @csrf
                                                     @method('POST') <!-- Use POST method for updates -->
                                                     <input type="hidden" name="id" value="{{ $post->id }}"> <!-- Add hidden input for the post ID -->
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Post Category *</label>
+                                                        <select class="form-select" id="" name="category_id" require>
+                                                            <option selected>Select Post Category</option>
+                                                            @foreach($categories as $category)
+                                                            <option value="{{$category->id}}" {{$category->id==$post->category_id ? 'selected' : '' }}>{{$category->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="title">Title</label>
                                                         <input type="text" class="form-control" name="title" value="{{ old('title', $post->title) }}" required>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="title">Meta Title</label>
+                                                        <input type="text" class="form-control" name="meta_title" value="{{ old('title', $post->meta_title) }}" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="title">Meta Description</label>
+                                                        <input type="text" class="form-control" name="meta_description" value="{{ old('title', $post->meta_description) }}" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="title">Meta Keywords</label>
+                                                        <input type="text" class="form-control" name="meta_keywords" value="{{ old('title', $post->meta_keywords) }}" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="title">Tags</label>
+                                                        <input type="text" class="form-control" name="tags" value="{{ old('title', $post->tags) }}" required>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="title" class="form-label fw-bold">Author</label>
                                                         <input type="text" name="author" id="title" class="form-control" value="{{ Auth::user()->name }}" readonly>
@@ -83,7 +112,7 @@
                                                             id="feature_description"
                                                             class="form-control"
                                                             rows="2"
-                                                            
+
                                                             placeholder="Enter feature description"
                                                             style="height: 50px;">{{$post->feature_description}}</textarea>
                                                     </div>
@@ -92,6 +121,7 @@
                                                         <label for="content">Content</label>
                                                         <textarea name="content" id="editor">{{ old('content', $post->content) }}</textarea>
                                                     </div>
+                                                    <!-- <div id="word-count">Word count: 0</div> -->
                                                     <button type="submit" class="btn btn-primary">Update</button>
                                                     <a href="{{ route('admin.blog') }}" class="btn btn-danger ml-2 btn-sm">Cancel</a>
                                                 </form>
@@ -139,32 +169,121 @@
     </style>
 
     <script>
-        $(document).ready(function() {
-            $('#blog-form').on('submit', function(e) {
-                e.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    url: "{{ route('admin.update-blog', $post->id) }}", // Change to the update route
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        alert('Post updated successfully.');
-                        window.location.href = "{{ route('admin.blog') }}"; // Redirect after success
-                    },
-                    error: function(xhr) {
-                        var errors = xhr.responseJSON.errors;
-                        var errorMessages = '';
-                        $.each(errors, function(key, value) {
-                            errorMessages += value[0] + '\n';
-                        });
-                        alert('Error:\n' + errorMessages);
-                    }
+       $(document).ready(function() {
+    $('#blog-form').on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: "{{ route('admin.update-blog', $post->id) }}", // Use the correct route for update
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                // Success - Show SweetAlert success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Post updated successfully!',
+                    text: 'Your blog post has been updated.',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    // if (result.isConfirmed) {
+                    //     window.location.href = "{{ route('admin.blog') }}"; // Redirect after success
+                    // }
                 });
+            },
+            error: function(xhr) {
+                // Error - Show SweetAlert error message
+                if (xhr.status === 403) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Forbidden',
+                        text: 'You do not have permission to perform this action.',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    var errors = xhr.responseJSON.errors;
+                    var errorMessages = '';
+                    $.each(errors, function(key, value) {
+                        errorMessages += value[0] + '\n';
+                    });
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error updating post',
+                        text: errorMessages,
+                        confirmButtonText: 'OK'
+                    });
+                }
+            }
+        });
+    });
+});
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialize CKEditor
+            CKEDITOR.replace('editor');
+
+            // Add word count display logic
+            const wordCountElement = document.getElementById('word-count');
+
+            // Function to calculate word count
+            function calculateWordCount(text) {
+                return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+            }
+
+            // Listen for changes in CKEditor content
+            CKEDITOR.instances.editor.on('change', function() {
+                // Get content from CKEditor
+                const content = CKEDITOR.instances.editor.getData();
+
+                // Calculate word count
+                const wordCount = calculateWordCount(content);
+
+                // Update word count display
+                wordCountElement.textContent = `Word count: ${wordCount}`;
             });
         });
     </script>
 </body>
 
 </html>
+<style>
+    .mb-3 {
+        margin-bottom: 1rem;
+        /* Adjust spacing as needed */
+    }
+
+    .form-label {
+        font-weight: bold;
+        /* Makes the label stand out */
+        color: #333;
+        /* Darker text for better readability */
+    }
+
+    .form-select {
+        width: 100%;
+        /* Full width for better usability */
+        padding: 0.5rem;
+        /* Adds padding for a more comfortable click area */
+        border: 1px solid #ccc;
+        /* Light border */
+        border-radius: 0.25rem;
+        /* Slightly rounded corners */
+        transition: border-color 0.2s;
+        /* Smooth border transition */
+    }
+
+    .form-select:focus {
+        border-color: #007bff;
+        /* Change border color on focus */
+        outline: none;
+        /* Removes default outline */
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        /* Adds a soft shadow */
+    }
+
+    .option {
+        color: #555;
+        /* Slightly lighter color for options */
+    }
+</style>

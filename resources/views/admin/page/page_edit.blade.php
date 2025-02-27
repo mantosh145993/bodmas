@@ -24,7 +24,34 @@
                         <form id="page-form" action="{{ route('pages.update', $page->id) }}" method="POST">
                             @csrf
                             @method('PUT') <!-- Add this line for PUT request -->
+                            
+                            <div class="form-group">
+                                <label for="course_id">Select Course</label>
+                                <select class="form-control" id="course_id" name="course_id" >
+                                    <option value="">Select Courses</option>
+                                    @foreach($courses as $course)
+                                    <option value="{{$course->id}}" {{ $course->id == $page->course_id ? 'selected' : ''}}>{{$course->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="state_id">Select State</label>
+                                <select class="form-control" id="state_id" name="state_id" >
+                                <option value="">Select State</option>
+                                    @foreach($states as $state)
+                                    <option value="{{ $state->id }}"{{ $state->id == $page->state_id ? 'selected' : '' }}>{{ $state->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="hierarchy">Select Hierarchy (Only Applicable for state college)</label>
+                                <select class="form-control" id="hierarchy" name="hierarchy" >
+                                    <option value="">Select Hierarchy</option>
+                                    <option value="1" {{ $page->hierarchy == 1 ? 'selected' : '' }}>Parent Page</option>
+                                    <option value="2" {{ $page->hierarchy == 2 ? 'selected' : '' }}>Child Page</option>
+                                </select>
+                            </div>
                             <!-- Title Input -->
                             <div class="form-group">
                                 <label for="title">Title</label>
@@ -43,7 +70,6 @@
                                     <input type="checkbox" name="published" value="1" {{ $page->published ? 'checked' : '' }}> Published
                                 </label>
                             </div>
-
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Update Page</button>
                             <a href="{{ route('pages.pages_list') }}" class="btn btn-danger">Go Back</a><br><br>

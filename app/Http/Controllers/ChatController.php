@@ -22,7 +22,7 @@ class ChatController extends Controller
         ]);
         $txt = $request->input('txt');
         $reply = Chatbot::where('question', 'like', "%$txt%")->first();
-        $html = $reply ? $reply->reply : "Sorry, I am not able to understand you.";
+        $html = $reply ? $reply->reply : "Sorry, I am not able to understand your query. Please call us at <a href='tel:8448847836'>8448847836</a> for more information, or you can fill out our enquiry form <a href='https://bodmaseducation.com/contact' target='_blank'>here</a>.";
         Message::create(['message' => $txt, 'added_on' => now(), 'type' => 'user']);
         Message::create(['message' => $html, 'added_on' => now(), 'type' => 'bot']);
         return response()->json(['reply' => $html]);
@@ -30,7 +30,7 @@ class ChatController extends Controller
   
     public function index()
     {
-        $message = Chatbot::paginate(5);
+        $message = Chatbot::OrderBy('id','desc')->paginate(20);
         return view('admin.chatbot.chat_list', ['messages' => $message]);
     }
 
@@ -39,7 +39,6 @@ class ChatController extends Controller
         return view('admin.chatbot.chat_create');
     }
 
-  
     public function store(Request $request)
     {
         $validatedData = $request->validate([
